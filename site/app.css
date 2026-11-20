@@ -222,6 +222,8 @@ a.ft:hover{border-color:var(--brand);background:var(--soft)}
 .sys-svg .lbl{fill:var(--bg)}
 .sys-svg .ah{fill:var(--ink)}
 .f-bo{fill:var(--c-bo)}.f-pro{fill:var(--c-pro)}.f-vbk{fill:var(--c-vbk)}.f-havo{fill:var(--c-havo)}.f-vwo{fill:var(--c-vwo)}.f-mbo{fill:var(--c-mbo)}.f-hbo{fill:var(--c-hbo)}.f-wo{fill:var(--c-wo)}
+.sysh{font-size:1.05rem;margin:0 0 8px}
+.xfers{margin-top:0}
 .keys{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 12px;list-style:none;font-size:.88rem}
 .keys li{display:flex;align-items:center;gap:6px}
 .keys i{width:14px;height:14px;display:block}

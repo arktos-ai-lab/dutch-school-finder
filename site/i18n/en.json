@@ -7,7 +7,7 @@
     "description": "Dutch schools explained in English for expat families: your child's route through the school system and the real schools near your postcode, from open data."
   },
   "title": {
-    "route": "{brand}: Dutch schools explained in English for expat parents",
+    "route": "{brand}: Dutch schools in English for expat parents",
     "find": "Find a school | {brand}",
     "map": "Map of schools | {brand}",
     "compare": "Compare schools | {brand}",
@@ -17,6 +17,12 @@
     "school": "{name}, {type} school in {city} | {brand}",
     "schoolNoCity": "{name}, {type} school | {brand}",
     "schoolAddr": "{name}, {type} school in {city}, {addr} | {brand}",
+    "schoolPlain": "{name}, {type} school in {city}",
+    "schoolNoCityPlain": "{name}, {type} school",
+    "schoolAddrPlain": "{name}, {type} school in {city}, {addr}",
+    "schoolShort": "{name}, {type}, {city}",
+    "schoolNoCityShort": "{name}, {type}",
+    "schoolAddrShort": "{name}, {type}, {city}, {addr}",
     "schoolNotFound": "School not found | {brand}",
     "municipality": "Schools in {name} | {brand}",
     "municipalities": "Schools by municipality | {brand}",
@@ -1373,6 +1379,9 @@
     "heading": "The whole system on one page",
     "intro": "Read from top to bottom. Each block is one school year. Every track has its own colour, and higher education has colours of its own, because finishing one school does not move a child on automatically: each change needs a diploma, an application and sometimes selection. No track is ranked above another.",
     "keyAria": "Colour key",
+    "hDiagram": "The diagram",
+    "hKey": "Colour key",
+    "hMoves": "Moving between levels",
     "key": {
       "bo": "Primary",
       "pro": "Practical education",

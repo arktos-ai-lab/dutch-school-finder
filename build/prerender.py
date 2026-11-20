@@ -263,8 +263,10 @@ class Build:
         self.ver = {}
         for f in ("app.js", "app.css"):
             self.ver[f] = hashlib.sha1((SITE / f).read_bytes()).hexdigest()[:8]
-        self.generated = max(str(self.meta.get("generated", "")), str(self.insp.get("generated", "")), str(self.det_vo.get("generated", "")))
-        self.site_lastmod = max(self.generated, self.last_checked)
+        # date of the open data behind school and municipality pages: the newest generation date of the pipeline files
+        gens = [str(j.get("generated", ""))[:10] for j in (self.meta, self.insp, self.det_vo, self.det_po, self.det_so, self.extra, self.ixd, self.feat)]
+        self.generated = max(g for g in gens if re.fullmatch(r"\d{4}-\d{2}-\d{2}", g))
+        self.hashes = {}
 
     # ------------------------------------------------------------ url helpers
     def href(self, rel):
@@ -363,7 +365,7 @@ class Build:
         img = self.site_url + "/og.png"
         h.append('<meta property="og:type" content="website">')
         h.append(f'<meta property="og:site_name" content="{e(self.brand)}">')
-        h.append(f'<meta property="og:title" content="{e(title)}">')
+        h.append(f'<meta property="og:title" content="{e(p.get("og_title", title))}">')
         h.append(f'<meta property="og:description" content="{e(desc)}">')
         h.append(f'<meta property="og:locale" content="en_GB">')
         h.append(f'<meta property="og:image" content="{e(img)}">')
@@ -371,7 +373,7 @@ class Build:
         h.append('<meta property="og:image:height" content="630">')
         h.append(f'<meta property="og:image:alt" content="{e(self.brand)}: {e(self.en["brand"]["tagline"])}">')
         h.append('<meta name="twitter:card" content="summary_large_image">')
-        h.append(f'<meta name="twitter:title" content="{e(title)}">')
+        h.append(f'<meta name="twitter:title" content="{e(p.get("og_title", title))}">')
         h.append(f'<meta name="twitter:description" content="{e(desc)}">')
         h.append(f'<meta name="twitter:image" content="{e(img)}">')
         h.append(f'<link rel="icon" type="image/svg+xml" href="{self.base}favicon.svg">')
@@ -468,6 +470,9 @@ class Build:
         return s
 
     def write(self, rel, content):
+        if not rel.startswith(("school/", "municipality/")):
+            # fingerprint of a content page (the asset version query is left out), for its sitemap lastmod
+            self.hashes[rel] = hashlib.sha1(re.sub(r"\?v=[0-9a-f]{8}", "", content).encode("utf8")).hexdigest()[:16]
         path = self.out_path(rel)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf8", newline="\n")
@@ -781,11 +786,8 @@ class Build:
         typ = t("seo.type." + sec)
         k1 = (s["name"], s["city"], s["sec"])
         dup = self.tcount[k1] > 1 and bool(s["addr"])
-        if dup:
-            addr_t = s["addr"] + (f" ({s['id']})" if self.tcount[k1 + (s["addr"],)] > 1 else "")
-            title = t("title.schoolAddr", name=s["name"], type=typ, city=s["city"], addr=addr_t)
-        else:
-            title = t("title.school" if s["city"] else "title.schoolNoCity", name=s["name"], type=typ, city=s["city"])
+        addr_t = self.title_addr(s)
+        title, og_title = self.title_pre[s["id"]]
         det = (self.det_vo if grp == "vo" else self.det_po)["schools"].get(s["id"]) if grp != "so" else None
         pur = {"po": "po_pupils", "sbo": "po_pupils", "vo": "vo_pupils", "so": "so_pupils"}[sec]
         pup_range, pup_date = self.data_year(pur)
@@ -972,9 +974,52 @@ class Build:
         bl.append({"@type": "ListItem", "position": pos, "name": s["name"], "item": self.canon(rel)})
         bcl = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}
         return {
-            "rel": rel, "view": "school", "tab": "find", "title": title, "desc": desc, "jsonld": [ld, bcl],
+            "rel": rel, "view": "school", "tab": "find", "title": title, "og_title": og_title, "desc": desc, "jsonld": [ld, bcl],
             "slots": {"school": main, "schoolattrs": f' data-static="{e(s["id"])}"'},
         }
+
+    TITLE_MAX = 65
+
+    def title_addr(self, s):
+        k1 = (s["name"], s["city"], s["sec"])
+        if self.tcount[k1] > 1 and s["addr"]:
+            return s["addr"] + (f" ({s['id']})" if self.tcount[k1 + (s["addr"],)] > 1 else "")
+        return ""
+
+    def precompute_titles(self):
+        """<title> of every school page; titles that came out equal after shortening get the school code added."""
+        self.title_pre = {}
+        seen = {}
+        for s in self.schools:
+            self.title_pre[s["id"]] = self.school_titles(s["name"], self.t("seo.type." + s["sec"]), s["city"], self.title_addr(s))
+            seen.setdefault(self.title_pre[s["id"]][0], []).append(s)
+        for lst in seen.values():
+            if len(lst) > 1:
+                for s in lst:
+                    a = self.title_addr(s)
+                    a = a if f"({s['id']})" in a else (a + " " if a else "") + f"({s['id']})"
+                    self.title_pre[s["id"]] = self.school_titles(s["name"], self.t("seo.type." + s["sec"]), s["city"], a)
+
+    def school_titles(self, name, typ, city, addr):
+        """(<title>, og:title). og:title is the long form with the brand. <title> drops the brand when the long form is
+        longer than TITLE_MAX, then the 'school in' wording, then shortens the name at a word boundary (same rule as schoolTitle in app.js)."""
+        t = self.t
+        suffix = "Addr" if addr else ("" if city else "NoCity")
+        v = {"name": name, "type": typ, "city": city, "addr": addr}
+        long = t("title.school" + suffix, **v)
+        if len(long) <= self.TITLE_MAX:
+            return long, long
+        plain = t("title.school" + suffix + "Plain", **v)
+        if len(plain) <= self.TITLE_MAX:
+            return plain, long
+        short = t("title.school" + suffix + "Short", **v)
+        if len(short) > self.TITLE_MAX:
+            over = len(short) - self.TITLE_MAX
+            keep = max(20, len(name) - over - 3)
+            if keep < len(name):
+                v["name"] = name[:keep].rsplit(" ", 1)[0].rstrip(",;: ") + "..."
+                short = t("title.school" + suffix + "Short", **v)
+        return short, long
 
     def track_names(self, s):
         tr = s.get("tracks") or 0
@@ -1192,15 +1237,34 @@ class Build:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(txt, encoding="utf8", newline="\n")
 
+    def content_dates(self, rels):
+        """rel -> lastmod for the content pages. build/content_dates.json (committed) holds a fingerprint and a date per page;
+        a page whose fingerprint changed gets today's date and the file is rewritten (commit it with the change)."""
+        import datetime
+        f = ROOT / "build" / "content_dates.json"
+        old = json.loads(f.read_text(encoding="utf8")) if f.is_file() else {}
+        today = datetime.date.today().isoformat()
+        new, out = {}, {}
+        for r in rels:
+            h = self.hashes[r]
+            o = old.get(r)
+            d = o["date"] if o and o["hash"] == h else today
+            new[r] = {"hash": h, "date": d}
+            out[r] = d
+        if new != old and not getattr(self, "no_dates_write", False):
+            f.write_text(json.dumps(new, indent=1, sort_keys=True) + chr(10), encoding="utf8", newline=chr(10))
+        return out
+
     def sitemaps(self):
         def urlset(rels, lastmod):
-            u = "".join(f"<url><loc>{e(self.canon(r))}</loc><lastmod>{lastmod}</lastmod></url>" for r in rels)
+            u = "".join(f"<url><loc>{e(self.canon(r))}</loc><lastmod>{lastmod[r] if isinstance(lastmod, dict) else lastmod}</lastmod></url>" for r in rels)
             return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + u + "</urlset>\n"
 
-        self.write_text("sitemap-pages.xml", urlset(self.sitemap["pages"], self.site_lastmod))
+        pages_lm = self.content_dates(self.sitemap["pages"])
+        self.write_text("sitemap-pages.xml", urlset(self.sitemap["pages"], pages_lm))
         self.write_text("sitemap-schools.xml", urlset(self.sitemap["schools"], self.generated))
         self.write_text("sitemap-municipalities.xml", urlset(self.sitemap["municipalities"], self.generated))
-        idx = "".join(f"<sitemap><loc>{e(self.site_url + '/' + n)}</loc><lastmod>{lm}</lastmod></sitemap>" for n, lm in [("sitemap-pages.xml", self.site_lastmod), ("sitemap-schools.xml", self.generated), ("sitemap-municipalities.xml", self.generated)])
+        idx = "".join(f"<sitemap><loc>{e(self.site_url + '/' + n)}</loc><lastmod>{lm}</lastmod></sitemap>" for n, lm in [("sitemap-pages.xml", max(pages_lm.values())), ("sitemap-schools.xml", self.generated), ("sitemap-municipalities.xml", self.generated)])
         self.write_text("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + idx + "</sitemapindex>\n")
         robots = "User-agent: *\nAllow: /\n"
         if self.indexable:
@@ -1318,6 +1382,7 @@ class Build:
 
         # municipality pages, schools
         self.muni_pages(by_mun)
+        self.precompute_titles()
         near = nearest_same_type(self.schools)
         titles = {}
         for s in self.schools:

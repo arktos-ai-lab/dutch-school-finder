@@ -1208,10 +1208,21 @@ var VIEW='route',CUR_ID='',FIRST=true,LANG_CHANGE=false;
 function secShort(s){return t('sec.short.'+s.sec)}
 function secLong(s){return t('sec.long.'+s.sec)}
 var TCOUNT={};
+/* same staging as school_titles() in build/prerender.py: long form with brand, without brand, shorter type wording, shortened name */
+var TITLE_MAX=65;
 function schoolTitle(s){
-  var k1=[s.name,s.city,s.sec].join('|'),v={name:s.name,type:t('seo.type.'+s.sec),city:s.city||''};
-  if(TCOUNT[k1]>1&&s.addr){v.addr=TCOUNT[k1+'|'+s.addr]>1?s.addr+' ('+s.id+')':s.addr;return t('title.schoolAddr',v)}
-  return t(s.city?'title.school':'title.schoolNoCity',v);
+  var k1=[s.name,s.city,s.sec].join('|'),v={name:s.name,type:t('seo.type.'+s.sec),city:s.city||''},sf=v.city?'':'NoCity';
+  if(TCOUNT[k1]>1&&s.addr){v.addr=TCOUNT[k1+'|'+s.addr]>1?s.addr+' ('+s.id+')':s.addr;sf='Addr'}
+  var long=t('title.school'+sf,v);
+  if(long.length<=TITLE_MAX)return long;
+  var plain=t('title.school'+sf+'Plain',v);
+  if(plain.length<=TITLE_MAX)return plain;
+  var short=t('title.school'+sf+'Short',v);
+  if(short.length>TITLE_MAX){
+    var keep=Math.max(20,s.name.length-(short.length-TITLE_MAX)-3);
+    if(keep<s.name.length){v.name=s.name.slice(0,keep).replace(/\s+\S*$/,'').replace(/[,;: ]+$/,'')+'...';short=t('title.school'+sf+'Short',v)}
+  }
+  return short;
 }
 var SEC_OPTS=['','po','sbo','vo','so'];
 var R_OPTS=[0,2,5,10,20,50];

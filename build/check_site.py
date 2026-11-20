@@ -32,6 +32,7 @@ class P(HTMLParser):
         self.links = {}
         self.title = ""
         self._in_title = False
+        self._title_done = False
         self.jsonld = []
         self._in_ld = False
         self._cur_h = None
@@ -57,7 +58,7 @@ class P(HTMLParser):
             self.links.setdefault(a["rel"], []).append(a)
         if tag in self.landmarks and self.hidden_depth is None:
             self.landmarks[tag] += 1
-        if tag == "title":
+        if tag == "title" and not self.title and not self._title_done:
             self._in_title = True
         if tag == "script" and a.get("type") == "application/ld+json":
             self._in_ld = True
@@ -74,6 +75,8 @@ class P(HTMLParser):
         if tag in VOID:
             return
         if tag == "title":
+            if self._in_title:
+                self._title_done = True
             self._in_title = False
         if tag == "script":
             self._in_ld = False
@@ -123,7 +126,7 @@ def main():
     titles = {}
     ids_by_page = {}
     pending_links = []  # (page, href)
-    stats = {"noindex": 0, "desc_out": 0, "robots_bad": 0}
+    stats = {"noindex": 0, "desc_out": 0, "robots_bad": 0, "title_long": 0}
 
     files = {x.relative_to(site).as_posix() for x in site.rglob("*") if x.is_file()}
 
@@ -229,6 +232,12 @@ def main():
         if not t:
             problems.append(f"{rel}: empty title")
         titles.setdefault(t, []).append(rel)
+        if len(t) > 65 and rel != "404.html":
+            stats["title_long"] += 1
+            if not rel.startswith("school/"):
+                problems.append(f"{rel}: title is {len(t)} characters (limit 65 outside school pages)")
+            elif len(t) > 90:
+                problems.append(f"{rel}: title is {len(t)} characters")
         d = (p.meta.get("description") or [""])[0]
         if rel not in ("404.html",) and not (150 <= len(d) <= 160):
             stats["desc_out"] += 1
@@ -317,6 +326,7 @@ def main():
     # sitemaps
     smaps = 0
     smurls = 0
+    lms = {}
     for name in ("sitemap.xml", "sitemap-pages.xml", "sitemap-schools.xml", "sitemap-municipalities.xml"):
         f = site / name
         if not f.is_file():
@@ -329,6 +339,11 @@ def main():
             continue
         smaps += 1
         ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        for lm in root.iterfind(".//s:lastmod", ns):
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", lm.text or ""):
+                problems.append(f"{name}: bad lastmod {lm.text}")
+                break
+        lms.setdefault(name, set()).update(x.text for x in root.iterfind(".//s:lastmod", ns))
         for loc in root.iterfind(".//s:loc", ns):
             smurls += 1
             u = loc.text
@@ -351,6 +366,7 @@ def main():
     print(f"pages {n_pages}, links checked {n_links}, broken {broken}, json-ld blocks {n_ld}, sitemaps {smaps} ({smurls} urls)")
     print(f"noindex pages {stats['noindex']}, robots meta wrong {stats['robots_bad']}, descriptions outside 150-160: {stats['desc_out']}")
     print(f"robots.txt sitemap line: {has_sm}")
+    print(f"titles over 65 characters: {stats['title_long']}; distinct lastmod values per sitemap: " + ", ".join(f"{k} {len(v)}" for k, v in sorted(lms.items())))
     print(f"shards {len(shard_files)} (largest {biggest} bytes gzip), school pages matched to a shard {n_shard_checked}")
     if problems:
         print(f"{len(problems)} problems:")

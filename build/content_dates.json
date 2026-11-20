@@ -1,0 +1,30 @@
+{
+ "": {
+  "date": "2026-11-20",
+  "hash": "60253b7426bd7e8f"
+ },
+ "find/": {
+  "date": "2026-11-20",
+  "hash": "f9ba5b8284cad1df"
+ },
+ "map/": {
+  "date": "2026-11-20",
+  "hash": "a4bc96ec4f109874"
+ },
+ "municipalities/": {
+  "date": "2026-11-20",
+  "hash": "700387a11b9512c0"
+ },
+ "questions/": {
+  "date": "2026-11-20",
+  "hash": "3e6224d6b650545c"
+ },
+ "sources/": {
+  "date": "2026-11-20",
+  "hash": "923dd752ef94f6dc"
+ },
+ "system/": {
+  "date": "2026-11-20",
+  "hash": "5c37d0bcffa1c3fe"
+ }
+}
