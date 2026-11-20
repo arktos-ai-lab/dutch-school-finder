@@ -376,9 +376,7 @@ class Build:
         h.append(f'<meta name="twitter:image" content="{e(img)}">')
         h.append(f'<link rel="icon" type="image/svg+xml" href="{self.base}favicon.svg">')
         h.append(f'<link rel="icon" type="image/x-icon" sizes="32x32" href="{self.base}favicon.ico">')
-        h.append('<link rel="preconnect" href="https://fonts.googleapis.com">')
-        h.append('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>')
-        h.append('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">')
+        h.append(f'<link rel="preload" href="{self.base}fonts/atkinson-hyperlegible-latin-400.woff2" as="font" type="font/woff2" crossorigin>')
         h.append(f'<link rel="stylesheet" href="{self.base}app.css?v={self.ver["app.css"]}">')
         for ld in p.get("jsonld", []):
             h.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
@@ -1245,6 +1243,7 @@ class Build:
         # assets
         for f in ("app.js", "app.css", "og.png", "favicon.svg"):
             shutil.copy2(SITE / f, out / f)
+        shutil.copytree(SITE / "fonts", out / "fonts")
         (out / "i18n").mkdir()
         for f in (SITE / "i18n").glob("*.json"):
             shutil.copy2(f, out / "i18n" / f.name)

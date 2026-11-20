@@ -247,6 +247,14 @@ def main():
         for k in ("og:title", "og:description", "og:image", "og:type", "og:site_name", "twitter:card", "viewport", "theme-color"):
             if k not in p.meta:
                 problems.append(f"{rel}: missing meta {k}")
+        for k, lst in p.links.items():
+            for x in lst:
+                hf = x.get("href", "")
+                if "googleapis" in hf or "gstatic" in hf:
+                    problems.append(f"{rel}: external font link {hf}")
+        for x in p.links.get("preload", []):
+            if not exists(urlsplit(x.get("href", "")).path):
+                problems.append(f"{rel}: preload target missing {x.get('href')}")
         canon = [x.get("href") for x in p.links.get("canonical", [])]
         if rel != "404.html":
             if len(canon) != 1:
