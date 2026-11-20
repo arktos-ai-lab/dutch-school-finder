@@ -849,7 +849,23 @@
       "op": "Placement against advice",
       "opSm": "Percentage points",
       "inspType": "Type of inspection",
-      "inspTypeSm": "Latest rated inspection"
+      "inspTypeSm": "Latest rated inspection",
+      "se": "School exam grade",
+      "seSm": "Latest year, about, DUO",
+      "cl": "Final list grade",
+      "clSm": "Latest year, about, DUO",
+      "lr": "Results against signal value",
+      "lrSm": "Inspectie, three years, context only",
+      "sw": "Schoolweging",
+      "swSm": "CBS via Inspectie, higher means more disadvantage in the intake",
+      "sv": "Suspensions and removals",
+      "svSm": "Reported 2025 to 2026, counts not rates",
+      "ex": "Excellent school predicaat",
+      "exSm": "Inspectie, no longer awarded",
+      "board": "Board",
+      "boardSm": "Bevoegd gezag",
+      "region": "Holiday region",
+      "regionSm": "North, middle or south"
     },
     "mixedSo": "Compare works within one type. Your list has special education schools. Clear it to start a new list.",
     "metaSo": "Same-type comparison of up to 4 special education schools. Numbers are context, not a ranking.",
@@ -862,7 +878,11 @@
     "partialShort": "(partial)",
     "fw": "framework {k}",
     "zb": "{rep} repeated, {down} moved down, {up} moved up (of {p} pupils)",
-    "soPart": "{part}: {n}"
+    "soPart": "{part}: {n}",
+    "svVo": "{s} suspensions, {r} removals",
+    "svPo": "{s} suspensions",
+    "exYes": "Yes, until 1 July {y}",
+    "exNo": "Not on the list"
   },
   "school": {
     "notFound": "School not found",
@@ -940,7 +960,8 @@
       "year": "Exam year {y}",
       "few": "fewer than 5 candidates",
       "partial": "(partial: some small groups hidden)",
-      "small": "(small group, the rate can swing a lot)"
+      "small": "(small group, the rate can swing a lot)",
+      "yearHead": "Exam year"
     },
     "catch": {
       "title": "Where pupils live",
@@ -1030,13 +1051,18 @@
       "src": "Source: DUO, reconsiderations and adjusted advice"
     },
     "ce": {
-      "title": "Central exam grades",
-      "expl": "The central exam (centraal examen, CE) is the national part of the final exam. This is the mean CE grade of the candidates, per level and exam year, on the Dutch scale of 1 to 10. Candidates need a CE average of at least 5.5, among other conditions, to pass. The mean also reflects which pupils the school admits.",
-      "row": "about {v} ({n} candidates)",
-      "partial": "Some small groups are left out.",
-      "caption": "Central exam grade {level}",
-      "note": "Each figure is approximate: it is the candidate-weighted average of the means DUO publishes per programme or profile. Groups with fewer than 5 candidates are left out.",
-      "srcWhat": "Central exam grades"
+      "title": "Exam grades",
+      "expl": "Each exam grade is on the Dutch scale of 1 to 10. The central exam (centraal examen) is the national part of the final exam. The school exam (schoolexamen) is set and marked by the school during the last years. The final list (cijferlijst) is the average of the final grades of all subjects. The tables show the mean grade of the candidates per level and exam year. The means also reflect which pupils the school admits.",
+      "col": {
+        "ce": "Central exam",
+        "se": "School exam",
+        "cl": "Final list",
+        "n": "Candidates"
+      },
+      "caption": "Exam grades {level}",
+      "partialNote": "* Some small groups are left out of this figure.",
+      "note": "Each figure is approximate: it is the candidate-weighted average of the means DUO publishes per programme or profile. Groups with fewer than 5 candidates are left out. The school exam and final list grades are kept for the last three exam years. A dash means there is no figure for that year.",
+      "srcWhat": "Exam grades"
     },
     "zb": {
       "title": "Repeaters and moves between levels",
@@ -1086,6 +1112,195 @@
       "cmp": "Compared with the norm",
       "pts": "{v} points",
       "note": "Compare the result with the norm only. A higher number means more pupils were placed above their advice relative to those placed below it."
+    },
+    "ctx": {
+      "type": {
+        "po": "primary school",
+        "sbo": "special primary school (sbo)",
+        "so": "special education school (SO or VSO)",
+        "vo": "secondary school"
+      },
+      "pupils": "For context: a typical Dutch {type} location has {mean} pupils on the count date (the middle value is {median}).",
+      "pupilsProv": "In {prov} it is {mean} (middle value {median}).",
+      "pupilsNote": "These averages use the numbers shown on school pages. Groups that DUO hides count as zero, so the real averages are a little higher. They are for context only.",
+      "adviceSummary": "For context: the advice mix of all Dutch primary schools",
+      "adviceNote": "Shares of the leavers in the groups DUO shows, counted over {schools} schools, in the same way as the bar above. Small groups are hidden, so rarer levels look rarer than they are. Schools differ in intake, so this is not a target.",
+      "adviceHeadNat": "All Dutch primary schools: advice given to {n} leavers",
+      "adviceHeadProv": "{prov}: advice given to {n} leavers",
+      "pass": "For context, all {level} schools in the Netherlands, exam year {y}: {pct}% of {n} candidates passed.",
+      "passProv": "In {prov}: {pct}% of {n} candidates.",
+      "grades": "For context, the average for all {level} schools in the Netherlands, exam year {y}: {list}.",
+      "grade": {
+        "ce": "central exam {v}",
+        "se": "school exam {v}",
+        "cl": "final list {v}"
+      }
+    },
+    "age": {
+      "title": "Pupils per age",
+      "so": "Special primary education (SO)",
+      "vso": "Secondary special education (VSO)",
+      "under": "under 4",
+      "over": "over 24",
+      "axis": "Age on 1 October",
+      "aria": "Pupils per age: {list}",
+      "pt": "age {g}: {v}",
+      "row": "Age {a}",
+      "table": "Numbers by age",
+      "note": "Age on the count date, 1 October 2025. Ages with no pupils at the ends are left out. DUO hides groups of fewer than 5 pupils."
+    },
+    "tj": {
+      "title": "Pupils per year and level",
+      "note": "Year 1 is the first year of secondary school. A number with a plus sign is at least that many, because DUO hides small groups. 0 means no pupils in that year.",
+      "track": "Level",
+      "year": "Year {g}",
+      "caption": "Pupils per school year and level",
+      "atLeast": "{n}+"
+    },
+    "pf": {
+      "title": "Profile choice in the upper years",
+      "expl": "In the upper years of havo (years 4 and 5) and vwo (years 4 to 6) pupils choose a profile, a package of subjects that fits a field of study. The table counts the pupils in each profile per year. It shows which profiles the school offers and how many pupils pick each one. It does not say which profile is better.",
+      "year": "Year",
+      "profile": "Profile",
+      "caption": "Pupils per profile, {level}",
+      "legend": "What the profile codes mean",
+      "note": "Counts are all pupils in the upper years of the level, on 1 October. A number with a plus sign is at least that many, because DUO hides small groups. Combined profiles are listed in their own columns.",
+      "srcWhat": "Pupils per profile",
+      "p": {
+        "CM": "C&M",
+        "EM": "E&M",
+        "NG": "N&G",
+        "NT": "N&T",
+        "NT_NG": "N&T + N&G",
+        "EM_CM": "E&M + C&M",
+        "other": "Other"
+      },
+      "d": {
+        "CM": "Culture and Society (Cultuur en Maatschappij)",
+        "EM": "Economics and Society (Economie en Maatschappij)",
+        "NG": "Nature and Health (Natuur en Gezondheid)",
+        "NT": "Nature and Technology (Natuur en Techniek)",
+        "NT_NG": "Nature and Technology combined with Nature and Health",
+        "EM_CM": "Economics and Society combined with Culture and Society",
+        "other": "Any other combination of profiles"
+      }
+    },
+    "pp": {
+      "title": "Pass rate per profile",
+      "note": "Only profiles with at least 5 candidates are shown, for the last two exam years. Groups are small, so a rate can swing a lot from year to year.",
+      "caption": "Pass rate per profile, {level}",
+      "cell": "{pct}% of {n}",
+      "small": "(small group)"
+    },
+    "contact": {
+      "title": "School board and contact",
+      "expl": "The board (bevoegd gezag) is the organisation that runs the school and is legally responsible for it. One board can run many schools. Each school also belongs to a samenwerkingsverband (SWV), the regional partnership of schools that arranges extra support for pupils who need it.",
+      "tel": "Telephone",
+      "board": "Board (bevoegd gezag)",
+      "boardSize": "Schools run by this board",
+      "boardOne": "1 location in this data",
+      "boardMany": "{n} locations in this data",
+      "swv": "Samenwerkingsverband",
+      "swvCode": "code {code}",
+      "swvNote": "Pupils who need more support than the school can give get it through the SWV. Ask the school which SWV it belongs to and how a support request works.",
+      "swvDerived": "The open data does not list the SWV per VSO school. This one is the SWV that all secondary schools in the same municipality belong to, so it can differ from the school's own SWV.",
+      "swvNoName": "The open files only give a code for this SWV, not its name.",
+      "boardNote": "The telephone number is the school's published contact number. The number of locations counts the schools of this board that are in this data (primary, special and secondary).",
+      "src": "Source: DUO address files and board files, with the samenwerkingsverband from the DUO pupil files",
+      "us": {
+        "title": "Leaving profile of VSO pupils in this region",
+        "note": "This is regional, not about this school. It counts all VSO pupils in the samenwerkingsverband by the leaving profile they follow, which is the route each pupil is prepared for. Counts under 5 are hidden. School year 2025 to 2026.",
+        "day": "Day activities (dagbesteding)",
+        "work": "Work (arbeidsmarkt)",
+        "further": "Further education",
+        "unknown": "Not yet known"
+      }
+    },
+    "staff": {
+      "title": "Staff at school group level",
+      "expl": "This shows how many people work for the school group this location belongs to, counted in full-time equivalents (FTE). Two part-time staff members of half a week each count as 1 FTE. The pupils per teacher figure divides the pupils by the teaching staff in FTE.",
+      "group": "Whole school group (all locations with the same BRIN4 code), October {y}.",
+      "total": "All staff (FTE)",
+      "teach": "Teaching staff (FTE)",
+      "mgr": "Management (FTE)",
+      "support": "Support staff (FTE)",
+      "ratio": "Pupils per teaching FTE",
+      "note": "These are figures for the whole group, not for this location. They are not a measure of class size: the numbers also include teachers who do not teach a class, such as remedial teachers.",
+      "src": "Source: DUO functiemix, per institution"
+    },
+    "hol": {
+      "title": "School holidays",
+      "expl": "The Netherlands has three holiday regions (north, middle and south). The summer holiday starts on a different date in each region. Regions also differ in some of the other holidays.",
+      "region": "This school is in holiday region {region}.",
+      "r": {
+        "noord": "north",
+        "midden": "middle",
+        "zuid": "south"
+      },
+      "year": "School year {y}",
+      "caption": "School holidays {y}",
+      "k": {
+        "autumn": "Autumn holiday",
+        "christmas": "Christmas holiday",
+        "spring": "Spring holiday",
+        "may": "May holiday",
+        "summer": "Summer holiday"
+      },
+      "advice": "advice date",
+      "to": "to",
+      "note": "The Christmas and summer holidays are fixed. The autumn, spring and May holidays are advice dates, so a school can choose other dates. Check the school's own calendar.",
+      "src": "Source: Rijksoverheid school holiday dates (open data), region from the DUO address file"
+    },
+    "lr": {
+      "title": "Results compared with the Inspectie signal value",
+      "expl": "At the end of primary school the doorstroomtoets shows whether pupils reach set levels in reading, language and maths. The Inspectie pools three years (2024, 2025 and 2026) and compares the share of pupils who reach a level with a signal value (signaleringswaarde). The signal value is lower for schools whose pupils have more disadvantages (see the schoolweging below).",
+      "i": {
+        "1f": "Reach level 1F",
+        "2f": "Reach level 1S or 2F"
+      },
+      "d1f": "The basic level (fundamentaal niveau). Almost every pupil is expected to reach it.",
+      "d2f": "The higher level: 2F for reading and language, 1S for maths. It is a stretch level, so the signal value is much lower.",
+      "signal": "signal value {v}%",
+      "noValue": "not given",
+      "outcome": "Inspectie outcome",
+      "o": {
+        "above": "Above the signal value",
+        "below": "Below the signal value",
+        "small": "Small school: judged over five years, so no outcome here",
+        "few": "Too little data for an outcome"
+      },
+      "n": "Based on {n} pupils over three years.",
+      "small": "This is a small number, so the percentages can swing a lot.",
+      "note": "Below the signal value is a reason for the Inspectie to look closer, not a verdict on its own. The figures are for the school unit the Inspectie uses, which can cover more than one location. This is context, not a ranking.",
+      "src": "Source: Inspectie van het Onderwijs, leerresultaten primair onderwijs 2024, 2025 and 2026 (CC0)"
+    },
+    "sw": {
+      "title": "Schoolweging",
+      "value": "{v}",
+      "ctx": "The average across Dutch primary school locations is {mean} (middle value {median}).",
+      "expl": "The schoolweging is a number that Statistics Netherlands (CBS) calculates for each primary school. It describes how complex the pupil population is, based on the education of the parents, their country of birth, how long the mother has lived in the Netherlands and whether the parents are in debt restructuring. A higher number means more pupils with such disadvantages. It is an average of 2022/23 to 2024/25. The Inspectie uses it to set the signal value above."
+    },
+    "sv": {
+      "title": "Suspensions and removals",
+      "expl": "Schools must tell the Inspectie when a pupil is suspended for more than one day, or removed from the school. This shows the number reported for the school year 2025 to 2026 (1 August 2025 to 31 July 2026). It is a count, not a rate: a bigger school has more pupils. It says little on its own.",
+      "susp": "Suspensions of more than one day",
+      "rem": "Removals",
+      "none": "The Inspectie file for 2025 to 2026 lists no suspensions or removals for this school.",
+      "noneShort": "none listed",
+      "unitVo": "The count is for this location. It adds up the education types the Inspectie lists for it.",
+      "unitOne": "The count is for the school unit the Inspectie uses, which here is this location.",
+      "unitMany": "The count is for the school unit the Inspectie uses, which covers {n} locations. It is not split per location.",
+      "small": "A very small number can be a single pupil or a single event.",
+      "note": "Only cases that schools reported to the Inspectie are counted. Primary and special schools report suspensions only. The data does not say why.",
+      "src": "Source: Inspectie van het Onderwijs, schorsingen en verwijderingen 2025 to 2026 (CC0)"
+    },
+    "ex": {
+      "title": "Excellent school predicaat",
+      "expl": "The Inspectie used to give the predicaat Excellent School to schools with outstanding results in a field of their own choice. It was awarded for three years.",
+      "line": "This school was on the Inspectie list of excellent schools until 1 July {y} (round {rng}).",
+      "afd": "The predicaat applied to: {list}.",
+      "end": "The Inspectie has stopped awarding the predicaat. The last round ended on 1 July 2026, so it is no longer in force. It tells you what the school did in the past, not how it is doing today.",
+      "src": "Source: Inspectie van het Onderwijs, overview of excellent schools 2020 to 1 July 2026 (CC0)"
     }
   },
   "src": {
@@ -1826,7 +2041,11 @@
         "Reading, language and maths levels: DUO, pupils per reference level for language and maths, 2025-2026. Advice reconsidered: DUO, reconsiderations and adjusted advice, 2025-2026.",
         "Central exam grades: DUO, exam results 2021 to 2025. Repeaters and level moves: DUO, 2024-2025 to 2025-2026.",
         "Inspectie results and placement against the primary advice: Inspectie van het Onderwijs, onderwijsresultaten voortgezet onderwijs 2026 (CC0). Three-year averages, with the Inspectie's norms and calculated verdicts.",
-        "Inspection judgements and standards: Inspectie van het Onderwijs, open data oordelen, 1 November 2026 (CC0). The English names of the standards are our own short glosses of the Inspectie's Dutch names."
+        "Inspection judgements and standards: Inspectie van het Onderwijs, open data oordelen, 1 November 2026 (CC0). The English names of the standards are our own short glosses of the Inspectie's Dutch names.",
+        "Pupils per age, per year group and level, and profile choice: DUO pupil files (age file 2025-2026, VO pupils 2021 to 2025). Pass rates per profile: DUO exam files. School exam and final list grades: DUO exam results.",
+        "Telephone number, board, samenwerkingsverband and holiday region: DUO address files, board files and pupil files. Staff at school group level: DUO functiemix (October 2023). VSO leaving profiles per samenwerkingsverband: DUO, 2025-2026.",
+        "School holiday dates: Rijksoverheid open data (CC0). Results against the signal value, schoolweging, suspensions and removals, and the excellent school list: Inspectie van het Onderwijs open data (CC0).",
+        "National and province averages shown next to a school's figures are calculated by us from the same files. They are context and never a ranking."
       ]
     },
     "counts": {

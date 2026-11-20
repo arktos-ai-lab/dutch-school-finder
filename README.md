@@ -76,6 +76,9 @@ host, so on the project URL (`...github.io/dutch-school-finder/`) it has no effe
 - School addresses, pupil numbers, school advice and exam results: DUO Open Onderwijsdata, CC BY 4.0.
 - Postcode areas: CBS Postcode4 via PDOK, CC BY 4.0.
 - Address coordinates and municipalities: Kadaster BAG via PDOK Locatieserver.
+- Inspectie van het Onderwijs open data (judgements, onderwijsresultaten, leerresultaten and schoolweging for
+  primary schools, suspensions and removals, excellent schools): CC0 1.0. School holiday dates: Rijksoverheid
+  open data, CC0 1.0. Staff at school group level, boards and telephone numbers: DUO, CC BY 4.0.
 - School concepts and open days: published association lists and the schools' own websites, with the
   source and check date shown per item.
 
