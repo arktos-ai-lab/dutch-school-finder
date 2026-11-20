@@ -8,6 +8,14 @@ Fields per BRIN6 (all optional):
   ce   mean central-exam grade per track and exam year [year, mean, candidates (, 1)] from the DUO "geslaagden,
        gezakten en cijfers" files: candidate-weighted mean of the sector/afdeling row means, over rows with >= 5
        exact candidates and a published CE mean; a trailing 1 = some rows of that track were suppressed
+  se, cl  same structure as ce for the school-exam grade (DUO "GEMIDDELD CIJFER SCHOOLEXAMEN") and the final-list grade
+       ("GEMIDDELD CIJFER CIJFERLIJST"); same rows, same weights, same rule (>= 5 exact candidates and a published mean)
+  tj   pupils per leerjaar per track, latest year: {track: [first leerjaar, [cells]]}; cell = n, [n, 1] lower bound
+       (some cell suppressed), null = only suppressed cells; leading and trailing leerjaar without pupils are cut
+  pf   profile choice in HAVO (leerjaar 4-5) and VWO (leerjaar 4-6): {track: [[year, [7 cells]]]} pupils per profile in the
+       order of `years.profiles` (cell = n, [n, 1] lower bound, null = suppressed only); years 2021 to 2025
+  pp   pass rate per exam profile {track: {profile: [[year, candidates, pass %]]}}, last 2 exam years, only profile rows with
+       at least 5 exact candidates (same rule as pr)
   zb   [pupils, afstromers, zittenblijvers, opstromers] school year 2024/25 vs 2025/26 (null = suppressed)
   ov   Inspectie onderwijsresultaten 2026 per onderwijssoort {track: [ob, bb, ce, verdict]}; ob = onderbouwsnelheid %,
        bb = bovenbouwsucces %, ce = mean central-exam grade, each [3-year value, norm after correction, 1 above norm | 0 below];
@@ -43,6 +51,14 @@ PUPIL_TRACK = {
     "Brugjaar 1-2": "BRUGJAAR", "HAVO/VWO lj 3": "BRUGJAAR",
 }
 # exam file: ONDERWIJSTYPE VO + first words of OPLEIDINGSNAAM ("VMBO B - zorg en welzijn"); "VMBO LWT" is left out
+PROFILES = ["CM", "EM", "NG", "NT", "NT/NG", "EM/CM", "other"]
+AFD_PROFILE = {"Cultuur en Maatschappij": "CM", "Economie en Maatschappij": "EM", "Natuur en Gezondheid": "NG",
+               "Natuur en Techniek": "NT", "Natuur en Techniek / Natuur en Gezondheid": "NT/NG",
+               "Economie en Maatschappij / Cultuur en Maatschappij": "EM/CM"}
+OPL_PROFILE = {"C&M": "CM", "E&M": "EM", "N&G": "NG", "N&T": "NT", "N&T / N&G": "NT/NG", "E&M / C&M": "EM/CM"}
+PP_YEARS = 2
+SE_YEARS = 3   # se / cl: latest exam years kept (ce keeps all five)
+LJ_COLS = [("LEER- OF VERBLIJFSJAAR %d - MAN" % k, "LEER- OF VERBLIJFSJAAR %d - VROUW" % k) for k in range(1, 7)]
 EXAM_VMBO = {"VMBO B": "VMBO-B", "VMBO K": "VMBO-K", "VMBO G": "VMBO-GL/TL", "VMBO T": "VMBO-GL/TL"}
 
 
@@ -70,6 +86,7 @@ def main():
     det = {i: {} for i in ids}
 
     # pupils per year and by track
+    tj_acc, pf_acc = {}, {}   # id -> track -> 6 x [sum, lb, any exact];  id -> (track, year) -> profile -> [sum, lb, any exact]
     for y in PUPIL_YEARS:
         tot, trk = {}, {}
         for r in duo.read_csv_auto("vo_leerlingen_%d.csv" % y):
@@ -86,6 +103,22 @@ def main():
             a[1] |= lb
             a[2] |= ex
             lab = PUPIL_TRACK.get(t)
+            if y == PUPIL_YEARS[-1] and lab:
+                acc = tj_acc.setdefault(i, {}).setdefault(lab, [[0, 0, 0] for _ in range(6)])
+                for k, (cm_, cv_) in enumerate(LJ_COLS):
+                    for col in (cm_, cv_):
+                        c = cell(r.get(col))
+                        if c is None:
+                            acc[k][1] = 1
+                        else:
+                            acc[k][0] += c
+                            acc[k][2] = 1
+            if lab in ("HAVO", "VWO") and t in ("HAVO lj 4-5", "VWO lj 4-6"):
+                pk = AFD_PROFILE.get(r["AFDELING"].strip(), "other")
+                a2 = pf_acc.setdefault(i, {}).setdefault((lab, y), {}).setdefault(pk, [0, 0, 0])
+                a2[0] += s
+                a2[1] |= lb
+                a2[2] |= ex
             if lab:
                 b = trk.setdefault(i, {}).setdefault(lab, [0, 0, 0])
                 b[0] += s
@@ -113,12 +146,45 @@ def main():
                     if tpl:
                         det[i]["tpl"] = tpl
 
+    def out_cell(a):
+        """[sum, lb, any exact] -> n | [n, 1] | None (a lower bound of 0 says nothing)"""
+        n, lb, ex = a
+        if not lb:
+            return n
+        return [n, 1] if ex and n > 0 else None
+
+    for i, d in tj_acc.items():
+        if i not in det:
+            continue
+        o = {}
+        for lab in TRACKS:
+            if lab not in d:
+                continue
+            cells = [out_cell(a) for a in d[lab]]
+            idx = [k for k, c in enumerate(cells) if c != 0]
+            if not idx:
+                continue
+            o[lab] = [idx[0] + 1, cells[idx[0]:idx[-1] + 1]]
+        if o:
+            det[i]["tj"] = o
+    for i, d in pf_acc.items():
+        if i not in det:
+            continue
+        o = {}
+        for (lab, y), prof in sorted(d.items(), key=lambda kv: (kv[0][0], kv[0][1])):
+            if not any(a[0] or a[1] for a in prof.values()):
+                continue
+            o.setdefault(lab, []).append([y, [out_cell(prof[k]) if k in prof else 0 for k in PROFILES]])
+        if o:
+            det[i]["pf"] = o
+
     # exam pass rates
     rows = duo.read_csv_auto(EXAM_FILE)
     ycols = sorted({re.search(r"SCHOOLJAAR (\d{4})-(\d{4}) - TOTAAL", k).groups() for k in rows[0]
                     if k.startswith("EXAMENKANDIDATEN SCHOOLJAAR") and k.endswith("TOTAAL")})
     exam_years = [int(b) for a, b in ycols]
     agg = {}   # (id, track, year) -> [cand, passed, suppressed rows]
+    agp = {}   # (id, track, profile, year) -> same
     for r in rows:
         t = r["ONDERWIJSTYPE VO"].strip()
         if t in ("HAVO", "VWO"):
@@ -138,12 +204,16 @@ def main():
                 continue
             c = num(rc)
             g = num(r["GESLAAGDEN SCHOOLJAAR %s-%s - TOTAAL" % (a, b)])
-            x = agg.setdefault((i, lab, int(b)), [0, 0, 0])
-            if c is None or g is None:
-                x[2] += 1
-            else:
-                x[0] += c
-                x[1] += g
+            xs_ = [agg.setdefault((i, lab, int(b)), [0, 0, 0])]
+            if t in ("HAVO", "VWO"):
+                m_ = re.match(r"(?:HAVO|VWO) - (.+)$", r["OPLEIDINGSNAAM"].strip())
+                xs_.append(agp.setdefault((i, lab, OPL_PROFILE.get(m_.group(1).strip(), "other") if m_ else "other", int(b)), [0, 0, 0]))
+            for x in xs_:
+                if c is None or g is None:
+                    x[2] += 1
+                else:
+                    x[0] += c
+                    x[1] += g
     pr = {}
     for (i, lab, y), (c, g, sp) in agg.items():
         if i not in det:
@@ -155,12 +225,20 @@ def main():
         else:
             rec = [y, None, None]                      # fewer than 5 known candidates, or all suppressed
         pr.setdefault(i, {}).setdefault(lab, []).append(rec)
+    pp = {}
+    for (i, lab, pk, y), (c, g, sp) in agp.items():
+        if i in det and c >= 5 and y > exam_years[-1] - PP_YEARS:
+            pp.setdefault(i, {}).setdefault(lab, {}).setdefault(pk, []).append([y, c, round(100.0 * g / c, 1)])
+    for i, d in pp.items():
+        det[i]["pp"] = {lab: {k: sorted(d[lab][k]) for k in PROFILES if k in d[lab]} for lab in ("HAVO", "VWO") if lab in d}
     for i, d in pr.items():
         det[i]["pr"] = {lab: sorted(d[lab]) for lab in TRACKS if lab in d}
 
-    # mean central-exam grade (CE) per track and year. Rows with fewer than 5 exact candidates (or a CE mean that is
-    # not published) are left out; the row means are weighted by candidate count.
-    ce = {}   # (id, track, year) -> [sum(n*grade), n, suppressed rows]
+    # mean central-exam grade (CE), school-exam grade (SE) and final-list grade (cijferlijst, CL) per track and year.
+    # Rows with fewer than 5 exact candidates (or a mean that is not published) are left out; the row means are weighted
+    # by candidate count. The same rule for all three.
+    GRADES = {"ce": "GEMIDDELD CIJFER CENTRAAL EXAMEN", "se": "GEMIDDELD CIJFER SCHOOLEXAMEN", "cl": "GEMIDDELD CIJFER CIJFERLIJST"}
+    gacc = {k: {} for k in GRADES}   # key -> (id, track, year) -> [sum(n*grade), n, suppressed rows]
     for y, fn in CE_FILES.items():
         for r in duo.read_csv_auto(fn):
             t = r["ONDERWIJSTYPE VO"].strip()
@@ -174,23 +252,25 @@ def main():
             if not lab or i not in det:
                 continue
             n = cell(r["EXAMENKANDIDATEN"])
-            try:
-                g = float(r["GEMIDDELD CIJFER CENTRAAL EXAMEN"].replace(",", "."))
-            except ValueError:
-                g = None
-            x = ce.setdefault((i, lab, y), [0.0, 0, 0])
-            if n is None or g is None or not 1.0 <= g <= 10.0:
-                if num(r["EXAMENKANDIDATEN"]) != 0:
-                    x[2] += 1
-            else:
-                x[0] += n * g
-                x[1] += n
-    cem = {}
-    for (i, lab, y), (sg, n, sp) in ce.items():
-        if n >= 5:
-            cem.setdefault(i, {}).setdefault(lab, []).append([y, round(sg / n, 2), n] + ([1] if sp else []))
-    for i, d in cem.items():
-        det[i]["ce"] = {lab: sorted(d[lab]) for lab in TRACKS if lab in d}
+            for key, col in GRADES.items():
+                try:
+                    g = float(r[col].replace(",", "."))
+                except (ValueError, KeyError):
+                    g = None
+                x = gacc[key].setdefault((i, lab, y), [0.0, 0, 0])
+                if n is None or g is None or not 1.0 <= g <= 10.0:
+                    if num(r["EXAMENKANDIDATEN"]) != 0:
+                        x[2] += 1
+                else:
+                    x[0] += n * g
+                    x[1] += n
+    for key in GRADES:
+        cem = {}
+        for (i, lab, y), (sg, n, sp) in gacc[key].items():
+            if n >= 5 and (key == "ce" or y > max(CE_FILES) - SE_YEARS):
+                cem.setdefault(i, {}).setdefault(lab, []).append([y, round(sg / n, 2), n] + ([1] if sp else []))
+        for i, d in cem.items():
+            det[i][key] = {lab: sorted(d[lab]) for lab in TRACKS if lab in d}
 
     # repeaters and up/down-streaming (school year 2024/25 -> 2025/26); cells "<5" => null
     for r in duo.read_csv_auto(ZB_FILE):
@@ -264,7 +344,7 @@ def main():
 
     schools = {i: d for i, d in sorted(det.items()) if d}
     out = {"v": 1, "generated": datetime.date.today().isoformat(),
-           "years": {"pupils": PUPIL_YEARS, "exams": exam_years, "ce": sorted(CE_FILES), "ov": "Inspectie onderwijsresultaten VO 2026: 2022/23 to 2024/25 (op: 2023/24 to 2025/26)", "zb": ZB_YEARS, "catchment": CATCH_YEAR},
+           "years": {"pupils": PUPIL_YEARS, "exams": exam_years, "ce": sorted(CE_FILES), "se": sorted(CE_FILES)[-SE_YEARS:], "profiles": PROFILES, "pp": exam_years[-PP_YEARS:], "tj": PUPIL_YEARS[-1], "ov": "Inspectie onderwijsresultaten VO 2026: 2022/23 to 2024/25 (op: 2023/24 to 2025/26)", "zb": ZB_YEARS, "catchment": CATCH_YEAR},
            "schools": schools}
     write_json_atomic(os.path.join(OUT, "detail_vo.json"), out)
     print("detail_vo.json schools:", len(schools), "of", len(ids), "| exam years", exam_years)

@@ -54,12 +54,14 @@ def main():
             "so": q(so["rows"], gi_so),
             "vo": q(vo["rows"], gi_vo),
         },
-        "detail": {"po": "detail_po.json", "vo": "detail_vo.json", "inspection": "inspection.json"},
+        "detail": {"po": "detail_po.json", "vo": "detail_vo.json", "so": "detail_so.json", "inspection": "inspection.json",
+                   "extra": "extra.json", "inspectie_extra": "inspectie_extra.json", "context": "context.json"},
         "attribution": [
             {"source": "DUO Open Onderwijsdata",
              "text": "School addresses, pupil numbers, schooladviezen and exam results: DUO (Dienst Uitvoering Onderwijs), "
                      "Open Onderwijsdata, https://duo.nl/open_onderwijsdata (also: pupil history, doorstroomtoets averages, "
-                     "home-to-school distance, pupil home postcodes, exam pass rates and mean central-exam grades 2021 to 2025, special education (SO/VSO) locations and pupils per cluster, referentieniveaus taal en rekenen, heroverwegingen and bijgestelde adviezen, repeaters and up/down-streaming in VO). We selected, joined and calculated "
+                     "home-to-school distance, pupil home postcodes, exam pass rates, pass rates per profile and mean school-exam, central-exam and final-list grades 2021 to 2025, pupils per leerjaar, per profile and per age, special education (SO/VSO) locations and pupils per cluster, referentieniveaus taal en rekenen, heroverwegingen and bijgestelde adviezen, repeaters and up/down-streaming in VO, "
+                     "telephone numbers, boards (bevoegd gezag), samenwerkingsverband codes and holiday regions from the address files, the board names files, VSO leavers per samenwerkingsverband, and the functiemix file with staff per school group). We selected, joined and calculated "
                      "percentages from the original files.",
              "licence": "CC BY 4.0 (DUO's own site also states CC0 1.0; we apply the stricter CC BY 4.0)",
              "licence_url": "https://creativecommons.org/licenses/by/4.0/",
@@ -72,6 +74,37 @@ def main():
              "licence": "CC0 1.0 Universal",
              "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
              "url": "https://www.onderwijsinspectie.nl/documenten/2026/11/03/oordelen-1-november-2026"},
+            {"source": "Inspectie van het Onderwijs, leerresultaten primair onderwijs",
+             "text": "Leerresultaten primair onderwijs 2024, 2025 and 2026 (reference levels on the doorstroomtoets, signaleringswaarden and the 3-year outcome per school): Inspectie van het Onderwijs, "
+                     "Ministerie van Onderwijs, Cultuur en Wetenschap. We selected and re-formatted the figures; the signaleringswaarde and the outcome are the Inspectie's.",
+             "licence": "CC0 1.0 Universal (page metadata of the Inspectie data page, checked 2026-11-20)",
+             "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+             "url": "https://www.onderwijsinspectie.nl/trends-en-ontwikkelingen/onderwijsdata/leerresultaten-primair-onderwijs"},
+            {"source": "Inspectie van het Onderwijs, schoolweging po",
+             "text": "Schoolweging primair onderwijs 2022/23 to 2024/25 (3-year mean of the weights calculated by CBS): Inspectie van het Onderwijs, "
+                     "Ministerie van Onderwijs, Cultuur en Wetenschap, based on CBS calculations. The weights are shown unchanged.",
+             "licence": "CC0 1.0 Universal (page metadata of the Inspectie data page, checked 2026-11-20)",
+             "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+             "url": "https://www.onderwijsinspectie.nl/trends-en-ontwikkelingen/onderwijsdata/schoolweging-po"},
+            {"source": "Inspectie van het Onderwijs, schorsingen en verwijderingen",
+             "text": "Schorsingen en verwijderingen, school year 2025-2026 (reported suspensions of more than one day and removals, counted per object van toezicht): Inspectie van het Onderwijs, "
+                     "Ministerie van Onderwijs, Cultuur en Wetenschap. We matched the counts to school locations and summed the rows of a VO location.",
+             "licence": "CC0 1.0 Universal (page metadata of the Inspectie data page, checked 2026-11-20)",
+             "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+             "url": "https://www.onderwijsinspectie.nl/trends-en-ontwikkelingen/onderwijsdata/schorsingen-en-verwijderingen"},
+            {"source": "Inspectie van het Onderwijs, excellente scholen",
+             "text": "Overview of schools with the predicaat Excellente School, 2020 to 1 July 2026: Inspectie van het Onderwijs, "
+                     "Ministerie van Onderwijs, Cultuur en Wetenschap (PDF list, matched to school locations by us).",
+             "licence": "CC0 1.0 Universal (page metadata of the Inspectie data page, checked 2026-11-20)",
+             "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+             "url": "https://www.onderwijsinspectie.nl/trends-en-ontwikkelingen/onderwijsdata/excellente-scholen"},
+            {"source": "Rijksoverheid, schoolvakanties",
+             "text": "School holiday dates per region (noord, midden, zuid) for 2025-2026 to 2027-2028: Rijksoverheid open data (Ministerie van Algemene Zaken), "
+                     "opendata.rijksoverheid.nl. Each school is linked to its region through the VAKANTIEREGIO field of the DUO address files. "
+                     "The autumn, spring and extra May holidays are advice dates; schools can differ.",
+             "licence": "CC0 1.0 Universal (stated in the data itself)",
+             "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+             "url": "https://opendata.rijksoverheid.nl/v1/infotypes/schoolholidays"},
             {"source": "CBS",
              "text": "Postcode (PC4) areas: CBS (Statistics Netherlands), dataset CBS Postcode4 statistics, "
                      "distributed via PDOK. Centroids computed by us.",

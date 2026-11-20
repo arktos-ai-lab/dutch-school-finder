@@ -98,6 +98,9 @@ def _school(r, id_):
         "den": den(r["DENOMINATIE"]),
         "prov": prov_idx(r["PROVINCIE"]),
         "web": clean_url(r["INTERNETADRES"]),
+        "tel": (r.get("TELEFOONNUMMER") or "").strip(),
+        "bg": (r.get("BEVOEGD GEZAG NUMMER") or "").strip(),
+        "vr": (r.get("VAKANTIEREGIO") or "").strip().lower(),
     }
 
 
@@ -177,3 +180,21 @@ def read_csv_auto(name, delim=";"):
     rd = csv.DictReader(io.StringIO(text, newline=""), delimiter=delim)
     rd.fieldnames = [f.strip().replace(".", " ") if "." in f and " " not in f else f.strip() for f in rd.fieldnames]
     return list(rd)
+
+
+# ---- pupils per age (DUO "leerlingen po naar soort po, cluster en leeftijd"): columns LEEFTIJD_JONGER, 4..24, OUDER
+AGE_LABELS = ["<4"] + [str(a) for a in range(4, 25)] + [">24"]          # index 0..22
+
+
+def age_series(r):
+    """One row of the age file -> [first index, [cells]] or None. Cell = exact count, None = suppressed (<5).
+    Leading and trailing exact zeros are cut; a row with no pupil at all gives None."""
+    cols = ["LEEFTIJD_JONGER"] + ["LEEFTIJD_%d" % a for a in range(4, 25)] + ["LEEFTIJD_OUDER"]
+    cells = []
+    for c in cols:
+        v = (r.get(c) or "").strip()
+        cells.append(int(v) if v.isdigit() else None)
+    keep = [k for k, v in enumerate(cells) if v != 0]
+    if not keep:
+        return None
+    return [keep[0], cells[keep[0]:keep[-1] + 1]]

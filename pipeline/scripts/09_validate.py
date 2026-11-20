@@ -141,6 +141,159 @@ def check_detail():
     print("\ndetail checks OK")
 
 
+def check_extra():
+    """Coverage and consistency checks for the gap-closing files (detail_so, extra, inspectie_extra, context and the new
+    detail_po / detail_vo keys). Raises SystemExit on a hard failure."""
+    import re
+    errs = []
+    po, so, vo = load("schools_po.json"), load("schools_so.json"), load("schools_vo.json")
+    ids_po, ids_so, ids_vo = ({r[0] for r in d["rows"]} for d in (po, so, vo))
+    allids = ids_po | ids_so | ids_vo
+    dvo_all = load("detail_vo.json")
+    dp, dv, dso = load("detail_po.json")["schools"], dvo_all["schools"], load("detail_so.json")["schools"]
+    ex, ie, cx = load("extra.json"), load("inspectie_extra.json"), load("context.json")
+    PROF = dvo_all["years"]["profiles"]
+
+    def ok_cell(c):
+        if c is None:
+            return True
+        if isinstance(c, list):
+            return len(c) == 2 and isinstance(c[0], int) and c[0] > 0 and c[1] == 1
+        return isinstance(c, int) and c >= 0
+
+    def ok_series(a):
+        return (isinstance(a, list) and len(a) == 2 and isinstance(a[0], int) and 0 <= a[0] <= 22 and isinstance(a[1], list)
+                and a[0] + len(a[1]) <= 23 and a[1] and a[1][0] != 0 and a[1][-1] != 0
+                and all(c is None or (isinstance(c, int) and (c == 0 or c >= 5)) for c in a[1]))
+
+    print("\n==== gap-closing files")
+    print("  detail_po ag      %s" % pct(sum(1 for d in dp.values() if "ag" in d), len(ids_po)))
+    print("  detail_so ag      %s" % pct(sum(1 for d in dso.values() if "ag" in d), len(ids_so)))
+    for f in ("tj", "pf", "pp", "se", "cl"):
+        print("  detail_vo %-2s     %s" % (f, pct(sum(1 for d in dv.values() if f in d), len(ids_vo))))
+    for i, d in dp.items():
+        if "ag" in d and not ok_series(d["ag"]):
+            errs.append("po ag invalid " + i)
+    for i, d in dso.items():
+        if i not in ids_so:
+            errs.append("detail_so id unknown " + i)
+        for k, a in d.get("ag", {}).items():
+            if k not in ("So", "Vso") or not ok_series(a):
+                errs.append("so ag invalid %s %s" % (i, k))
+    for i, d in dv.items():
+        for lab, (first, cells) in d.get("tj", {}).items():
+            if not 1 <= first <= 6 or first - 1 + len(cells) > 6 or not all(ok_cell(c) for c in cells):
+                errs.append("tj invalid %s %s" % (i, lab))
+        for lab, lst in d.get("pf", {}).items():
+            for y, cells in lst:
+                if len(cells) != len(PROF) or not all(ok_cell(c) for c in cells):
+                    errs.append("pf invalid %s %s %s" % (i, lab, y))
+        for lab, m in d.get("pp", {}).items():
+            for pk, lst in m.items():
+                for y, n, p_ in lst:
+                    if pk not in PROF or n < 5 or not 0 <= p_ <= 100:
+                        errs.append("pp invalid %s %s %s" % (i, lab, pk))
+        for key in ("se", "cl"):
+            for lab, lst in d.get(key, {}).items():
+                for y, m_, n, *_ in lst:
+                    if n < 5 or not 1.0 <= m_ <= 10.0:
+                        errs.append("%s invalid %s %s" % (key, i, lab))
+
+    S = ex["schools"]
+    print("  extra schools     %s | tel %s | board %s | swv %s | vakantieregio %s" % (
+        pct(len(S), len(allids)), pct(sum(1 for v in S.values() if v[0]), len(allids)), pct(sum(1 for v in S.values() if v[1]), len(allids)),
+        pct(sum(1 for v in S.values() if v[2]), len(allids)), pct(sum(1 for v in S.values() if v[4] >= 0), len(allids))))
+    tel_re = re.compile(r"^\+?[0-9][0-9 ()\-]{5,18}[0-9]$")
+    for i, (tel, bg, sw, sx, vr) in S.items():
+        if i not in allids:
+            errs.append("extra id unknown " + i)
+        if tel and not tel_re.match(tel):
+            errs.append("tel invalid " + i)
+        if bg and bg not in ex["boards"]:
+            errs.append("board missing " + i)
+        if sw and sw not in ex["swv"]:
+            errs.append("swv missing " + i)
+        if sx and (i not in ids_so or not sw or not sw.startswith("VO")):
+            errs.append("derived swv only for VSO with a VO code " + i)
+        if vr not in (-1, 0, 1, 2):
+            errs.append("vr invalid " + i)
+    nb = collections.Counter(v[1] for v in S.values() if v[1])
+    for b, (nm, n) in ex["boards"].items():
+        if not nm or n < nb.get(b, 0) or n < 1:
+            errs.append("board size invalid " + b)
+    for code, (nm, us) in ex["swv"].items():
+        if us is not None and (len(us) != 4 or any(c is not None and (not isinstance(c, int) or 0 < c < 5) for c in us)):
+            errs.append("uitstroom invalid " + code)
+    for b, v in ex["fm"].items():
+        if len(v) != 6 or v[1] <= 0 or any(x is not None and x < 0 for x in v[1:]) or v[3] > v[1] + 0.2:
+            errs.append("fm invalid " + b)
+    print("  extra fm          %d institutions (BRIN4) | uitstroom for %d swv | derived VSO swv %d | boards %d" % (
+        len(ex["fm"]), sum(1 for v in ex["swv"].values() if v[1]), sum(1 for v in S.values() if v[3]), len(ex["boards"])))
+    if len(S) < 0.95 * len(allids) or sum(1 for v in S.values() if v[4] >= 0) < 0.99 * len(allids):
+        errs.append("extra coverage too low")
+    if ex.get("holidays_licence") != "CC0 1.0 Universal":
+        errs.append("holiday licence")
+    for y, rows in ex["holidays"].items():
+        for key, comp, rng in rows:
+            for a, b in rng:
+                if not (re.fullmatch(r"\d{4}-\d{2}-\d{2}", a) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", b) and a <= b):
+                    errs.append("holiday dates invalid %s %s" % (y, key))
+        if {r[0] for r in rows} != {"autumn", "christmas", "spring", "may", "summer"}:
+            errs.append("holiday set incomplete " + y)
+
+    I = ie["schools"]
+    c = collections.Counter(k for d in I.values() for k in d)
+    print("  inspectie_extra   lr %s | sw %s | sv %d | ex %d (of %d listed)" % (
+        pct(c["lr"], len(ids_po)), pct(c["sw"], len(ids_po)), c["sv"], c["ex"], ie["counts"]["ex_listed"]))
+    for i, d in I.items():
+        if i not in allids:
+            errs.append("inspectie_extra id unknown " + i)
+        if "lr" in d:
+            a1, a2, n3, s1, s2, o1, o2 = d["lr"]
+            if i not in ids_po or o1 not in (0, 1, 2, 3) or o2 not in (0, 1, 2, 3):
+                errs.append("lr invalid " + i)
+            for av, o in ((a1, o1), (a2, o2)):
+                if o in (0, 1) and av is None:
+                    errs.append("lr outcome without average " + i)
+                if av is not None and not 0 <= av <= 100:
+                    errs.append("lr range " + i)
+            if n3 is not None and n3 < 5 and (o1 in (0, 1) or o2 in (0, 1)):
+                errs.append("lr judged on fewer than 5 pupils " + i)
+        if "sw" in d and not 0 < d["sw"] < 100:
+            errs.append("sw range " + i)
+        if "sv" in d:
+            s_, v_, k = d["sv"]
+            if s_ < 0 or (v_ is not None and v_ < 0) or k < 1 or (v_ is not None and i not in ids_vo):
+                errs.append("sv invalid " + i)
+        if "ex" in d and not (isinstance(d["ex"][0], int) and 2020 <= d["ex"][0] <= 2026):
+            errs.append("ex invalid " + i)
+    if c["lr"] < 0.85 * len(ids_po):
+        errs.append("leerresultaten coverage too low")
+
+    for grp, g in cx["pupils"].items():
+        if not g["nat"] or g["nat"][2] < cx["min_n"] or len(g["prov"]) != len(cx["provinces"]):
+            errs.append("context pupils " + grp)
+        for pv in g["prov"]:
+            if pv is not None and pv[2] < cx["min_n"]:
+                errs.append("context province below min_n " + grp)
+    a = cx["advice"]["nat"]
+    if not a or abs(sum(a[2]) - 100) > 5:
+        errs.append("context advice shares")
+    for tr, g in cx["pass"].items():
+        if not 0 <= g["nat"][1] <= 100:
+            errs.append("context pass " + tr)
+    for key, m in cx["grades"].items():
+        for tr, g in m.items():
+            if not 1 <= g["nat"][0] <= 10:
+                errs.append("context grade %s %s" % (key, tr))
+    if errs:
+        print("\nGAP-CLOSING CHECK FAILURES:", len(errs))
+        for e in errs[:30]:
+            print("  ", e)
+        raise SystemExit(1)
+    print("\ngap-closing checks OK")
+
+
 def main():
     pc4 = load("pc4.json")
     for name in ("po", "vo"):
@@ -180,6 +333,7 @@ def main():
         if not hits:
             print(f, nm, city, "-> NO MATCH")
     check_detail()
+    check_extra()
 
 
 if __name__ == "__main__":

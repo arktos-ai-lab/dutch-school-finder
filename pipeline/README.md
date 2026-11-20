@@ -2,7 +2,7 @@
 
 Precomputes compact JSON for the static Schoollijn page. The browser only reads the files in `out/` (schools_po, schools_vo, pc4, meta, features); nothing is fetched at runtime.
 
-Allowed sources only: DUO Open Onderwijsdata, CBS, PDOK / Kadaster. Scholen op de kaart is not used (its terms forbid storage and text/data mining).
+Allowed sources only: DUO Open Onderwijsdata, CBS, PDOK / Kadaster, the Inspectie van het Onderwijs open data (CC0) and Rijksoverheid open data (school holidays, CC0). Scholen op de kaart is not used (its terms forbid storage and text/data mining).
 
 `out/features.json` adds association lists and school websites (steps 10 to 14, see below for sources and terms); those steps are not part of `build_all.py` because they need a long network crawl.
 
@@ -29,6 +29,11 @@ Always run with `-I` (isolated mode): the files in `raw/` are untrusted download
 | 16 | `16_build_detail_po.py` | `out/detail_po.json` |
 | 17 | `17_build_detail_vo.py` | `out/detail_vo.json` |
 | 18 | `18_build_inspection.py` | `out/inspection.json` |
+| 19 | `19_download_open_data.py` | New open files into `raw/` (Inspectie leerresultaten PO, schorsingen en verwijderingen, schoolweging PO, excellente scholen PDF; Rijksoverheid school holidays JSON; DUO functiemix and board files), MANIFEST entries, skips files present. Each file is written to `.part`, fsynced and renamed, the manifest is rewritten after every file (resumable), about 1 request per 2 s, retry with backoff, User-Agent `Arktos AI Lab research` (no address). Runs after step 15. |
+| 20 | `20_build_extra.py` | `out/extra.json` (telephone, board, samenwerkingsverband, holiday region, staff per school group, VSO leaving profiles per SWV, holiday dates) |
+| 21 | `21_build_detail_so.py` | `out/detail_so.json` (pupils per age for SO/VSO) |
+| 22 | `22_build_inspectie_extra.py` | `out/inspectie_extra.json` (leerresultaten PO, schoolweging, schorsingen en verwijderingen, excellente scholen). Needs `pdftotext` (poppler) once to turn the PDF into `raw/inspectie_excellente_scholen_2026.txt`; without it the excellent-school block is skipped. |
+| 23 | `23_build_context.py` | `out/context.json` (national and province averages) |
 | 9 | `09_validate.py` | Prints coverage, bounding-box and spot checks, plus coverage/consistency checks for the three detail files (exits non-zero on failure). Runs after step 8 in `build_all.py`. |
 
 Helpers: `xlsx.py` (stdlib .xlsx/.ods readers for DUO/Inspectie spreadsheets), `common.py` (paths, retrying HTTP, JSONL appender), `duo.py` (CSV parsers and cleaning), `geo.py` (coordinate fallback chain).
@@ -169,6 +174,82 @@ User-Agent `SchoollijnBot/0.1 (research; contact via site)`. robots.txt is obeye
 
 Acceptance rules for site flags: concept words (montessori, dalton, jenaplan, vrije school) need the term in a page title, heading or URL, or at least 3 times in running text (menus often list sibling schools); other flags need the term in a title, heading, URL, running text or a menu. A mention directly after "geen", "niet" or "zonder" is ignored. Acronyms (TTO, ISK, EOA) are case sensitive. Sites that fail on TLS certificate errors, DNS errors or HTTP errors are skipped and counted in `meta.json` (`features.site_crawl`).
 
+### Gap-closing additions (steps 16, 17 and 19 to 23, 2026-11-20)
+
+Added keys of `detail_po.json`:
+
+| Key | Meaning |
+|---|---|
+| `ag` | `[first index, [cells]]` pupils per age, 1 October 2025, from DUO "leerlingen po naar soort po, cluster en leeftijd" (`raw/so_leerlingen_2025-2026.csv`, BO and SBO rows). Index 0 = under 4, 1 to 21 = age 4 to 24, 22 = over 24 (`duo.AGE_LABELS`). `null` cell = `<5`. Leading and trailing zeros are cut. Covers 6312 of 6349 locations |
+
+Added keys of `detail_vo.json` (all from DUO files already in `raw/`):
+
+| Key | Meaning |
+|---|---|
+| `tj` | `{track: [first leerjaar, [cells]]}` pupils per leerjaar and track, 2025. A cell is a number, `[n, 1]` (lower bound: some cell of that year group was suppressed), or `null` (only suppressed cells). Leerjaar outside the range have no pupils. Same track mapping as `tp` (VMBO-GL/TL adds GL and TL rows) |
+| `pf` | `{HAVO\|VWO: [[year, [7 cells]]]}` profile choice: pupils in havo years 4 to 5 and vwo years 4 to 6 per profile, 2021 to 2025, cell encoding as in `tj`. The 7 profiles are in `years.profiles`: CM, EM, NG, NT, NT/NG (Nature and Technology with Nature and Health), EM/CM, other combinations. The DUO column AFDELING of the pupil files holds the profile; rows with different erkende opleidingscode (gymnasium and atheneum) are added up. A profile with no row counts as 0 |
+| `pp` | `{HAVO\|VWO: {profile: [[year, candidates, pass %]]}}` pass rate per profile from the DUO exam candidates file (`OPLEIDINGSNAAM` "HAVO - E&M"), last 2 exam years (`years.pp`), only rows with at least 5 exact candidates. Same rule as `pr` (the SLAAGPERC column is never used) |
+| `se`, `cl` | Same structure and rule as `ce` for the school-exam grade ("GEMIDDELD CIJFER SCHOOLEXAMEN") and the final-list grade ("GEMIDDELD CIJFER CIJFERLIJST") of the DUO "geslaagden, gezakten en cijfers" files. Rows with at least 5 exact candidates and a published mean, weighted by candidates, a trailing 1 = some rows left out. Kept for the last 3 exam years only (`years.se`) to limit the file size; `ce` keeps 5 |
+
+Check for #25 (profile choice): the DUO VO pupil files do have profile rows (column AFDELING for "HAVO lj 4-5" and "VWO lj 4-6", 2021 to 2025), so `pf` is built. VMBO sectors are not profiles and are not included.
+
+### detail_so.json
+Per BRIN6 of `schools_so.json`, key `ag`: `{"So": [first index, [cells]], "Vso": [...]}` pupils per age and type, same encoding as `ag` in detail_po. 595 of 639 locations have pupils.
+
+### extra.json
+`{v, generated, years, regions, schools, boards, swv, fm, holidays, holidays_licence}`. Loaded lazily for every profile and compare view.
+
+| Key | Meaning |
+|---|---|
+| `schools[BRIN6]` | `[tel, bg, swv, swvx, vr]`. `tel` = TELEFOONNUMMER of the vestiging in the DUO address files (public institutional data, shown on the profile; validated against a digits-and-separators pattern), or null. `bg` = bevoegd gezag number (DUO BEVOEGD GEZAG NUMMER) when the board has a name. `swv` = samenwerkingsverband code. `swvx` = 1 when `swv` is derived. `vr` = index into `regions` (DUO VAKANTIEREGIO, 100 % filled), -1 unknown |
+| `boards[bg]` | `[name, locations]`. Name from the DUO board address files (BO, SO, VO: `duo_besturen_*.csv`), locations = number of locations of the board in this site's school files (primary, special and secondary together) |
+| `swv[code]` | `[name \| null, leaving profile \| null]`. Names exist only for the 73 VO samenwerkingsverbanden (from the DUO VSO uitstroom file); the open files give PO SWV codes without names. `leaving profile` = `[dagbesteding, arbeidsmarkt, vervolgonderwijs, onbekend]` VSO pupils in 2025-2026 (`null` = `<5`), regional. The DUO total column is not used |
+| `fm[BRIN4]` | `[year, FTE total, FTE management, FTE teaching staff, FTE support staff, pupils per teaching FTE \| null]` from DUO "functiemix instellingen" (latest year per institution, 2023), school group level |
+| `holidays[schoolyear]` | `[[key, compulsory 0/1, [[start, end] noord, midden, zuid]]]` for 2025-2026 to 2027-2028 (Rijksoverheid, CC0). Keys: autumn, christmas, spring, may, summer. Dates are the UTC calendar dates of the source timestamps (start 00:00Z, end 21:59Z or 22:59Z = 23:59 Dutch time). "heel Nederland" rows are copied into all three regions. Autumn, spring and May holidays are advice dates (`compulsory` 0) |
+
+Samenwerkingsverband per school (#32): BO and SBO from DUO "leerlingen bo per vestiging" (SWV_VESTIGING, 76 PO codes), VO from the DUO VO pupil file (75 VO codes; 1445 of 1630 locations because the code comes with the pupil rows). SO and VSO locations have no SWV in any open file. For VSO locations only (and only so that the regional leaving profile can be shown), the VO SWV is derived when all VO schools in the same municipality share one SWV (400 of 528 VSO locations; `swvx` = 1). It is wrong where a municipality is split and no VO school exists to show it, so the front-end says it is derived. SO-only locations get none.
+
+Meaning of the DUO uitstroom file (#33): "uitstroomprofiel VSO" counts the VSO pupils per leaving profile they follow (the route they are prepared for: day activities, work, further education). It is not a count of where pupils ended up after leaving, and it is per samenwerkingsverband, not per school. The front-end labels it that way.
+
+Staff (#12): DUO publishes staff in open data only as "functiemix" (FTE per institution: management, teaching staff, support staff, pupil-teacher ratio, share of teachers per salary scale) and "personele bekostiging". Gender and age of staff are not in the open data catalogue (checked `onderwijsdata.duo.nl`, 2026-11-20), so only FTE and ratio are shown. The newest year is October 2023. Only fields whose names are unambiguous are used (total, `OMVANG_FORMATIE_MANAGER`, `_OP`, `_OOP_OBP`, `LEERLING_LERAAR_RATIO`); the master's-degree and salary-scale shares are left out because the DUO notes do not define them.
+
+### inspectie_extra.json
+`{v, generated, years, counts, schools}`; per BRIN6 (all keys optional). Page metadata of all four Inspectie data pages: DCTERMS.rights "CC0 1.0 Universal" (checked 2026-11-20).
+
+| Key | Meaning |
+|---|---|
+| `lr` | `[avg 1F %, avg 1S/2F %, pupils over 3 years, signal value 1F, signal value 1S/2F, outcome 1F, outcome 1S/2F]` from "Leerresultaten primair onderwijs 2024, 2025 en 2026" (columns "Gewogen driejaarsgemiddelde", "Signaleringswaarde", "Uitkomst indicator"). Outcome: 1 above the signal value, 0 below, 2 small school (judged over five years), 3 too little data. The averages are null for 2 and 3. One ODS row is an OVT (PO cluster of one or more locations, key like `00AP\|C1`); the OVT is mapped to locations through `BetrokkenVestigingen` of the oordelen file (5990 of 6349 PO and SBO locations) |
+| `sw` | schoolweging, 3-year mean of the CBS values 2022/23 to 2024/25 ("Driejaarsgemiddelde" sheet), same OVT rule. Higher = more pupils with disadvantages in the CBS model (parents' education, country of birth, mother's years in the Netherlands, debt restructuring). The signal values depend on it |
+| `sv` | `[suspensions, removals \| null, locations in the unit]` school year 2025-2026 from "Schorsingen en verwijderingen". Unit: PO cluster, SO onderwijskundige eenheid (both mapped to locations, `locations` = size of the unit), VO onderwijssoort within a vestiging (rows summed per vestiging). Suspensions of one day or less are not in the data. Removals are reported for VO only (null elsewhere). A school without an entry is "not listed in the Inspectie file"; the file lists units with reports. Nothing is suppressed in this file, but the numbers are small (a count of 1 is common) and shown as counts with a plain note, never as a rate |
+| `ex` | `[valid until year, school year range, (VO: afdelingen)]` from the Inspectie PDF "Overzicht scholen predicaat Excellente Scholen 2020 tot 1 juli 2026" (the only format offered), parsed with `pdftotext -layout`. The latest entry per OVT or VO vestiging. The predicaat is no longer awarded (announced April 2023; the 2023 to 2026 round was the last), so every entry has ended by 1 July 2026. 98 of 105 listed entries are matched to a location |
+
+Unit check for #11: the Inspectie's own explanation says the count is per object van toezicht, not per board, so it is attached to locations only through that unit and labelled as such.
+
+### context.json
+National and province averages for context next to a school's own figure. Never a rank, label, sort key or filter. A province value is published only with at least 5 contributing schools (`min_n`), else null. Computed in step 23 from this pipeline's own output, in the same way as the school's own figure (shown cells only; nothing recovered by subtraction).
+
+| Key | Meaning |
+|---|---|
+| `pupils` | `{po, sbo, so, vo: {nat, prov[12]}}`, each `[mean, median, n locations, n with a lower bound]`. Pupil totals as on the school pages, so suppressed groups count as zero and the real averages are a little higher |
+| `advice` | `{nat, prov[12], levels}`, each `[n schools, n leavers, [12 shares %]]` pooled over all BO schools with an advice row. Shares of the leavers in the shown cells, like a school's own bar, so rarer levels look rarer than they are |
+| `pass` | `{track: {year, nat, prov[12]}}`, each `[candidates, pass %, n schools]`, latest exam year |
+| `grades` | `{ce\|se\|cl: {track: {year, nat, prov[12]}}}`, each `[mean, candidates, n schools]` |
+| `rn` | `{lezen\|taal\|rekenen: {nat, prov[12]}}`, each `[% low level, % high level, tested pupils, n schools]` (not shown in the UI yet) |
+| `sw` | `{nat: [mean, median, n locations]}` schoolweging |
+
+### Licences of the step 19 files (checked 2026-11-20)
+
+| Source | Where the licence was read | Licence |
+|---|---|---|
+| Inspectie, leerresultaten primair onderwijs | `https://www.onderwijsinspectie.nl/trends-en-ontwikkelingen/onderwijsdata/leerresultaten-primair-onderwijs`, page metadata `DCTERMS.rights` | CC0 1.0 Universal (the page also says "zonder verdere voorwaarden aangeboden, anders dan een verplichte bronvermelding": we attribute) |
+| Inspectie, schorsingen en verwijderingen | `.../onderwijsdata/schorsingen-en-verwijderingen`, `DCTERMS.rights` | CC0 1.0 Universal. The Toelichting PDF itself states no licence |
+| Inspectie, schoolweging po | `.../onderwijsdata/schoolweging-po`, `DCTERMS.rights` | CC0 1.0 Universal |
+| Inspectie, excellente scholen | `.../onderwijsdata/excellente-scholen`, `DCTERMS.rights` | CC0 1.0 Universal (the page also asks for attribution: we attribute) |
+| Rijksoverheid, schoolvakanties | field `"license"` of the JSON from `https://opendata.rijksoverheid.nl/v1/infotypes/schoolholidays/schoolyear/<year>?output=json`; `https://data.overheid.nl/dataset/schoolvakantie-op-rijksoverheid-nl` | CC0 1.0 Universal. Step 20 stops if the field changes |
+| DUO functiemix, DUO bevoegde gezagen (BO, SO, VO) | `https://onderwijsdata.duo.nl` catalogue (`license_id` cc-by) | CC BY 4.0, attributed (as all DUO data here) |
+
+The Inspectie files rely on the page metadata (the same basis as the oordelen file in step 18); the files themselves state no licence. Source decision: all five sources were used.
+
 ## Licences
 
 - DUO Open Onderwijsdata: DUO states CC0 on its own site, the data catalogue labels the files CC BY 4.0. We treat everything as CC BY 4.0 and attribute.
@@ -177,7 +258,8 @@ Acceptance rules for site flags: concept words (montessori, dalton, jenaplan, vr
 
 ## Known gaps
 
-- Inspectie quality ratings are not included (the DUO copy is from 2018, a current open file was not found).
+- Inspectie quality ratings are in `inspection.json` (step 18); the old DUO copy from 2018 is not used.
+- Not available in open data (checked 2026-11-20): staff gender and age and specialisms per school; the name of PO samenwerkingsverbanden (codes only); the SWV of SO and VSO locations; where VSO pupils end up per school; the open-data excellent school list as a table (PDF only).
 - Features (tto, IB, concepts, international, newcomer, open days) are in `out/features.json` and are indications from lists and school websites, not official classifications; coverage is incomplete (see the match rates above) and open days go stale. Private international schools are mostly not in DUO and therefore not in the output (see `review/lists_unmatched.json`).
 - Primary schooladvies data is 2024/25 (latest DUO file); primary pupils are 2025/26.
 - DUO's primary pupil file lists about 87 BO locations that are not in the BO address file; they are skipped (no address).

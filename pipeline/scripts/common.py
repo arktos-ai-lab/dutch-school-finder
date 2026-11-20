@@ -9,7 +9,7 @@ OUT = os.path.join(DATA, "out")
 os.makedirs(RAW, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)
 
-UA = "Schoollijn-open-data-build/1.0 (static site data pipeline; DUO/CBS/PDOK open data)"
+UA = "Arktos AI Lab research"
 
 # Data years (single source of truth, echoed in out/meta.json)
 PO_PUPIL_FILE = "bo_leerlingen_2025-2026.csv"

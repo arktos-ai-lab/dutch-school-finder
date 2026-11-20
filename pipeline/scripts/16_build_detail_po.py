@@ -7,6 +7,8 @@ Fields per BRIN6 (all optional):
   lj  pupils per leerjaar 1-8, latest year: [8 values, null = suppressed cell] (cells are never recovered by subtraction)
   rn  referentieniveaus (doorstroomtoets, latest year): {"lezen":[%1F,%2F,n],"taal":[%1F,%2F,n],"rekenen":[%1F,%1S,n]}
   hv  heroverwegingen (latest year): [n_reconsidered, n_raised, n_leavers]
+  ag  pupils per age, 1 Oct 2025: [first index, [cells]] with index 0 = "under 4", 1..21 = age 4..24, 22 = "over 24" (duo.AGE_LABELS);
+      null cell = suppressed (<5); leading/trailing zeros cut. Source: DUO leerlingen po naar soort po, cluster en leeftijd
   at  advice mix per year, same encoding as `adv` in schools_po: [year, n, suppressed cells, [12 shares]]
 Suppression: "<5" / -1 / NA => null. Cells holding 1 to 4 in the older DUO files (published unsuppressed) are treated as
 suppressed in the advice mix so every year follows the current DUO rule. DUO totals (TOTAAL columns) are never used, so
@@ -100,6 +102,15 @@ def main():
             if any(v is not None for v in lj):
                 det[i]["lj"] = lj
 
+    # pupils per age (BO and SBO rows of the DUO age file)
+    for r in duo.read_csv_auto("so_leerlingen_2025-2026.csv"):
+        if r["SOORT_PO"].strip() not in ("Bo", "Sbo"):
+            continue
+        i = r["INSTELLINGSCODE"].strip() + r["VESTIGINGSCODE"].strip()
+        a = duo.age_series(r)
+        if i in det and a:
+            det[i]["ag"] = a
+
     # referentieniveaus. DUO gives mutually exclusive counts per level (lager dan 1F / 1F / 2F, rekenen 1F / 1S);
     # the output is the share of tested pupils who reached AT LEAST the level. TOTAAL "<5" => school omitted.
     for r in read_xlsx_dicts(os.path.join(RAW, RN_FILE)):
@@ -168,7 +179,7 @@ def main():
 
     schools = {i: d for i, d in sorted(det.items()) if d}
     out = {"v": 1, "generated": datetime.date.today().isoformat(),
-           "years": {"pupils": PUPIL_YEARS, "eindscore": ES_YEAR, "refniveau": RN_YEAR, "heroverweging": HV_YEAR, "dist": DIST_YEAR, "advice": sorted(ADV_FILES)},
+           "years": {"pupils": PUPIL_YEARS, "ages": "2025-2026", "eindscore": ES_YEAR, "refniveau": RN_YEAR, "heroverweging": HV_YEAR, "dist": DIST_YEAR, "advice": sorted(ADV_FILES)},
            "schools": schools}
     write_json_atomic(os.path.join(OUT, "detail_po.json"), out)
     print("detail_po.json schools:", len(schools), "of", len(ids))
