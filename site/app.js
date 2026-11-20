@@ -160,7 +160,7 @@ var U={
   route:function(){return BASE},
   routePc:function(pc){return BASE+'?pc='+pc},
   view:function(v,q){return v==='route'?BASE:BASE+(v==='faq'?'questions':v)+'/'+(q||'')},
-  school:function(id){var s=BYID[id];return BASE+'school/'+(s?schoolSlug(s):String(id).toLowerCase())+'/'},
+  school:function(id){var s=getS(id);return BASE+'school/'+(s?schoolSlug(s):String(id).toLowerCase())+'/'},
   muni:function(name){return BASE+'municipality/'+slugify(name)+'/'},
   faqItem:function(slug){return BASE+'questions/#'+slug},
   compare:function(ids){return BASE+'compare/?ids='+ids.join(',')},
@@ -340,6 +340,7 @@ function ensureData(){if(DB.status==='idle')loadData()}
 function denLabel(nl){var m=tv('den');return (m&&m[nl])||t('den.other')}
 function applyDen(){
   [DB.po,DB.vo,DB.so].forEach(function(l){if(l)l.forEach(function(o){o.denT=denLabel(o.denNl)})});
+  Object.keys(SHS).forEach(function(k){SHS[k].denT=denLabel(SHS[k].denNl)});
 }
 function mapRows(j,extra){
   var cols=j.cols,out=new Array(j.rows.length),i,r,o,c;
@@ -394,7 +395,7 @@ function featSrcName(url,kind){
 }
 /* only high and medium confidence; low is never shown */
 function featList(id){
-  var f=DB.feat&&DB.feat.schools&&DB.feat.schools[id],out=[];
+  var f=featOf(id),out=[];
   if(!f||!Array.isArray(f.flags))return out;
   FT_ORDER.forEach(function(k){
     if(f.flags.indexOf(k)<0)return;
@@ -425,7 +426,7 @@ function todayStart(){var d=new Date();return new Date(d.getFullYear(),d.getMont
 function odDate(iso){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);return m?new Date(+m[1],+m[2]-1,+m[3]):null}
 /* next open day on or after today in the viewer's time zone; past dates are never returned */
 function nextOpen(id){
-  var f=DB.feat&&DB.feat.schools&&DB.feat.schools[id];if(!f||!Array.isArray(f.open_days))return null;
+  var f=featOf(id);if(!f||!Array.isArray(f.open_days))return null;
   var td=todayStart(),best=null,bd=null;
   f.open_days.forEach(function(o){
     var d=odDate(o.date);if(!d||d<td)return;
@@ -1038,7 +1039,7 @@ function renderSources(){
     dt.appendChild(h('p',{text:t('sources.dataline',{built:DB.meta.generated||'',pupils:dataYear('po_pupils').date,advice:dataYear('po_advice').range,exams:dataYear('vo_exams').range})}));
   }
   var at=h('ul',{class:'srclist'});
-  if(DB.feat){
+  {
     var li=h('li',null,[t('attr.feat.lead')+' ']);
     FEAT_ATTR.forEach(function(a,i){
       if(i)li.appendChild(document.createTextNode(', '));
@@ -1421,7 +1422,8 @@ function cmpToggle(s){
   else{
     if(CMP.length>=4){CMSG=t('cmp.max')}
     else{
-      var g=CMP.length?BYID[CMP[0]]:null;
+      var g=CMP.length?getS(CMP[0]):null;
+      if(CMP.length&&!g){loadDetail([CMP[0]])[0].then(function(){if(getS(CMP[0]))cmpToggle(s)});return}
       if(g&&grpOf(g)!==grpOf(s))CMSG=t({vo:'cmp.mixedVo',so:'cmp.mixedSo',po:'cmp.mixedPo'}[grpOf(g)]);
       else{CMP.push(s.id);say(t('cmp.added',{name:s.name}))}
     }
@@ -1441,7 +1443,7 @@ function cmpLabel(b,s){
 }
 function syncCmp(){
   var bs=document.querySelectorAll('button[data-cmp]'),i,s;
-  for(i=0;i<bs.length;i++){s=BYID[bs[i].getAttribute('data-cmp')];if(s)cmpLabel(bs[i],s)}
+  for(i=0;i<bs.length;i++){s=getS(bs[i].getAttribute('data-cmp'));if(s)cmpLabel(bs[i],s)}
   renderCbar();
 }
 function renderCbar(){
@@ -1458,12 +1460,15 @@ function renderCbar(){
   bar.appendChild(h('div',{class:'in'},[left,acts]));
 }
 
-/* ---------- lazy detail files ---------- */
-/* inspection.json (about 1.5 MB) and detail_po/vo.json (about 3 MB) are fetched only when a profile, compare
-   view or the sources tab needs them, once per visit. DET.st[key] is 'loading', 'ok' or 'fail' (a failed file is retried on the next visit). */
+/* ---------- lazy per-school data ---------- */
+/* A profile or compare view fetches data/common.json (once, about 3 KB) and the shard data/s/<first 3 characters of the school code>.json
+   of each school it shows (a few KB to tens of KB each): detail, inspection, extra, inspectie_extra, features and the nearest schools.
+   The big index (schools_*, pc4) is not needed for that. DET.st[key] is 'loading', 'ok' or 'fail' (a failed fetch is retried on the next visit). */
 var DET={po:null,vo:null,so:null,insp:null,extra:null,ix:null,ctx:null,p:{},st:{}};
 /* optional files: a profile is complete without them, a failed one only hides its blocks */
 var OPT_DET=['extra','ix','ctx'];
+var DET_KEYS=['po','vo','so','insp','extra','ix'];
+var PCN={},COMMON_P=null,META_P=null,SHP={},SHL={},SHS={},SHN={},SHF={},FEAT_GEN='';
 function loadJson(key,url){
   if(DET.p[key])return DET.p[key];
   DET.st[key]='loading';
@@ -1474,13 +1479,79 @@ function loadJson(key,url){
   }).catch(function(){DET[key]=null;DET.st[key]='fail';delete DET.p[key];return null});
   return DET.p[key];
 }
-/* one promise per file, so a profile can redraw as soon as either file is in */
-function loadDetail(grp){
-  var a=[];
-  if(grp==='po'||grp==='vo')a.push(loadJson(grp,BASE+'data/detail_'+grp+'.json'));
-  a.push(loadJson('insp',BASE+'data/inspection.json'));
-  if(grp==='so')a.push(loadJson('so',BASE+'data/detail_so.json'));
-  a.push(loadJson('extra',BASE+'data/extra.json'),loadJson('ix',BASE+'data/inspectie_extra.json'),loadJson('ctx',BASE+'data/context.json'));
+function loadCommon(){
+  if(COMMON_P)return COMMON_P;
+  COMMON_P=fetch(BASE+'data/common.json').then(function(r){if(!r.ok)throw new Error('common');return r.json()}).then(function(c){
+    if(!c||!c.det||!c.insp||!c.extra||!c.ix)throw new Error('common');
+    ['po','vo','so'].forEach(function(g){var o=c.det[g]||{};o.schools={};DET[g]=o});
+    c.insp.schools={};DET.insp=c.insp;
+    c.extra.schools={};c.extra.boards={};c.extra.swv={};c.extra.fm={};DET.extra=c.extra;
+    c.ix.schools={};DET.ix=c.ix;
+    FEAT_GEN=(c.feat&&c.feat.generated)||'';
+    return true;
+  }).catch(function(){COMMON_P=null;return false});
+  return COMMON_P;
+}
+function loadMeta(){
+  if(DB.meta)return Promise.resolve(true);
+  if(!META_P)META_P=fetch(BASE+'data/meta.json').then(function(r){if(!r.ok)throw new Error('meta');return r.json()}).then(function(j){if(!DB.meta)DB.meta=j;return true}).catch(function(){META_P=null;return false});
+  return META_P;
+}
+function shardKey(id){return String(id).slice(0,3).toLowerCase()}
+/* a school as the index would hold it, built from its shard row */
+function mkSchool(r){
+  var o={},k;
+  for(k in r){if(Object.prototype.hasOwnProperty.call(r,k))o[k]=r[k]}
+  o.denT=denLabel(o.denNl);o.latR=o.lat*Math.PI/180;o.cosL=Math.cos(o.latR);
+  if(o.sec==='vo'){
+    if(!o.tracks&&o.st){o.fb=1;var tt=String(o.st).split('/'),m=0;tt.forEach(function(x){m|=ST_BITS[x]||0});o.tracks=m}
+    o.isk=/\bISK\b|schakelklas|internationale schakel/i.test(o.name)||o.st==='BRUGJAAR';
+  }
+  if(o.sec==='so')o.cll=Array.isArray(o.cls)&&o.cls.length?o.cls:(o.cl!=null?[o.cl]:[]);
+  return o;
+}
+function mergeShard(j){
+  Object.keys(j.s).forEach(function(id){
+    var o=j.s[id],r=o.r,g=r.sec==='vo'?'vo':r.sec==='so'?'so':'po';
+    if(o.d)DET[g].schools[id]=o.d;
+    if(o.n)DET.insp.schools[id]=o.n;
+    if(o.x)DET.extra.schools[id]=o.x;
+    if(o.i)DET.ix.schools[id]=o.i;
+    if(o.f)SHF[id]=o.f;
+    if(o.nb)SHN[id]=o.nb;
+    SHS[id]=mkSchool(r);
+  });
+  [['b','boards'],['w','swv'],['m','fm']].forEach(function(p){
+    var src=j[p[0]];if(src)Object.keys(src).forEach(function(k){DET.extra[p[1]][k]=src[k]});
+  });
+  if(j.p)Object.keys(j.p).forEach(function(k){PCN[k]=j.p[k]});
+}
+function loadShard(k){
+  if(SHL[k])return Promise.resolve(true);
+  if(SHP[k])return SHP[k];
+  SHP[k]=Promise.all([fetch(BASE+'data/s/'+k+'.json').then(function(r){if(!r.ok)throw new Error(k);return r.json()}),loadCommon()]).then(function(a){
+    if(!a[1]||!a[0]||!a[0].s)throw new Error(k);
+    mergeShard(a[0]);SHL[k]=1;delete SHP[k];return true;
+  }).catch(function(){delete SHP[k];return false});
+  return SHP[k];
+}
+function getS(id){return BYID[id]||SHS[id]||null}
+function featOf(id){var f=DB.feat&&DB.feat.schools&&DB.feat.schools[id];return f||SHF[id]||null}
+function featGen(){return DB.feat&&DB.feat.generated?DB.feat.generated:FEAT_GEN}
+/* everything a profile or compare view of these school codes needs; the array holds promises that never reject */
+function loadDetail(ids){
+  var keys=[];
+  ids.forEach(function(id){var k=shardKey(id);if(isId(id)&&keys.indexOf(k)<0)keys.push(k)});
+  var need=!DET.insp||keys.some(function(k){return !SHL[k]}),a=[];
+  if(need){
+    DET_KEYS.forEach(function(k){DET.st[k]='loading'});
+    a.push(Promise.all([loadCommon(),loadMeta()].concat(keys.map(loadShard))).then(function(r){
+      var ok=r[0]&&keys.every(function(k){return SHL[k]});
+      DET_KEYS.forEach(function(k){DET.st[k]=ok?'ok':'fail'});
+      return ok;
+    }));
+  }else a.push(Promise.resolve(true));
+  a.push(loadJson('ctx',BASE+'data/context.json'));
   return a;
 }
 function detSig(grp){return (grp==='so'?DET.st.so||'-':DET.st[grp]||'-')+'|'+(DET.st.insp||'-')+'|'+OPT_DET.map(function(k){return DET.st[k]||'-'}).join('')}
@@ -1839,7 +1910,7 @@ function catchSection(s,d){
   var ul=h('ul',{class:'pcl'});
   d.cm.slice(0,12).forEach(function(e){
     if(!Array.isArray(e)||!/^[1-9]\d{3}$/.test(String(e[0])))return;
-    var pc=String(e[0]),nm=DB.pc4&&DB.pc4[pc]?DB.pc4[pc][2]:'';
+    var pc=String(e[0]),nm=DB.pc4&&DB.pc4[pc]?DB.pc4[pc][2]:(PCN[pc]||'');
     ul.appendChild(h('li',null,h('a',{href:U.routePc(pc)},[pc+(nm?' '+nm:''),' ',h('small',{text:e[1]==null?t('val.fewer5'):(e[2]?t('unit.pupilsAtLeast',{n:e[1]}):t('unit.pupils',{n:e[1]}))})])));
   });
   var kids=[ul];
@@ -2403,7 +2474,7 @@ function inspSection(s){
   return psec(t('prof.insp.title'),t('prof.insp.expl'),kids,null);
 }
 function openDaysSection(s){
-  var f=DB.feat&&DB.feat.schools&&DB.feat.schools[s.id],td=todayStart(),list=[];
+  var f=featOf(s.id),td=todayStart(),list=[];
   if(f&&Array.isArray(f.open_days))f.open_days.forEach(function(o){var d=odDate(o.date);if(d&&d>=td)list.push({o:o,d:d})});
   list.sort(function(a,b){return a.d-b.d});
   var kids=[];
@@ -2422,15 +2493,16 @@ function openDaysSection(s){
   }
   var w=safeWeb(s.web);
   if(w)kids.push(h('p',null,[t('prof.od.check')+' ',h('a',{href:w,target:'_blank',rel:'noopener',text:t('prof.od.siteLink')}),'.']));
-  return psec(t('prof.od.title'),t('prof.od.expl'),kids,t('prof.od.src')+(DB.feat&&DB.feat.generated?t('prof.od.collected',{date:String(DB.feat.generated).slice(0,10)}):'')+'.');
+  return psec(t('prof.od.title'),t('prof.od.expl'),kids,t('prof.od.src')+(featGen()?t('prof.od.collected',{date:String(featGen()).slice(0,10)}):'')+'.');
 }
 function nearbySection(s){
   if(s.g===3||s.lat==null)return null;
-  var found=nearest(ALL,[s.lat,s.lon],function(x){return x.sec===s.sec&&x.id!==s.id}).slice(0,5);
+  /* the five nearest are in the school's own shard (same rule as the prerendered page); the index is only the fallback */
+  var found=SHN[s.id]?SHN[s.id].map(function(x){return {s:{id:x[0],name:x[1],city:x[2],denT:denLabel(x[3])},d:x[4]}}):nearest(ALL,[s.lat,s.lon],function(x){return x.sec===s.sec&&x.id!==s.id}).slice(0,5);
   if(!found.length)return null;
   var ul=h('ul',{class:'nb-list'});
   found.forEach(function(r){
-    ul.appendChild(h('li',null,[h('div',{class:'nbn'},[h('a',{href:U.school(r.s.id),text:r.s.name}),h('div',{class:'note',style:'margin:0',text:[r.s.city,r.s.denT].filter(Boolean).join(' · ')})]),h('span',{class:'d',text:kmStr(r.d)})]));
+    ul.appendChild(h('li',null,[h('div',{class:'nbn'},[h('a',{href:BASE+'school/'+schoolSlug(r.s)+'/',text:r.s.name}),h('div',{class:'note',style:'margin:0',text:[r.s.city,r.s.denT].filter(Boolean).join(' · ')})]),h('span',{class:'d',text:kmStr(r.d)})]));
   });
   return psec(t('prof.nb.title.'+s.sec),t('prof.nb.expl'),[ul],t('prof.nb.src'));
 }
@@ -2443,13 +2515,33 @@ function crumbs(items){
   });
   return h('nav',{class:'crumbs','aria-label':t('crumb.aria')},ol);
 }
+var SCH_WAIT={},SCH_FAIL={};
+/* replace the children of parent by kids; with reuse an existing child whose markup is identical stays (no redraw, no layout shift).
+   Anything holding a control is always the new node, because only the new node has its event handlers. */
+function patchKids(parent,kids,reuse){
+  if(reuse){
+    var old=Array.prototype.slice.call(parent.children),used=[];
+    kids=kids.map(function(k){
+      if(k.nodeType!==1||k.querySelector('button,input,select,textarea'))return k;
+      for(var i=0;i<old.length;i++){if(!used[i]&&old[i].tagName===k.tagName&&old[i].outerHTML===k.outerHTML){used[i]=1;return old[i]}}
+      return k;
+    });
+  }
+  parent.replaceChildren.apply(parent,kids);
+}
 function renderSchool(id){
-  var out=$('school-out'),hold=out.getAttribute('data-static')===id;
-  ensureData();
-  /* a prerendered profile stays on screen until the data is in (and for good if the data fails to load) */
-  if(hold){if(DB.status!=='ready')return}
-  else if(!viewGate(out))return;
-  var s=BYID[id];
+  var out=$('school-out'),hold=out.getAttribute('data-static')===id,s=getS(id);
+  /* the school's own shard (not the index) supplies the row; a prerendered profile stays on screen until it is in (and for good if it fails to load) */
+  if(!s&&isId(id)&&!SCH_FAIL[id]&&!SCH_WAIT[id]){
+    SCH_WAIT[id]=1;
+    if(!hold){clear(out);out.appendChild(loadingBox())}
+    Promise.all(loadDetail([id])).then(function(){
+      delete SCH_WAIT[id];if(!getS(id))SCH_FAIL[id]=1;
+      if(VIEW==='school'&&CUR_ID===id)renderSchool(id);
+    });
+    return;
+  }
+  if(!s&&(hold||SCH_WAIT[id]))return;
   if(!s||!hold)clear(out);
   if(!s){
     out.removeAttribute('data-static');
@@ -2458,19 +2550,20 @@ function renderSchool(id){
     document.title=t('title.schoolNotFound');
     return;
   }
-  document.title=schoolTitle(s);
+  document.title=SHS[id]&&SHS[id].tt?SHS[id].tt:schoolTitle(s);
   var want=U.school(id);
   if(location.pathname!==want)replaceUrl(want+location.search+location.hash);
-  var grp=grpOf(s),ps=loadDetail(grp),last='';
+  var grp=grpOf(s),ps=loadDetail([id]),last='';
   if(hold){
-    Promise.all(ps).then(function(){if(VIEW==='school'&&CUR_ID===id&&out.getAttribute('data-static')===id){out.removeAttribute('data-static');build()}});
+    Promise.all(ps).then(function(){if(VIEW==='school'&&CUR_ID===id&&out.getAttribute('data-static')===id){out.removeAttribute('data-static');build(true)}});
   }else{
     build();
     ps.forEach(function(p){p.then(function(){if(VIEW==='school'&&CUR_ID===id&&detSig(grp)!==last)build()})});
   }
-  function build(){
+  /* reuse=true on the first build of a prerendered page: blocks that are already identical stay in the DOM, only what is new is added */
+  function build(reuse){
     var d=detOf(s),sc=window.pageYOffset;last=detSig(grp);
-    clear(out);
+    var kids=[];
     var ph=h('div',{class:'phead'});
     var cr=[[t('crumb.home'),U.route()]];
     if(s.mun)cr.push([s.mun,U.muni(s.mun)]);
@@ -2489,7 +2582,7 @@ function renderSchool(id){
     ph.appendChild(lk);
     ph.appendChild(h('div',{class:'rowact'},cmpBtn(s)));
     if(s.g>0&&s.g<3)ph.appendChild(h('p',{class:'note',text:t('school.approx')}));
-    out.appendChild(ph);
+    kids.push(ph);
     var secs=[pupilsSection(s,d)];
     if(s.sec==='so')secs.push(soSection(s));
     else if(s.sec==='vo'){secs.push(levelsSection(s,d));secs.push(profileSection(s,d));secs.push(passSection(s,d));secs.push(gradesSection(s,d));secs.push(zbSection(s,d));secs.push(ovSection(s,d));secs.push(opSection(s,d));secs.push(catchSection(s,d))}
@@ -2498,11 +2591,12 @@ function renderSchool(id){
     secs.push(contactSection(s));secs.push(staffSection(s));secs.push(holidaySection(s));
     secs.push(inspSection(s));secs.push(lrSection(s));secs.push(svSection(s));secs.push(exSection(s));
     secs.push(openDaysSection(s));secs.push(nearbySection(s));
-    var dn=grp==='so'?null:detNote(grp);if(dn)out.appendChild(dn);
-    var grid=h('div',{class:'pgrid'});
-    secs.forEach(function(x){if(x)grid.appendChild(x)});
-    out.appendChild(grid);
-    out.appendChild(h('p',{class:'note',text:t('school.note')}));
+    var dn=grp==='so'?null:detNote(grp);if(dn)kids.push(dn);
+    var og=reuse?out.querySelector('.pgrid'):null,grid=og||h('div',{class:'pgrid'});
+    patchKids(grid,secs.filter(Boolean),!!og);
+    kids.push(grid);
+    kids.push(h('p',{class:'note',text:t('school.note')}));
+    patchKids(out,kids,!!reuse);
     syncCmp();
     window.scrollTo(0,sc);
   }
@@ -2708,26 +2802,36 @@ function compareRows(grp,schools){
   if(grp!=='so')R('od','odSm',function(s){return openLine(s)||t('cmp.noOd')});
   return rows;
 }
+var CMP_FAIL={};
 function renderCompare(ids){
   var out=$('compare-out');
-  if(!viewGate(out))return;
+  /* the schools come from their shards, not the index */
+  var want=(ids.length?ids:CMP).map(function(x){return String(x).toUpperCase()}).filter(function(x,i,a){return isId(x)&&a.indexOf(x)===i}).slice(0,8);
+  if(want.some(function(x){return !getS(x)})&&!CMP_FAIL[want.join()]){
+    clear(out);out.appendChild(loadingBox());
+    Promise.all(loadDetail(want)).then(function(){
+      if(want.some(function(x){return !getS(x)}))CMP_FAIL[want.join()]=1;
+      if(VIEW==='compare')renderCompare(CUR_IDS);
+    });
+    return;
+  }
   var list=[];
   ids.forEach(function(x){
     x=String(x).toUpperCase();
-    if(!isId(x)||!BYID[x]||list.indexOf(x)>-1)return;
-    if(list.length&&grpOf(BYID[list[0]])!==grpOf(BYID[x]))return;
+    if(!isId(x)||!getS(x)||list.indexOf(x)>-1)return;
+    if(list.length&&grpOf(getS(list[0]))!==grpOf(getS(x)))return;
     if(list.length<4)list.push(x);
   });
   if(ids.length&&(list.join()!==CMP.join())){CMP=list;saveCmp()}
-  if(!ids.length)list=CMP.slice();
+  if(!ids.length)list=CMP.filter(function(x){return getS(x)});
   clear(out);
   if(list.length<1){
     out.appendChild(h('p',null,[t('cmp.nothing')+' ',h('a',{href:U.view('find'),text:t('cmp.findLink')}),' '+t('cmp.nothing2')]));
     renderCbar();return;
   }
-  var grp=grpOf(BYID[list[0]]);
-  var schools=list.map(function(id){return BYID[id]});
-  var ps=loadDetail(grp),last='';
+  var grp=grpOf(getS(list[0]));
+  var schools=list.map(function(id){return getS(id)});
+  var ps=loadDetail(list),last='';
   build();
   ps.forEach(function(p){p.then(function(){if(VIEW==='compare'&&detSig(grp)!==last)build()})});
   function build(){
@@ -2870,8 +2974,8 @@ function router(keep){
   FIRST=false;
   if(v==='faq')faqFocus(location.hash.slice(1));
   if(v==='sources'&&!$('sources-out').firstChild){
-    ensureData();renderSources();
-    if(!DET.insp)loadJson('insp',BASE+'data/inspection.json').then(function(j){if(j&&VIEW==='sources')renderSources()});
+    renderSources();
+    Promise.all([loadMeta(),loadCommon()]).then(function(){if(VIEW==='sources')renderSources()});
   }
 }
 

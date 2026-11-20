@@ -25,6 +25,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA = ROOT / "pipeline" / "out"
 
+# per-school files that the build splits into small shards (data/s/<first 3 chars of the BRIN6 id>.json)
+SHARDED = {"detail_po.json", "detail_vo.json", "detail_so.json", "extra.json", "inspectie_extra.json", "inspection.json"}
+
 # ---------------------------------------------------------------- small helpers
 
 
@@ -163,6 +166,7 @@ def load_schools():
         cols = j["cols"]
         for row in j["rows"]:
             r = dict(zip(cols, row))
+            r["_raw"] = dict(r)
             r["sec"] = sec_of(r)
             r["denNl"] = j["den"][r["den"]] if r.get("den") is not None and r["den"] >= 0 else ""
             r["provN"] = j["prov"][r["prov"]] if r.get("prov") is not None and 0 <= r["prov"] < len(j["prov"]) else ""
@@ -243,6 +247,10 @@ class Build:
         self.feat = jload(DATA / "features.json")
         self.det_vo = jload(DATA / "detail_vo.json")
         self.det_po = jload(DATA / "detail_po.json")
+        self.det_so = jload(DATA / "detail_so.json")
+        self.extra = jload(DATA / "extra.json")
+        self.ixd = jload(DATA / "inspectie_extra.json")
+        self.pc4 = jload(DATA / "pc4.json")
         self.schools = load_schools()
         self.tcount = {}
         for s in self.schools:
@@ -1122,6 +1130,64 @@ class Build:
             self.write(rel, self.page(page))
             self.sitemap["municipalities"].append(rel)
 
+    # ------------------------------------------------------------ per-school data shards
+    def write_shards(self, near, titles):
+        """data/common.json (what every profile needs once) and data/s/<id[:3]>.json (all per-school data of up to ~60 schools).
+
+        A school page or a compare view fetches common.json and the shards of the schools it shows, nothing else.
+        Same per-school shapes as the pipeline files: d detail (po/vo/so), n inspection, x extra row, i inspectie_extra,
+        f features, r the index row, nb the five nearest schools of the same type."""
+        def top(j, drop=("schools",)):
+            return {k: v for k, v in j.items() if k not in drop}
+
+        det_of = {"po": self.det_po, "vo": self.det_vo, "so": self.det_so}
+        common = {
+            "v": 1,
+            "det": {g: top(j) for g, j in det_of.items()},
+            "extra": top(self.extra, ("schools", "boards", "swv", "fm")),
+            "ix": top(self.ixd),
+            "insp": top(self.insp),
+            "feat": {"generated": self.feat.get("generated")},
+        }
+        self.write_text("data/common.json", json.dumps(common, ensure_ascii=False, separators=(",", ":")))
+        shards = {}
+        for s in self.schools:
+            sid = s["id"]
+            grp = "vo" if s["sec"] == "vo" else "so" if s["sec"] == "so" else "po"
+            r = {k: v for k, v in s["_raw"].items() if v is not None and k != "den"}
+            r["sec"] = s["sec"]
+            r["denNl"] = s["denNl"]
+            r["tt"] = titles[sid]
+            o = {"r": r}
+            d = det_of[grp]["schools"].get(sid)
+            if d is not None:
+                o["d"] = d
+            for key, src in (("n", self.insp["schools"]), ("x", self.extra["schools"]), ("i", self.ixd["schools"]), ("f", self.feat["schools"])):
+                if sid in src:
+                    o[key] = src[sid]
+            nb = near.get(sid)
+            if nb:
+                o["nb"] = [[x["id"], x["name"], x["city"], x["denNl"], round(d_, 3)] for x, d_ in nb]
+            sh = shards.setdefault(sid[:3].lower(), {"v": 1, "s": {}, "b": {}, "w": {}, "m": {}, "p": {}})
+            sh["s"][sid] = o
+            for e_ in (d or {}).get("cm") or []:
+                if isinstance(e_, list) and str(e_[0]) in self.pc4 and len(sh["p"]) < 100000:
+                    sh["p"][str(e_[0])] = self.pc4[str(e_[0])][2]
+            x = o.get("x")
+            if x:
+                if x[1] and x[1] in self.extra["boards"]:
+                    sh["b"][x[1]] = self.extra["boards"][x[1]]
+                if x[2] and x[2] in self.extra["swv"]:
+                    sh["w"][x[2]] = self.extra["swv"][x[2]]
+            if sid[:4] in self.extra["fm"]:
+                sh["m"][sid[:4]] = self.extra["fm"][sid[:4]]
+        for k, sh in sorted(shards.items()):
+            for a in ("b", "w", "m", "p"):
+                if not sh[a]:
+                    del sh[a]
+            self.write_text(f"data/s/{k}.json", json.dumps(sh, ensure_ascii=False, separators=(",", ":")))
+        self.n_shards = len(shards)
+
     # ------------------------------------------------------------ misc files
     def write_text(self, rel, txt):
         p = self.out / rel
@@ -1184,6 +1250,8 @@ class Build:
             shutil.copy2(f, out / "i18n" / f.name)
         (out / "data").mkdir()
         for f in DATA.glob("*.json"):
+            if f.name in SHARDED:
+                continue
             shutil.copy2(f, out / "data" / f.name)
         (out / ".nojekyll").write_text("", encoding="utf8")
         if (SITE / "CNAME").is_file():
@@ -1252,10 +1320,13 @@ class Build:
         # municipality pages, schools
         self.muni_pages(by_mun)
         near = nearest_same_type(self.schools)
+        titles = {}
         for s in self.schools:
             p = self.school_page(s, near.get(s["id"], []))
             self.write(p["rel"], self.page(p))
             self.sitemap["schools"].append(p["rel"])
+            titles[s["id"]] = p["title"]
+        self.write_shards(near, titles)
         self.sitemaps()
         return self.pages
 

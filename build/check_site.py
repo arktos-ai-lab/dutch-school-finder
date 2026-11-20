@@ -6,6 +6,7 @@
 Exit code 1 when anything is wrong. Stdlib only.
 """
 import argparse
+import gzip
 import json
 import re
 import sys
@@ -135,6 +136,39 @@ def main():
             return rel + "index.html" in files
         return rel in files or rel + "/index.html" in files
 
+    # data shards: every school page must find its school in data/s/<first 3 chars>.json, and no shard may grow big
+    shard_cache = {}
+    n_shard_checked = 0
+    common = site / "data" / "common.json"
+    if not common.is_file():
+        problems.append("data/common.json missing")
+    else:
+        try:
+            cj = json.loads(common.read_text(encoding="utf8"))
+            for k in ("det", "extra", "ix", "insp"):
+                if k not in cj:
+                    problems.append(f"data/common.json: no {k}")
+        except Exception as ex:  # noqa
+            problems.append(f"data/common.json invalid {ex}")
+    shard_files = sorted((site / "data" / "s").glob("*.json"))
+    if not shard_files:
+        problems.append("no data/s/*.json shards")
+    biggest = 0
+    for sf in shard_files:
+        biggest = max(biggest, len(gzip.compress(sf.read_bytes(), 6)))
+    if biggest > 60000:
+        problems.append(f"largest shard is {biggest} bytes gzip (limit 60000)")
+    for big in ("detail_po.json", "detail_vo.json", "detail_so.json", "extra.json", "inspectie_extra.json", "inspection.json"):
+        if (site / "data" / big).exists():
+            problems.append(f"data/{big} should be sharded, not deployed")
+
+    def shard_of(sid):
+        k = sid[:3].lower()
+        if k not in shard_cache:
+            fp = site / "data" / "s" / f"{k}.json"
+            shard_cache[k] = json.loads(fp.read_text(encoding="utf8")) if fp.is_file() else None
+        return shard_cache[k]
+
     sc = 0
     for f in sorted(site.rglob("*.html")):
         rel = f.relative_to(site).as_posix()
@@ -143,6 +177,19 @@ def main():
             if sc % a.sample:
                 continue
         page = "/" + rel
+        if rel.startswith("school/"):
+            sid = rel.split("/")[1][:6].upper()
+            sh = shard_of(sid)
+            n_shard_checked += 1
+            if not sh or sid not in sh["s"]:
+                problems.append(f"{rel}: not in shard data/s/{sid[:3].lower()}.json")
+            else:
+                o = sh["s"][sid]
+                if o["r"]["id"] != sid or not o["r"].get("tt"):
+                    problems.append(f"{rel}: shard row wrong")
+                for nid in [x[0] for x in o.get("nb", [])]:
+                    if shard_of(nid) is None or nid not in shard_of(nid)["s"]:
+                        problems.append(f"{rel}: nearby {nid} has no shard entry")
         n_pages += 1
         p = P()
         try:
@@ -296,6 +343,7 @@ def main():
     print(f"pages {n_pages}, links checked {n_links}, broken {broken}, json-ld blocks {n_ld}, sitemaps {smaps} ({smurls} urls)")
     print(f"noindex pages {stats['noindex']}, robots meta wrong {stats['robots_bad']}, descriptions outside 150-160: {stats['desc_out']}")
     print(f"robots.txt sitemap line: {has_sm}")
+    print(f"shards {len(shard_files)} (largest {biggest} bytes gzip), school pages matched to a shard {n_shard_checked}")
     if problems:
         print(f"{len(problems)} problems:")
         for x in problems[:60]:
