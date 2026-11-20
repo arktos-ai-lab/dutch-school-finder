@@ -172,6 +172,9 @@ def main():
             shard_cache[k] = json.loads(fp.read_text(encoding="utf8")) if fp.is_file() else None
         return shard_cache[k]
 
+    sm_pages = (site / "sitemap-pages.xml").read_text(encoding="utf8") if (site / "sitemap-pages.xml").is_file() else ""
+    faq_index_html = (site / "questions" / "index.html").read_text(encoding="utf8")
+    qn = inn = 0
     sc = 0
     for f in sorted(site.rglob("*.html")):
         rel = f.relative_to(site).as_posix()
@@ -275,6 +278,51 @@ def main():
             alt = p.links.get("alternate", [])
             if not any(x.get("hreflang") == "x-default" for x in alt):
                 problems.append(f"{rel}: no x-default hreflang")
+        # question pages and international pages
+        types = []
+        for raw in p.jsonld:
+            try:
+                types.append(json.loads(raw).get("@type"))
+            except Exception:  # noqa
+                pass
+        if rel.startswith("questions/") and rel != "questions/index.html":
+            qn += 1
+            if "FAQPage" not in types or "BreadcrumbList" not in types:
+                problems.append(f"{rel}: question page needs FAQPage and BreadcrumbList, has {types}")
+            for raw in p.jsonld:
+                j = json.loads(raw)
+                if j.get("@type") == "FAQPage" and len(j.get("mainEntity", [])) != 1:
+                    problems.append(f"{rel}: FAQPage must hold exactly one question")
+            if len(t) >= 60:
+                problems.append(f"{rel}: title {len(t)} characters, limit 59")
+            if not 150 <= len(d) <= 160:
+                problems.append(f"{rel}: description {len(d)} characters")
+            if not any(h[0] == 2 for h in p.headings):
+                problems.append(f"{rel}: no h2")
+            slug = rel.split("/")[1]
+            if f"questions/{slug}/" not in sm_pages:
+                problems.append(f"{rel}: not in sitemap-pages.xml")
+            if ("#" + slug) not in faq_index_html:
+                problems.append(f"{rel}: questions/ lacks anchor #{slug}")
+            if f"questions/{slug}/" not in faq_index_html:
+                problems.append(f"{rel}: questions/ does not link to it")
+        if rel.startswith("international/"):
+            inn += 1
+            if "BreadcrumbList" not in types:
+                problems.append(f"{rel}: no BreadcrumbList")
+            if "international/" + rel.split("/")[1] + "/" not in sm_pages and rel != "international/index.html":
+                problems.append(f"{rel}: not in sitemap-pages.xml")
+            if rel != "international/index.html":
+                if not 150 <= len(d) <= 160:
+                    problems.append(f"{rel}: description {len(d)} characters")
+                if len(t) > 65:
+                    problems.append(f"{rel}: title {len(t)} characters")
+                if not any(h[0] == 2 and "Dutch International Schools" in h[1] for h in p.headings):
+                    problems.append(f"{rel}: no Dutch International Schools section")
+                if not any("municipality/" in hf for hf in p.hrefs):
+                    problems.append(f"{rel}: no link to municipality page")
+                if "checked 2026-" not in f.read_text(encoding="utf8"):
+                    problems.append(f"{rel}: no 'checked' date next to the source")
         # json-ld
         for raw in p.jsonld:
             n_ld += 1
@@ -365,6 +413,7 @@ def main():
 
     print(f"pages {n_pages}, links checked {n_links}, broken {broken}, json-ld blocks {n_ld}, sitemaps {smaps} ({smurls} urls)")
     print(f"noindex pages {stats['noindex']}, robots meta wrong {stats['robots_bad']}, descriptions outside 150-160: {stats['desc_out']}")
+    print(f"question pages {qn}, international pages {inn}")
     print(f"robots.txt sitemap line: {has_sm}")
     print(f"titles over 65 characters: {stats['title_long']}; distinct lastmod values per sitemap: " + ", ".join(f"{k} {len(v)}" for k, v in sorted(lms.items())))
     print(f"shards {len(shard_files)} (largest {biggest} bytes gzip), school pages matched to a shard {n_shard_checked}")

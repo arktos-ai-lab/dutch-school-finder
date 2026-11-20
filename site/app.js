@@ -163,6 +163,7 @@ var U={
   school:function(id){var s=getS(id);return BASE+'school/'+(s?schoolSlug(s):String(id).toLowerCase())+'/'},
   muni:function(name){return BASE+'municipality/'+slugify(name)+'/'},
   faqItem:function(slug){return BASE+'questions/#'+slug},
+  faqPage:function(slug){return BASE+'questions/'+slug+'/'},
   compare:function(ids){return BASE+'compare/?ids='+ids.join(',')},
   mapFocus:function(id){return BASE+'map/?s='+id}
 };
@@ -178,11 +179,11 @@ function parseRoute(){
   try{arg=decodeURIComponent(arg)}catch(e){}
   var view;
   if(v===''||v==='index.html')view='route';
-  else if(v==='questions')view='faq';
+  else if(v==='questions')view=arg?'static':'faq';
   else if(APP_PATHS.indexOf(v)>-1)view=v;
-  else if(v==='municipality'||v==='municipalities')view='static';
+  else if(v==='municipality'||v==='municipalities'||v==='international')view='static';
   else view='notfound';
-  if(parts.length>(v==='school'||v==='municipality'?2:1)&&view!=='notfound')view='notfound';
+  if(parts.length>(v==='school'||v==='municipality'||v==='questions'||v==='international'?2:1)&&view!=='notfound')view='notfound';
   if(view==='school')arg=arg.slice(0,6);
   return {view:view,arg:arg,q:location.search.replace(/^\?/,'')};
 }
@@ -210,6 +211,7 @@ function appLink(a){
   if(u.origin!==location.origin||u.pathname.indexOf(BASE)!==0)return '';
   var first=u.pathname.slice(BASE.length).split('/').filter(Boolean)[0]||'';
   if(first!==''&&APP_PATHS.indexOf(first)<0)return '';
+  if(first==='questions'&&u.pathname.slice(BASE.length).split('/').filter(Boolean).length>1)return '';   /* a prerendered question page: normal navigation */
   return u.pathname+u.search+u.hash;
 }
 function onLinkClick(e){
@@ -1194,7 +1196,9 @@ function renderFaq(){
         else if(b.ul){var ul=h('ul');b.ul.forEach(function(li){ul.appendChild(hr('li','',li))});a.appendChild(ul)}
       });
       a.appendChild(srcLine(x.src));
-      a.appendChild(h('p',{class:'faqlink'},h('a',{href:U.faqItem(x.id),text:t('faq.link')})));
+      var fl=h('p',{class:'faqlink'},h('a',{href:U.faqItem(x.id),text:t('faq.link')}));
+      if((tv('faq.pages')||[]).some(function(pg){return pg.id===x.id})){fl.appendChild(document.createTextNode(' · '));fl.appendChild(h('a',{href:U.faqPage(x.id),text:t('faq.pageLink')}))}
+      a.appendChild(fl);
       d.appendChild(a);sec.appendChild(d);
     });
     f.appendChild(sec);
@@ -2946,7 +2950,8 @@ function router(keep){
   var hero=document.querySelector('.hero');if(hero)hero.hidden=v!=='route';
   VIEWS.forEach(function(x){$('p-'+x).hidden=(x!==v)});
   syncHeads(v);
-  var tabOf=({school:'find'})[v]||v;
+  var stTab=v==='static'?document.querySelector('#p-static [data-tab]'):null;
+  var tabOf=stTab?stTab.getAttribute('data-tab'):({school:'find'})[v]||v;
   TABS.forEach(function(tb){
     var a=$('t-'+tb);if(tb===tabOf)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });

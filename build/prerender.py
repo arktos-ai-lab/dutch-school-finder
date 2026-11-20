@@ -258,6 +258,9 @@ class Build:
             self.tcount[k] = self.tcount.get(k, 0) + 1
             k = k + (s["addr"],)
             self.tcount[k] = self.tcount.get(k, 0) + 1
+        self.intl = jload(ROOT / "build" / "international_schools.json")
+        self.faq_q = {x["id"]: x["q"] for g in self.en["faq"]["groups"] for x in g["items"]}
+        self.faq_page_ids = {p["id"] for p in self.en["faq"]["pages"]}
         self.pages = 0
         self.sitemap = {"pages": [], "schools": [], "municipalities": []}
         self.ver = {}
@@ -673,24 +676,67 @@ class Build:
                     elif "ul" in b:
                         o.append("<ul>" + "".join(f"<li>{rich(li)}</li>" for li in b["ul"]) + "</ul>")
                 o.append(self.src_line(x.get("src", [])))
-                o.append(f'<p class="faqlink"><a href="{self.href("questions/#" + x["id"])}">{e(t("faq.link"))}</a></p></div></details>')
+                pl = f' &middot; <a href="{self.href("questions/" + x["id"] + "/")}">{e(t("faq.pageLink"))}</a>' if x["id"] in self.faq_page_ids else ""
+                o.append(f'<p class="faqlink"><a href="{self.href("questions/#" + x["id"])}">{e(t("faq.link"))}</a>{pl}</p></div></details>')
             o.append("</section>")
         return "".join(o)
 
+    @staticmethod
+    def answer_ld(x):
+        parts = []
+        for b in x["blocks"]:
+            if "p" in b:
+                parts.append("<p>" + e(re.sub(r"</?b>", "", b["p"])) + "</p>")
+            elif "say" in b:
+                parts.append("<p>" + e(re.sub(r"</?b>", "", b["say"])) + "</p>")
+            elif "ul" in b:
+                parts.append("<ul>" + "".join("<li>" + e(re.sub(r"</?b>", "", li)) + "</li>" for li in b["ul"]) + "</ul>")
+        return {"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": "".join(parts)}}
+
     def faq_jsonld(self):
-        qs = []
-        for g in self.en["faq"]["groups"]:
-            for x in g["items"]:
-                parts = []
-                for b in x["blocks"]:
-                    if "p" in b:
-                        parts.append("<p>" + e(re.sub(r"</?b>", "", b["p"])) + "</p>")
-                    elif "say" in b:
-                        parts.append("<p>" + e(re.sub(r"</?b>", "", b["say"])) + "</p>")
-                    elif "ul" in b:
-                        parts.append("<ul>" + "".join("<li>" + e(re.sub(r"</?b>", "", li)) + "</li>" for li in b["ul"]) + "</ul>")
-                qs.append({"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": "".join(parts)}})
+        qs = [self.answer_ld(x) for g in self.en["faq"]["groups"] for x in g["items"]]
         return {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": self.langs[0], "mainEntity": qs}
+
+    # ------------------------------------------------------------ one page per frequent question
+    SITE_LINKS = {"route": "", "find": "find/", "system": "system/", "munis": "municipalities/", "intl": "international/", "sources": "sources/"}
+
+    def question_pages(self):
+        """/questions/<id>/ for the questions listed in en.json faq.pages: the answer from en.json, related links, FAQPage with one question.
+        FAQPage (not QAPage): Google documents QAPage only for pages where users can submit answers; a single answer written by the site
+        itself is FAQPage."""
+        t = self.t
+        qmap = {x["id"]: x for g in self.en["faq"]["groups"] for x in g["items"]}
+        for pg in self.en["faq"]["pages"]:
+            x = qmap[pg["id"]]
+            rel = f"questions/{x['id']}/"
+            cr = [(t("crumb.home"), self.href("")), (t("faq.page.crumb"), self.href("questions/")), (x["q"], None)]
+            o = [f'<div class="phead" data-tab="faq">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(x["q"])}</h1></div>']
+            ans = []
+            for b in x["blocks"]:
+                if "p" in b:
+                    ans.append(f"<p>{rich(b['p'])}</p>")
+                elif "say" in b:
+                    ans.append(f'<p class="say">{rich(b["say"])}</p>')
+                elif "ul" in b:
+                    ans.append("<ul>" + "".join(f"<li>{rich(li)}</li>" for li in b["ul"]) + "</ul>")
+            o.append(f'<section class="psec qa"><div class="ans">{"".join(ans)}</div>{self.src_line(x.get("src", []))}</section>')
+            li = []
+            for rid in pg["related"]:
+                href = self.href(f"questions/{rid}/") if rid in self.faq_page_ids else self.href(f"questions/#{rid}")
+                li.append(f'<li><a href="{e(href)}">{e(qmap[rid]["q"])}</a></li>')
+            o.append(f'<section class="psec"><h2>{e(t("faq.page.relatedQ"))}</h2><ul class="muni-list">{"".join(li)}</ul></section>')
+            li = [f'<li><a href="{e(self.href(self.SITE_LINKS[k]))}">{e(t("faq.page.l." + k))}</a></li>' for k in pg["links"]]
+            li.append(f'<li><a href="{e(self.href("questions/#" + x["id"]))}">{e(t("faq.page.all"))}</a></li>')
+            o.append(f'<section class="psec"><h2>{e(t("faq.page.next"))}</h2><ul class="muni-list">{"".join(li)}</ul></section>')
+            bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+                  {"@type": "ListItem", "position": 2, "name": t("faq.page.crumb"), "item": self.canon("questions/")},
+                  {"@type": "ListItem", "position": 3, "name": x["q"], "item": self.canon(rel)}]
+            ld = {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": self.langs[0], "mainEntity": [self.answer_ld(x)]}
+            page = {"rel": rel, "view": "static", "tab": None, "title": pg["title"], "desc": pg["desc"],
+                    "jsonld": [ld, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}],
+                    "slots": {"static": "".join(o)}}
+            self.write(rel, self.page(page))
+            self.sitemap["pages"].append(rel)
 
     # ------------------------------------------------------------ sources (port of renderSources)
     def sources_html(self):
@@ -770,6 +816,8 @@ class Build:
         for prov, mun, n in tops:
             o.append(f'<li><a href="{self.href("municipality/" + self.mslug[mun] + "/")}">{e(mun)}<small>{e(prov)}</small></a></li>')
         o.append("</ul>")
+        il = " &middot; ".join(f'<a href="{self.href("international/" + k + "/")}">{e(c["name"])}</a>' for k, c in self.intl["cities"].items())
+        o.append(f'<h3>{e(t("home.intlTitle"))}</h3><p>{e(t("home.intlIntro"))} {il}</p>')
         o.append(f'<p><a href="{self.href("municipalities/")}">{e(t("home.linksAll"))}</a> &middot; <a href="{self.href("find/")}">{e(t("home.linksFind"))}</a> &middot; <a href="{self.href("questions/")}">{e(t("home.linksQuestions"))}</a></p>')
         return "".join(o)
 
@@ -1140,6 +1188,9 @@ class Build:
             o = [f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(h1)}</h1><p>{e(intro)} {e(intro2)}</p>']
             if top_pc:
                 o.append(f'<p><a class="btn lnk" href="{self.href("?pc=" + top_pc)}">{e(t("muni.routeLink", pc=top_pc))}</a></p><p class="note">{e(t("muni.routeText"))}</p>')
+            ik = self.intl_slug_of_mun().get(mun)
+            if ik:
+                o.append(f'<p><a href="{self.href("international/" + ik + "/")}">{e(t("muni.intlLink", name=self.intl["cities"][ik]["name"]))}</a></p>')
             o.append("</div>")
             for k in ("po", "sbo", "vo", "so"):
                 grp = sorted((s for s in lst if s["sec"] == k), key=lambda s: (s["name"].lower(), s["id"]))
@@ -1230,6 +1281,89 @@ class Build:
                     del sh[a]
             self.write_text(f"data/s/{k}.json", json.dumps(sh, ensure_ascii=False, separators=(",", ":")))
         self.n_shards = len(shards)
+
+    # ------------------------------------------------------------ international pages
+    def intl_slug_of_mun(self):
+        return {c["mun"]: k for k, c in self.intl["cities"].items()}
+
+    def intl_pages(self, by_mun):
+        t = self.t
+        I = self.intl
+        cities = I["cities"]
+        li = "".join(f'<li><a href="{self.href("international/" + k + "/")}">{e(c["name"])}</a></li>' for k, c in cities.items())
+        cr = [(t("crumb.home"), self.href("")), (t("intl.crumb"), None)]
+        o = [f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(t("intl.indexH1"))}</h1><p>{e(t("intl.indexIntro"))}</p></div>',
+             f'<section class="psec"><h2>{e(t("intl.indexCities"))}</h2><ul class="muni-list">{li}</ul></section>']
+        bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+              {"@type": "ListItem", "position": 2, "name": t("intl.crumb"), "item": self.canon("international/")}]
+        page = {"rel": "international/", "view": "static", "tab": None, "title": t("intl.indexTitle"), "desc": t("intl.indexDesc"),
+                "jsonld": [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}], "slots": {"static": "".join(o)}}
+        self.write("international/", self.page(page))
+        self.sitemap["pages"].append("international/")
+        checked = fmt_day(I["checked"])
+        src_html = (f'<p class="src">{e(t("intl.source"))} <a href="{e(I["source"])}" target="_blank" rel="noopener">{e(I["source"])}</a>, {e(t("intl.checked", date=I["checked"]))}.</p>')
+        for key, c in cities.items():
+            name = c["name"]
+            mun = c["mun"]
+            rel = f"international/{key}/"
+            lst = by_mun.get(mun, [])
+            groups = {"tto": [], "ib": [], "international": [], "newcomer": []}
+            for s in sorted(lst, key=lambda x: (x["name"].lower(), x["id"])):
+                if s["sec"] == "so":
+                    continue
+                fl = {k for k, cf, ev in self.feat_list(s["id"])}
+                tr = s.get("tracks") or 0
+                isk = bool(s["sec"] == "vo" and (re.search(r"\bISK\b|schakelklas|internationale schakel", s["name"], re.I) or s.get("st") == "BRUGJAAR"))
+                if s["sec"] == "vo" and "tto" in fl:
+                    groups["tto"].append(s)
+                if "ib" in fl or (s["sec"] == "vo" and tr & 512):
+                    groups["ib"].append(s)
+                if "international" in fl or (s["sec"] == "vo" and tr & 1024):
+                    groups["international"].append(s)
+                if "newcomer" in fl or isk:
+                    groups["newcomer"].append(s)
+            cr = [(t("crumb.home"), self.href("")), (t("intl.crumb"), self.href("international/")), (name, None)]
+            o = [f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(t("intl.cityH1", city=name))}</h1><p>{e(t("intl.cityIntro", city=name))}</p></div>']
+            opts = "".join(f'<li><b>{e(x["k"])}</b> {e(x["text"])}</li>' for x in self.en["intl"]["opt"])
+            qlinks = " &middot; ".join(f'<a href="{self.href("questions/" + q + "/")}">{e(self.faq_q[q])}</a>' for q in ("dutch-international-bilingual", "without-dutch", "international-school-costs"))
+            o.append(f'<section class="psec"><h2>{e(t("intl.optH"))}</h2><ul class="intl-opts">{opts}</ul><p class="note">{e(t("intl.optMore"))}: {qlinks}</p></section>')
+            body = []
+            for g in ("tto", "ib", "international", "newcomer"):
+                if not groups[g]:
+                    continue
+                items = []
+                for s in groups[g]:
+                    lvl = t("intl.levelSecondary") if s["sec"] == "vo" else t("intl.levelPrimary")
+                    facts = " · ".join(x for x in [lvl, s["addr"]] if x)
+                    items.append(f'<li><a href="{self.href("school/" + school_slug(s) + "/")}">{e(s["name"])}</a><span class="mt">{e(facts)}</span></li>')
+                body.append(f'<h3>{e(t("intl.grp." + g))}</h3><ul class="muni-list">{"".join(items)}</ul>')
+            if not body:
+                body.append(f'<p>{e(t("intl.dataEmpty", city=name))}</p>')
+            o.append(f'<section class="psec"><h2>{e(t("intl.dataH", city=name))}</h2><p class="expl">{e(t("intl.dataIntro"))}</p>{"".join(body)}</section>')
+            has_assoc = any(x["kind"] == "associated" for x in c["schools"])
+            for kind, hk, ik in (("funded", "intl.fundedH", "intl.fundedIntro"), ("associated", "intl.assocH", "intl.assocIntro")):
+                sch = [x for x in c["schools"] if x["kind"] == kind]
+                if not sch:
+                    continue
+                items = "".join(f'<li><a href="{e(x["url"])}" target="_blank" rel="noopener">{e(x["name"])}</a></li>' for x in sch)
+                extra = f'<p class="note">{e(t("intl.harenNote"))}</p>' if key == "groningen" else ""
+                adm = f' <a href="{e(I["source_admissions"])}" target="_blank" rel="noopener">{e(t("intl.admissions"))}</a>.' if kind == "funded" else ""
+                tail = f'<p class="note">{e(t("intl.noOthers", city=name))}</p>' if kind == "funded" and not has_assoc else ""
+                o.append(f'<section class="psec"><h2>{e(t(hk, city=name))}</h2><p>{e(t(ik))}{adm}</p><ul class="muni-list">{items}</ul>{extra}{src_html}{tail}</section>')
+            more = [f'<li><a href="{self.href("municipality/" + self.mslug[mun] + "/")}">{e(t("intl.muniLink", name=name))}</a></li>',
+                    f'<li><a href="{self.href("international/")}">{e(t("intl.allCities"))}</a></li>',
+                    f'<li><a href="{self.href("find/")}">{e(t("intl.findLink"))}</a></li>',
+                    f'<li><a href="{self.href("questions/")}">{e(t("intl.q"))}</a></li>']
+            o.append(f'<section class="psec"><h2>{e(t("intl.moreH"))}</h2><ul class="muni-list">{"".join(more)}</ul></section>')
+            title = t("intl.cityTitle", city=name)
+            desc = t("intl.cityDesc", city=name)
+            bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+                  {"@type": "ListItem", "position": 2, "name": t("intl.crumb"), "item": self.canon("international/")},
+                  {"@type": "ListItem", "position": 3, "name": name, "item": self.canon(rel)}]
+            page = {"rel": rel, "view": "static", "tab": None, "title": title, "desc": desc,
+                    "jsonld": [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}], "slots": {"static": "".join(o)}}
+            self.write(rel, self.page(page))
+            self.sitemap["pages"].append(rel)
 
     # ------------------------------------------------------------ misc files
     def write_text(self, rel, txt):
@@ -1353,6 +1487,7 @@ class Build:
         simple("system/", "system", "title.system", D["system"], self.system_slots(), tab="system")
         simple("questions/", "faq", "title.faq", D["faq"], {"faq": self.faq_html()}, [self.faq_jsonld()], tab="faq")
         simple("sources/", "sources", "title.sources", D["sources"], {"sourcesout": self.sources_html()}, tab="sources")
+        self.question_pages()
         # compare: client side, never indexed
         simple("compare/", "compare", "title.compare", D["compare"], {"compareout": f'<p>{e(t("compareStatic.text"))}</p><noscript><p class="note">{e(t("compareStatic.noscript"))}</p></noscript><p><a href="{self.href("find/")}">{e(t("home.linksFind"))}</a></p>'}, tab="find", index=False, sitemap=False)
 
@@ -1382,6 +1517,7 @@ class Build:
 
         # municipality pages, schools
         self.muni_pages(by_mun)
+        self.intl_pages(by_mun)
         self.precompute_titles()
         near = nearest_same_type(self.schools)
         titles = {}

@@ -16,6 +16,9 @@ Everything runs in the browser from precomputed open data. Nothing you enter is 
 | `site/seo.json` | site URL, base path, `indexable` switch, language list |
 | `site/og.png`, `site/favicon.svg` | social image (1200 x 630) and icon; `favicon.ico` is generated at build time |
 | `build/prerender.py` | writes `_site/`: static HTML for every page, sitemaps, `robots.txt`, `404.html`, copied assets and `data/` |
+| `build/international_schools.json` | verified names and website addresses of international schools per city, with source and check date |
+| `build/content_dates.json` | fingerprint and date per content page, source of the sitemap `lastmod` (rewritten by the build when a page changes: commit it) |
+| `site/fonts/` | self-hosted woff2 fonts (SIL OFL licences included) |
 | `build/check_site.py` | link, id, heading, head-tag, JSON-LD and sitemap checker for a built `_site/` |
 | `pipeline/` | open-data pipeline that builds `pipeline/out/*.json` (see `pipeline/README.md`) |
 | `.github/workflows/pages.yml` | runs `python -I build/prerender.py` and deploys `_site/` to GitHub Pages |
@@ -29,12 +32,22 @@ Real paths under `base_path` (History API in the browser, one prerendered `index
 | `/` | start page (route finder); `/?pc=1011` pre-fills a postcode |
 | `/find/`, `/map/` | search and map; filters live in the query string |
 | `/system/`, `/questions/`, `/sources/` | whole system, FAQ (`/questions/#<slug>` per question), data and sources |
+| `/questions/<slug>/` | the ten most asked questions on their own page (list in `i18n/en.json` `faq.pages`), FAQPage with one question |
+| `/international/`, `/international/<city>/` | options for international education in seven cities; schools from our data plus the Dutch International Schools list in `build/international_schools.json` (names and links only) |
 | `/school/<brin6>-<name>-<city>/` | one page per school location (8,600+); a bare `/school/<brin6>/` is resolved client-side by `404.html` |
 | `/municipality/<slug>/`, `/municipalities/` | schools per municipality, A to Z index by province |
 | `/compare/?ids=A,B` | client-side comparison, always `noindex`, not in the sitemap |
 
 Old hash links (`#/school/ID`, `#/faq?q=slug`, `#/compare/A,B`, `#/find?...`) are rewritten to these paths
 when the page opens. Slugs are built by the same rule in `build/prerender.py` and `site/app.js` (`slugify`).
+
+## Data files in `_site/data/`
+
+The index (`schools_po/vo/so.json`, `pc4.json`) loads only for the route finder results, find and map. A school page or
+a compare view loads `data/common.json` (about 3 KB), `meta.json`, `context.json` and the shard
+`data/s/<first 3 characters of the BRIN6 id, lower case>.json` of each school it shows (a few KB to tens of KB gzip). Shards hold
+the per-school parts of `detail_*`, `inspection`, `extra`, `inspectie_extra`, `features`, the index row and the five nearest schools;
+the build writes them, the pipeline output formats are unchanged and the big per-school pipeline files are not deployed.
 
 ## Build and run locally
 

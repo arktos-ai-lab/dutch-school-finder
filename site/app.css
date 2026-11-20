@@ -532,6 +532,12 @@ table.cmp th a{overflow-wrap:anywhere}
 .crumbs li+li::before{content:"/";margin:0 8px;color:var(--ink2)}
 .crumbs a{font-weight:700}
 .crumbs [aria-current="page"]{color:var(--ink2)}
+.intl-opts{padding-left:20px;max-width:70ch}
+.intl-opts li{margin-bottom:6px}
+.psec h3{font-size:1.05rem;margin:14px 0 4px}
+.qa .ans{max-width:70ch}
+.qa .ans ul{padding-left:20px;margin:0 0 .7em}
+.qa .say{background:var(--soft);padding:8px 12px;margin:0 0 .7em;font-style:italic}
 .muni-list{list-style:none;padding:0;margin:6px 0 0}
 .muni-list li{padding:7px 0;border-top:1px solid var(--rule)}
 .muni-list li:first-child{border-top:0}

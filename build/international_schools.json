@@ -1,0 +1,30 @@
+{
+ "source": "https://www.dutchinternationalschools.nl/schools/",
+ "source_admissions": "https://www.dutchinternationalschools.nl/about-dis/admissions/",
+ "checked": "2026-11-20",
+ "note": "Names and website addresses of the schools listed on the Dutch International Schools (DIS) 'Find a school' page, copied on the checked date; each website was opened once that day. kind: funded = DIS primary or secondary school (state funded per the DIS admissions page); associated = listed by DIS as an associated member. Only these seven cities are covered. Other schools were not verified and are left out.",
+ "cities": {
+  "amsterdam": {"name": "Amsterdam", "mun": "Amsterdam", "schools": [
+   {"name": "Amsterdam International Community School (South Campus)", "url": "https://aics.espritscholen.nl/home/", "kind": "funded"},
+   {"name": "Amsterdam International Community School (Sandcastle SE)", "url": "https://aics.espritscholen.nl/home/", "kind": "funded"}]},
+  "the-hague": {"name": "The Hague", "mun": "'s-Gravenhage", "schools": [
+   {"name": "The International School of The Hague", "url": "https://www.ishthehague.nl/", "kind": "funded"},
+   {"name": "HSV International School", "url": "https://hsvid.nl", "kind": "funded"},
+   {"name": "International Waldorf School The Hague", "url": "https://www.internationalwaldorfschool.nl/", "kind": "funded"},
+   {"name": "Europese School Den Haag", "url": "https://www.europeanschoolthehague.nl/", "kind": "funded"},
+   {"name": "The British School in the Netherlands, Senior School Leidschenveen", "url": "https://www.britishschool.nl/", "kind": "associated"}]},
+  "rotterdam": {"name": "Rotterdam", "mun": "Rotterdam", "schools": [
+   {"name": "Harbour International School", "url": "https://www.harbourinternational.nl/", "kind": "funded"},
+   {"name": "Rotterdam International Secondary School", "url": "https://riss.wolfert.nl/", "kind": "funded"}]},
+  "utrecht": {"name": "Utrecht", "mun": "Utrecht", "schools": [
+   {"name": "International School Utrecht", "url": "https://www.isutrecht.nl/", "kind": "funded"}]},
+  "eindhoven": {"name": "Eindhoven", "mun": "Eindhoven", "schools": [
+   {"name": "International School Eindhoven", "url": "https://www.isecampus.nl/", "kind": "funded"},
+   {"name": "Salto International School", "url": "https://www.salto-internationalschool.nl/", "kind": "funded"}]},
+  "leiden": {"name": "Leiden", "mun": "Leiden", "schools": [
+   {"name": "International School Leiden", "url": "https://isleiden.nl/", "kind": "funded"}]},
+  "groningen": {"name": "Groningen", "mun": "Groningen", "schools": [
+   {"name": "International School Groningen", "url": "https://www.isgroningen.nl/", "kind": "funded"},
+   {"name": "International Primary School Groningen", "url": "https://www.g-s-v.nl/en", "kind": "funded"}]}
+ }
+}

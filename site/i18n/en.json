@@ -2015,7 +2015,170 @@
           }
         ]
       }
-    ]
+    ],
+    "pages": [
+      {
+        "id": "when-must-child-go",
+        "title": "When must my child go to school in the Netherlands?",
+        "desc": "A child may start school at age 4. School is compulsory from the first day of the month after the fifth birthday, for every child who lives in the Netherlands.",
+        "related": [
+          "mid-year-arrival",
+          "without-dutch",
+          "which-year-group",
+          "bsn-and-address"
+        ],
+        "links": [
+          "route",
+          "find"
+        ]
+      },
+      {
+        "id": "without-dutch",
+        "title": "Can my child join a Dutch school without speaking Dutch?",
+        "desc": "Yes. In primary school newcomers can join a language class, a transition class or a regular class with extra Dutch. From age 12 there is the ISK. Ask early.",
+        "related": [
+          "dutch-international-bilingual",
+          "mid-year-arrival",
+          "choose-any-primary",
+          "when-must-child-go"
+        ],
+        "links": [
+          "intl",
+          "find"
+        ]
+      },
+      {
+        "id": "mid-year-arrival",
+        "title": "Can my child start school mid-year in the Netherlands?",
+        "desc": "Yes. Children can register at any time of the year, but places can be limited, so register at more than one school. Extra support needs 10 weeks of notice.",
+        "related": [
+          "bsn-and-address",
+          "without-dutch",
+          "when-must-child-go",
+          "choose-any-primary"
+        ],
+        "links": [
+          "route",
+          "find"
+        ]
+      },
+      {
+        "id": "school-advice-how-it-works",
+        "title": "How the Dutch school advice works, and can you change it?",
+        "desc": "The school gives a school advice at the end of group 8. The end-of-primary test can raise it but not lower it. Read who decides, the dates and what you can ask.",
+        "related": [
+          "ask-about-the-advice",
+          "vmbo-advice",
+          "choose-any-secondary",
+          "secondary-lottery-cities"
+        ],
+        "links": [
+          "system",
+          "find"
+        ]
+      },
+      {
+        "id": "secondary-lottery-cities",
+        "title": "Which Dutch cities use a lottery for secondary school?",
+        "desc": "Amsterdam places all pupils in one central round with a random lot number. The Utrecht regions and Haaglanden draw lots at some schools. Rules change each year.",
+        "related": [
+          "choose-any-secondary",
+          "school-advice-how-it-works",
+          "ask-about-the-advice"
+        ],
+        "links": [
+          "find",
+          "munis"
+        ]
+      },
+      {
+        "id": "dutch-international-bilingual",
+        "title": "Dutch, international or bilingual school: the difference",
+        "desc": "A Dutch school teaches in Dutch and charges no tuition. International schools teach in English or another language. A tto school is Dutch with English lessons.",
+        "related": [
+          "international-school-costs",
+          "without-dutch",
+          "thirty-percent-ruling",
+          "foreign-diplomas"
+        ],
+        "links": [
+          "intl",
+          "system",
+          "find"
+        ]
+      },
+      {
+        "id": "international-school-costs",
+        "title": "What do international schools in the Netherlands cost?",
+        "desc": "State-funded Dutch schools charge no tuition, international schools do. One Amsterdam school lists about 22,800 to 32,800 euro a year for 2026-27. Ask for fees.",
+        "related": [
+          "dutch-international-bilingual",
+          "thirty-percent-ruling",
+          "ouderbijdrage-free-school"
+        ],
+        "links": [
+          "intl",
+          "find"
+        ]
+      },
+      {
+        "id": "ouderbijdrage-free-school",
+        "title": "Is Dutch school free? What is the ouderbijdrage?",
+        "desc": "State-funded schools charge no tuition. Many ask for a voluntary parental contribution, the ouderbijdrage. Since 2021 a school may not exclude a child over it.",
+        "related": [
+          "international-school-costs",
+          "school-hours-lunch",
+          "after-school-care-benefit"
+        ],
+        "links": [
+          "find",
+          "system"
+        ]
+      },
+      {
+        "id": "bsn-and-address",
+        "title": "Do I need a BSN or address to register at a Dutch school?",
+        "desc": "You register your child yourself. Without a BSN the school can use a temporary education number from DUO. You get a BSN by registering with your municipality.",
+        "related": [
+          "mid-year-arrival",
+          "when-must-child-go",
+          "choose-any-primary"
+        ],
+        "links": [
+          "route",
+          "find"
+        ]
+      },
+      {
+        "id": "thirty-percent-ruling",
+        "title": "30% ruling and school choice in the Netherlands",
+        "desc": "This site gives no tax advice. Employers can sometimes pay international school fees tax-free under Belastingdienst rules. State-funded schools have no tuition.",
+        "related": [
+          "international-school-costs",
+          "dutch-international-bilingual",
+          "foreign-diplomas"
+        ],
+        "links": [
+          "intl",
+          "find"
+        ]
+      }
+    ],
+    "pageLink": "Read this answer on its own page",
+    "page": {
+      "crumb": "Questions",
+      "relatedQ": "Related questions",
+      "next": "Where to look next",
+      "all": "See all questions",
+      "l": {
+        "route": "Your child's route and nearby schools",
+        "find": "Search for a school",
+        "system": "The whole Dutch school system",
+        "munis": "Schools by municipality",
+        "intl": "International options by city",
+        "sources": "Data and sources"
+      }
+    }
   },
   "sources": {
     "heading": "Data and sources",
@@ -2231,7 +2394,9 @@
     "linksIntro": "Start from the biggest municipality in each province, or open the full list.",
     "linksAll": "All municipalities, A to Z",
     "linksFind": "Search every school",
-    "linksQuestions": "Questions parents ask"
+    "linksQuestions": "Questions parents ask",
+    "intlTitle": "International options",
+    "intlIntro": "Dutch, bilingual, IB, funded and private international schools, and newcomer classes, by city:"
   },
   "muni": {
     "h1": "Schools in {name}",
@@ -2274,7 +2439,8 @@
     "routeLink": "Plan a route from postcode {pc}",
     "routeText": "Enter your child's age with this postcode, the most common one among these schools, to see the steps ahead and the schools nearby.",
     "factsTitle": "Facts about schools in {name}",
-    "src": "Source: DUO Open Onderwijsdata (addresses and pupils on 1 October 2025), municipality names from Kadaster BAG via PDOK. Numbers are context, not a ranking."
+    "src": "Source: DUO Open Onderwijsdata (addresses and pupils on 1 October 2025), municipality names from Kadaster BAG via PDOK. Numbers are context, not a ranking.",
+    "intlLink": "International schools in {name}: options and schools"
   },
   "munis": {
     "h1": "Schools by municipality",
@@ -2301,5 +2467,70 @@
   },
   "mapStatic": {
     "noscript": "The map needs JavaScript. Without it, browse by municipality instead."
+  },
+  "intl": {
+    "crumb": "International schools",
+    "indexTitle": "International schools in the Netherlands, by city",
+    "indexH1": "International schools in the Netherlands, by city",
+    "indexDesc": "International education in Amsterdam, The Hague, Rotterdam, Utrecht, Eindhoven, Leiden and Groningen: Dutch, bilingual and IB schools, funded and private ones.",
+    "indexIntro": "A child new to the Netherlands has more than one way into school. Choose a city to see the options, the schools in our open data that offer them, and the international schools listed by the Dutch International Schools network.",
+    "indexCities": "Cities",
+    "cityTitle": "International schools in {city}: your options",
+    "cityH1": "International schools in {city}",
+    "cityDesc": "International schools in {city}: Dutch schools, bilingual (tto) and IB schools, funded and private international schools and newcomer classes, with links.",
+    "cityIntro": "There are several ways to school in {city} if you do not speak Dutch yet. This page explains each one, lists the schools in {city} that our open data links to it, and gives the international schools in {city} that the Dutch International Schools network lists.",
+    "optH": "The options",
+    "opt": [
+      {
+        "k": "Dutch school",
+        "text": "Teaches in Dutch and follows the Dutch curriculum. State-funded schools charge no tuition."
+      },
+      {
+        "k": "Bilingual school (tto)",
+        "text": "A Dutch secondary school where at least half of the lessons in the first years of havo and vwo are taught in English. Pupils take the normal Dutch exams."
+      },
+      {
+        "k": "IB at a Dutch school",
+        "text": "Some Dutch schools offer an International Baccalaureate (IB) programme. Ask each school which years it covers and who can join."
+      },
+      {
+        "k": "Government-funded international school",
+        "text": "The Dutch International Schools (DIS) are the Dutch International Primary Schools (DIPS) and the Dutch International Secondary Schools (DISS). They teach in English for children of internationally mobile families, and admission follows national rules."
+      },
+      {
+        "k": "Private international school",
+        "text": "Sets its own fees and admission rules. Ask the school for its current fee schedule."
+      },
+      {
+        "k": "Newcomer class (ISK or schakelklas)",
+        "text": "A class where children who speak little or no Dutch learn Dutch before they move to a regular class. Places can be limited, so ask early."
+      }
+    ],
+    "optMore": "More in the answers on",
+    "dataH": "Schools in {city} from our data",
+    "dataIntro": "These flags come from published lists and school websites, with the source on each school page. A flag can be out of date, so check with the school. This is a list, not a ranking.",
+    "dataEmpty": "Our data does not flag any school in {city} for these options.",
+    "grp": {
+      "tto": "Bilingual (tto) secondary schools",
+      "ib": "Schools with an IB programme",
+      "international": "Schools flagged as international or European",
+      "newcomer": "Newcomer classes (ISK, schakelklas)"
+    },
+    "levelPrimary": "primary",
+    "levelSecondary": "secondary",
+    "fundedH": "Dutch International Schools in {city}",
+    "fundedIntro": "These schools are listed by the Dutch International Schools network as state-funded international schools. Admission is limited by national rules, see the admissions page of the network.",
+    "assocH": "Other international schools on the DIS list in {city}",
+    "assocIntro": "Listed by the network as an associated member. Ask the school about fees and admission.",
+    "harenNote": "These schools are in Haren, which is part of the municipality of Groningen.",
+    "source": "Source:",
+    "checked": "checked {date}",
+    "admissions": "Admissions rules of the network",
+    "noOthers": "We did not verify any other international school in {city} and list none.",
+    "moreH": "More",
+    "muniLink": "Schools in {name}",
+    "q": "Questions",
+    "allCities": "All cities",
+    "findLink": "Search for a school"
   }
 }
