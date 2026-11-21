@@ -600,7 +600,8 @@
     "atLeast": {
       "one": "at least {n} pupil",
       "other": "at least {n} pupils"
-    }
+    },
+    "small": "fewer than 5 pupils per group"
   },
   "val": {
     "fewer5": "fewer than 5",
@@ -920,6 +921,8 @@
       "noCount": "DUO did not publish a pupil count for this location.",
       "total": "pupils in total.",
       "hiddenNote": "DUO hides groups of fewer than 5 pupils, so the real number is a little higher.",
+      "bigSmall": "Fewer than 5 per group",
+      "smallNote": "Every group at this location has fewer than 5 pupils, so DUO hides all the counts and no total can be given.",
       "byYear": "Numbers by year"
     },
     "advice": {
@@ -2351,6 +2354,7 @@
       "school": "{name} is a {type} school in {city} ({prov}).",
       "schoolNoCity": "{name} is a {type} school ({prov}).",
       "addr": "Address: {addr}.",
+      "code": "School code {code}.",
       "pupils": "{pupils}.",
       "den": "Denomination: {den}.",
       "tracks": "Levels: {tracks}.",
@@ -2417,6 +2421,7 @@
     },
     "pupilsAbout": "about {n} pupils",
     "pupilsAtLeast": "at least {n} pupils",
+    "pupilsSmall": "fewer than 5 pupils per group",
     "noCount": "pupil count not published",
     "routeLink": "Plan a route from postcode {pc}",
     "routeText": "Enter your child's age to see the steps ahead and the schools nearby. The postcode is the most common one among these schools, so change it to your own.",

@@ -415,6 +415,13 @@ class Build:
         s = re.sub(r'<(a)([^<>]*\bdata-route="(\w+)"[^<>]*)>', rt, s)
         return s
 
+    def fill_links(self, s):
+        """text and href for empty <a data-i18n> links only; the rest of a hidden section is left to app.js"""
+        s = re.sub(r'<a([^<>]*\bdata-i18n="([^"]+)"[^<>]*)></a>', lambda m: f"<a{m.group(1)}>{e(self.t(m.group(2)))}</a>", s)
+        route_rel = {"route": "", "find": "find/", "map": "map/", "system": "system/", "faq": "questions/", "sources": "sources/"}
+        return re.sub(r'<a((?![^<>]*\bhref=)[^<>]*\bdata-route="(\w+)"[^<>]*)>',
+                      lambda m: f'<a href="{self.href(route_rel[m.group(2)])}"{m.group(1)}>', s)
+
     def page(self, p):
         """p: rel, view, title, desc, slots (dict), jsonld, index, tab, schoolid"""
         t = self.t
@@ -449,7 +456,8 @@ class Build:
             s = s.replace('<section class="hero" aria-labelledby="h1">', '<section class="hero" aria-labelledby="h1" hidden>', 1)
             s = re.sub(r'<section class="hero".*?</section>', keep, s, flags=re.S)
         s = self.fill_i18n(s)
-        s = re.sub(r"@@(\d+)@@", lambda m: stash[int(m.group(1))], s)
+        # links inside hidden sections still get their text and href, so no page carries an empty link
+        s = re.sub(r"@@(\d+)@@", lambda m: self.fill_links(stash[int(m.group(1))]), s)
         # current tab
         tab = p.get("tab", view if view != "faq" else "faq")
         if tab:
@@ -840,14 +848,12 @@ class Build:
         pur = {"po": "po_pupils", "sbo": "po_pupils", "vo": "vo_pupils", "so": "so_pupils"}[sec]
         pup_range, pup_date = self.data_year(pur)
         # --- description
-        if s["pupils"] is None:
+        if s["pupils"] is None or (s["pupils"] == 0 and s["pupils_lb"]):
             pup_txt = None
         else:
             ptxt = t("pupils.atLeast" if s["pupils_lb"] else "pupils.about", n=s["pupils"])
             pup_txt = ptxt[0].upper() + ptxt[1:] + "."
         opts = []
-        if dup:
-            opts.append(t("seo.desc.addr", addr=s["addr"]))
         if pup_txt:
             opts.append(pup_txt)
         opts.append(t("seo.desc.den", den=den))
@@ -862,6 +868,12 @@ class Build:
         base = t("seo.desc.school" if s["city"] else "seo.desc.schoolNoCity", name=s["name"], type=typ, city=s["city"], prov=s["provN"])
         if not s["provN"]:
             base = base.replace(" ()", "").replace("()", "")
+        if dup:
+            # same name in the same town: the address tells the pages apart, so it is never dropped;
+            # two school codes at one address also get the code, as the title does
+            base += " " + t("seo.desc.addr", addr=s["addr"])
+            if self.tcount[k1 + (s["addr"],)] > 1:
+                base += " " + t("seo.desc.code", code=s["id"])
         if len(base) > 156:
             nm = s["name"]
             cut = nm[: max(20, len(nm) - (len(base) - 150))].rsplit(" ", 1)[0] + "..."
@@ -921,9 +933,11 @@ class Build:
 
         secs = []
         # pupils
-        big = t("prof.pupils.notShown") if s["pupils"] is None else (t("prof.pupils.bigAtLeast", n=s["pupils"]) if s["pupils_lb"] else nf(s["pupils"]))
+        small = s["pupils"] == 0 and bool(s["pupils_lb"])  # every cell suppressed: no total exists
+        big = t("prof.pupils.notShown") if s["pupils"] is None else t("prof.pupils.bigSmall") if small else (t("prof.pupils.bigAtLeast", n=s["pupils"]) if s["pupils_lb"] else nf(s["pupils"]))
         pk = [f'<div class="big">{e(big)}</div>']
-        pk.append(f'<p class="note" style="margin-top:4px">{e(t("prof.pupils.noCount") if s["pupils"] is None else t("prof.pupils.total") + ((" " + t("prof.pupils.hiddenNote")) if s["pupils_lb"] else ""))}</p>')
+        note = t("prof.pupils.noCount") if s["pupils"] is None else t("prof.pupils.smallNote") if small else t("prof.pupils.total") + ((" " + t("prof.pupils.hiddenNote")) if s["pupils_lb"] else "")
+        pk.append(f'<p class="note" style="margin-top:4px">{e(note)}</p>')
         secs.append(psec(t("prof.pupils.title"), t("prof.pupils.expl"), pk, duo_src("prof.pupils.srcWhat", pup_range, pup_date)))
         if sec == "vo":
             kids = []
@@ -1200,6 +1214,8 @@ class Build:
                 for s in grp:
                     if s["pupils"] is None:
                         pu = t("muni.noCount")
+                    elif s["pupils"] == 0 and s["pupils_lb"]:
+                        pu = t("muni.pupilsSmall")
                     else:
                         pu = t("muni.pupilsAtLeast" if s["pupils_lb"] else "muni.pupilsAbout", n=s["pupils"])
                     facts = [s["city"] + (", " + s["addr"] if s["addr"] else "") if s["city"] else s["addr"], pu]

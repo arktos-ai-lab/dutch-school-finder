@@ -546,6 +546,7 @@ function links(s,sector){
 }
 function pupilsText(s){
   if(s.pupils==null)return null;
+  if(s.pupils===0&&s.pupils_lb)return t('pupils.small');
   return t(s.pupils_lb?'pupils.atLeast':'pupils.about',{n:s.pupils});
 }
 var SEG=[['vso',[0]],['pro',[1]],['vbk',[2,3,4]],['vgt',[5,6]],['havo',[7,8]],['vwo',[9,10]],['nap',[11]]];
@@ -1816,9 +1817,10 @@ function trendChart(pt){
 }
 function pupilsSection(s,d){
   var kids=[];
-  var big=s.pupils==null?t('prof.pupils.notShown'):(s.pupils_lb?t('prof.pupils.bigAtLeast',{n:s.pupils}):numF(s.pupils));
+  var small=s.pupils===0&&!!s.pupils_lb; /* every cell suppressed: no total exists */
+  var big=s.pupils==null?t('prof.pupils.notShown'):small?t('prof.pupils.bigSmall'):(s.pupils_lb?t('prof.pupils.bigAtLeast',{n:s.pupils}):numF(s.pupils));
   kids.push(h('div',{class:'big',text:big}));
-  kids.push(h('p',{class:'note',style:'margin-top:4px',text:s.pupils==null?t('prof.pupils.noCount'):t('prof.pupils.total')+(s.pupils_lb?' '+t('prof.pupils.hiddenNote'):'')}));
+  kids.push(h('p',{class:'note',style:'margin-top:4px',text:s.pupils==null?t('prof.pupils.noCount'):small?t('prof.pupils.smallNote'):t('prof.pupils.total')+(s.pupils_lb?' '+t('prof.pupils.hiddenNote'):'')}));
   var pcx=pupilCtx(s);if(pcx)kids.push(pcx);
   var ljb=ljBlock(d);if(ljb)kids.push(ljb);
   var agb=ageBlocks(s,d);if(agb)kids.push(agb);
@@ -2766,7 +2768,7 @@ function compareRows(grp,schools){
   R('type','',function(s){return secLong(s)});
   R('place','',function(s){return [s.city,s.mun&&s.mun!==s.city?'('+s.mun+')':''].filter(Boolean).join(' ')});
   R('den','',function(s){return s.denT});
-  R('pupils','pupilsSm',function(s){return s.pupils==null?t('cmp.notShown'):valTxt(s.pupils,s.pupils_lb)});
+  R('pupils','pupilsSm',function(s){return s.pupils==null?t('cmp.notShown'):(s.pupils===0&&s.pupils_lb)?t('pupils.small'):valTxt(s.pupils,s.pupils_lb)});
   if(grp!=='so')R('features','featuresSm',function(s){return featChips(s)||t('cmp.noneListed')});
   if(grp==='so'){
     R('soType','',function(s){return t('so.type.'+(s.so_type==='SO/VSO'?'both':s.so_type==='VSO'?'vso':'so'))});
