@@ -4,7 +4,7 @@
     "tagline": "An unofficial guide for parents new to Dutch schools"
   },
   "meta": {
-    "description": "Dutch schools explained in English for expat families: your child's route through the school system and the real schools near your postcode, from open data."
+    "description": "Dutch schools explained in English for expat families: your child's route through the school system and the schools near your postcode, from open data. Free."
   },
   "title": {
     "route": "{brand}: Dutch schools in English for expat parents",
@@ -44,10 +44,10 @@
     "sources": "Data & sources"
   },
   "hero": {
-    "title": "Your child's route through Dutch school, and the actual schools near you that fit each step.",
+    "title": "Your child's route through Dutch schools, step by step, and the schools near you.",
     "v1": "Only the steps still ahead of your child, with dates and what you have to do.",
-    "v2": "Real schools near your postcode, with pupil numbers, where their pupils go next and exam results.",
-    "v3": "Every municipality. Your answers stay in this browser and are never sent to us."
+    "v2": "Schools near your postcode, with pupil numbers, where their pupils go next and exam results.",
+    "v3": "Every municipality in the Netherlands. Free, with no account."
   },
   "form": {
     "ageLabel": "Child's age",
@@ -60,7 +60,7 @@
     "pcPlaceholder": "1234 AB",
     "go": "Show my route",
     "tryExample": "Try an example:",
-    "privacy": "Your answers stay in this browser and are never sent to us. The map view loads map tiles from OpenStreetMap."
+    "privacy": "Nothing you enter is sent anywhere. It stays in this browser. The map view loads map tiles from OpenStreetMap."
   },
   "ex": {
     "amsterdam": "Amsterdam-Zuid (1077)",
@@ -78,8 +78,8 @@
   "empty": {
     "title": "Your route will appear here",
     "text": "Enter your child's age and postcode above, or try one of the examples. You will get:",
-    "i1": "Only the steps still ahead of your child, with dates and what you have to do.",
-    "i2": "Real schools near your postcode, with pupil numbers, where their pupils go next and exam results.",
+    "i1": "A short list of what is still ahead, starting with the next action and its date.",
+    "i2": "Primary and secondary schools near your postcode, with pupil numbers, where leavers go next and exam results.",
     "i3": "Plain-English explanations of the Dutch terms you will meet, such as groep, havo and vwo.",
     "findLink": "Browse all schools",
     "systemLink": "See the whole system"
@@ -931,8 +931,8 @@
     },
     "test": {
       "title": "End-of-primary test (doorstroomtoets)",
-      "expl": "In group 8 every child takes an end-of-primary test. Schools choose from several approved tests, and each test has its own scale. Never compare the score of one test with another. The average is context for the school advice, not a grade for the school.",
-      "note": "Only compare schools that used the same test.",
+      "expl": "In group 8 every child takes an end-of-primary test. Schools choose from several approved tests, and each test has its own scale, so scores from different tests cannot be compared. The average is context for the school advice, not a grade for the school.",
+      "note": "Compare averages only between schools that used the same test.",
       "noAvg": "average not shown",
       "avg": "average score {v}",
       "few": "fewer than 5 pupils",
@@ -977,7 +977,7 @@
     },
     "insp": {
       "title": "Inspection",
-      "expl": "The Dutch Inspectorate of Education visits schools and judges their quality. It mostly publishes a judgement after a visit, and visits are often triggered by concerns. So having a judgement, or not having one, says little by itself. Many schools are listed without a current final judgement, and that is not a rating. We do not rank, sort or average schools by it.",
+      "expl": "The Dutch Inspectorate of Education (Inspectie van het Onderwijs) judges the quality of schools. It mostly publishes a judgement after a visit, and visits are often triggered by concerns. So having a judgement, or not having one, says little by itself. Many schools are listed without a current final judgement, and that is not a rating. We do not rank, sort or average schools by it.",
       "linkText": "Inspectie van het Onderwijs",
       "dated": "Judgement dated {date}",
       "lowest": "Lowest of the programme judgements below (our summary, not an Inspectie rule).",
@@ -1010,7 +1010,7 @@
     },
     "so": {
       "title": "Special education (SO and VSO)",
-      "expl": "Special education has two parts. SO (speciaal onderwijs) is for children of primary-school age who need more support than a regular or special primary school (sbo) can give. VSO (voortgezet speciaal onderwijs) is the same for secondary-school age. Schools are grouped in four clusters by the kind of need they serve. A child can only be admitted with a formal decision called a toelaatbaarheidsverklaring (TLV), which the samenwerkingsverband (the regional partnership of schools that arranges extra support) issues. There are fewer of these schools than regular ones, so children often travel further.",
+      "expl": "Special education has two parts. SO (speciaal onderwijs) is for children of primary-school age who need more support than a regular or special primary school (sbo) can give. VSO (voortgezet speciaal onderwijs) is the same for secondary-school age. Schools are grouped in four clusters by the kind of need they serve. A child can only be admitted with a formal decision called a toelaatbaarheidsverklaring (TLV). The samenwerkingsverband (the regional partnership of schools that arranges extra support) issues it. There are fewer of these schools than regular ones, so children often travel further.",
       "type": "Type",
       "cluster": "Cluster",
       "clusterNone": "Not stated in the data",
@@ -1035,7 +1035,7 @@
     },
     "rn": {
       "title": "Reading, language and maths levels",
-      "expl": "At the end of primary school the doorstroomtoets checks pupils against national reference levels. 1F is the fundamental level: the basics that every pupil should have by the end of primary school. 2F (reading and language) and 1S (maths) are the higher target level. National policy expects the basic level from every pupil and the higher level from a smaller group, the stronger pupils. So a school with fewer pupils at 2F or 1S than at 1F is normal, and the share at the higher level depends a lot on who the school admits.",
+      "expl": "At the end of primary school the doorstroomtoets checks pupils against national reference levels. 1F is the fundamental level: the basics that every pupil should have by the end of primary school. 2F (reading and language) and 1S (maths) are the higher target level. National policy expects the basic level from every pupil and the higher level from a smaller group, the stronger pupils. So a school with fewer pupils at 2F or 1S than at 1F is normal. The share at the higher level depends a lot on who the school admits.",
       "subj": {
         "lezen": "Reading (lezen)",
         "taal": "Language (taalverzorging: spelling and grammar)",
@@ -1377,7 +1377,7 @@
   },
   "sys": {
     "heading": "The whole system on one page",
-    "intro": "Read from top to bottom. Each block is one school year. Every track has its own colour, and higher education has colours of its own, because finishing one school does not move a child on automatically: each change needs a diploma, an application and sometimes selection. No track is ranked above another.",
+    "intro": "Read from top to bottom. Each block is one school year, and each track has its own colour. Higher education has colours of its own because finishing one school does not move a child on automatically: a change needs a diploma, an application and sometimes selection. No track is ranked above another.",
     "keyAria": "Colour key",
     "hDiagram": "The diagram",
     "hKey": "Colour key",
@@ -1458,6 +1458,7 @@
   },
   "faq": {
     "heading": "Questions parents ask",
+    "intro": "Short answers to what parents new to the Netherlands ask about Dutch schools. Each answer lists its sources.",
     "navAria": "Question groups",
     "link": "Link to this question",
     "expand": "Open all answers",
@@ -1475,10 +1476,10 @@
                 "p": "A child may start at age 4. School is compulsory (leerplicht) from the first day of the month after the fifth birthday. It applies to every child who lives in the Netherlands, whatever the nationality."
               },
               {
-                "p": "Compulsory attendance ends at the end of the school year in which the child turns 16. After that, young people without a havo, vwo or mbo level 2 diploma must keep studying until they are 18 (kwalificatieplicht). If you live in the Netherlands but your child goes to a school abroad, for example in Belgium or Germany, you can ask your municipality's truancy officer for an exemption."
+                "p": "Compulsory attendance ends at the end of the school year in which the child turns 16. After that, young people without a havo, vwo or mbo level 2 diploma must keep studying until they are 18 (kwalificatieplicht)."
               },
               {
-                "p": "You then report every year that your child attends school abroad."
+                "p": "If you live in the Netherlands but your child goes to a school abroad, for example in Belgium or Germany, you can ask your municipality's truancy officer for an exemption. You then report every year that your child attends school abroad."
               }
             ],
             "src": [
@@ -1514,10 +1515,10 @@
                 "p": "Yes. Children can register at any time of the year. Secondary school registration also works at any time if you move house."
               },
               {
-                "p": "The school may have no places, so register at more than one school if you can. Special support or a place in a newcomer class can take time. For children who need extra support, register at least 10 weeks before the start date, in writing, and tell the school about the support right away."
+                "p": "The school may have no places, so register at more than one school if you can. Bring your child's passport, school reports and any proof of the previous school. If your child has no citizen service number (BSN) yet, the school can use a temporary education number."
               },
               {
-                "p": "The school then has 6 weeks to decide, and can extend this once by up to 4 weeks. Bring your child's passport, school reports and any proof of the previous school. If your child has no citizen service number (BSN) yet, the school can use a temporary education number."
+                "p": "Special support or a place in a newcomer class can take time. For children who need extra support, register at least 10 weeks before the start date, in writing, and tell the school about the support right away. The school then has 6 weeks to decide, and can extend this once by up to 4 weeks."
               }
             ],
             "src": [
@@ -1531,7 +1532,7 @@
             "q": "Do I need a BSN or an address before I can register?",
             "blocks": [
               {
-                "p": "You register your child yourself and the school asks for your child's citizen service number (BSN). If your child has no BSN yet, the school can enrol your child with a temporary education number (onderwijsnummer), which DUO issues. Tell the school when your child gets a BSN."
+                "p": "You can register your child without a citizen service number (BSN). You register your child yourself, and the school asks for the BSN. If your child has none yet, the school can enrol your child with a temporary education number (onderwijsnummer), which DUO issues. Tell the school when your child gets a BSN."
               },
               {
                 "p": "If you live in the Netherlands, you get a BSN by registering with your municipality. Bring a passport, proof of address and de-registration or school reports from the previous school. In municipalities with a central procedure, such as Amsterdam, a proof of the future home address can be required."
@@ -1655,10 +1656,10 @@
             "q": "Which cities use a lottery for secondary school?",
             "blocks": [
               {
-                "p": "Where a school has more applicants than places, a lottery can be used. Several large regions do, and the rules differ. Amsterdam places all pupils in one central round with a random lot number and a ranked list of schools."
+                "p": "Where a school has more applicants than places, a lottery can be used. Several large regions do, and the rules differ. Amsterdam places all pupils in one central round with a random lot number and a ranked list of schools. Taking part is mandatory there."
               },
               {
-                "p": "Taking part is mandatory there. In the Utrecht regions a lottery is held at schools that have more first-choice applications than places. In 2026 this happened at twelve schools."
+                "p": "In the Utrecht regions a lottery is held at schools that have more first-choice applications than places. In 2026 this happened at twelve schools."
               },
               {
                 "p": "In Haaglanden eight schools drew lots in 2026. Rotterdam and Eindhoven have their own procedures. We could not confirm the rules for Haarlem or Nijmegen."
@@ -1685,13 +1686,13 @@
             "q": "How does the school advice work, and can I change it?",
             "blocks": [
               {
-                "p": "At the end of group 8 the school gives a school advice (schooladvies), based on your child's whole record. It can name one level or two, for example havo and vwo. In January the school gives a provisional advice."
+                "p": "The school decides the advice. At the end of group 8 the school gives a school advice (schooladvies), based on your child's whole record. It can name one level or two, for example havo and vwo. In January the school gives a provisional advice."
               },
               {
-                "p": "Your child then takes the end-of-primary test. If the test advice is higher, the school adjusts the advice upward, unless it decides this is not in your child's interest, and then it must explain why. If the test result is more than half a level higher, the school may choose a level in between."
+                "p": "Your child then takes the end-of-primary test. If the test advice is higher, the school adjusts the advice upward, unless it decides this is not in your child's interest, and then it must explain why. If the test result is more than half a level higher, the school may choose a level in between. The test cannot lower the advice."
               },
               {
-                "p": "The school gives the final advice by 24 March 2027. A secondary school must place your child at least at the advised level, and may not require a one-level advice. The test cannot lower the advice."
+                "p": "The school gives the final advice by 24 March 2027. A secondary school must place your child at least at the advised level, and may not require a one-level advice."
               }
             ],
             "src": [
@@ -1763,10 +1764,10 @@
                 "p": "A Dutch school teaches in Dutch and follows the Dutch curriculum. It is paid for by the state, and there are no tuition fees. An international school teaches in English or another language and often follows a programme such as the IB."
               },
               {
-                "p": "Dutch International Schools are partly government funded and meant for children of internationally mobile families. Fully private international schools set their own fees. A bilingual school (tto) is a Dutch secondary school where at least half of the lessons in the first years of havo and vwo are taught in English."
+                "p": "Dutch International Schools are partly government funded and meant for children of internationally mobile families. Fully private international schools set their own fees. A bilingual school (tto) is a Dutch secondary school where at least half of the lessons in the first years of havo and vwo are taught in English. Pupils take the normal Dutch exams."
               },
               {
-                "p": "Pupils take the normal Dutch exams. Bilingual primary schools exist as a small pilot. Your choice depends on how long you will stay, your child's age and which language your child needs later. Nuffic's information on secondary bilingual education describes English. German and French are mentioned only for the primary pilot, and we could not confirm a Dutch-German secondary school."
+                "p": "Your choice depends on how long you will stay, your child's age and which language your child needs later. Bilingual primary schools exist as a small pilot. Nuffic's information on secondary bilingual education describes English. German and French are mentioned only for the primary pilot, and we could not confirm a Dutch-German secondary school."
               }
             ],
             "src": [
@@ -1801,13 +1802,10 @@
             "q": "I have the 30% ruling. Does that change school choice?",
             "blocks": [
               {
-                "p": "This site gives no tax advice. In general, employers can sometimes pay school fees for an international school tax-free as extraterritorial costs, under conditions set by the Belastingdienst. The conditions include the type of school and who it is meant for."
+                "p": "It can matter for international school fees, but not for state-funded Dutch schools, which charge no tuition. In general, employers can sometimes pay school fees for an international school tax-free as extraterritorial costs, under conditions set by the Belastingdienst. The conditions include the type of school and who it is meant for. This site gives no tax advice."
               },
               {
                 "p": "The 30% ruling is planned to become a 27% ruling from 2027, and the salary conditions change. Do not choose a school only because of a tax rule. Ask your employer's HR or a tax adviser before you sign a contract with a school, and read the current Belastingdienst pages."
-              },
-              {
-                "p": "State-funded Dutch schools charge no tuition, so there is nothing to reimburse for those."
               }
             ],
             "src": [
@@ -1845,7 +1843,7 @@
             "q": "Is Dutch school free? What is the ouderbijdrage?",
             "blocks": [
               {
-                "p": "State-funded schools do not charge tuition. Many ask for a voluntary parental contribution (ouderbijdrage) for extras such as trips, sports days or celebrations. It is voluntary."
+                "p": "State-funded schools do not charge tuition. Many ask for a voluntary parental contribution (ouderbijdrage) for extras such as trips, sports days or celebrations."
               },
               {
                 "p": "Since a law of August 2021, a school may not exclude your child from activities because you did not pay, and may not offer a free replacement activity. The school guide should say this. You still pay for things that are not part of school, such as a private after-school club or lunch supervision."
@@ -2024,12 +2022,10 @@
         "related": [
           "mid-year-arrival",
           "without-dutch",
-          "which-year-group",
-          "bsn-and-address"
+          "which-year-group"
         ],
         "links": [
-          "route",
-          "find"
+          "route"
         ]
       },
       {
@@ -2039,12 +2035,10 @@
         "related": [
           "dutch-international-bilingual",
           "mid-year-arrival",
-          "choose-any-primary",
-          "when-must-child-go"
+          "choose-any-primary"
         ],
         "links": [
-          "intl",
-          "find"
+          "intl"
         ]
       },
       {
@@ -2054,12 +2048,10 @@
         "related": [
           "bsn-and-address",
           "without-dutch",
-          "when-must-child-go",
-          "choose-any-primary"
+          "when-must-child-go"
         ],
         "links": [
-          "route",
-          "find"
+          "route"
         ]
       },
       {
@@ -2069,12 +2061,10 @@
         "related": [
           "ask-about-the-advice",
           "vmbo-advice",
-          "choose-any-secondary",
-          "secondary-lottery-cities"
+          "choose-any-secondary"
         ],
         "links": [
-          "system",
-          "find"
+          "system"
         ]
       },
       {
@@ -2087,8 +2077,7 @@
           "ask-about-the-advice"
         ],
         "links": [
-          "find",
-          "munis"
+          "find"
         ]
       },
       {
@@ -2098,13 +2087,10 @@
         "related": [
           "international-school-costs",
           "without-dutch",
-          "thirty-percent-ruling",
-          "foreign-diplomas"
+          "thirty-percent-ruling"
         ],
         "links": [
-          "intl",
-          "system",
-          "find"
+          "intl"
         ]
       },
       {
@@ -2117,8 +2103,7 @@
           "ouderbijdrage-free-school"
         ],
         "links": [
-          "intl",
-          "find"
+          "intl"
         ]
       },
       {
@@ -2131,8 +2116,7 @@
           "after-school-care-benefit"
         ],
         "links": [
-          "find",
-          "system"
+          "find"
         ]
       },
       {
@@ -2145,8 +2129,7 @@
           "choose-any-primary"
         ],
         "links": [
-          "route",
-          "find"
+          "route"
         ]
       },
       {
@@ -2159,8 +2142,7 @@
           "foreign-diplomas"
         ],
         "links": [
-          "intl",
-          "find"
+          "intl"
         ]
       }
     ],
@@ -2182,10 +2164,10 @@
   },
   "sources": {
     "heading": "Data and sources",
-    "intro": "Where the numbers and rules on this site come from, how to read them, and what we are not.",
+    "intro": "Where the numbers and rules on this site come from, how to read them, and what this site is not: a ranking, or part of the bodies that publish the data.",
     "check": {
       "title": "Check with the school and your municipality",
-      "text": "Last checked: {date}. This page was written with AI assistance. Facts checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. Where sources differ, the page says \"usually\" or \"most schools\". Rules and dates change every year; check with the school and your municipality."
+      "text": "Rules and dates change every year, so check with the school and your municipality. Last checked: {date}. Facts were checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. This page was written with AI assistance. Where sources differ, the page says \"usually\" or \"most schools\"."
     },
     "read": {
       "title": "How to read the numbers",
@@ -2363,7 +2345,7 @@
       "sources": "Where the school numbers on this site come from (DUO, Inspectie, CBS, Kadaster), how to read them, what is hidden for privacy, and what this site is not.",
       "municipalities": "Every Dutch municipality with its primary, special and secondary schools, grouped by province. Open a municipality to see its schools and the facts we hold.",
       "compare": "Compare up to four Dutch schools of the same type side by side: pupils, levels, exam results and inspection information from open data. Context, not a ranking.",
-      "notFound": "This page does not exist on Dutch School Path. You can search for a Dutch school by name, town or postcode, or read our English guide to the Dutch school system.",
+      "notFound": "This page does not exist on Dutch School Path. Search for a Dutch school by name, town or postcode, or read our English guide to the Dutch school system.",
       "municipality": "{name} ({prov}) has {n} schools in the open data: {parts}.",
       "municipalityPad": "See each school with its pupils, levels, results and inspection information.",
       "school": "{name} is a {type} school in {city} ({prov}).",
@@ -2437,7 +2419,7 @@
     "pupilsAtLeast": "at least {n} pupils",
     "noCount": "pupil count not published",
     "routeLink": "Plan a route from postcode {pc}",
-    "routeText": "Enter your child's age with this postcode, the most common one among these schools, to see the steps ahead and the schools nearby.",
+    "routeText": "Enter your child's age to see the steps ahead and the schools nearby. The postcode is the most common one among these schools, so change it to your own.",
     "factsTitle": "Facts about schools in {name}",
     "src": "Source: DUO Open Onderwijsdata (addresses and pupils on 1 October 2025), municipality names from Kadaster BAG via PDOK. Numbers are context, not a ranking.",
     "intlLink": "International schools in {name}: options and schools"
@@ -2473,12 +2455,12 @@
     "indexTitle": "International schools in the Netherlands, by city",
     "indexH1": "International schools in the Netherlands, by city",
     "indexDesc": "International education in Amsterdam, The Hague, Rotterdam, Utrecht, Eindhoven, Leiden and Groningen: Dutch, bilingual and IB schools, funded and private ones.",
-    "indexIntro": "A child new to the Netherlands has more than one way into school. Choose a city to see the options, the schools in our open data that offer them, and the international schools listed by the Dutch International Schools network.",
+    "indexIntro": "A child new to the Netherlands has more than one way into school. Choose your city to see the options and the schools that offer them, from our open data and from the list of the Dutch International Schools network.",
     "indexCities": "Cities",
     "cityTitle": "International schools in {city}: your options",
     "cityH1": "International schools in {city}",
     "cityDesc": "International schools in {city}: Dutch schools, bilingual (tto) and IB schools, funded and private international schools and newcomer classes, with links.",
-    "cityIntro": "There are several ways to school in {city} if you do not speak Dutch yet. This page explains each one, lists the schools in {city} that our open data links to it, and gives the international schools in {city} that the Dutch International Schools network lists.",
+    "cityIntro": "There are several ways into school in {city} if your child does not speak Dutch yet. Below you find the options explained, the schools in {city} that our open data links to each of them, and the international schools in {city} on the Dutch International Schools list.",
     "optH": "The options",
     "opt": [
       {
@@ -2519,14 +2501,14 @@
     "levelPrimary": "primary",
     "levelSecondary": "secondary",
     "fundedH": "Dutch International Schools in {city}",
-    "fundedIntro": "These schools are listed by the Dutch International Schools network as state-funded international schools. Admission is limited by national rules, see the admissions page of the network.",
+    "fundedIntro": "These schools are listed by the Dutch International Schools network as state-funded international schools. Admission is limited by national rules.",
     "assocH": "Other international schools on the DIS list in {city}",
     "assocIntro": "Listed by the network as an associated member. Ask the school about fees and admission.",
     "harenNote": "These schools are in Haren, which is part of the municipality of Groningen.",
     "source": "Source:",
     "checked": "checked {date}",
     "admissions": "Admissions rules of the network",
-    "noOthers": "We did not verify any other international school in {city} and list none.",
+    "noOthers": "We list only schools we could verify. No other international school in {city} is listed.",
     "moreH": "More",
     "muniLink": "Schools in {name}",
     "q": "Questions",
