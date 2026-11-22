@@ -1,4 +1,4 @@
-# Dutch School Path (dutch-school-finder)
+# Dutch School Guide (dutch-school-finder)
 
 Dutch schools explained in English, for families new to the Netherlands. Enter your child's age and a
 postcode and you get the steps still ahead (with dates and what to do) and the real schools near you

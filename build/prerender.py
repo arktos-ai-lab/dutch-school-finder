@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prerender Dutch School Path into _site/: real paths, static HTML in <main> for every page.
+"""Prerender Dutch School Guide into _site/: real paths, static HTML in <main> for every page.
 
 Run from anywhere:  python -I build/prerender.py [--out DIR] [--seo FILE]
 
@@ -1559,10 +1559,11 @@ class Build:
                 for x in range(max(0, int(round(x0 * sc))), min(n, int(round(x1 * sc)))):
                     px[y][x] = col
 
-        fill(11, 0, 17, 28, navy)
-        for y in (3, 11, 19):
-            fill(5 - 1.5, y - 1.5, 23 + 1.5, y + 6 + 1.5, navy)
-            fill(5 + 1.5, y + 1.5, 23 - 1.5, y + 6 - 1.5, yel)
+        # stepped gable (Dutch canal-house front) with a lit window, two lower windows and a door, as in favicon.svg
+        for x0, y0, x1, y1 in ((3, 15, 25, 27), (6, 11, 22, 15), (9, 7, 19, 11), (11.5, 3, 16.5, 7)):
+            fill(x0, y0, x1, y1, navy)
+        for x0, y0, x1, y1 in ((12.5, 8.5, 15.5, 11.5), (6, 17.5, 9.5, 21), (18.5, 17.5, 22, 21), (11.5, 22, 16.5, 27), (12.5, 20.5, 15.5, 22)):
+            fill(x0, y0, x1, y1, yel)
         raw = b"".join(b"\x00" + b"".join(bytes(c) for c in row) for row in px)
 
         def chunk(tp, data):

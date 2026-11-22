@@ -1,4 +1,4 @@
-/* Dutch School Path front end. All user-visible text lives in i18n/<lang>.json (see i18n/README.md). */
+/* Dutch School Guide front end. All user-visible text lives in i18n/<lang>.json (see i18n/README.md). */
 (function(){
 'use strict';
 
@@ -1851,15 +1851,21 @@ function adviceSection(s,d){
   var acx=adviceCtx(s);if(acx)kids.push(acx);
   return psec(t('prof.advice.title'),t('prof.advice.expl'),kids,duoSrc('prof.advice.srcWhat','po_advice'));
 }
+/* full name of an end-of-primary test (DUO gives a short code) and its national mean from context.json */
+function testName(c){var k='prof.test.name.'+c,v=t(k);return v===k?String(c):v}
+function testNat(c){var x=DET.ctx&&DET.ctx.es&&DET.ctx.es[c];return x&&Array.isArray(x.nat)?x.nat:null}
+function rnNat(subj){var x=DET.ctx&&DET.ctx.rn&&DET.ctx.rn[subj];return x&&Array.isArray(x.nat)?x.nat:null}
 function testSection(s,d){
   if(!d||!Array.isArray(d.es)||!d.es.length)return null;
   var tb=h('table',{class:'prtab'},[h('tbody')]),b=tb.firstChild;
+  var nats=[];
   d.es.forEach(function(e){
     if(!Array.isArray(e))return;
-    b.appendChild(h('tr',null,[h('th',{scope:'row',text:String(e[0])}),h('td',{text:e[1]==null?t('prof.test.noAvg'):t('prof.test.avg',{v:String(e[1])})}),h('td',{text:e[2]==null?t('prof.test.few'):t('unit.pupils',{n:e[2]})})]));
+    b.appendChild(h('tr',null,[h('th',{scope:'row',text:testName(e[0])}),h('td',{text:e[1]==null?t('prof.test.noAvg'):t('prof.test.avg',{v:String(e[1])})}),h('td',{text:e[2]==null?t('prof.test.few'):t('unit.pupils',{n:e[2]})})]));
+    var nt=testNat(e[0]);if(nt)nats.push(h('p',{class:'note ctx',text:t('prof.test.nat',{name:testName(e[0]),v:dec1(nt[0]),schools:nt[2]})}));
   });
   var y=detYear('po','eindscore');
-  return psec(t('prof.test.title'),t('prof.test.expl'),[tb,h('p',{class:'note',text:t('prof.test.note')})],t('prof.test.src')+(y?' '+y:'')+'.');
+  return psec(t('prof.test.title'),t('prof.test.expl'),[tb].concat(nats,[h('p',{class:'note',text:t('prof.test.note')})]),t('prof.test.src')+(y?' '+y:'')+'.');
 }
 function distSection(s,d){
   if(!d||!Array.isArray(d.dm)||(d.dm[1]==null&&d.dm[0]==null))return null;
@@ -1993,7 +1999,8 @@ function refSection(s,d){
         h('span',{class:'tk','aria-hidden':'true'},h('i',{class:'b-brand',style:'width:'+Math.max(1,Math.min(100,r[1]))+'%'})),
         h('span',{class:'nn',text:pctTxt(r[1])})]));
     });
-    blk.appendChild(h('p',{class:'note',style:'margin:2px 0 0',text:t('prof.rn.n',{n:a[2]})+(a[2]<20?' '+t('prof.rn.small'):'')}));
+    var nt=rnNat(def[0]);
+    blk.appendChild(h('p',{class:'note',style:'margin:2px 0 0',text:t('prof.rn.n',{n:a[2]})+(a[2]<20?' '+t('prof.rn.small'):'')+(nt?' '+t('prof.rn.nat',{a:pctTxt(nt[0]),la:def[1],b:pctTxt(nt[1]),lb:def[2]}):'')}));
     kids.push(blk);
   });
   if(!kids.length)return null;
@@ -2710,12 +2717,18 @@ function stdRows(schools){
 }
 function cmpRn(d){
   var rn=d&&d.rn&&typeof d.rn==='object'?d.rn:null;if(!rn)return t('cmp.noData');
-  var b=h('div');
+  var b=h('div'),n=null;
   RN_DEF.forEach(function(def){
     var a=rn[def[0]];if(!Array.isArray(a)||typeof a[0]!=='number'||typeof a[1]!=='number')return;
-    b.appendChild(h('div',{text:t('cmp.rn',{subj:t('prof.rn.subj.'+def[0]),a:pctTxt(a[0]),la:def[1],b:pctTxt(a[1]),lb:def[2],n:a[2]})}));
+    if(n==null&&typeof a[2]==='number')n=a[2];
+    var nt=rnNat(def[0]);
+    b.appendChild(h('div',{style:'margin-bottom:6px'},[h('b',{text:t('prof.rn.subj.'+def[0])}),h('br'),
+      document.createTextNode(t('cmp.rn',{a:pctTxt(a[0]),la:def[1],b:pctTxt(a[1]),lb:def[2]})),
+      nt?h('span',{class:'note',style:'display:block',text:t('cmp.rnNat',{a:pctTxt(nt[0]),b:pctTxt(nt[1])})}):null]));
   });
-  return b.childNodes.length?b:t('cmp.noData');
+  if(!b.childNodes.length)return t('cmp.noData');
+  if(n!=null)b.appendChild(h('div',{class:'note',text:t('prof.rn.n',{n:n})+(n<20?' '+t('prof.rn.small'):'')}));
+  return b;
 }
 function cmpHv(d){
   var a=d&&Array.isArray(d.hv)?d.hv:null;if(!a)return t('cmp.noData');
@@ -2783,7 +2796,13 @@ function compareRows(grp,schools){
     R('advice','adviceSm',function(s){return s.sec==='sbo'?t('cmp.na'):adviceBar(s.adv)});
     R('test','testSm',function(s,d){
       if(!d||!Array.isArray(d.es)||!d.es.length)return t('cmp.noData');
-      var b=h('div');d.es.forEach(function(e){if(Array.isArray(e))b.appendChild(h('div',{text:e[0]+': '+(e[1]==null?t('cmp.notShown'):e[1])+(e[2]==null?'':' '+t('cmp.nIs',{n:e[2]}))}))});return b;
+      var b=h('div');d.es.forEach(function(e){
+        if(!Array.isArray(e))return;
+        var nt=testNat(e[0]);
+        b.appendChild(h('div',{style:'margin-bottom:6px'},[h('b',{text:testName(e[0])}),h('br'),
+          document.createTextNode(e[1]==null?t('cmp.notShown'):t('cmp.testAvg',{v:String(e[1])})+(e[2]==null?'':' '+t('cmp.testN',{n:e[2]}))),
+          nt?h('span',{class:'note',style:'display:block',text:t('cmp.testNat',{v:dec1(nt[0])})}):null]));
+      });return b;
     });
     R('rn','rnSm',function(s,d){return cmpRn(d)});
     R('hv','hvSm',function(s,d){return cmpHv(d)});

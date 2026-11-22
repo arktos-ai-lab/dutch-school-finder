@@ -20,6 +20,8 @@ schools contribute (otherwise null).
   sw          {nat: [mean, median, n locations]} schoolweging of PO locations (Inspectie, 3-year mean)
   rn          {subject: {nat: [pct low, pct high, n pupils, n schools], prov: [...]}} doorstroomtoets reference levels pooled
               over schools (weighted by tested pupils)
+  es          {test code: {nat: [mean score, n pupils, n schools], prov: [...]}} doorstroomtoets mean score per test, weighted
+              by tested pupils; only comparable with the same test
 """
 import datetime, json, os, statistics, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -138,6 +140,23 @@ def main():
             return [round(sum(x[0] * x[2] for x in v) / t, 1), round(sum(x[1] * x[2] for x in v) / t, 1), t, len(v)]
         nat, prov = by_prov(items, rn, n)
         out["rn"][subj] = {"nat": nat, "prov": prov}
+    # end-of-primary test: mean score per test (each test has its own scale), weighted by tested pupils
+    out["es"] = {}
+    tests = sorted({e[0] for d in dpo["schools"].values() for e in (d.get("es") or []) if e})
+    for tst in tests:
+        items = []
+        for i, d in dpo["schools"].items():
+            for e in d.get("es") or []:
+                if e and e[0] == tst and e[1] is not None and e[2]:
+                    items.append((prov_po.get(i, -1), (e[1], e[2])))
+
+        def es(v):
+            if len(v) < MIN_N:
+                return None
+            t = sum(x[1] for x in v)
+            return [round(sum(x[0] * x[1] for x in v) / t, 1), t, len(v)]
+        nat, prov = by_prov(items, es, n)
+        out["es"][tst] = {"nat": nat, "prov": prov}
     # schoolweging (Inspectie, PO): mean and median over the school locations that have one
     ie = load("inspectie_extra.json")["schools"]
     sw = [d["sw"] for d in ie.values() if "sw" in d]

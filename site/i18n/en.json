@@ -1,7 +1,7 @@
 {
   "brand": {
-    "name": "Dutch School Path",
-    "tagline": "An unofficial guide for parents new to Dutch schools"
+    "name": "Dutch School Guide",
+    "tagline": "Dutch schools explained in English, for parents new to the Netherlands"
   },
   "meta": {
     "description": "Dutch schools explained in English for expat families: your child's route through the school system and the schools near your postcode, from open data. Free."
@@ -822,7 +822,7 @@
       "advice": "School advice of leavers",
       "adviceSm": "Last full year",
       "test": "End-of-primary test",
-      "testSm": "Do not compare different tests",
+      "testSm": "Each test has its own scale",
       "home": "Home to school",
       "homeSm": "Median, or average if no median",
       "levels": "Levels",
@@ -838,7 +838,7 @@
       "soSplit": "Pupils by part",
       "soSplitSm": "Count date 1 Oct",
       "rn": "Reading, language, maths",
-      "rnSm": "Share reaching each level",
+      "rnSm": "Basic level and higher level",
       "hv": "Advice reconsidered",
       "hvSm": "After the test, leavers",
       "ce": "Central exam grade",
@@ -880,7 +880,7 @@
     "noteOv": "Onderbouw speed, upper-year success, Inspectie exam grade and the calculated verdict are the Inspectie's three-year figures, with norms corrected for the pupil population. They are not a ranking.",
     "noteInsp": "No current final judgement and basic supervision are not ratings. \"Reach\" means at least that level.",
     "notListed": "not listed",
-    "rn": "{subj}: {a} reach {la}, {b} reach {lb} (n = {n})",
+    "rn": "{a} reach the basic level ({la}), {b} the higher level ({lb})",
     "ceOne": "about {v} ({y})",
     "partialShort": "(partial)",
     "fw": "framework {k}",
@@ -889,7 +889,11 @@
     "svVo": "{s} suspensions, {r} removals",
     "svPo": "{s} suspensions",
     "exYes": "Yes, until 1 July {y}",
-    "exNo": "Not on the list"
+    "exNo": "Not on the list",
+    "rnNat": "Netherlands: {a} and {b}",
+    "testAvg": "Average score {v}",
+    "testN": "from {n} pupils",
+    "testNat": "Average at all schools that used this test: {v}"
   },
   "school": {
     "notFound": "School not found",
@@ -934,12 +938,20 @@
     },
     "test": {
       "title": "End-of-primary test (doorstroomtoets)",
-      "expl": "In group 8 every child takes an end-of-primary test. Schools choose from several approved tests, and each test has its own scale, so scores from different tests cannot be compared. The average is context for the school advice, not a grade for the school.",
+      "expl": "In group 8 every child takes an end-of-primary test (doorstroomtoets). Many parents still call it the Cito test. Schools choose from five approved tests, and each test has its own scale: an average of 177 on one test and 405 on another says nothing about which school did better. Compare a school's average only with the national average for the same test, shown below. The average is context for the school advice, not a grade for the school.",
       "note": "Compare averages only between schools that used the same test.",
       "noAvg": "average not shown",
       "avg": "average score {v}",
       "few": "fewer than 5 pupils",
-      "src": "Source: DUO Open Onderwijsdata, test results"
+      "src": "Source: DUO Open Onderwijsdata, test results",
+      "name": {
+        "LIB": "Leerling in Beeld (the test made by Cito)",
+        "AMN": "AMN doorstroomtoets",
+        "DIA": "Dia doorstroomtoets",
+        "IEP": "IEP doorstroomtoets",
+        "Route 8": "Route 8 doorstroomtoets"
+      },
+      "nat": "All schools in the Netherlands that used {name}: average {v} ({schools} schools)."
     },
     "dist": {
       "title": "How far pupils live",
@@ -1048,7 +1060,8 @@
       "n": "Based on {n} pupils tested.",
       "small": "Small group: the percentages can swing a lot.",
       "note": "Each bar is the share of tested pupils at that level or higher. A subject is left out when DUO hides a group of fewer than 5 pupils.",
-      "src": "Source: DUO, pupils per reference level for language and maths"
+      "src": "Source: DUO, pupils per reference level for language and maths",
+      "nat": "Netherlands: {a} reach {la}, {b} reach {lb}."
     },
     "hv": {
       "title": "Advice reconsidered after the test",
@@ -2364,7 +2377,7 @@
       "sources": "Where the school numbers on this site come from (DUO, Inspectie, CBS, Kadaster), how to read them, what is hidden for privacy, and what this site is not.",
       "municipalities": "Every Dutch municipality with its primary, special and secondary schools, grouped by province. Open a municipality to see its schools and the facts we hold.",
       "compare": "Compare up to four Dutch schools of the same type side by side: pupils, levels, exam results and inspection information from open data. Context, not a ranking.",
-      "notFound": "This page does not exist on Dutch School Path. Search for a Dutch school by name, town or postcode, or read our English guide to the Dutch school system.",
+      "notFound": "This page does not exist on Dutch School Guide. Search for a Dutch school by name, town or postcode, or read our English guide to the Dutch school system.",
       "municipality": "{name} ({prov}) has {n} schools in the open data: {parts}.",
       "municipalityPad": "See each school with its pupils, levels, results and inspection information.",
       "school": "{name} is a {type} school in {city} ({prov}).",
