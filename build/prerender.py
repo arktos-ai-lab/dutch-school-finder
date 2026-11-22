@@ -358,7 +358,7 @@ class Build:
         h.append(f"<title>{e(title)}</title>")
         h.append(f'<meta name="description" content="{e(desc)}">')
         h.append(f'<meta name="robots" content="{robots}">')
-        h.append(f'<meta name="theme-color" content="#FFC917">')
+        h.append(f'<meta name="theme-color" content="#E8DCC3">')
         h.append(f'<meta name="sp-base" content="{e(self.base)}">')
         h.append(f'<meta name="sp-ver" content="{self.ver['i18n']}">')
         if p.get("canonical", True):
@@ -1554,7 +1554,7 @@ class Build:
     def favicon_ico(self):
         """32x32 route-line mark as a PNG inside an .ico (stdlib only)"""
         n = 32
-        navy, yel, clear_ = (0, 48, 130, 255), (255, 201, 23, 255), (0, 0, 0, 0)
+        navy, yel, clear_ = (29, 78, 137, 255), (232, 220, 195, 255), (0, 0, 0, 0)
         px = [[clear_] * n for _ in range(n)]
         sc = n / 28.0
 
@@ -1564,7 +1564,7 @@ class Build:
                     px[y][x] = col
 
         # schoolhouse with flag, roof, clock, windows and door, as in favicon.svg (rectangles only)
-        red, white = (215, 38, 61, 255), (255, 255, 255, 255)
+        red, white = (168, 131, 79, 255), (255, 255, 255, 255)
         for x0, y0, x1, y1 in ((13.4, 1, 14.6, 9), (2, 13, 26, 27), (0.5, 12, 27.5, 14), (7, 11.5, 21, 13), (9.5, 10, 18.5, 11.5), (11.5, 8.5, 16.5, 10)):
             fill(x0, y0, x1, y1, navy)
         fill(14.6, 1.5, 20, 4.7, red)
