@@ -1,0 +1,70 @@
+{
+  "slug": "dutch-for-toddlers-vve",
+  "group": "arrive",
+  "order": 2,
+  "title": "VVE and peuteropvang: Dutch for children aged 2.5 to 4",
+  "desc": "VVE is a programme in childcare for toddlers aged 2.5 to 4 who may need extra help with Dutch. Your municipality decides who qualifies. See how to ask for it.",
+  "h1": "Can my toddler get help with Dutch before school? VVE explained",
+  "lede": "VVE (voor- en vroegschoolse educatie) is a language and development programme in childcare for children aged 2.5 to 4. Your municipality decides who qualifies, usually after a check at the child health clinic. A place means about 16 hours a week.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "what",
+      "h": "What VVE is",
+      "blocks": [
+        {"p": "VVE stands for voor- en vroegschoolse educatie. It has two parts. The first part is for toddlers (voorschoolse educatie). The second part is in the first two years of primary school, group 1 and 2 (vroegschoolse educatie)."},
+        {"p": "The toddler part takes place in childcare, in a toddler group (peuteropvang, also called peuterspeelzaal) or a daycare centre (kinderopvang). Children play and learn in a set programme that builds language and other early skills. The location must work with a special programme for early education, and the staff must meet language requirements."},
+        {"p": "It is not a Dutch class like the ones for older newcomers. It is early help for children who may be behind in language, and it suits a child who hears little Dutch at home. For older children, see [newcomer classes and ISK](/guides/newcomer-classes-isk/)."}
+      ]
+    },
+    {
+      "id": "who",
+      "h": "Who qualifies",
+      "blocks": [
+        {"p": "Not every toddler gets VVE. The national government sets the frame. Each municipality (gemeente) decides which children qualify, for example by looking at the language spoken at home. The child health clinic (consultatiebureau) then tells you whether your child gets a VVE indication (vve-indicatie)."},
+        {"p": "This means the rules differ per town. Moving from one municipality to another can change the answer. Check the website of your own municipality and search for VVE or voorschoolse educatie."},
+        {"note": "VVE is extra support for a child who may start school behind in language. The aim is a good start in group 1."}
+      ]
+    },
+    {
+      "id": "how",
+      "h": "How to ask for it",
+      "blocks": [
+        {"steps": [
+          "Register with your municipality when you arrive. See [BSN and address](/questions/bsn-and-address/).",
+          "Register your child at the child health clinic (consultatiebureau). The indication usually comes from there.",
+          "Ask the clinic or your municipality: does my child qualify for VVE, and which toddler groups or daycare centres near us offer it?",
+          "Contact a location that offers VVE and ask about a place and the days it can offer. Places can be limited, so ask early."
+        ]},
+        {"say": "My child is 2 years and 8 months old and we speak little Dutch at home. Can we get a VVE indication, and where can she go?"}
+      ]
+    },
+    {
+      "id": "hours-cost",
+      "h": "Hours and cost",
+      "blocks": [
+        {"p": "A child with an indication goes to childcare for about 16 hours a week, from about 2.5 years until the age of 4."},
+        {"p": "There is no national price. Your municipality decides what parents pay for the VVE hours. In some towns it depends on your income and on whether you get childcare benefit. Ask your municipality what you will pay before you sign anything."},
+        {"p": "Childcare benefit (kinderopvangtoeslag) has its own conditions, for example about work or study. Read the official page: [childcare benefit on government.nl](https://www.government.nl/topics/childcare/childcare-benefit). This site cannot say whether you qualify."}
+      ]
+    },
+    {
+      "id": "after",
+      "h": "From toddler group to school",
+      "blocks": [
+        {"p": "A child can start primary school at age 4. With your consent, the childcare can pass on information about your child's development to the primary school. This helps the school to give the right support in group 1 and 2."},
+        {"p": "Schools get extra funding for children who need extra help in these first years. They decide themselves how to use it, often with more attention to language and reading, or smaller groups. Ask the school what they do. Rules about the first school day are on the page about [when a child must go to school](/questions/when-must-child-go/), and the groups are explained in [which year group](/guides/which-year-group/)."},
+        {"p": "You can register your child at a primary school from age 3. To see the schools near you and the steps ahead, enter your child's age and postcode in the [route finder](/)."}
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: what is voorschoolse and vroegschoolse educatie (vve)", "url": "https://www.rijksoverheid.nl/onderwerpen/voorschoolse-en-vroegschoolse-educatie/vraag-en-antwoord/wat-is-voorschoolse-en-vroegschoolse-educatie-vve"},
+    {"label": "Rijksoverheid: voorschoolse educatie", "url": "https://www.rijksoverheid.nl/onderwerpen/voorschoolse-en-vroegschoolse-educatie/voorschoolse-educatie"},
+    {"label": "Rijksoverheid: when may my child go to primary school", "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/basisonderwijs/wanneer-mag-mijn-kind-naar-de-basisschool"},
+    {"label": "Government.nl: applying for childcare benefit", "url": "https://www.government.nl/topics/childcare/childcare-benefit"}
+  ],
+  "related_guides": ["which-year-group", "newcomer-classes-isk", "school-day-and-after-school-care"],
+  "related_questions": ["when-must-child-go", "after-school-care-benefit", "without-dutch"],
+  "links": ["route", "find", "munis", "sources"]
+}

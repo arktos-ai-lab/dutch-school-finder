@@ -1,0 +1,59 @@
+{
+  "slug": "repeating-a-year",
+  "group": "during",
+  "order": 1,
+  "home": 4,
+  "title": "Repeating a year in the Netherlands (zittenblijven, doubleren)",
+  "desc": "The school decides if your child repeats a year. What to ask, how to take part in the talks, and how to complain, in Dutch primary and secondary school.",
+  "h1": "What if the school wants my child to repeat a year?",
+  "lede": "The school decides whether a child repeats a year (zittenblijven or doubleren). There are no legal rules for it, so you cannot overrule the school, but you can ask for the reasons, take part in the talks and use the complaints procedure if you disagree.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "who-decides", "h": "Who decides, and what the law says", "blocks": [
+      {"p": "The school decides if your child moves up to the next group or class. The government says there are no legal rules for this. Each school sets its own approach, and you can read it in the school guide (schoolgids)."},
+      {"p": "The school must tell you if your child is going to repeat. The final decision is the school's, so ask to be involved early, before the decision is made."},
+      {"p": "You will hear several Dutch words for the same thing: <b>zittenblijven</b> and <b>doubleren</b> (repeating a year), and <b>kleuterverlenging</b> (an extra year in group 1 or 2, the first two years of primary school, also called kleuterbouwverlenging). Moving to a lower level in secondary school is called <b>afstromen</b>."},
+      {"note": "We found no current official figure for how often children repeat a year. Ask the school how often it happens there."}
+    ]},
+    {"id": "primary", "h": "In primary school", "blocks": [
+      {"p": "The government gives one moment as its example: the move from group 2 to group 3, where reading and writing start. Most schools look at whether the child's development is far enough along and talk about it with the parents. Some schools still use an old age rule (a child had to be 6 by 1 October), although that national rule was abolished in August 1985."},
+      {"p": "If your child does not meet the standards but the school wants to give a chance, it can use a <b>conditional move up</b> (voorwaardelijke overgang). Then the school agrees with you on the conditions and on when your child moves up for good."},
+      {"p": "For a child who arrived from abroad or speaks little Dutch, ask directly whether the proposal is about language or about something else. If it is about language, ask what extra language support the school can give. See [children without Dutch](/questions/without-dutch/)."}
+    ]},
+    {"id": "secondary", "h": "In secondary school", "blocks": [
+      {"p": "In secondary school the school also decides. It can let a child repeat or move the child up on conditions. Some schools also propose a lower level (afstromen). We found no national rule on moving down a level, so read the school guide: the rules differ per school."},
+      {"p": "A conditional move up must be clearly marked on the report card, and the school must tell you in writing. The conditions can be, for example, redoing an assignment or retaking a test. The final decision must be clear by 31 December at the latest. A conditional move up into the final year is not allowed."},
+      {"p": "Before agreeing to a lower level, ask what the options are. Ask whether a later move back up is possible and when the level will be reviewed. The [school advice guide](/guides/school-advice-and-doorstroomtoets/) explains how levels are set at the start."}
+    ]},
+    {"id": "what-to-ask", "h": "What to ask the school", "blocks": [
+      {"say": "Which results and observations is this based on, and can we have it in writing?"},
+      {"say": "What support has already been tried, and what will be different next year so that repeating helps?"},
+      {"say": "What happens if we say no? Is a conditional move up possible?"},
+      {"ul": [
+        "Ask for a meeting with the teacher and the learning-support coordinator (intern begeleider).",
+        "Ask when the decision is final and until when you can still talk about it.",
+        "Ask how the school measures whether the extra year worked, and when it will look at it again.",
+        "If your child has a language, hearing or speech question, ask whether an outside assessment would help. Costs and insurance cover vary, so ask before you book."
+      ]},
+      {"p": "Repeating a year is not automatically good or bad. What matters is what the school will do differently in the extra year."}
+    ]},
+    {"id": "complain", "h": "If you disagree: complaints", "blocks": [
+      {"p": "If you disagree with the decision, the government points you to the school's complaints procedure (klachtenprocedure). The steps are:"},
+      {"steps": [
+        "Talk to the teacher, then to the school leader (directeur). Ask for the reasons in writing. You can ask the school leader to mediate.",
+        "Write to the school board (schoolbestuur) if the talks do not help.",
+        "File a complaint with the complaints committee (klachtencommissie) the school belongs to. It must handle it confidentially and reply within 4 weeks. Its advice is not binding, but the board can act on it.",
+        "Send a copy to the Inspectorate of Education (Inspectie van het Onderwijs). It does not handle single complaints, but it uses the information in its supervision."
+      ]},
+      {"p": "A complaint is about how the school handled the decision: for example, it did not follow the rules in its own school guide, did not inform you or gave no reasons. Ouders & Onderwijs gives parents free advice by phone on 088-6050101. If your child has a support need, ask the school about extra support too."}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: who decides if my child repeats or moves up", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/wie-bepaalt-of-mijn-kind-blijft-zitten-of-overgaat-naar-de-volgende-klas"},
+    {"label": "Rijksoverheid: how to complain about a school", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/klacht-indienen-over-school"},
+    {"label": "Ouders & Onderwijs", "url": "https://www.oudersenonderwijs.nl/"}
+  ],
+  "related_guides": ["which-year-group", "extra-support-passend-onderwijs", "school-advice-and-doorstroomtoets"],
+  "related_questions": ["repeating-a-year", "without-dutch", "extra-support-rights"],
+  "links": ["route", "find", "system", "sources"]
+}

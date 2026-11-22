@@ -1,0 +1,58 @@
+{
+  "slug": "school-advice-and-doorstroomtoets",
+  "group": "during",
+  "order": 2,
+  "title": "School advice and the Cito test: doorstroomtoets 2026-27",
+  "desc": "The school advice in group 8 sets your child's secondary level. The Cito end test is now the doorstroomtoets. Dates for 2026-27 and what you can do next.",
+  "h1": "School advice and the doorstroomtoets (the old Cito test)",
+  "lede": "In group 8 the primary school gives a school advice (schooladvies) that sets the level of secondary school. The doorstroomtoets, which parents still call the Cito test, can raise the advice but does not decide it.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "what-it-is", "h": "What the advice and the test are", "blocks": [
+      {"p": "In the last year of primary school (group 8, age 11 to 12) the school gives a <b>school advice</b> (schooladvies). It says which level of secondary school fits your child, for example vmbo, havo or vwo. The school builds it on your child's whole record: observations in class, work attitude, progress over the years, test results and talks with your child and with you."},
+      {"p": "Parents often say \"the Cito\". That was the old end test (eindtoets). Since the school year 2023-24 it is called the <b>doorstroomtoets</b>: a compulsory transition test in language and arithmetic that every pupil in group 8 takes. Cito is now one of several companies that make an approved test. It is not a pass or fail exam. It gives a second opinion, called the test advice (toetsadvies), next to the school's own judgement."},
+      {"p": "Each school picks one provider for all its pupils. For 2026-27 the approved tests are the Dia-toets, the IEP-doorstroomtoets, the Cito Leerling in beeld doorstroomtoets, the Route 8-doorstroomtoets and the government's own DOE-toets. State-funded schools do not pay for the test."},
+      {"p": "For a child with a disability, the school may use an adapted test from another provider. Ask the school."}
+    ]},
+    {"id": "timeline", "h": "The timeline for 2026-27", "blocks": [
+      {"table": {"caption": "Group 8 in the school year 2026-27, according to the Rijksoverheid timeline", "head": ["When", "What happens"], "rows": [
+        ["10 to 31 January 2027", "The school gives a provisional advice (voorlopig advies) and talks to you."],
+        ["25 January to 12 February 2027", "Your child takes the doorstroomtoets, in one or two half-days."],
+        ["No later than 24 March 2027", "The school gives the final advice (definitief advies)."],
+        ["25 to 31 March 2027", "Central registration week: you register your child at a secondary school."],
+        ["From 1 April 2027", "Placement starts. The secondary school decides within 6 weeks of registration and no later than 12 May 2027."]
+      ]}},
+      {"note": "Some regions let schools open registration earlier, but only for pupils with a final advice, and it gives no advantage: anyone registered before 1 April counts as registered on 31 March. If a school is late with its decision it must tell you and decide no later than 9 June 2027. Ask your child's school which date applies to you."}
+    ]},
+    {"id": "can-it-go-up", "h": "Can the advice go up?", "blocks": [
+      {"p": "Yes. If the test advice is higher than the provisional advice, the primary school should raise the advice to the test level. It may keep the lower advice only if it judges the change is not in your child's interest, and then it must explain why. If the gap is more than half a level, the school may also pick a level in between and explain that choice."},
+      {"p": "The rules describe the test as a reason to raise the advice. They do not say it lowers it."}
+    ]},
+    {"id": "advice-decides", "h": "How the advice decides the level", "blocks": [
+      {"p": "A secondary school must place your child at least at the level of the final advice. If it has several suitable classes, it chooses which one. A primary school may give an advice for one school type or for two, such as havo and vwo. Secondary schools may not ask the primary school for an advice for one type only."},
+      {"p": "Lotteries and sign-up rules differ per city. See [how the secondary lottery works](/questions/secondary-lottery-cities/) and [how the advice works](/questions/school-advice-how-it-works/)."}
+    ]},
+    {"id": "your-role", "h": "What you can do", "blocks": [
+      {"say": "Which results and observations is the advice based on, and what would change it?"},
+      {"steps": [
+        "Go to the advice talk in January with questions ready, and ask for the reasons in writing.",
+        "If your child is new to Dutch, say so. Ask how the school weighs language when it reads the test.",
+        "If you disagree, first talk to the teacher or the school leader.",
+        "If that does not help, file a complaint with the school's complaints committee. The school guide (schoolgids) describes how."
+      ]},
+      {"p": "Independent assessments exist, but cost and insurance cover vary, so ask before you book. For a first look at schools and levels, use the [route finder](/) and read about [children who arrive without Dutch](/questions/without-dutch/)."},
+      {"p": "In July 2026 the government said it wants every pupil to take the same test, from one provider, from the school year 2029-30. That is a plan, not yet a rule, and it changes nothing for 2026-27."}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: timeline of the school advice 2027", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/tijdlijn-schooladvies-2027"},
+    {"label": "Rijksoverheid: why a doorstroomtoets (new name since 2023-24)", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/vraag-en-antwoord/waarom-doorstroomtoets"},
+    {"label": "Rijksoverheid: compulsory doorstroomtoets", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/verplichte-doorstroomtoets-basisonderwijs"},
+    {"label": "Rijksoverheid: approved doorstroomtoetsen", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/toegestane-doorstroomtoetsen-basisschool"},
+    {"label": "Rijksoverheid: admission to secondary school based on the final advice", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies"},
+    {"label": "Rijksoverheid news, 2 July 2026: plan for one doorstroomtoets", "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/07/02/staatssecretaris-wil-van-zes-naar-een-doorstroomtoets"}
+  ],
+  "related_guides": ["choose-a-secondary-school", "repeating-a-year", "extra-support-passend-onderwijs"],
+  "related_questions": ["school-advice-how-it-works", "ask-about-the-advice", "vmbo-advice"],
+  "links": ["route", "find", "system", "sources"]
+}

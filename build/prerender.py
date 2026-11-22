@@ -261,6 +261,7 @@ class Build:
         self.intl = jload(ROOT / "build" / "international_schools.json")
         self.faq_q = {x["id"]: x["q"] for g in self.en["faq"]["groups"] for x in g["items"]}
         self.faq_page_ids = {p["id"] for p in self.en["faq"]["pages"]}
+        self.guides = self.load_guides()
         self.pages = 0
         self.sitemap = {"pages": [], "schools": [], "municipalities": []}
         self.ver = {}
@@ -471,6 +472,7 @@ class Build:
             "footchecked": e(t("foot.checked", date=fmt_day(self.last_checked))),
             "schoolattrs": "",
             "homelinks": "",
+            "footlinks": self.foot_links(),
         }
         defaults.update(slots)
         for k, v in defaults.items():
@@ -479,6 +481,15 @@ class Build:
         assert "<!--@" not in s
         s = re.sub(r"\n\s*", "\n", s)
         return s
+
+    def foot_links(self):
+        """site-wide links in the footer, so every content page is one click from every page"""
+        t = self.t
+        ks = [("guides/", "foot.guides"), ("questions/", "foot.questions"), ("international/", "foot.intl"), ("municipalities/", "foot.munis"), ("system/", "foot.system")]
+        if not self.guides:
+            ks = ks[1:]
+        li = "".join(f'<li><a href="{self.href(r)}">{e(t(k))}</a></li>' for r, k in ks)
+        return f'<nav class="footnav" aria-label="{e(t("foot.navAria"))}"><ul>{li}</ul></nav>'
 
     def write(self, rel, content):
         if not rel.startswith(("school/", "municipality/")):
@@ -706,7 +717,7 @@ class Build:
         return {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": self.langs[0], "mainEntity": qs}
 
     # ------------------------------------------------------------ one page per frequent question
-    SITE_LINKS = {"route": "", "find": "find/", "system": "system/", "munis": "municipalities/", "intl": "international/", "sources": "sources/"}
+    SITE_LINKS = {"route": "", "find": "find/", "system": "system/", "munis": "municipalities/", "intl": "international/", "sources": "sources/", "guides": "guides/", "map": "map/", "questions": "questions/"}
 
     def question_pages(self):
         """/questions/<id>/ for the questions listed in en.json faq.pages: the answer from en.json, related links, FAQPage with one question.
@@ -743,6 +754,118 @@ class Build:
             page = {"rel": rel, "view": "static", "tab": None, "title": pg["title"], "desc": pg["desc"],
                     "jsonld": [ld, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}],
                     "slots": {"static": "".join(o)}}
+            self.write(rel, self.page(page))
+            self.sitemap["pages"].append(rel)
+
+    # ------------------------------------------------------------ guides: longer pages, one file per guide
+    GUIDE_DIR = SITE / "i18n" / "guides"
+
+    def load_guides(self):
+        """site/i18n/guides/<lang>/<slug>.json, one per guide (see site/i18n/guides/README.md for the format)"""
+        d = self.GUIDE_DIR / self.langs[0]
+        out = {}
+        for f in sorted(d.glob("*.json")) if d.is_dir() else []:
+            g = json.loads(f.read_text(encoding="utf8"))
+            assert g["slug"] == f.stem, ("guide slug must match file name", f.name)
+            for k in ("title", "desc", "h1", "lede", "group", "checked", "sections", "sources"):
+                assert g.get(k), ("guide field missing", f.name, k)
+            assert g["group"] in {x["id"] for x in self.en["guides"]["groups"]}, ("unknown guide group", f.name, g["group"])
+            out[g["slug"]] = g
+        return out
+
+    def grich(self, s):
+        """guide text: <b>..</b> and [label](/site/path/ or https://...) links; everything else is text"""
+        out = []
+        for part in re.split(r"(\[[^\]]+\]\([^)\s]+\))", str(s)):
+            m = re.fullmatch(r"\[([^\]]+)\]\(([^)\s]+)\)", part)
+            if not m:
+                out.append(rich(part))
+                continue
+            label, url = m.groups()
+            if url.startswith("/"):
+                path, _, frag = url[1:].partition("#")
+                href = self.href(path) + ("#" + frag if frag else "")
+                out.append(f'<a href="{e(href)}">{rich(label)}</a>')
+            else:
+                assert url.startswith("https://"), ("guide link must be /path/ or https://", url)
+                out.append(f'<a href="{e(url)}" target="_blank" rel="noopener">{rich(label)}</a>')
+        return "".join(out)
+
+    def guide_blocks(self, blocks):
+        o = []
+        for b in blocks:
+            if "p" in b:
+                o.append(f"<p>{self.grich(b['p'])}</p>")
+            elif "say" in b:
+                o.append(f'<p class="say">{self.grich(b["say"])}</p>')
+            elif "ul" in b:
+                o.append("<ul>" + "".join(f"<li>{self.grich(li)}</li>" for li in b["ul"]) + "</ul>")
+            elif "steps" in b:
+                o.append('<ol class="gsteps">' + "".join(f"<li>{self.grich(li)}</li>" for li in b["steps"]) + "</ol>")
+            elif "note" in b:
+                o.append(f'<p class="note">{self.grich(b["note"])}</p>')
+            elif "table" in b:
+                tb = b["table"]
+                cap = f'<caption>{e(tb["caption"])}</caption>' if tb.get("caption") else ""
+                head = "".join(f'<th scope="col">{e(h)}</th>' for h in tb["head"])
+                rows = "".join("<tr>" + "".join((f'<th scope="row">{self.grich(c)}</th>' if i == 0 else f"<td>{self.grich(c)}</td>") for i, c in enumerate(r)) + "</tr>" for r in tb["rows"])
+                o.append(f'<div class="gtable"><table>{cap}<thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>')
+            else:
+                raise AssertionError(("unknown guide block", b))
+        return "".join(o)
+
+    def guide_pages(self):
+        t = self.t
+        G = self.en["guides"]
+        guides = self.guides
+        qmap = {x["id"]: x for g in self.en["faq"]["groups"] for x in g["items"]}
+        crumb_home = (t("crumb.home"), self.href(""))
+        crumb_idx = (G["crumb"], self.href("guides/"))
+        # index
+        o = [f'<div class="phead">{self.crumbs([crumb_home, (G["crumb"], None)])}<h1 class="vh" id="h-static" tabindex="-1">{e(G["indexH1"])}</h1><p>{e(G["indexIntro"])}</p></div>']
+        for grp in G["groups"]:
+            items = [g for g in guides.values() if g["group"] == grp["id"]]
+            if not items:
+                continue
+            li = "".join(f'<li><a href="{self.href("guides/" + g["slug"] + "/")}">{e(g["h1"])}</a><br><span class="note">{e(g["lede"])}</span></li>' for g in sorted(items, key=lambda g: g.get("order", 99)))
+            o.append(f'<section class="psec"><h2>{e(grp["h"])}</h2><ul class="muni-list">{li}</ul></section>')
+        o.append(f'<section class="psec"><h2>{e(G["moreH"])}</h2><ul class="muni-list"><li><a href="{self.href("questions/")}">{e(G["toQuestions"])}</a></li><li><a href="{self.href("")}">{e(G["toRoute"])}</a></li><li><a href="{self.href("system/")}">{e(G["toSystem"])}</a></li></ul></section>')
+        bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+              {"@type": "ListItem", "position": 2, "name": G["crumb"], "item": self.canon("guides/")}]
+        page = {"rel": "guides/", "view": "static", "tab": None, "title": G["indexTitle"], "desc": G["indexDesc"],
+                "jsonld": [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}], "slots": {"static": "".join(o)}}
+        self.write("guides/", self.page(page))
+        self.sitemap["pages"].append("guides/")
+        # one page per guide
+        for g in guides.values():
+            rel = f"guides/{g['slug']}/"
+            o = [f'<div class="phead">{self.crumbs([crumb_home, crumb_idx, (g["h1"], None)])}<h1 class="vh" id="h-static" tabindex="-1">{e(g["h1"])}</h1>'
+                 f'<p class="lede">{self.grich(g["lede"])}</p><p class="note">{e(G["checked"].format(date=fmt_day(g["checked"])))}</p></div>']
+            secs = g["sections"]
+            if len(secs) >= 4:
+                toc = "".join(f'<li><a href="#{e(s["id"])}">{e(s["h"])}</a></li>' for s in secs)
+                o.append(f'<nav class="psec gtoc" aria-label="{e(G["toc"])}"><h2>{e(G["toc"])}</h2><ol>{toc}</ol></nav>')
+            for s in secs:
+                assert re.fullmatch(r"[a-z0-9-]+", s["id"]), ("section id", g["slug"], s["id"])
+                o.append(f'<section class="psec qa" id="{e(s["id"])}"><h2>{e(s["h"])}</h2>{self.guide_blocks(s["blocks"])}</section>')
+            src = "".join(f'<li><a href="{e(x["url"])}" target="_blank" rel="noopener">{e(x["label"])}</a></li>' for x in g["sources"])
+            o.append(f'<section class="psec"><h2>{e(G["sourcesH"])}</h2><p class="note">{e(G["sourcesNote"])}</p><ul class="srclist">{src}</ul></section>')
+            rel_li = [f'<li><a href="{self.href("guides/" + r + "/")}">{e(guides[r]["h1"])}</a></li>' for r in g.get("related_guides", []) if r in guides]
+            for q in g.get("related_questions", []):
+                href = self.href(f"questions/{q}/") if q in self.faq_page_ids else self.href(f"questions/#{q}")
+                rel_li.append(f'<li><a href="{e(href)}">{e(qmap[q]["q"])}</a></li>')
+            for k in g.get("links", []):
+                rel_li.append(f'<li><a href="{e(self.href(self.SITE_LINKS[k]))}">{e(t("faq.page.l." + k))}</a></li>')
+            rel_li.append(f'<li><a href="{self.href("guides/")}">{e(G["all"])}</a></li>')
+            o.append(f'<section class="psec"><h2>{e(G["next"])}</h2><ul class="muni-list">{"".join(rel_li)}</ul></section>')
+            bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+                  {"@type": "ListItem", "position": 2, "name": G["crumb"], "item": self.canon("guides/")},
+                  {"@type": "ListItem", "position": 3, "name": g["h1"], "item": self.canon(rel)}]
+            art = {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"], "inLanguage": self.langs[0],
+                   "dateModified": g["checked"], "mainEntityOfPage": self.canon(rel),
+                   "publisher": {"@type": "Organization", "name": self.brand, "url": self.canon("")}}
+            page = {"rel": rel, "view": "static", "tab": None, "title": g["title"], "desc": g["desc"],
+                    "jsonld": [art, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": bl}], "slots": {"static": "".join(o)}}
             self.write(rel, self.page(page))
             self.sitemap["pages"].append(rel)
 
@@ -826,6 +949,9 @@ class Build:
         o.append("</ul>")
         il = " &middot; ".join(f'<a href="{self.href("international/" + k + "/")}">{e(c["name"])}</a>' for k, c in self.intl["cities"].items())
         o.append(f'<h3>{e(t("home.intlTitle"))}</h3><p>{e(t("home.intlIntro"))} {il}</p>')
+        if self.guides:
+            gl = " &middot; ".join(f'<a href="{self.href("guides/" + k + "/")}">{e(g["h1"])}</a>' for k, g in sorted(self.guides.items(), key=lambda kv: kv[1].get("home", 99)) if g.get("home"))
+            o.append(f'<h3>{e(t("home.guidesTitle"))}</h3><p>{gl}{" &middot; " if gl else ""}<a href="{self.href("guides/")}">{e(t("home.guidesAll"))}</a></p>')
         o.append(f'<p><a href="{self.href("municipalities/")}">{e(t("home.linksAll"))}</a> &middot; <a href="{self.href("find/")}">{e(t("home.linksFind"))}</a> &middot; <a href="{self.href("questions/")}">{e(t("home.linksQuestions"))}</a></p>')
         return "".join(o)
 
@@ -1504,6 +1630,8 @@ class Build:
         simple("questions/", "faq", "title.faq", D["faq"], {"faq": self.faq_html()}, [self.faq_jsonld()], tab="faq")
         simple("sources/", "sources", "title.sources", D["sources"], {"sourcesout": self.sources_html()}, tab="sources")
         self.question_pages()
+        if self.guides:
+            self.guide_pages()
         # compare: client side, never indexed
         simple("compare/", "compare", "title.compare", D["compare"], {"compareout": f'<p>{e(t("compareStatic.text"))}</p><noscript><p class="note">{e(t("compareStatic.noscript"))}</p></noscript><p><a href="{self.href("find/")}">{e(t("home.linksFind"))}</a></p>'}, tab="find", index=False, sitemap=False)
 
@@ -1551,8 +1679,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "_site"))
     ap.add_argument("--seo", default=str(SITE / "seo.json"))
+    ap.add_argument("--no-dates", action="store_true", help="do not rewrite build/content_dates.json (for test builds)")
     a = ap.parse_args()
     b = Build(a.out, a.seo)
+    b.no_dates_write = a.no_dates
     n = b.run()
     total = sum(f.stat().st_size for f in Path(a.out).rglob("*") if f.is_file())
     print(f"pages: {n}  (schools {len(b.sitemap['schools'])}, municipalities {len(b.sitemap['municipalities'])}, other {len(b.sitemap['pages'])} indexable + compare + 404)")

@@ -1,0 +1,169 @@
+{
+  "slug": "choose-a-secondary-school",
+  "group": "choose",
+  "order": 3,
+  "title": "How to choose a secondary school (middelbare school)",
+  "desc": "The school advice sets the level. Then you compare schools, visit open days and sign up in late March. See the 2027 dates, lotteries, bilingual (tto) and more.",
+  "h1": "How do I choose a secondary school (middelbare school) in the Netherlands?",
+  "lede": "The school advice at the end of group 8 sets the level. Within that level you choose the school: visit open days, then sign up in the central week of 25 to 31 March 2027. Some cities place children by lottery.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "advice",
+      "h": "Step 1: the advice sets the level",
+      "blocks": [
+        {
+          "p": "In group 8 (about age 12) the primary school gives a school advice (schooladvies). It can name one level or two, such as havo and vwo. The levels are practical education, vmbo, havo and vwo. The secondary school must place your child at least at the advised level. See [How does the school advice work?](/questions/school-advice-how-it-works/) and [the whole system on one page](/system/)."
+        },
+        {
+          "p": "So you do not choose the level yourself. You choose which school offers it. Look for a school that has the advised level. Some schools offer several levels under one roof (scholengemeenschap). Ask how moving between levels works there. The school decides."
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "h": "Step 2: the timeline in group 8",
+      "blocks": [
+        {
+          "p": "These dates are for the school year 2026-27, for children who start secondary school in August 2027."
+        },
+        {
+          "table": {
+            "caption": "Timeline 2027",
+            "head": [
+              "When",
+              "What happens"
+            ],
+            "rows": [
+              [
+                "Before the sign-up week",
+                "Open days (open dagen) at secondary schools. Check each school's website for its dates."
+              ],
+              [
+                "10 to 31 January 2027",
+                "Provisional advice (voorlopig advies) from the primary school."
+              ],
+              [
+                "25 January to 12 February 2027",
+                "The end-of-primary test (doorstroomtoets)."
+              ],
+              [
+                "By 24 March 2027",
+                "Final advice (definitief advies)."
+              ],
+              [
+                "25 to 31 March 2027",
+                "Central sign-up week (aanmeldweek). Some regions let you sign up before 25 March; ask your child's primary school."
+              ],
+              [
+                "By 12 May 2027",
+                "The secondary school decides within 6 weeks of sign-up, by 12 May 2027 at the latest. If it needs more time, it must tell you and decide by 9 June 2027."
+              ]
+            ]
+          }
+        },
+        {
+          "note": "Regions can differ in the details. Ask your child's primary school how your region works."
+        }
+      ]
+    },
+    {
+      "id": "visit",
+      "h": "Step 3: visit open days",
+      "blocks": [
+        {
+          "p": "Go with your child. Your child will spend about 4 to 6 years there, so their feeling counts. Look at the building, ask pupils and teachers questions, and check how you get there by bike or public transport."
+        },
+        {
+          "ul": [
+            "Which levels does the school offer, and can pupils move between them?",
+            "How big is the school, and how are the first-year classes (brugklassen) made?",
+            "Does the school have bilingual education (tto) or other profiles?",
+            "What help is there for pupils who need extra support?",
+            "How does the school deal with bullying, and who can my child talk to?",
+            "What are the costs for books, a laptop, trips and the parental contribution?"
+          ]
+        },
+        {
+          "say": "My child comes from a school abroad and is still learning Dutch. How do you help in the first year?"
+        }
+      ]
+    },
+    {
+      "id": "admission",
+      "h": "Step 4: sign up, lotteries and limits",
+      "blocks": [
+        {
+          "p": "You may sign up at more than one school, because a school can be full. A school may not give extra tests to decide the level, and may not use IQ scores. A bilingual (tto) or top-sport school may test only for the special skills it needs. Read [Can I choose any secondary school?](/questions/#choose-any-secondary)."
+        },
+        {
+          "p": "In some regions the municipality or the schools place children together. Amsterdam, for example, places pupils in one central round with a random lot number and a ranked list of schools. In other regions a lottery is used only at schools that have more applicants than places. These rules change, so see [Which cities use a lottery?](/questions/secondary-lottery-cities/) and ask your primary school for the current guide of your region."
+        },
+        {
+          "p": "You need your child's citizen service number (BSN) to sign up. If your child has no BSN yet, your child gets a temporary education number through the school. See [BSN and address](/questions/bsn-and-address/)."
+        },
+        {
+          "note": "If you arrive after the sign-up week, you can register during the year. Read [mid-year arrival](/questions/mid-year-arrival/). If your child speaks no Dutch, read [without Dutch](/questions/without-dutch/)."
+        }
+      ]
+    },
+    {
+      "id": "bilingual",
+      "h": "Bilingual and other options",
+      "blocks": [
+        {
+          "p": "In a bilingual school (tto), at least half of the lessons in the first years of havo and vwo are in English, and in vmbo 30 percent. Pupils sit the normal Dutch exams. Your child still needs Dutch for the other lessons, so it is not a way around Dutch. Nuffic keeps a [list of tto schools](https://www.nuffic.nl/onderwijssectoren/voortgezet-onderwijs/tweetalig-onderwijs/alle-tto-scholen-in-nederland)."
+        },
+        {
+          "p": "Other options are a school with a teaching concept, a gymnasium (a vwo with Latin and Greek), or an international school. See [Dutch school or international school?](/guides/dutch-or-international-school/)."
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "h": "How to use the data on our school pages",
+      "blocks": [
+        {
+          "p": "On the [school finder](/find/) you can see for each school the levels offered, pupil numbers, the mix of school advice of the pupils and the inspection judgement. These numbers are context, not a ranking. Exam pass rates depend on who the school admits. A blank or \"fewer than 5\" means a small group is hidden. A missing inspection judgement is not a rating; the Inspectie mostly gives one after a visit. Read [How should I read the numbers?](/questions/#reading-the-numbers) before you compare."
+        },
+        {
+          "p": "Use the numbers to prepare questions for the open day."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Rijksoverheid: timeline of the school advice 2027 (Dutch)",
+      "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/tijdlijn-schooladvies-2027"
+    },
+    {
+      "label": "Rijksoverheid: registering at secondary school (Dutch)",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/inschrijven-voortgezet-onderwijs"
+    },
+    {
+      "label": "Rijksoverheid: admission based on the final advice (Dutch)",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies"
+    },
+    {
+      "label": "Rijksoverheid: what is bilingual education (tto) (Dutch)",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs"
+    }
+  ],
+  "related_guides": [
+    "school-advice-and-doorstroomtoets",
+    "types-of-schools",
+    "dutch-or-international-school",
+    "moving-with-a-teenager"
+  ],
+  "related_questions": [
+    "choose-any-secondary",
+    "secondary-lottery-cities",
+    "vmbo-advice",
+    "reading-the-numbers"
+  ],
+  "links": [
+    "route",
+    "find"
+  ]
+}

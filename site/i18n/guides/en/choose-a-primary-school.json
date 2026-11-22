@@ -1,0 +1,153 @@
+{
+  "slug": "choose-a-primary-school",
+  "group": "choose",
+  "order": 2,
+  "title": "How to choose a primary school (basisschool) in the Netherlands",
+  "desc": "You can register at any primary school, and at more than one. See when to register, what to ask on a visit and how to read school data without a ranking.",
+  "h1": "How do I choose a primary school (basisschool) in the Netherlands?",
+  "lede": "You may register your child at any primary school that has room, and at more than one. Some municipalities add local rules, such as a lottery. Visit two or three schools, ask the same questions at each, and register at least 10 weeks before your child turns 4.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "free-choice",
+      "h": "You choose, but the school must have room",
+      "blocks": [
+        {
+          "p": "Dutch parents choose the school. You can look at schools in your own neighbourhood or further away. A school may be full, keep a waiting list, or give priority to some children, such as brothers and sisters. Read more in [Can I choose any primary school?](/questions/#choose-any-primary)."
+        },
+        {
+          "p": "Some municipalities have their own rules or agreements. Depending on the area, your child may have to go to a school in your own neighbourhood, a lottery may decide placement, or siblings may come first. Check your municipality's website, or ask the school whether you can choose freely. Our [municipality pages](/municipalities/) link to local information."
+        }
+      ]
+    },
+    {
+      "id": "when",
+      "h": "When to register",
+      "blocks": [
+        {
+          "p": "Register at least 10 weeks before your child turns 4. You can register from age 3, not earlier. Your child may start at 4. Attendance is compulsory from age 5. See [When must my child go to school?](/questions/when-must-child-go/)."
+        },
+        {
+          "p": "If you arrive from abroad with an older child, you can register during the school year. See [mid-year arrival](/questions/mid-year-arrival/) and [Which year group will my child join?](/questions/#which-year-group)."
+        },
+        {
+          "p": "Bring your child's citizen service number (BSN) and a birth certificate or ID. If your child comes from another Dutch school, bring the proof of de-registration. No BSN yet? Read [BSN and address](/questions/bsn-and-address/)."
+        }
+      ]
+    },
+    {
+      "id": "types",
+      "h": "Types of school and what they mean",
+      "blocks": [
+        {
+          "p": "A <b>public school (openbare school)</b> is open to every child and does not teach from a religion. A <b>special school (bijzondere school)</b> teaches from a faith or a belief, or from a teaching concept such as Montessori or Dalton. Schools with a teaching concept can be public or special."
+        },
+        {
+          "p": "A school with a religious basis may, in some cases, set conditions that relate to that basis. It may not discriminate, for example on origin. Read the school guide (schoolgids) and ask about the admission policy before you register. More in [Can a religious school refuse my child?](/questions/#religious-school-refuse)."
+        },
+        {
+          "p": "Some primary schools run childcare and after-school activities on the same site. Ask what the school day looks like. See [school hours and lunch](/questions/#school-hours-lunch)."
+        }
+      ]
+    },
+    {
+      "id": "visit",
+      "h": "Visit before you decide",
+      "blocks": [
+        {
+          "p": "Schools hold an open day (open dag), give a tour or invite you for a short talk (kennismaking). Ask each school how it works, because schools differ. Go at a normal school time if you can, so you see lessons and the playground."
+        },
+        {
+          "steps": [
+            "Make a shortlist of two or three schools using the [school finder](/find/) and the school guides.",
+            "Ask for a tour or a talk, and bring the same questions to each school.",
+            "Ask about waiting lists and priority rules.",
+            "Register at more than one school if you want to keep your options open.",
+            "Decide when the places are confirmed."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "h": "Questions to ask",
+      "blocks": [
+        {
+          "say": "How do you help a child who does not speak Dutch yet, and who gives that support?"
+        },
+        {
+          "say": "How do you place a child in a year group when they arrive from abroad, and how do you decide when they move up?"
+        },
+        {
+          "say": "What does the school day look like, and what do you offer before and after school?"
+        },
+        {
+          "say": "What is the parental contribution (ouderbijdrage), what does it pay for, and is it voluntary?"
+        },
+        {
+          "say": "How does the school deal with bullying, and who can I speak to if there is a problem?"
+        },
+        {
+          "say": "What happens if my child needs extra support?"
+        },
+        {
+          "p": "The parental contribution is voluntary, and a school may not exclude your child from activities because you did not pay it. See [Is Dutch school free?](/questions/ouderbijdrage-free-school/)."
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "h": "How to read the data on our school pages",
+      "blocks": [
+        {
+          "p": "Each school page on our [school finder](/find/) shows open data, such as pupil numbers and the inspection judgement. These numbers are context for a conversation with the school. They are not a ranking and they do not say which school is best for your child."
+        },
+        {
+          "ul": [
+            "A blank or \"fewer than 5\" means a small group is hidden to protect privacy.",
+            "In a small school, one pupil can move a percentage a lot.",
+            "Many schools have no current inspection judgement. The Inspectie mostly gives one after a visit, so a missing judgement is not a rating.",
+            "The mix of pupils describes who attends. It does not describe teaching quality."
+          ]
+        },
+        {
+          "p": "More in [How should I read the numbers on this site?](/questions/#reading-the-numbers). Use the numbers to prepare your questions for the visit."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Rijksoverheid: when to register at a primary school (Dutch)",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/wanneer-kind-aanmelden-basisschool"
+    },
+    {
+      "label": "Rijksoverheid: choosing a primary school (Dutch)",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/basisschool-kiezen-voor-kind"
+    },
+    {
+      "label": "Rijksoverheid: public and special education (Dutch)",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/vrijheid-van-onderwijs/openbaar-en-bijzonder-onderwijs"
+    },
+    {
+      "label": "Rijksoverheid: voluntary parental contribution (Dutch)",
+      "url": "https://www.rijksoverheid.nl/documenten/2023/09/01/documenten-vrijwillige-ouderbijdrage-po-en-vo"
+    }
+  ],
+  "related_guides": [
+    "which-year-group",
+    "types-of-schools",
+    "dutch-or-international-school",
+    "newcomer-classes-isk"
+  ],
+  "related_questions": [
+    "choose-any-primary",
+    "religious-school-refuse",
+    "reading-the-numbers",
+    "ouderbijdrage-free-school"
+  ],
+  "links": [
+    "route",
+    "find"
+  ]
+}

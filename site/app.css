@@ -559,3 +559,16 @@ table.cmp th a{overflow-wrap:anywhere}
 @media (min-width:640px){#find-form{min-height:650px}}
 @media (min-width:900px){#find-form{min-height:530px}}
 @media (min-width:1200px){#find-form{min-height:490px}}
+/* guides and footer nav */
+.lede{font-size:1.1rem;max-width:62ch;margin:4px 0 6px}
+.gtoc ol{margin:4px 0 0;padding-left:1.4em}
+.gtoc li{padding:3px 0}
+.gsteps{padding-left:1.4em}
+.gsteps li{margin-bottom:.45em}
+.gtable{overflow-x:auto;margin:6px 0 10px}
+.gtable table{border-collapse:collapse;min-width:100%;font-size:.95rem}
+.gtable caption{text-align:left;font-weight:700;padding-bottom:4px}
+.gtable th,.gtable td{border-top:1px solid var(--rule);padding:6px 8px;text-align:left;vertical-align:top}
+.gtable thead th{border-top:0;border-bottom:2px solid var(--rule)}
+.footnav ul{list-style:none;padding:0;margin:0 0 8px;display:flex;flex-wrap:wrap;gap:4px 18px}
+.footnav a{display:inline-block;padding:6px 0}

@@ -1,0 +1,69 @@
+{
+  "slug": "types-of-schools",
+  "group": "support",
+  "order": 3,
+  "title": "Types of Dutch schools: public, special, Montessori, Dalton",
+  "desc": "Public (openbaar) and special (bijzonder) schools, Catholic, Protestant, Islamic and more, plus Montessori, Dalton, Jenaplan and Steiner. All are state-funded.",
+  "h1": "What kinds of schools are there in the Netherlands?",
+  "lede": "Dutch schools are public (openbaar) or special (bijzonder). Both are paid for by the state and charge no tuition. A school's teaching concept, such as Montessori, is a separate choice from its religion.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "public-special", "h": "Public and special schools", "blocks": [
+      {"p": "Dutch schools differ in who runs them and what they teach from. There are two main kinds:"},
+      {"ul": [
+        "<b>Public school (openbare school).</b> Open to every child. Lessons are not based on a religion or belief.",
+        "<b>Special school (bijzondere school).</b> Lessons come from a religion or a belief. Some special schools have no religion and work from an educational view instead."
+      ]},
+      {"p": "The state pays for both kinds if they meet the rules on quality, pupil numbers, qualified teachers and teaching hours. So neither charges tuition. A voluntary parental contribution (ouderbijdrage) is possible. See [the ouderbijdrage answer](/questions/ouderbijdrage-free-school/)."}
+    ]},
+    {"id": "denominations", "h": "Religious and general special schools", "blocks": [
+      {"p": "Special schools are grouped by identity. In the open school data of DUO, the main groups for primary schools are Roman Catholic, Protestant-Christian, several kinds of Reformed, Islamic, anthroposophical (Steiner) and general special (algemeen bijzonder). There are also a few Evangelical, Hindu and Jewish schools. Some schools combine two groups, for example Catholic and Protestant together."},
+      {"p": "General special schools have no religion. Many of them teach from an educational view, such as Montessori, Dalton or Jenaplan."},
+      {"p": "For most secondary schools, DUO's data says only special (bijzonder), without a religion. The school guide (schoolgids) or the school's website says what its identity is."},
+      {"p": "How much the identity shows in daily school life differs between schools. Ask the school what it means for lessons, celebrations and rules."}
+    ]},
+    {"id": "concepts", "h": "Teaching concepts", "blocks": [
+      {"p": "A teaching concept describes how lessons are organised. It is not a religion. Public and special schools can both follow one. For example, a public primary school can teach the Montessori way."},
+      {"table": {"caption": "Common concepts, in short, based on how each association describes itself", "head": ["Concept", "In short"], "rows": [
+        ["Montessori", "Follows the ideas of Maria Montessori. Children make their own choices, work on their own and learn at a pace that suits them."],
+        ["Dalton", "Built on trust. Pupils plan their own work within clear limits, work together, and look back on how it went."],
+        ["Jenaplan", "The school sees itself as a community. Children learn in mixed base groups (stamgroepen), and the week is built around talking, playing, working and celebrating together."],
+        ["Vrije School (Steiner)", "Based on the anthroposophy of Rudolf Steiner. Art, music and crafts count as much as language and maths, and a subject is often taught in a block of several weeks."]
+      ]}},
+      {"note": "These are short summaries. Each association says its schools shape the concept in their own way, so visit and ask."},
+      {"p": "Popular concept schools can have waiting lists. Read [how to choose a primary school](/guides/choose-a-primary-school/) for registration timing."}
+    ]},
+    {"id": "admission", "h": "Admission rules", "blocks": [
+      {"p": "A public school must be open to every pupil if it has a place. A special school may require pupils and teachers to hold its religion or belief. Ask the school about its admission policy."},
+      {"p": "A school may not discriminate, for example on origin. In a dispute a court decides. Read [can a religious school refuse my child](/questions/#religious-school-refuse) for the short answer."},
+      {"p": "Your home address, waiting lists and local registration rules also decide whether there is a place. Public and special schools both use these. See [the choose-a-primary guide](/guides/choose-a-primary-school/)."}
+    ]},
+    {"id": "not-religious", "h": "If your family is not religious, or has another religion", "blocks": [
+      {"p": "Catholic and Protestant schools together make up more than half of the primary school locations in DUO's data, so the school closest to you may well be one. What matters is how the school lives its identity, and what it asks of your child."},
+      {"p": "At a public primary school, the school must let pupils take religious or humanist lessons during school hours if parents ask for them (godsdienstonderwijs or levensbeschouwelijk vormingsonderwijs, often called GVO and HVO). Children who do not take part get other lessons. The school guide says how this works."},
+      {"p": "At a special school, the school sets its own rules. Ask before you register:"},
+      {"ul": [
+        "whether pupils take part in religious lessons, prayer or services",
+        "how the school marks religious holidays, and whether your child can take part in some and not others",
+        "whether parents are asked to sign anything about the school's identity"
+      ]},
+      {"say": "We are not religious. What does the school's identity mean in daily lessons, and what do you expect from our child and from us?"}
+    ]},
+    {"id": "see-type", "h": "How to see a school's type on our pages", "blocks": [
+      {"p": "Each school page shows its denomination (for example Public, Catholic or Non-religious private (special)) taken from DUO's open data. Concept labels such as Montessori or Dalton come from association lists and school websites. They can be incomplete or out of date, so a school without a label may still follow the concept. Check the school's own site."},
+      {"p": "You can search by name or concept, for example Montessori, on [the school finder](/find/), or start from [your child's age and postcode](/)."}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: public and special education", "url": "https://www.rijksoverheid.nl/onderwerpen/vrijheid-van-onderwijs/openbaar-en-bijzonder-onderwijs"},
+    {"label": "Wet op het primair onderwijs, article 50 (religious or humanist lessons at public schools)", "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0003420&artikel=50"},
+    {"label": "DUO: open data on school addresses and denominations", "url": "https://duo.nl/open_onderwijsdata/"},
+    {"label": "Nederlandse Montessori Vereniging: for parents", "url": "https://www.montessori.nl/ouders/"},
+    {"label": "Nederlandse Dalton Vereniging: about Dalton", "url": "https://dalton.nl/over-dalton/"},
+    {"label": "Nederlandse Jenaplan Vereniging: what is Jenaplan", "url": "https://jenaplan.nl/professionals/wat-is-jenaplan"},
+    {"label": "Vereniging van vrijescholen: about the vrije school", "url": "https://vrijescholen.nl/vrijeschool-onderwijs/over-de-vrijeschool"}
+  ],
+  "related_guides": ["choose-a-primary-school", "choose-a-secondary-school", "dutch-or-international-school"],
+  "related_questions": ["religious-school-refuse", "choose-any-primary", "ouderbijdrage-free-school"],
+  "links": ["route", "find", "system", "sources"]
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "newcomer-classes-isk",
+  "group": "arrive",
+  "order": 1,
+  "home": 1,
+  "title": "Newcomer classes and ISK in the Netherlands: how they work",
+  "desc": "Children with no Dutch can join a newcomer class (taalklas) in primary school or an ISK from age 12. See how long it lasts, how to get a place and what follows.",
+  "h1": "My child speaks no Dutch: what are the taalklas and the ISK?",
+  "lede": "Dutch schools have special classes where newly arrived children learn Dutch first. In primary school it is a taalklas or schakelklas. From age 12 it is the ISK. The school decides when your child moves on to a regular class. In secondary school, pupils spend on average about two years in the ISK.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "by-age",
+      "h": "Which class, by age",
+      "blocks": [
+        {"p": "The name changes with the age of your child. The idea is the same: a small group, a lot of Dutch, then a move to a regular class."},
+        {"table": {
+          "caption": "Dutch language support for newcomers, by age",
+          "head": ["Age", "What it is called", "Where"],
+          "rows": [
+            ["4 to 11", "Newcomer class or language class (taalklas, nieuwkomersklas) or bridging class (schakelklas)", "In or linked to a primary school"],
+            ["4 to 11", "Regular class with extra Dutch lessons", "Any primary school"],
+            ["From 12", "International bridging class (internationale schakelklas, ISK)", "A secondary school, or a separate ISK building"]
+          ]
+        }},
+        {"note": "Names differ per town. One town says taalklas, the next says nieuwkomersklas or schakelklas. Ask what the local class is called, then ask what it offers."},
+        {"p": "The language of teaching is Dutch, not English. Programmes made for families who stay only a short time (international education) are a separate option, and parents pay a contribution for those. See [international schools in your city](/international/) and [what they cost](/questions/international-school-costs/)."}
+      ]
+    },
+    {
+      "id": "primary",
+      "h": "Primary school: taalklas, schakelklas or a regular class",
+      "blocks": [
+        {"p": "In primary school parents can usually choose. Your child can go to a language class first, or go straight into a regular class and get extra Dutch lessons there. What is on offer depends on your town."},
+        {"p": "A language class can be inside a regular school or in a separate building. Some children spend part of the week in the language class and part in the regular class."},
+        {"ul": [
+          "Ask the school how many hours your child spends in the language class.",
+          "Ask when and how the school decides that your child can move to the regular class.",
+          "Ask whether your child can stay in the same school afterwards. This matters for friends and for travel."
+        ]},
+        {"p": "Which choice suits your child depends on the child and on what the school offers. Ask the school for its view and say what you prefer."}
+      ]
+    },
+    {
+      "id": "isk",
+      "h": "From age 12: the ISK",
+      "blocks": [
+        {"p": "A pupil aged 12 or older who arrived recently and speaks little or no Dutch can join an ISK. There pupils learn Dutch and also take subjects such as maths and citizenship. The aim is to prepare them for regular secondary school or mbo (vocational college)."},
+        {"p": "An ISK is regular education, so there is no tuition fee. As in all Dutch schools, the school may ask for a voluntary parental contribution (ouderbijdrage). See [the free school question](/questions/ouderbijdrage-free-school/)."},
+        {"p": "Most ISKs start with an intake. The school looks at what your child already knows. This helps to decide the group and, later, the level for the regular school. Ask what the intake looks like and whether you can bring school reports."},
+        {"note": "There is no single national upper age for the ISK. For a young person of 16 or older, ask the ISK or your municipality which route fits."}
+      ]
+    },
+    {
+      "id": "how-long",
+      "h": "How long does it last?",
+      "blocks": [
+        {"p": "There is no fixed time for every child. In secondary school, pupils spend on average about two years in the ISK, according to the VO-raad, the council of secondary schools. Some move on sooner, others need longer. The school looks at your child's Dutch, schoolwork and age."},
+        {"p": "For primary school there is no national figure. Ask the school how long children usually stay in the language class."},
+        {"p": "Schools get extra funding for a newcomer for the first two years. In an emergency a municipality can open a temporary newcomer facility; a pupil may be enrolled there for two years at most."},
+        {"say": "How long do pupils usually stay in the ISK, and how do you decide when my child is ready for a regular class?"}
+      ]
+    },
+    {
+      "id": "get-a-place",
+      "h": "How to get a place",
+      "blocks": [
+        {"p": "There is no single national route. In most regions you do one of these two things."},
+        {"steps": [
+          "Contact your municipality (gemeente). Many have a point for newcomer pupils, or the education department can tell you which schools offer a taalklas or an ISK.",
+          "Or contact a school directly. A secondary school can often register your child for an ISK it runs itself, or send you to the right one.",
+          "Register as early as you can. Newcomer classes can be full, so ask whether there is a waiting list and what the other options are.",
+          "Bring your child's passport, any school reports and proof of the previous school. If your child has no citizen service number (BSN) yet, the school can use a temporary education number. See [BSN and address](/questions/bsn-and-address/).",
+          "Go to the intake. Ask about travel, because the class may not be in your own neighbourhood."
+        ]},
+        {"p": "You can register during the school year. More on this in [arriving mid-year](/questions/mid-year-arrival/). If no place can be found, tell your municipality. Municipalities and school boards can ask the education ministry's regional coordinators for newcomer education for help."},
+        {"p": "To see the schools and the steps ahead for your child's age, enter the age and your postcode in the [route finder](/)."}
+      ]
+    },
+    {
+      "id": "after",
+      "h": "What happens after",
+      "blocks": [
+        {"p": "After the language class your child moves to a regular class, with extra language support where needed. After primary this means regular primary school or, at the end of group 8, the usual secondary school choice. After the ISK pupils go to regular secondary school (vmbo, havo or vwo) or to mbo."},
+        {"p": "The level is not fixed by the ISK. The ISK and the receiving school look at your child's results and age, and the receiving school decides. Ask the ISK which regular schools its pupils usually move to, and whether the place in the regular school is arranged by the ISK or by you."},
+        {"p": "A good question for the receiving school: what support does my child get with Dutch in the first year? Rights to extra support are in [extra support (passend onderwijs)](/questions/#extra-support-rights). A wider view is on the page about [children without Dutch](/questions/without-dutch/)."}
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: questions about newcomer education", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/onderwijs-voor-nieuwkomers"},
+    {"label": "Rijksoverheid: compulsory education and qualification duty", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/leerplicht-en-kwalificatieplicht"},
+    {"label": "VO-raad: education for newcomers", "url": "https://vo-raad.nl/onderwerpen/onderwijs-aan-nieuwkomers"},
+    {"label": "Inspectie van het Onderwijs: education for newcomers", "url": "https://www.onderwijsinspectie.nl/onderwerpen/onderwijs-aan-nieuwkomers"}
+  ],
+  "related_guides": ["moving-with-a-teenager", "which-year-group", "extra-support-passend-onderwijs"],
+  "related_questions": ["without-dutch", "mid-year-arrival", "bsn-and-address"],
+  "links": ["route", "find", "system", "munis", "sources"]
+}

@@ -1,0 +1,180 @@
+{
+  "slug": "dutch-or-international-school",
+  "group": "choose",
+  "order": 1,
+  "home": 2,
+  "title": "Dutch school or international school? A guide by age and plans",
+  "desc": "Dutch school, bilingual (tto), partly funded Dutch International School or private international school: choose by your child's age and how long you stay.",
+  "h1": "Should my child go to a Dutch school or an international school?",
+  "lede": "Staying many years, or have a young child? Most families in that case choose a Dutch school. Staying only 2 or 3 years with an older child? An international school keeps the language of lessons the same.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "four-options",
+      "h": "The four options in plain words",
+      "blocks": [
+        {
+          "p": "<b>Dutch school.</b> Lessons are in Dutch. The state pays for it, so there is no tuition. A primary school child who speaks no Dutch can join a newcomer class (taalklas or schakelklas) or a regular class with extra Dutch lessons. From age 12 there is the international transition class (ISK). See [Can my child join a Dutch school without speaking Dutch?](/questions/without-dutch/)."
+        },
+        {
+          "p": "<b>Bilingual school (tweetalig onderwijs, tto).</b> A Dutch secondary school where a large part of the lessons in the first years are in English. In havo and vwo it is at least half of the lessons, in vmbo 30 percent. Pupils still sit Dutch exams and get a normal Dutch diploma. Your child still needs to cope with Dutch in the other lessons."
+        },
+        {
+          "p": "<b>Dutch International School (DIS).</b> A school that is partly funded by the Dutch government and meant for children of internationally mobile families, aged 4 to 19. Not every family can enrol. See [who can enrol](/guides/international-school-admission/)."
+        },
+        {
+          "p": "<b>Private international school.</b> Not state-funded. It sets its own fees and its own admission rules."
+        }
+      ]
+    },
+    {
+      "id": "by-age",
+      "h": "What changes with your child's age",
+      "blocks": [
+        {
+          "p": "The older your child is, the more Dutch they need before lessons make sense, and the closer the school advice and exams come. This table is a starting point, not a rule. Your child, the school and your plans decide."
+        },
+        {
+          "table": {
+            "caption": "Rough guide by age on arrival",
+            "head": [
+              "Age on arrival",
+              "Dutch school",
+              "International option"
+            ],
+            "rows": [
+              [
+                "4 to 7 (groups 1 to 4)",
+                "A common choice. Ask the school what language support it gives, because this differs per school.",
+                "Useful if you stay a short time or want English throughout."
+              ],
+              [
+                "8 to 11 (groups 5 to 8)",
+                "Possible, but the school advice at the end of group 8 comes within a few years. Ask about a newcomer class (taalklas) nearby.",
+                "Worth weighing if you stay under about 3 years or the child will need English later."
+              ],
+              [
+                "12 to 14 (secondary, years 1 to 3)",
+                "A child who speaks no Dutch can start in a newcomer class (ISK) and move to a regular class later. Many stay up to about two years.",
+                "A common choice for short stays. A bilingual school (tto) is an option only if the child can follow Dutch lessons too."
+              ],
+              [
+                "15 and older",
+                "Exam years follow a set programme, so ask the municipality and the schools early what is possible.",
+                "Often the practical choice, especially near exam years. See [moving with a teenager](/guides/moving-with-a-teenager/)."
+              ]
+            ]
+          }
+        },
+        {
+          "note": "These are general patterns. Individual schools and municipalities differ, so ask the school what it can offer."
+        }
+      ]
+    },
+    {
+      "id": "your-plans",
+      "h": "What your plans change",
+      "blocks": [
+        {
+          "p": "Four questions usually settle it."
+        },
+        {
+          "ul": [
+            "<b>How long will you stay?</b> A stay of 1 to 3 years points to international education. A stay of many years, or a move for good, points to a Dutch school, because friends, sport clubs and later study are all in Dutch.",
+            "<b>Which language will your child need later?</b> If you will go back to an English-speaking country, English-language schooling keeps the way back open. If your child will study in the Netherlands, Dutch matters. Some university programmes are taught in English, see [English-taught university](/questions/#english-taught-university).",
+            "<b>What does your child already speak?</b> A child who already speaks some Dutch, or whose other parent is Dutch, has a much easier start in a Dutch school.",
+            "<b>What can you pay?</b> See the next section."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "h": "Cost, in rough numbers",
+      "blocks": [
+        {
+          "p": "A state-funded Dutch school charges no tuition. It may ask a voluntary parental contribution (ouderbijdrage). See [Is Dutch school free?](/questions/ouderbijdrage-free-school/)."
+        },
+        {
+          "p": "<b>These amounts are rough estimates, not prices.</b> Fees differ per school and change each year. Always check the school's own fee schedule."
+        },
+        {
+          "ul": [
+            "Dutch International Schools are partly funded. Rough estimate from outside guides: about 4,500 to 9,500 euro a year. We have not checked this for each school.",
+            "Private international schools cost more. Rough estimate: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Some schools add a deposit or an entry fee."
+          ]
+        },
+        {
+          "p": "If your employer pays school fees, or you have the 30% ruling, read [I have the 30% ruling. Does that change school choice?](/questions/thirty-percent-ruling/). This site gives no tax advice."
+        }
+      ]
+    },
+    {
+      "id": "where",
+      "h": "Check what exists near you",
+      "blocks": [
+        {
+          "p": "Choice depends on where you live. International schools are mostly in or near the large cities, and there may be none within a reasonable travel time. See the [international options](/international/) and the city pages for [Amsterdam](/international/amsterdam/), [The Hague](/international/the-hague/), [Rotterdam](/international/rotterdam/), [Utrecht](/international/utrecht/), [Eindhoven](/international/eindhoven/), [Leiden](/international/leiden/) and [Groningen](/international/groningen/)."
+        },
+        {
+          "p": "To see the Dutch schools near you, enter your child's age and postcode on the [start page](/). It shows the steps ahead and the schools nearby."
+        },
+        {
+          "say": "Our child speaks no Dutch yet. What support do you give in the first year, and how do you decide when to move them to a regular class?"
+        }
+      ]
+    },
+    {
+      "id": "decide",
+      "h": "A simple way to decide",
+      "blocks": [
+        {
+          "steps": [
+            "Write down how long you expect to stay and in which country your child will study later.",
+            "Check which international schools exist within your travel limit, and whether your family can enrol (see the admission guide).",
+            "Ask two or three Dutch schools near you about support for children who speak no Dutch.",
+            "Compare the actual fee schedules and the practical day: travel, hours and after-school care.",
+            "If you are unsure, ask each school how a later move to the other system would work for your child's age."
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Rijksoverheid: what is bilingual education (tto) in secondary school",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs"
+    },
+    {
+      "label": "Dutch International Schools: who the schools are for (ages 4 to 19)",
+      "url": "https://www.dutchinternationalschools.nl/"
+    },
+    {
+      "label": "Dutch International Schools: admissions",
+      "url": "https://www.dutchinternationalschools.nl/about-dis/admissions/"
+    },
+    {
+      "label": "Rijksoverheid: choosing a primary school (public, special and international schools)",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/basisschool-kiezen-voor-kind"
+    },
+    {
+      "label": "Nuffic: bilingual education",
+      "url": "https://www.nuffic.nl/onderwijssectoren/voortgezet-onderwijs/tweetalig-onderwijs"
+    }
+  ],
+  "related_guides": [
+    "international-school-admission",
+    "newcomer-classes-isk",
+    "moving-with-a-teenager",
+    "types-of-schools"
+  ],
+  "related_questions": [
+    "dutch-international-bilingual",
+    "international-school-costs",
+    "without-dutch"
+  ],
+  "links": [
+    "route",
+    "intl"
+  ]
+}

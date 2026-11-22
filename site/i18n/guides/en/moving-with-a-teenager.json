@@ -1,0 +1,94 @@
+{
+  "slug": "moving-with-a-teenager",
+  "group": "arrive",
+  "order": 4,
+  "title": "Moving to the Netherlands with a teenager: school options",
+  "desc": "A teen of 12 to 18 can join an ISK, a regular school, a bilingual (tto) or an international school. School is compulsory to 16, and to 18 without a diploma.",
+  "h1": "We are moving with a 12 to 18 year old: what are the school options?",
+  "lede": "A teenager who speaks little Dutch usually starts in an ISK, then moves to regular secondary school or mbo. Bilingual (tto) and international schools are other options. School is compulsory until the end of the school year in which your child turns 16. Without a havo, vwo or mbo level 2 diploma, your child must then keep learning until 18.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "options",
+      "h": "The main options",
+      "blocks": [
+        {"p": "No one route suits every teenager. What suits a teenager depends on age, Dutch, school level at home, how long you stay, and the exams that come next. Here are the four routes parents ask about."},
+        {"table": {
+          "caption": "School routes for a teenager who arrives",
+          "head": ["Route", "Language of teaching", "Good to know"],
+          "rows": [
+            ["ISK, then regular secondary school or mbo", "Dutch", "For pupils from 12 who arrived recently and speak little or no Dutch. Free, as regular education. On average about two years."],
+            ["Regular secondary school with extra Dutch", "Dutch", "Possible when the pupil already speaks some Dutch. Ask the school what support exists."],
+            ["Bilingual school (tto)", "Usually English: at least half of lessons in the lower years of havo and vwo, 30 percent in vmbo", "Exams are in Dutch. Still hard for an older child who starts without Dutch."],
+            ["International school", "Mostly English", "Fees. Often a different diploma. See [international schools](/international/) and [costs](/questions/international-school-costs/)."]
+          ]
+        }},
+        {"p": "Compare the routes in [Dutch, international and bilingual](/questions/dutch-international-bilingual/)."}
+      ]
+    },
+    {
+      "id": "isk-then-regular",
+      "h": "ISK first, then regular secondary school",
+      "blocks": [
+        {"p": "In the ISK your teenager learns Dutch and takes subjects like maths and citizenship. Then the pupil moves on to regular secondary school or mbo, with extra language help where needed. How it works, how to get a place and how long it lasts is in [newcomer classes and ISK](/guides/newcomer-classes-isk/)."},
+        {"p": "The ISK does not choose the track alone. The regular school decides on the level it will offer, looking at results and age. Ask the ISK which schools its pupils usually move to, and when the planning starts. For a teenager of 14 or 15, the planning matters, because the exam years come soon."},
+        {"say": "Our son is 14 and will finish the ISK in about a year. How do you plan the move to a regular school and the level?"}
+      ]
+    },
+    {
+      "id": "exams",
+      "h": "Exams and diplomas",
+      "blocks": [
+        {"p": "The Dutch school-leaving exams are taken in Dutch, also at a bilingual school. A bilingual school gives the regular Dutch diploma (vmbo, havo or vwo) and also a certificate that shows the extra language skills."},
+        {"p": "A pupil in an international school may study towards a different diploma. If your teen later wants to go to a Dutch university or college, check the entry rules for that diploma. Nuffic, the Dutch organisation for international recognition, can compare a foreign diploma with a Dutch one (a credential evaluation). It is not legally binding. With a complete application it usually takes at least 10 working weeks. Universities and universities of applied sciences decide on admission themselves."},
+        {"p": "School reports from home matter for placement, so bring them. See also [foreign diplomas](/questions/#foreign-diplomas) and the [system on one page](/system/)."},
+        {"p": "Each track has a different length: vmbo is 4 years, havo 5 years and vwo 6 years, so the time to a diploma depends on the starting level and year."}
+      ]
+    },
+    {
+      "id": "leerplicht",
+      "h": "Compulsory school until 16, then until 18",
+      "blocks": [
+        {"p": "Every child who lives in the Netherlands must go to school, whatever the nationality. This duty (leerplicht) ends at the end of the school year in which the child turns 16, or earlier after 12 full school years."},
+        {"p": "After that comes the qualification duty (kwalificatieplicht). Young people aged 16 and 17 who do not yet have a havo, vwo or mbo level 2 diploma (or higher) must keep going to school. They may not work full time. The mbo route that combines work and learning (bbl) counts. Mbo is free for students under 18."},
+        {"p": "If you live in the Netherlands and your child goes to school abroad, rules differ. For a school in Belgium or Germany you can ask your municipality's school attendance officer (leerplichtambtenaar) for an exemption, and you must report it again each year. Ask your municipality about other cases."},
+        {"note": "Unsure about the rules for a 16 or 17 year old? Ask the leerplicht department of your municipality. A school can also help."}
+      ]
+    },
+    {
+      "id": "returning",
+      "h": "A Dutch teenager who comes back",
+      "blocks": [
+        {"p": "A Dutch teen who returns after years abroad has the same duties and rights as any other child who lives here. The school looks at the school reports from abroad, and the school decides on year and level."},
+        {"p": "If the teen has lost much of their Dutch, ask the school and the municipality whether an ISK or extra Dutch lessons in a regular class are possible."},
+        {"p": "Do you plan your move? Contact the school before you arrive and ask what it needs. You can register during the school year. See [arriving mid-year](/questions/mid-year-arrival/)."}
+      ]
+    },
+    {
+      "id": "steps",
+      "h": "What to do, in order",
+      "blocks": [
+        {"steps": [
+          "Collect school reports, a list of subjects, and the diploma or exam plan from the school at home.",
+          "Contact your municipality about newcomer places and ISK, or contact a secondary school directly. Do this before the move if you can.",
+          "Register at more than one school, since classes can be full. A school may take a few weeks to decide.",
+          "Ask for the intake and ask who decides on the level.",
+          "Register with your municipality and get a BSN. See [BSN and address](/questions/bsn-and-address/)."
+        ]},
+        {"p": "To see the steps still ahead and the schools near you, enter your teenager's age and your postcode in the [route finder](/)."}
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: questions about newcomer education", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/onderwijs-voor-nieuwkomers"},
+    {"label": "Rijksoverheid: compulsory education and qualification duty", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/leerplicht-en-kwalificatieplicht"},
+    {"label": "VO-raad: education for newcomers", "url": "https://vo-raad.nl/onderwerpen/onderwijs-aan-nieuwkomers"},
+    {"label": "Rijksoverheid: school abroad and compulsory education", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/vraag-en-antwoord/leerplicht-buitenlandse-school"},
+    {"label": "Rijksoverheid: what is bilingual education (tto)", "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs"},
+    {"label": "Nuffic: credential evaluation", "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation"},
+    {"label": "Nuffic: the Dutch education system", "url": "https://www.nuffic.nl/en/education-systems/netherlands"}
+  ],
+  "related_guides": ["newcomer-classes-isk", "dutch-or-international-school", "international-school-admission", "choose-a-secondary-school"],
+  "related_questions": ["without-dutch", "foreign-diplomas", "dutch-international-bilingual", "mid-year-arrival"],
+  "links": ["route", "find", "system", "intl", "munis", "sources"]
+}

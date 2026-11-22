@@ -1,0 +1,87 @@
+{
+  "slug": "which-year-group",
+  "group": "arrive",
+  "order": 3,
+  "home": 3,
+  "title": "Which year group will my child join? Age table, group 1 to 8",
+  "desc": "Dutch primary school has groups 1 to 8, from about age 4 to 12. No national rule sets placement: the school decides. See the age table and mid-year arrival.",
+  "h1": "Which group or class does my child join in the Netherlands?",
+  "lede": "Primary school has eight groups, from group 1 at about age 4 to group 8 at about age 11 to 12. There is no national rule for the group. The school decides, and for a child from abroad it looks at age, development and earlier schooling.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "table",
+      "h": "Age and group at a glance",
+      "blocks": [
+        {"p": "Ages below are a guide, not a rule. Children start at 4, and the exact age in a group depends on the birthday and on the school."},
+        {"table": {
+          "caption": "Groups and classes by approximate age",
+          "head": ["Approximate age", "Group or class", "Notes"],
+          "rows": [
+            ["4 to 5", "Group 1 (primary)", "Children may start at 4. Many schools combine groups 1 and 2 in one class."],
+            ["5 to 6", "Group 2", "School becomes compulsory (leerplicht) on the first day of the month after the fifth birthday, so in group 1 or 2."],
+            ["6 to 7", "Group 3", "Formal reading and writing start."],
+            ["7 to 8", "Group 4", ""],
+            ["8 to 9", "Group 5", ""],
+            ["9 to 10", "Group 6", ""],
+            ["10 to 11", "Group 7", ""],
+            ["11 to 12", "Group 8", "School advice and sign-up for secondary school. See [school advice](/questions/school-advice-how-it-works/)."],
+            ["12 to 13", "Year 1 of secondary school (brugklas)", "Often a mixed first year. The track is vmbo, havo or vwo, or a combination."],
+            ["12 and older, little Dutch", "ISK", "See [newcomer classes and ISK](/guides/newcomer-classes-isk/)."]
+          ]
+        }},
+        {"note": "The table is our own summary. Schools can differ by a few months, for example in the first year of school."}
+      ]
+    },
+    {
+      "id": "rule",
+      "h": "The 1 October rule: what is left of it",
+      "blocks": [
+        {"p": "Old guides say that a child had to be 6 by 1 October to start group 3. That national rule ended in August 1985. There is no longer a national cut-off date, and there are no legal rules for moving up. The school decides."},
+        {"p": "Some schools still use the old date or age as a guide. Most schools look at whether a child's development is far enough for group 3, and talk to parents about it. The school guide (schoolgids) explains the school's policy."},
+        {"p": "This matters if your child has a birthday in the autumn or winter. Ask the school: how do you decide on the move to group 3, and when do you tell parents? You can also read about [repeating a year](/questions/#repeating-a-year)."}
+      ]
+    },
+    {
+      "id": "abroad",
+      "h": "A child arriving from abroad",
+      "blocks": [
+        {"p": "For a child who comes from another country, the school decides which group fits. The school looks at age, development and earlier schooling. The school may also ask for school reports. It is normal that the group is not the same as the grade your child had at home."},
+        {"p": "So your child may be in a group that is not the one in the table. Dutch is also part of the choice. Some schools put a child in the age group and add extra Dutch lessons. Others suggest a language class first. See [newcomer classes](/guides/newcomer-classes-isk/)."},
+        {"steps": [
+          "Collect your child's latest school reports, a list of subjects and the date the school year began and ended at home.",
+          "Ask the Dutch school how it will choose the group, and when it will review the choice.",
+          "Ask what extra help your child gets with Dutch. See the page on [children without Dutch](/questions/without-dutch/).",
+          "Ask what happens if the group turns out not to fit, and when the school looks at it again."
+        ]},
+        {"say": "Our daughter was in the third year at home and is 8. Which group would you place her in, and how will you check?"}
+      ]
+    },
+    {
+      "id": "mid-year",
+      "h": "Arriving in the middle of the school year",
+      "blocks": [
+        {"p": "You can register at any time of the year. The school may have no places in the group that fits. Register at more than one school if you can. See [arriving mid-year](/questions/mid-year-arrival/)."},
+        {"p": "Ask the school which group your child joins now, and how and when the school decides about the move to the next group at the end of the year."},
+        {"p": "Bring a passport, school reports and proof of the previous school. Without a citizen service number (BSN) a school can use a temporary education number. See [BSN and address](/questions/bsn-and-address/)."}
+      ]
+    },
+    {
+      "id": "secondary",
+      "h": "At 12: brugklas and secondary school",
+      "blocks": [
+        {"p": "After group 8 children move to secondary school. The first year is often called the brugklas, the bridge class. Children go to vmbo, havo, vwo or a mixed first year. The school advice from group 8 sets the level: the secondary school must place your child at least at the advised level. See [how school advice works](/questions/school-advice-how-it-works/) and [the whole system on one page](/system/)."},
+        {"p": "A child who arrives from abroad at 12 or older and speaks no Dutch has a different route, often through the ISK. Teens are covered in [moving with a teenager](/guides/moving-with-a-teenager/)."},
+        {"p": "To see the steps still ahead for your child and the schools near you, enter the age and your postcode in the [route finder](/)."}
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: when may my child go to primary school", "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/basisonderwijs/wanneer-mag-mijn-kind-naar-de-basisschool"},
+    {"label": "Rijksoverheid: who decides if my child repeats a year or moves up", "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/basisonderwijs/wie-bepaalt-of-mijn-kind-blijft-zitten-of-overgaat-naar-de-volgende-klas"},
+    {"label": "Rijksoverheid: compulsory education and qualification duty", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/leerplicht-en-kwalificatieplicht"}
+  ],
+  "related_guides": ["newcomer-classes-isk", "repeating-a-year", "dutch-for-toddlers-vve", "moving-with-a-teenager"],
+  "related_questions": ["which-year-group", "mid-year-arrival", "repeating-a-year", "when-must-child-go"],
+  "links": ["route", "find", "system", "sources"]
+}

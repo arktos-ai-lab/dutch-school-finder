@@ -1,0 +1,63 @@
+{
+  "slug": "extra-support-passend-onderwijs",
+  "group": "support",
+  "order": 2,
+  "title": "Extra support at a Dutch school: passend onderwijs explained",
+  "desc": "How extra support works in Dutch schools: the duty of care, the support offer, special education (SO, VSO) and the TLV, and what to ask for gifted children.",
+  "h1": "How does extra support (passend onderwijs) work for my child?",
+  "lede": "Every Dutch school has a duty of care (zorgplicht): the school where you register your child must offer a suitable place, in the school itself or at another school. Special education needs a formal declaration called a TLV.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "duty-of-care", "h": "The school's duty of care", "blocks": [
+      {"p": "Extra support in Dutch schools is called passend onderwijs, which means education that fits the child. It covers children with learning, behaviour or health needs, and also children who need more challenge."},
+      {"p": "The key rule is the duty of care (zorgplicht). The school where you register your child looks at what support your child needs. Then it decides whether it can give that support itself. If it cannot, it must give its reasons and offer a place at another school, in consultation with you. A school cannot simply say no and leave you to look."},
+      {"p": "Your part is to tell the school about your child's needs when you register, and to bring any reports from earlier schools or specialists. See also [the short answer on your rights](/questions/#extra-support-rights)."}
+    ]},
+    {"id": "profile-and-region", "h": "What the school offers, and the regional partnership", "blocks": [
+      {"p": "Every school describes the basic support it gives all pupils and the extra support it can add. Since 1 August 2025 this must be in the school guide (schoolgids). Before that it was a separate document, the school support profile (schoolondersteuningsprofiel), and you may still hear that name."},
+      {"p": "Schools in a region work together in a regional partnership (samenwerkingsverband). It arranges extra support, helps find a place when a school cannot give it, and decides on special education. It must also have a support point for parents and young people (ouder- en jeugdsteunpunt) that informs and guides you. [Our school pages](/find/) show the samenwerkingsverband of each school, so you know which partnership your area belongs to."},
+      {"say": "Where in the school guide can I read what support you offer? What support can you give for my child, and what can you not give?"}
+    ]},
+    {"id": "registering", "h": "Registering a child who needs support", "blocks": [
+      {"steps": [
+        "Choose the school yourself, and register in writing at least 10 weeks before the start of the school year.",
+        "Say at registration that your child may need extra support, and what you know about it.",
+        "The school has 6 weeks to decide. It can extend this once by up to 4 weeks.",
+        "If there is still no decision after 10 weeks and your child is not at another school, your child has a right to a temporary place at the school where you registered.",
+        "If your child is admitted, the school draws up a development plan (ontwikkelingsperspectief, OPP) together with you. Your child has a right to be heard about it."
+      ]},
+      {"p": "If you arrive from abroad with little time, still register early and in writing. See [what to do when you arrive mid-year](/questions/mid-year-arrival/). A newcomer class for learning Dutch is a different matter, see [Dutch for a child with no Dutch](/questions/without-dutch/)."}
+    ]},
+    {"id": "special-education", "h": "Special education and the TLV", "blocks": [
+      {"p": "Some children need more than a regular school can give. Special education has two parts: SO (speciaal onderwijs) for primary age and VSO (voortgezet speciaal onderwijs) for secondary age. There is also a special primary school (sbo). Schools are grouped by the type of need they serve."},
+      {"p": "A child can go to sbo, SO or VSO only with a declaration of eligibility, a toelaatbaarheidsverklaring (TLV). You choose the school, and that school asks the samenwerkingsverband for the TLV. You do not apply yourself. Experts advise the partnership on whether special education is needed, so bring the reports you have."},
+      {"p": "Schools for children who are blind or partially sighted, deaf or hard of hearing, or have severe speech and language problems are organised nationally. For them, an assessment committee of those schools checks whether a child can be admitted, not the samenwerkingsverband. Some of these schools are far from home."},
+      {"p": "The samenwerkingsverband decides how long a TLV is valid. For SO and VSO it is at least one full school year. Practical education in secondary school (praktijkonderwijs) also needs a TLV, and it usually covers the whole time at that school. If special education turns out not to fit, the school looks with you for a better place."}
+    ]},
+    {"id": "gifted", "h": "Gifted children (begaafdheid)", "blocks": [
+      {"p": "Teaching gifted children (hoogbegaafde leerlingen) is part of the basic offer of a school, but each school decides which programmes it has. Options can be extra material, going faster through the lessons, or a separate group inside the school, such as a plus class (plusklas). A primary school describes this in its support offer or school plan. A secondary school decides itself how it teaches gifted pupils. A national group of schools with a gifted profile (begaafdheidsprofielscholen) pays extra attention to them."},
+      {"p": "You can have your child tested, but no test is required to ask the school what it offers. Ask what is on offer in your child's group, not only whether the school has a label."},
+      {"say": "What does the school do for children who learn faster? Which options are there in my child's group, and who decides?"}
+    ]},
+    {"id": "disagreement", "h": "If you disagree", "blocks": [
+      {"p": "Talk first with the school, then with the samenwerkingsverband. A free education adviser (onderwijsconsulent) can help you. If you still disagree about admission or a place elsewhere, there are formal ways to object, and the samenwerkingsverband or the adviser can tell you which one fits."},
+      {"ul": [
+        "<b>A TLV decision.</b> You can object (bezwaar maken) to the samenwerkingsverband within six weeks. It then asks an advisory committee, in most regions the national one (Landelijke Bezwaaradviescommissie Toelaatbaarheidsverklaring), before it decides again.",
+        "<b>The development plan.</b> If you cannot agree with the school, you can ask the national disputes committee for passend onderwijs (landelijke geschillencommissie passend onderwijs) for a ruling."
+      ]},
+      {"p": "Ouders & Onderwijs also gives free advice to parents. See the [route finder](/) to start from your child's age."}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: how does my child get passend onderwijs", "url": "https://www.rijksoverheid.nl/onderwerpen/passend-onderwijs/vraag-en-antwoord/hoe-krijgt-mijn-kind-passend-onderwijs"},
+    {"label": "Rijksoverheid: admission to special education", "url": "https://www.rijksoverheid.nl/wetten-en-regelingen/productbeschrijvingen/toelating-leerling-tot-het-speciaal-onderwijs"},
+    {"label": "Rijksoverheid: how does my gifted child get education", "url": "https://www.rijksoverheid.nl/onderwerpen/passend-onderwijs/vraag-en-antwoord/hoe-krijgt-mijn-hoogbegaafde-kind-onderwijs"},
+    {"label": "Steunpunt Passend Onderwijs (PO-Raad, VO-raad): access to special education", "url": "https://www.steunpuntpassendonderwijs-povo.nl/document/toegang-tot-gespecialiseerd-onderwijs/"},
+    {"label": "Onderwijsgeschillen: objecting to a TLV", "url": "https://www.onderwijsgeschillen.nl/thema/toelaatbaarheidsverklaring/"},
+    {"label": "VO-raad: law strengthening the position of parents and pupils in passend onderwijs", "url": "https://vo-raad.nl/nieuws/ook-eerste-kamer-stemt-in-met-wetsvoorstel-versterking-positie-ouders-en-leerlingen-in-passend-onderwijs"},
+    {"label": "Ouders & Onderwijs", "url": "https://www.oudersenonderwijs.nl"}
+  ],
+  "related_guides": ["bullying-what-to-do", "newcomer-classes-isk", "choose-a-primary-school"],
+  "related_questions": ["extra-support-rights", "mid-year-arrival", "vmbo-advice"],
+  "links": ["route", "find", "system", "sources"]
+}

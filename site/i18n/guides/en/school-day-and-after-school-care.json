@@ -1,0 +1,57 @@
+{
+  "slug": "school-day-and-after-school-care",
+  "group": "during",
+  "order": 4,
+  "title": "Dutch school day: hours, lunch and after-school care (BSO)",
+  "desc": "What a Dutch primary school day looks like: hours, continurooster, lunch, Wednesday afternoons, the voluntary contribution, BSO and childcare benefit.",
+  "h1": "What is a Dutch school day like, and who looks after my child after school?",
+  "lede": "Each Dutch school sets its own hours, so the day differs from school to school. Many children eat lunch at school, and after-school care (BSO) is a separate service you arrange and pay for yourself.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "hours", "h": "School hours", "blocks": [
+      {"p": "There are no national start and finish times. The school sets its own timetable, lessons and breaks, and writes them in the school guide (schoolgids). It sets the hours before each school year, and it cannot change them without the consent of the parent members of the participation council (medezeggenschapsraad, MR)."},
+      {"p": "By law a primary school must give at least 7,520 hours of teaching over the eight years: at least 3,520 in the first four and 3,760 in the last four. The school divides the other 240 hours itself. The length of the day follows from how a school spreads these hours."},
+      {"p": "Children in groups 3 to 8 attend five days a week. A school may plan up to seven four-day weeks a year. Groups 1 and 2 do not have to attend five days, so ask the school what the youngest children do."}
+    ]},
+    {"id": "wednesday", "h": "Wednesday afternoon, Friday and the continurooster", "blocks": [
+      {"p": "Most children have Wednesday afternoon off, but a school does not have to give it. Some schools take another afternoon off, for example Friday."},
+      {"p": "Other schools use a continuous schedule (continurooster, also called five equal days, 5 gelijke dagen): the same number of hours every day. Children stay at school over lunch, and the teaching staff supervise them. The 7,520 hours still have to be met."},
+      {"p": "Find a school on the [school pages](/find/), then read its school guide for the exact hours."}
+    ]},
+    {"id": "lunch", "h": "Lunch at school", "blocks": [
+      {"p": "At a school with a continurooster, teaching staff supervise lunch, so there is no lunch fee, though the school may ask for a voluntary contribution."},
+      {"p": "At a school with a midday break, children can go home or stay for lunch supervision (overblijven, tussenschoolse opvang or TSO). On request the school must organise it. Parents pay a contribution for supervision and food, usually a few euros a day, and the MR must agree to the amount. The school guide explains the rules."}
+    ]},
+    {"id": "extras", "h": "Gym, trips and the parental contribution", "blocks": [
+      {"p": "Ask the school which trips, camps and gym or swimming lessons it plans, and whether your child needs special clothes for them."},
+      {"p": "State-funded schools charge no tuition. They may ask for a parental contribution (ouderbijdrage) for extras such as trips and sports days. It is <b>voluntary</b>: children whose parents do not pay may always take part. More at [free school and the ouderbijdrage](/questions/ouderbijdrage-free-school/)."},
+      {"say": "How much is the parental contribution, and what does it pay for?"}
+    ]},
+    {"id": "bso", "h": "After-school care (BSO) and childcare benefit", "blocks": [
+      {"p": "After-school care (buitenschoolse opvang, BSO) is not part of the school. A provider looks after school-age children outside school hours. Ask a provider whether it also covers study days and holidays. You choose a provider, sign a contract and pay. Ask the school which providers collect children from it."},
+      {"p": "You may get part of the cost back through the childcare benefit (kinderopvangtoeslag), arranged by Dienst Toeslagen. The amount depends on your income, the hours of care and the type of care. You and your partner must both work, study or follow a route to work, and the provider must be listed in the national childcare register (Landelijk Register Kinderopvang). Lunch supervision at school does not count for the benefit."},
+      {"p": "Rules and amounts change each year, so check the official pages below before you sign a contract, and ask the provider whether it is in the register. If you have just arrived, see [BSN and address](/questions/bsn-and-address/)."}
+    ]},
+    {"id": "check", "h": "A short list for the school visit", "blocks": [
+      {"ul": [
+        "Start and finish times, and which days are different.",
+        "Continurooster or midday break, and the lunch cost.",
+        "What happens on days teachers have a study day.",
+        "Whether a BSO provider collects from this school.",
+        "Dates of trips and camps, and the voluntary contribution."
+      ]},
+      {"p": "Holidays and leave are in [the next guide](/guides/school-holidays-and-leave/)."}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: how primary schools set school hours and lessons", "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/schooltijden-en-onderwijstijd/hoe-regelen-basisscholen-de-schooltijden-en-lesuren"},
+    {"label": "Rijksoverheid: lunch at primary school", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/kan-mijn-kind-tussen-de-middag-overblijven-op-de-basisschool"},
+    {"label": "Rijksoverheid: voluntary parental contribution", "url": "https://www.rijksoverheid.nl/documenten/2023/09/01/documenten-vrijwillige-ouderbijdrage-po-en-vo"},
+    {"label": "Rijksoverheid: types of childcare", "url": "https://www.rijksoverheid.nl/onderwerpen/kinderopvang/vraag-en-antwoord/soorten-kinderopvang"},
+    {"label": "Rijksoverheid: who can get childcare benefit", "url": "https://www.rijksoverheid.nl/onderwerpen/kinderopvangtoeslag/vraag-en-antwoord/wanneer-heb-ik-recht-op-kinderopvangtoeslag"},
+    {"label": "Rijksoverheid: childcare benefit amounts 2026", "url": "https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen/kinderopvangtoeslag/bedragen-kinderopvangtoeslag-2026"}
+  ],
+  "related_guides": ["school-holidays-and-leave", "types-of-schools", "choose-a-primary-school"],
+  "related_questions": ["school-hours-lunch", "after-school-care-benefit", "ouderbijdrage-free-school"],
+  "links": ["route", "find", "system", "sources"]
+}

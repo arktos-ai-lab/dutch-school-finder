@@ -98,7 +98,7 @@
     ],
     [
       "doorstroomtoets",
-      "the end-of-primary test"
+      "the end-of-primary test; many parents still call it the Cito test, after the old end test"
     ],
     [
       "vmbo, havo, vwo",
@@ -307,16 +307,16 @@
       ]
     },
     "newc": {
-      "when": "First, usually for up to about two years",
+      "when": "First, on average for about two years",
       "age": "any age from 4",
-      "unit": "usually up to about two years",
+      "unit": "on average about two years",
       "young": {
         "title": "Newcomer class in primary school",
         "what": "Parents usually choose between a special language class (schakelklas) for children who just arrived, and a regular class with extra Dutch lessons. A temporary newcomer provision can enrol a child for at most 2 years in total."
       },
       "old": {
         "title": "Newcomer class in secondary school (ISK)",
-        "what": "A special class at a regular secondary school for recently arrived pupils who speak little or no Dutch. Lessons are mainly Dutch, plus other subjects that prepare pupils for regular classes and for regular secondary or mbo education. Pupils usually stay up to about two years, then move to a regular class."
+        "what": "A special class at a regular secondary school for recently arrived pupils who speak little or no Dutch. Lessons are mainly Dutch, plus other subjects that prepare pupils for regular classes and for regular secondary or mbo education. Pupils stay on average about two years, then move to a regular class."
       },
       "todo": [
         "Ask your municipality, a reception location or the nearest school where places exist.",
@@ -1557,7 +1557,7 @@
                 "p": "Yes. What is on offer depends on age. In primary school, newcomers can join a language class or a transition class (taalklas or schakelklas), or a regular class with extra Dutch lessons."
               },
               {
-                "p": "In secondary school, pupils from age 12 who speak little or no Dutch can join an international transition class (ISK). Pupils learn Dutch and prepare for regular lessons. Many stay up to about two years, then move to a regular class."
+                "p": "In secondary school, pupils from age 12 who speak little or no Dutch can join an international transition class (ISK). Pupils learn Dutch and prepare for regular lessons. On average pupils stay about two years, then move to a regular class."
               },
               {
                 "p": "Places can be limited in some cities, so ask early. Ask your municipality or a nearby school where places exist. Some schools also run special programmes for non-Dutch speakers, but bilingual schools can be hard for older children who start without Dutch."
@@ -1788,10 +1788,16 @@
                 "p": "Dutch schools funded by the state do not charge tuition. International schools do. Private international schools set their own fees."
               },
               {
-                "p": "For 2026-27, one Amsterdam school (ISA) publishes tuition from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Some schools add other fees, such as a deposit. Dutch International Schools are partly government funded and usually cost less."
+                "p": "<b>The amounts below are rough estimates, not prices.</b> Fees differ per school and change every year. Always check the school's own fee schedule before you decide."
               },
               {
-                "p": "Third-party guides report about 4,500 to 9,500 euro a year, but we have not checked this against school fee schedules. Fees and admission rules differ per school and change every year. Ask each school for its current fee schedule and for the rules on who can apply."
+                "p": "Private international schools: for 2026-27, one Amsterdam school (ISA) publishes tuition from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Some schools add other fees, such as a deposit or an entry fee."
+              },
+              {
+                "p": "Dutch International Schools are partly government funded and usually cost much less. Third-party guides report about 4,500 to 9,500 euro a year, but we have not checked this against each school's fee schedule."
+              },
+              {
+                "say": "Ask each school for its current fee schedule, what extra costs come on top, and the rules on who can apply."
               }
             ],
             "src": [
@@ -1886,10 +1892,10 @@
                 "p": "After-school care (BSO) is separate from school. A BSO provider collects children from school and keeps them until parents finish work. You pay the provider."
               },
               {
-                "p": "The state can pay part of the cost through the childcare benefit (kinderopvangtoeslag), paid by the Belastingdienst. In 2026 the maximum hourly rate for BSO is 9.98 euro and the maximum benefit is 96 percent for lower incomes. The percentage falls as income rises."
+                "p": "The state can pay part of the cost through the childcare benefit (kinderopvangtoeslag), paid by Dienst Toeslagen. In 2026 the maximum hourly rate for BSO is 9.98 euro and the maximum benefit is 96 percent for lower incomes. The percentage falls as income rises."
               },
               {
-                "p": "The rules change from year to year, and conditions apply to your work, income and residence. Lunch supervision at school (TSO) does not count as childcare for the benefit. Check the current rules at the Belastingdienst before you sign a contract."
+                "p": "The rules change from year to year, and conditions apply to your work, income and residence. Lunch supervision at school (TSO) does not count as childcare for the benefit. Check the current rules at Dienst Toeslagen before you sign a contract."
               }
             ],
             "src": [
@@ -1905,7 +1911,7 @@
                 "p": "Normally no, once your child is subject to compulsory education. The school head can give extra leave only if the nature of your work means you cannot take a family holiday in any school holiday, for example seasonal work. It is for up to 10 days, once per school year."
               },
               {
-                "p": "Apply at least 8 weeks before the trip. Leave is not possible in the first two weeks of the school year. If you take your child out without permission, you can be fined."
+                "p": "For this work-related leave, apply at least 8 weeks before the trip. It is not possible in the first two weeks of the school year. If you take your child out without permission, you can be fined."
               },
               {
                 "p": "The Rijksoverheid does not give an amount, so ask your municipality's truancy officer. A child of 4 is not yet subject to compulsory attendance, but ask the school what it expects. Longer absences are not allowed under this rule."
@@ -2099,7 +2105,7 @@
       {
         "id": "international-school-costs",
         "title": "What do international schools in the Netherlands cost?",
-        "desc": "State-funded Dutch schools charge no tuition, international schools do. One Amsterdam school lists about 22,800 to 32,800 euro a year for 2026-27. Ask for fees.",
+        "desc": "International schools charge tuition, state-funded Dutch schools do not. Rough estimate: one Amsterdam school lists 22,800 to 32,800 euro a year. Always check.",
         "related": [
           "dutch-international-bilingual",
           "thirty-percent-ruling",
@@ -2161,7 +2167,10 @@
         "system": "The whole Dutch school system",
         "munis": "Schools by municipality",
         "intl": "International options by city",
-        "sources": "Data and sources"
+        "sources": "Data and sources",
+        "map": "Schools on the map",
+        "guides": "All guides",
+        "questions": "All questions"
       }
     }
   },
@@ -2239,7 +2248,14 @@
   "foot": {
     "notAffiliated": "Not affiliated with DUO, the Inspectie or Scholen op de kaart.",
     "sourcesLink": "Data & sources",
-    "checked": "Facts checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. Rules and dates change every year; check with the school and your municipality."
+    "checked": "Facts checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. Rules and dates change every year; check with the school and your municipality.",
+    "navAria": "Site pages",
+    "guides": "Guides",
+    "questions": "Questions",
+    "intl": "International schools",
+    "munis": "All municipalities",
+    "system": "How the system works",
+    "sources": "Data and sources"
   },
   "so": {
     "type": {
@@ -2382,7 +2398,9 @@
     "linksFind": "Search every school",
     "linksQuestions": "Questions parents ask",
     "intlTitle": "International options",
-    "intlIntro": "Dutch, bilingual, IB, funded and private international schools, and newcomer classes, by city:"
+    "intlIntro": "Dutch, bilingual, IB, funded and private international schools, and newcomer classes, by city:",
+    "guidesTitle": "Guides for parents new to the Netherlands",
+    "guidesAll": "All guides"
   },
   "muni": {
     "h1": "Schools in {name}",
@@ -2519,5 +2537,40 @@
     "q": "Questions",
     "allCities": "All cities",
     "findLink": "Search for a school"
+  },
+  "guides": {
+    "crumb": "Guides",
+    "indexTitle": "Guides to Dutch schools for international parents",
+    "indexDesc": "Plain-English guides to Dutch schools for parents who moved here: learning Dutch, choosing a school, year groups, school advice, repeating a year and more.",
+    "indexH1": "Guides for parents new to Dutch schools",
+    "indexIntro": "Each guide walks through one decision, from start to finish, with links to the official Dutch sources.",
+    "groups": [
+      {
+        "id": "arrive",
+        "h": "Arriving and learning Dutch"
+      },
+      {
+        "id": "choose",
+        "h": "Choosing a school"
+      },
+      {
+        "id": "during",
+        "h": "During the school years"
+      },
+      {
+        "id": "support",
+        "h": "Extra support and different kinds of school"
+      }
+    ],
+    "moreH": "Other ways in",
+    "toQuestions": "Short answers to frequent questions",
+    "toRoute": "Find the route for your child's age",
+    "toSystem": "How the Dutch school system works",
+    "checked": "Checked against official sources on {date}. Rules change; check with the school or your municipality.",
+    "toc": "On this page",
+    "sourcesH": "Sources",
+    "sourcesNote": "Official pages, mostly in Dutch. We summarise them in our own words.",
+    "next": "Read next",
+    "all": "All guides"
   }
 }

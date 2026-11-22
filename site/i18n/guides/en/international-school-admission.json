@@ -1,0 +1,139 @@
+{
+  "slug": "international-school-admission",
+  "group": "choose",
+  "order": 4,
+  "title": "Who can enrol at a Dutch International School? Eligibility",
+  "desc": "Dutch International Schools are partly state funded and not for every family. See who can enrol, what to ask about waiting lists and how private schools differ.",
+  "h1": "Who can get a place at a Dutch International School (partly funded)?",
+  "lede": "A Dutch International School is for internationally mobile families, not for every child. A child must meet at least one of three conditions about nationality and a parent's work. Places, waiting lists and dates are set per school, so ask the school.",
+  "checked": "2026-11-22",
+  "sections": [
+    {
+      "id": "what",
+      "h": "What a Dutch International School is",
+      "blocks": [
+        {
+          "p": "Dutch International Schools (DIS) are schools for children of expats, from age 4 to 19. The Rijksoverheid describes the primary schools as teaching in English; ask a secondary school about its programme. The Ministry of Education, Culture and Science partly funds them. That is why they are usually cheaper than fully private international schools, and why there are conditions on who can enrol."
+        },
+        {
+          "p": "A private international school is a different thing. It gets no state funding and sets its own fees and its own admission rules. See the last section."
+        },
+        {
+          "note": "The conditions below come from the admissions page of the Dutch International Schools network, checked on 22 November 2026. Rules can change. Check the page and ask the school before you plan around a place."
+        }
+      ]
+    },
+    {
+      "id": "who",
+      "h": "Who can enrol",
+      "blocks": [
+        {
+          "p": "According to the network's admissions page, your child must meet at least one of these three conditions:"
+        },
+        {
+          "ul": [
+            "Your child has a non-Dutch nationality (or a non-Dutch nationality next to a Dutch one), and a parent works in the Netherlands or a Dutch border region for a limited time.",
+            "Your child has Dutch nationality, lived abroad and went to school there for at least 2 years because a parent was posted abroad.",
+            "Your child has Dutch nationality, and a parent (who the child will live with) will be posted abroad within 2 years, for at least 2 years. A written statement from the parent's employer is needed."
+          ]
+        },
+        {
+          "p": "The page does not set a maximum length of stay for the first condition. Individual schools may apply their own policy, so ask the school what \"for a limited time\" means in practice for your contract."
+        },
+        {
+          "p": "The last two years of secondary school (the Diploma Programme) have extra conditions. Your child needs a havo diploma or a certificate of promotion to year 5 of vwo, and enough English. The school judges the English level."
+        },
+        {
+          "p": "A family that moves to the Netherlands to settle for good may not meet these conditions. In that case, look at Dutch schools, a bilingual school (tto) or a private international school. See [Dutch school or international school?](/guides/dutch-or-international-school/)."
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "h": "Priority, waiting lists and timing",
+      "blocks": [
+        {
+          "p": "The network's admissions page does not describe priority rules, waiting lists or application dates. Ask the school about them, because they can change from year to year."
+        },
+        {
+          "say": "Is there a place in my child's year group now, and is there a waiting list? How long is it, and which families get priority?"
+        },
+        {
+          "say": "When can we apply, and what do you need to see to confirm that we meet the conditions?"
+        },
+        {
+          "p": "Contact the school as soon as you know your move date. Your child's year group at an international school may differ from the Dutch one. The school can explain how it places your child. See also [Which year group will my child join?](/questions/#which-year-group)."
+        }
+      ]
+    },
+    {
+      "id": "documents",
+      "h": "Documents to get ready",
+      "blocks": [
+        {
+          "p": "Each school has its own list, so ask the school for it before you apply. The network's admissions page names one document: a written statement from the employer, for a Dutch child whose parent will be posted abroad."
+        },
+        {
+          "p": "For the first condition (a parent working here for a limited time), ask the school how it wants you to show this, for example with an employment contract."
+        },
+        {
+          "say": "Which documents do you need to confirm that we meet the conditions, and by what date?"
+        },
+        {
+          "p": "Keep your child's passport and previous school records at hand, because schools will want to place your child in the right year group. Your child's BSN is explained in [BSN and address](/questions/bsn-and-address/)."
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "h": "Private international schools and fees",
+      "blocks": [
+        {
+          "p": "Private international schools do not use the conditions above. They set their own rules. Ask about waiting lists, and whether they charge an entry fee or a deposit next to tuition."
+        },
+        {
+          "p": "<b>These amounts are rough estimates, not prices.</b> Dutch International Schools: outside guides report a rough 4,500 to 9,500 euro a year, not checked for each school. Private schools: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years, also a rough estimate. Always check the school's own fee schedule."
+        },
+        {
+          "p": "More on costs in [What do international schools cost?](/questions/international-school-costs/). If an employer pays, read [the 30% ruling and school choice](/questions/thirty-percent-ruling/). This site gives no tax advice."
+        },
+        {
+          "p": "To find the schools in your city, open the [international options by city](/international/). They list schools by name and link, without a ranking."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Dutch International Schools: admissions",
+      "url": "https://www.dutchinternationalschools.nl/about-dis/admissions/"
+    },
+    {
+      "label": "Dutch International Schools: who the schools are for (ages 4 to 19)",
+      "url": "https://www.dutchinternationalschools.nl/"
+    },
+    {
+      "label": "Dutch International Schools: our schools",
+      "url": "https://www.dutchinternationalschools.nl/schools/"
+    },
+    {
+      "label": "Rijksoverheid: choosing a primary school (mentions English-language schools for temporary residents, Dutch)",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/basisschool-kiezen-voor-kind"
+    }
+  ],
+  "related_guides": [
+    "dutch-or-international-school",
+    "moving-with-a-teenager",
+    "choose-a-primary-school",
+    "choose-a-secondary-school"
+  ],
+  "related_questions": [
+    "dutch-international-bilingual",
+    "international-school-costs",
+    "thirty-percent-ruling"
+  ],
+  "links": [
+    "intl",
+    "route"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "bullying-what-to-do",
+  "group": "support",
+  "order": 1,
+  "title": "Bullying (pesten) at a Dutch school: what parents can do",
+  "desc": "Your child is being bullied at a Dutch school? Schools must have an anti-bullying policy and a contact person. Here are the steps, and who to turn to next.",
+  "h1": "What can I do if my child is bullied at a Dutch school?",
+  "lede": "Talk to the class teacher first, then to the school's bullying contact person (aanspreekpunt pesten). If that does not help, go to the school leader or board, then the complaints committee. Dutch schools have a legal duty to keep pupils socially safe.",
+  "checked": "2026-11-22",
+  "sections": [
+    {"id": "school-duty", "h": "What the school must do", "blocks": [
+      {"p": "Dutch primary, secondary and special schools have a legal duty to keep pupils socially safe (sociale veiligheid). The rule has applied since August 2015 under the School Safety Act (Wet veiligheid op school). Bullying (pesten) is part of it, and so is online bullying."},
+      {"p": "In practice the school must have:"},
+      {"ul": [
+        "a safety policy that includes how it deals with bullying. A separate anti-bullying protocol (pestprotocol) is allowed but not required",
+        "a person who coordinates the anti-bullying work and is the contact point for bullying (aanspreekpunt pesten), where pupils and parents can report it. At many schools this is a confidential counsellor (vertrouwenspersoon)",
+        "a check every year of how safe pupils feel (monitoring). The school must make the results available to the Inspectie"
+      ]},
+      {"p": "Each school chooses its own methods. The school guide (schoolgids) or the school's website should say who the contact person is and where the safety policy is. If you cannot find it, ask."}
+    ]},
+    {"id": "first-steps", "h": "Steps to take, in order", "blocks": [
+      {"steps": [
+        "<b>Listen and write it down.</b> Ask your child what happened, where and when, and who was there. Note dates, names (first names are enough), messages and screenshots. Keep the notes factual.",
+        "<b>Talk to the class teacher or mentor.</b> Ask for a meeting, not a quick chat at the door. The teacher can act in class, arrange a talk between the children and speak to the other parents.",
+        "<b>Go to the bullying contact person.</b> If the teacher cannot solve it, or the bullying goes on, use the school's aanspreekpunt pesten or confidential counsellor. Send an email afterwards that sums up what you agreed.",
+        "<b>Write to the school leader (directie).</b> Say what happened, what has been tried and what you ask for. Keep a copy.",
+        "<b>Go to the school board (bestuur).</b> The school belongs to a board that is responsible for its safety policy. The school guide names it."
+      ]},
+      {"say": "Our child is being bullied. Who is the contact person for bullying at the school, and what will you do in the next two weeks? Can we meet again then to look at what has changed?"},
+      {"note": "These steps follow the order the Rijksoverheid gives for pupils and parents. If the bullying is violent, sexual or about your child's origin or religion, you do not have to wait for the teacher. Go to the school leader straight away. You can also call the confidential inspectors described below."}
+    ]},
+    {"id": "keeping-notes", "h": "Keeping notes", "blocks": [
+      {"p": "A short log helps every later step. It lets you show a pattern and lets the school see what you asked for and when."},
+      {"ul": [
+        "date, place and what happened, in a few lines",
+        "who you spoke to at the school, and what they said they would do",
+        "screenshots of messages, with the date visible",
+        "your emails to the school and the replies"
+      ]},
+      {"p": "Keep it about facts, not guesses about why the other child did it. Do not post about it on social media or in parent chats. Take it to the school."}
+    ]},
+    {"id": "next-contacts", "h": "If the school does not solve it", "blocks": [
+      {"p": "You can go further. None of these steps needs a lawyer."},
+      {"ul": [
+        "<b>Complaints committee (klachtencommissie).</b> Parents and pupils can file a complaint, and it costs nothing. Most schools belong to a national committee, and the school guide or website says which one. The committee must respond within 4 weeks. Its advice is not binding: the school board decides what to do with it. The school's complaints procedure (klachtenregeling) gives the other time limits. See [the Rijksoverheid page](https://www.rijksoverheid.nl/wetten-en-regelingen/productbeschrijvingen/klacht-indienen-bij-klachtencommissie-basisschool).",
+        "<b>Confidential inspectors (vertrouwensinspecteurs) of the Inspectie.</b> Parents and pupils can call them about serious problems, such as sexual harassment, physical or psychological violence, discrimination or severe bullying. They listen and advise, for example on a formal complaint or a police report. Phone 0900 111 3 111, working days from 08:00 to 17:00. A small per-minute rate applies, see the [Inspectie page](https://www.onderwijsinspectie.nl/onderwerpen/vertrouwensinspecteurs).",
+        "<b>Ouders & Onderwijs.</b> This parents' organisation gives free advice by phone (088 605 0101, Monday to Friday, 09:30 to 12:30 and 13:00 to 16:00) and WhatsApp. Ask them how to word a complaint or what to do next. See [oudersenonderwijs.nl](https://www.oudersenonderwijs.nl).",
+        "<b>Children's Ombudsman (Kinderombudsman).</b> If earlier complaints did not solve it, you and your child can go there. The school must say within 4 weeks what it does with the Ombudsman's advice."
+      ]},
+      {"p": "The Inspectie does not handle individual complaints, but you can send it a copy of yours. It can use that when it checks the school. Serious insults or assault can be a crime, and the school or you can report it to the police."}
+    ]},
+    {"id": "new-school", "h": "Changing schools, and checking a school", "blocks": [
+      {"p": "Some families decide to change school. You can register your child at another school, which applies its own admission rules. See [how mid-year arrival works](/questions/mid-year-arrival/)."},
+      {"p": "When you look at a school, you can ask what its safety policy says about bullying, who the contact person is and how the school measures whether pupils feel safe. [Our school pages](/find/) show the Inspectie's latest judgement where there is one, with an explanation of what it does not tell you. We do not rank schools. The school's own answers to these questions tell you more."},
+      {"say": "How does the school find out whether pupils feel safe, and what does it do with the results?"}
+    ]}
+  ],
+  "sources": [
+    {"label": "Rijksoverheid: what schools must do about bullying", "url": "https://www.rijksoverheid.nl/onderwerpen/veilig-leren-en-werken-in-het-onderwijs/vraag-en-antwoord/aanpak-pesten-school"},
+    {"label": "Rijksoverheid: where can I go if I am bullied", "url": "https://www.rijksoverheid.nl/onderwerpen/veilig-leren-en-werken-in-het-onderwijs/vraag-en-antwoord/pesten-waar-kan-ik-terecht"},
+    {"label": "Rijksoverheid: filing a complaint with a school's complaints committee", "url": "https://www.rijksoverheid.nl/wetten-en-regelingen/productbeschrijvingen/klacht-indienen-bij-klachtencommissie-basisschool"},
+    {"label": "Onderwijsinspectie: duty of care for social safety", "url": "https://www.onderwijsinspectie.nl/onderwerpen/sociale-veiligheid/zorgplicht-veiligheid-leerlingen"},
+    {"label": "Onderwijsinspectie: confidential inspectors", "url": "https://www.onderwijsinspectie.nl/onderwerpen/vertrouwensinspecteurs"},
+    {"label": "Ouders & Onderwijs: bullying and social safety", "url": "https://www.oudersenonderwijs.nl/kennisbank/pesten-en-sociale-veiligheid/"}
+  ],
+  "related_guides": ["extra-support-passend-onderwijs", "choose-a-primary-school", "choose-a-secondary-school"],
+  "related_questions": ["extra-support-rights", "ask-about-the-advice"],
+  "links": ["route", "find", "system", "sources"]
+}
