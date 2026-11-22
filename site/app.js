@@ -105,7 +105,8 @@ function pickLang(){
 }
 function loadDict(code){
   if(DICTS[code])return Promise.resolve(DICTS[code]);
-  return fetch(BASE+'i18n/'+code+'.json').then(function(r){if(!r.ok)throw new Error('i18n '+code);return r.json()}).then(function(j){DICTS[code]=j;return j});
+  var vm=document.querySelector('meta[name="sp-ver"]'),vq=vm?'?v='+vm.getAttribute('content'):'';
+  return fetch(BASE+'i18n/'+code+'.json'+vq).then(function(r){if(!r.ok)throw new Error('i18n '+code);return r.json()}).then(function(j){DICTS[code]=j;return j});
 }
 function setLocaleVars(code){
   LANG=code;

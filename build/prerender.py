@@ -267,6 +267,9 @@ class Build:
         self.ver = {}
         for f in ("app.js", "app.css"):
             self.ver[f] = hashlib.sha1((SITE / f).read_bytes()).hexdigest()[:8]
+        # translations and icons change without app.js changing: their own version, so browsers never keep an old copy
+        self.ver["i18n"] = hashlib.sha1(b"".join(f.read_bytes() for f in sorted((SITE / "i18n").glob("*.json")))).hexdigest()[:8]
+        self.ver["icon"] = hashlib.sha1((SITE / "favicon.svg").read_bytes() + (ROOT / "build" / "prerender.py").read_bytes()).hexdigest()[:8]
         # date of the open data behind school and municipality pages: the newest generation date of the pipeline files
         gens = [str(j.get("generated", ""))[:10] for j in (self.meta, self.insp, self.det_vo, self.det_po, self.det_so, self.extra, self.ixd, self.feat)]
         self.generated = max(g for g in gens if re.fullmatch(r"\d{4}-\d{2}-\d{2}", g))
@@ -357,6 +360,7 @@ class Build:
         h.append(f'<meta name="robots" content="{robots}">')
         h.append(f'<meta name="theme-color" content="#FFC917">')
         h.append(f'<meta name="sp-base" content="{e(self.base)}">')
+        h.append(f'<meta name="sp-ver" content="{self.ver['i18n']}">')
         if p.get("canonical", True):
             url = self.canon(rel)
             h.append(f'<link rel="canonical" href="{e(url)}">')
@@ -380,8 +384,8 @@ class Build:
         h.append(f'<meta name="twitter:title" content="{e(p.get("og_title", title))}">')
         h.append(f'<meta name="twitter:description" content="{e(desc)}">')
         h.append(f'<meta name="twitter:image" content="{e(img)}">')
-        h.append(f'<link rel="icon" type="image/svg+xml" href="{self.base}favicon.svg">')
-        h.append(f'<link rel="icon" type="image/x-icon" sizes="32x32" href="{self.base}favicon.ico">')
+        h.append(f'<link rel="icon" type="image/svg+xml" href="{self.base}favicon.svg?v={self.ver['icon']}">')
+        h.append(f'<link rel="icon" type="image/x-icon" sizes="32x32" href="{self.base}favicon.ico?v={self.ver['icon']}">')
         h.append(f'<link rel="preload" href="{self.base}fonts/atkinson-hyperlegible-latin-400.woff2" as="font" type="font/woff2" crossorigin>')
         h.append(f'<link rel="stylesheet" href="{self.base}app.css?v={self.ver["app.css"]}">')
         for ld in p.get("jsonld", []):
