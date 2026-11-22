@@ -1559,11 +1559,13 @@ class Build:
                 for x in range(max(0, int(round(x0 * sc))), min(n, int(round(x1 * sc)))):
                     px[y][x] = col
 
-        # stepped gable (Dutch canal-house front) with a lit window, two lower windows and a door, as in favicon.svg
-        for x0, y0, x1, y1 in ((3, 15, 25, 27), (6, 11, 22, 15), (9, 7, 19, 11), (11.5, 3, 16.5, 7)):
+        # schoolhouse with flag, roof, clock, windows and door, as in favicon.svg (rectangles only)
+        red, white = (215, 38, 61, 255), (255, 255, 255, 255)
+        for x0, y0, x1, y1 in ((13.4, 1, 14.6, 9), (2, 13, 26, 27), (0.5, 12, 27.5, 14), (7, 11.5, 21, 13), (9.5, 10, 18.5, 11.5), (11.5, 8.5, 16.5, 10)):
             fill(x0, y0, x1, y1, navy)
-        for x0, y0, x1, y1 in ((12.5, 8.5, 15.5, 11.5), (6, 17.5, 9.5, 21), (18.5, 17.5, 22, 21), (11.5, 22, 16.5, 27), (12.5, 20.5, 15.5, 22)):
-            fill(x0, y0, x1, y1, yel)
+        fill(14.6, 1.5, 20, 4.7, red)
+        for x0, y0, x1, y1 in ((12.5, 15, 15.5, 18), (4.5, 16, 8, 19.5), (20, 16, 23.5, 19.5), (4.5, 21.5, 8, 25), (20, 21.5, 23.5, 25), (11.5, 21.5, 16.5, 27)):
+            fill(x0, y0, x1, y1, white)
         raw = b"".join(b"\x00" + b"".join(bytes(c) for c in row) for row in px)
 
         def chunk(tp, data):
