@@ -20,6 +20,9 @@
           "p": "<b>Bilingual school (tweetalig onderwijs, tto).</b> A Dutch secondary school where a large part of the lessons in the first years are in English. In havo and vwo it is at least half of the lessons, in vmbo 30 percent. Pupils still sit Dutch exams and get a normal Dutch diploma. Your child still needs to cope with Dutch in the other lessons."
         },
         {
+          "p": "<b>IB programme.</b> The International Baccalaureate is an international programme with its own diploma. International schools teach it, and some Dutch secondary schools offer it in the lower years or in the last two years. Ask the school who can join. See [Can my child take the IB in the Netherlands?](/questions/ib-route/)."
+        },
+        {
           "p": "<b>Dutch International School (DIS).</b> A school that is partly funded by the Dutch government and meant for children of internationally mobile families, aged 4 to 19. Not every family can enrol. See [who can enrol](/guides/international-school-admission/)."
         },
         {
@@ -160,6 +163,10 @@
     {
       "label": "Nuffic: bilingual education",
       "url": "https://www.nuffic.nl/onderwijssectoren/voortgezet-onderwijs/tweetalig-onderwijs"
+    },
+    {
+      "label": "Nuffic: level of the IB diplomas",
+      "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas"
     }
   ],
   "related_guides": [
@@ -170,6 +177,7 @@
   ],
   "related_questions": [
     "dutch-international-bilingual",
+    "ib-route",
     "international-school-costs",
     "without-dutch"
   ],

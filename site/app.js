@@ -182,7 +182,7 @@ function parseRoute(){
   if(v===''||v==='index.html')view='route';
   else if(v==='questions')view=arg?'static':'faq';
   else if(APP_PATHS.indexOf(v)>-1)view=v;
-  else if(v==='municipality'||v==='municipalities'||v==='international')view='static';
+  else if(v==='municipality'||v==='municipalities'||v==='international'||v==='about'||v==='contact')view='static';
   else view='notfound';
   if(parts.length>(v==='school'||v==='municipality'||v==='questions'||v==='international'?2:1)&&view!=='notfound')view='notfound';
   if(view==='school')arg=arg.slice(0,6);
@@ -292,14 +292,39 @@ var SRC_URL={
   oco_amsterdam_when_to_register:'https://ocoamsterdam.nl/vragen/wanneer-moet-ik-mijn-kind-aanmelden-voor-de-basisschool',
   inspectie_oordelen_2026:'https://www.onderwijsinspectie.nl/documenten/2026/11/03/oordelen-1-november-2026',
   inspectie_toezichtresultaten:'https://toezichtresultaten.onderwijsinspectie.nl/',
-  duo_so_pupils_cluster:'https://duo.nl/open_onderwijsdata/primair-onderwijs/aantal-leerlingen/leerlingen-onderwijssoort-cluster-leeftijd.jsp'
+  duo_so_pupils_cluster:'https://duo.nl/open_onderwijsdata/primair-onderwijs/aantal-leerlingen/leerlingen-onderwijssoort-cluster-leeftijd.jsp',
+  nuffic_ib_level:'https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas',
+  nuffic_ib_secondary:'https://www.nuffic.nl/en/education-systems/international-baccalaureate/secondary-education',
+  nuffic_ib_schools:'https://www.nuffic.nl/en/education-systems/international-baccalaureate/schools-offering-the-international-baccalaureate',
+  dis_admissions:'https://www.dutchinternationalschools.nl/admissions',
+  kamerstuk_intl_2023:'https://zoek.officielebekendmakingen.nl/kst-22452-88.html',
+  tudelft_ib_requirements:'https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/admission-requirements/specific-diploma-requirements',
+  uva_colloquium_doctum:'https://www.uva.nl/colloquiumdoctum',
+  duo_schoolsoort_wisselen:'https://duo.nl/zakelijk/examenloket/wisselen-schoolsoort-of-leerweg/overstappen.jsp',
+  cbs_gymnasium:'https://cbs.nl/nl-nl/onze-diensten/methoden/begrippen/gymnasium'
 };
-var SRC_ORDER=['schema','nuf','loket','gov','sk123','sk21','basis','wanneer','blijven','tijdlijn','advies','voraad','inschr','weiger','vmbo','havo','vwo','pro','brug','kiesmbo','kiesEntree','mboRijks','mboToel','nufMbo','mboraad','nieuw','sio','oco','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_what_is_tto','dutch_international_schools','isa_fees_2026_27','iamexpat_school_fees_third_party_guide','rijksoverheid_passend_onderwijs','rijksoverheid_bsn_in_education','rijksoverheid_leerplicht_en_kwalificatie','rijksoverheid_compulsory_education_and_a','rijksoverheid_leerplicht_and_school_holi','rijksoverheid_voluntary_parental_contrib','inspectie_voluntary_parental_contributio','rijksoverheid_lunch_at_primary_school','rijksoverheid_childcare_benefit_amounts_','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_priority_rules_for_primary','de_vo_gids_how_lotteries_work','samen_naar_het_vo_utrecht_2026','bovo_haaglanden_results_2026','rijksoverheid_passend_onderwijs2','rijksoverheid_public_and_special_educati','belastingdienst_content_of_the_expat_sch','business_gov_nl_30_ruling_down_to_27','nuffic_applying_for_a_credential_evaluat','study_in_nl_checking_your_diploma','study_in_nl','rijksoverheid_which_diplomas_give_access','duo_open_education_data','inspectie_van_het_onderwijs','nuffic_bilingual_education','nuffic_all_tto_schools','oco_amsterdam_when_to_register','inspectie_oordelen_2026','inspectie_toezichtresultaten','duo_so_pupils_cluster'];
+var SRC_ORDER=['schema','nuf','loket','gov','sk123','sk21','basis','wanneer','blijven','tijdlijn','advies','voraad','inschr','weiger','vmbo','havo','vwo','pro','brug','kiesmbo','kiesEntree','mboRijks','mboToel','nufMbo','mboraad','nieuw','sio','oco','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_what_is_tto','dutch_international_schools','isa_fees_2026_27','iamexpat_school_fees_third_party_guide','rijksoverheid_passend_onderwijs','rijksoverheid_bsn_in_education','rijksoverheid_leerplicht_en_kwalificatie','rijksoverheid_compulsory_education_and_a','rijksoverheid_leerplicht_and_school_holi','rijksoverheid_voluntary_parental_contrib','inspectie_voluntary_parental_contributio','rijksoverheid_lunch_at_primary_school','rijksoverheid_childcare_benefit_amounts_','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_priority_rules_for_primary','de_vo_gids_how_lotteries_work','samen_naar_het_vo_utrecht_2026','bovo_haaglanden_results_2026','rijksoverheid_passend_onderwijs2','rijksoverheid_public_and_special_educati','belastingdienst_content_of_the_expat_sch','business_gov_nl_30_ruling_down_to_27','nuffic_applying_for_a_credential_evaluat','study_in_nl_checking_your_diploma','study_in_nl','rijksoverheid_which_diplomas_give_access','duo_open_education_data','inspectie_van_het_onderwijs','nuffic_bilingual_education','nuffic_all_tto_schools','oco_amsterdam_when_to_register','inspectie_oordelen_2026','inspectie_toezichtresultaten','duo_so_pupils_cluster','nuffic_ib_level','nuffic_ib_secondary','nuffic_ib_schools','dis_admissions','kamerstuk_intl_2023','tudelft_ib_requirements','uva_colloquium_doctum','duo_schoolsoort_wisselen','cbs_gymnasium'];
 var LAST_CHECKED='2026-11-10';
 function srcLine(keys,cls){
   var p=h('p',{class:cls||'src'},[t('src.label')+' ']);
   keys.forEach(function(k,i){var u=SRC_URL[k];if(!u)return;if(i)p.appendChild(document.createTextNode(' · '));
     p.appendChild(h('a',{href:u,target:'_blank',rel:'noopener',text:t('src.'+k)}))});
+  return p;
+}
+
+/* "Last checked" line (only where a date is set in en.json) and the report-an-error mail link */
+function reportHref(title){
+  return 'mailto:'+t('report.email')+'?subject='+encodeURIComponent(t('report.subject',{title:title}))+'&body='+encodeURIComponent(t('report.body',{title:title}));
+}
+function reportLink(title){return h('a',{class:'rpt',href:reportHref(title),text:t('report.link')})}
+function checkedText(iso,what){
+  var d=odDate(iso),ds=d?fmtDay(d):iso;
+  return what?t('report.checkedFor',{what:what,date:ds}):t('report.checked',{date:ds});
+}
+function metaLine(iso,what,title){
+  var p=h('p',{class:'src rptline'});
+  if(iso){p.appendChild(document.createTextNode(checkedText(iso,what)+' · '))}
+  p.appendChild(reportLink(title));
   return p;
 }
 
@@ -809,7 +834,7 @@ function pathText(grp){
 }
 
 var STOP_ICON={pre:'clock',g12:'school',g35:'school',g67:'book',g8:'fork',vo1:'school',vo23:'pencil',fin:'pencil',he:'cap'};
-var STOP_SRC={pre:['basis','wanneer','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_when_to_register','oco_amsterdam_priority_rules_for_primary'],g12:['wanneer','blijven'],g35:['blijven','loket'],g67:['tijdlijn','loket'],g8:['tijdlijn','voraad','advies','inschr','weiger'],vo1:['brug','weiger','loket'],vo23:['vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','mboRijks'],fin:['mboToel','mboRijks','kiesmbo','vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','pro','advies'],he:['schema','gov','sk123','sk21','rijksoverheid_which_diplomas_give_access','mboRijks','nuf']};
+var STOP_SRC={pre:['basis','wanneer','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_when_to_register','oco_amsterdam_priority_rules_for_primary'],g12:['wanneer','blijven'],g35:['blijven','loket'],g67:['tijdlijn','loket'],g8:['tijdlijn','voraad','advies','inschr','weiger'],vo1:['brug','weiger','loket','vwo','duo_schoolsoort_wisselen','cbs_gymnasium','nuffic_ib_secondary'],vo23:['vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','mboRijks'],fin:['mboToel','mboRijks','kiesmbo','vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','pro','advies','nuffic_ib_secondary','dis_admissions'],he:['schema','gov','sk123','sk21','rijksoverheid_which_diplomas_give_access','uva_colloquium_doctum','nuffic_ib_level','study_in_nl_checking_your_diploma','mboRijks','nuf']};
 function stopDef(id,m,grp){
   var s={id:id,icon:STOP_ICON[id],when:whenText(id,m),title:t('stops.'+id+'.title'),schools:null,src:STOP_SRC[id].slice(),todo:tv('stops.'+id+'.todo')||[],what:(tv('stops.'+id+'.what')||[]).slice()};
   var cur=(m.cur===id);
@@ -911,6 +936,7 @@ function renderStop(st,m,idx,firstDeadlineId){
     [qGroup(m),qLevel(m),qNew(m)].forEach(function(q){if(q)info.appendChild(q)});
   }
   if(st.src.length)info.appendChild(srcLine(st.src));
+  info.appendChild(metaLine(has('stops.'+st.id+'.checked')?t('stops.'+st.id+'.checked'):'',has('stops.'+st.id+'.checkedFor')?t('stops.'+st.id+'.checkedFor'):'',st.title));
   var panels=[];
   if(st.schools==='po')panels.push(panelPrimary(true));
   if(st.schools==='vo'){
@@ -974,7 +1000,7 @@ function renderStatus(){
 }
 function renderGlossary(){
   var dl=$('gloss-dl');clear(dl);
-  (tv('glossary')||[]).forEach(function(g){dl.appendChild(h('dt',{text:g[0]}));dl.appendChild(h('dd',{text:g[1]}))});
+  (tv('glossary')||[]).forEach(function(g){dl.appendChild(h('dt',{text:g[0]}));var dd=h('dd',{text:g[1]});if(g[0]==='IB'){dd.appendChild(document.createTextNode(' '));dd.appendChild(h('a',{href:BASE+'questions/ib-route/',text:'How the IB route works'}))}dl.appendChild(dd)});
 }
 function renderExamples(){
   var box=$('exrow');clear(box);
@@ -998,7 +1024,7 @@ var FEAT_ATTR=[['nuffic','https://www.nuffic.nl/onderwijssectoren/voortgezet-ond
   ['vrije','https://www.vrijescholen.nl/',''],['dis','https://www.dutchinternationalschools.nl/',''],['sio','https://sio.nl/','']];
 function renderFooter(){
   var d=odDate(LAST_CHECKED);
-  var e=$('foot-checked');if(e)e.textContent=t('foot.checked',{date:d?fmtDay(d):LAST_CHECKED});
+  var e=$('foot-checked');if(e){e.textContent=t('foot.checked',{date:d?fmtDay(d):LAST_CHECKED})+' · ';e.appendChild(reportLink(t('report.general')))}
 }
 function aLink(text,url){return h('a',{href:url,target:'_blank',rel:'noopener',text:text})}
 /* which open dataset feeds which part of a profile, with the counts from meta.json and inspection.json */
@@ -1127,6 +1153,8 @@ function buildSystem(){
   path('M230 352V424');mk(230,396,'7');
   path('M214 352V392H166V424');mk(190,385,'7');
   path('M310 372V424');mk(310,396,'8');
+  /* IB Diploma route: dashed, from the end of the vwo lane to wo (the transfer text also names hbo) */
+  path('M332 372V424',true);S.appendChild(svgEl('rect',{'class':'lbl',x:322,y:380,width:20,height:13}));text(332,390,'IB','ax','middle');mk(332,397,'9');
   path('M296 372V404H258V424');mk(277,397,'8');
   /* after secondary: mbo, hbo, wo */
   rect(40,424,132,18,'f-mbo','mbo','hd');rect(200,424,62,18,'f-hbo','hbo','hd');rect(280,424,68,18,'f-wo','wo','hd');
@@ -1158,8 +1186,9 @@ function renderSystem(){
     ol.appendChild(h('li',null,[h('b',{text:x.k}),h('span',null,[x.text])]));
   });
   ol.appendChild(h('li',null,[h('b',{text:'+'}),h('span',null,[t('sys.xfersExtra')])]));
+  var sr=$('sysrpt');if(sr){clear(sr);sr.appendChild(reportLink(t('sys.heading')))}
   var sl=$('syssrc');clear(sl);sl.appendChild(document.createTextNode(t('src.label')+' '));
-  ['schema','nuf','loket','gov','mboRijks','sk123','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_which_diplomas_give_access'].forEach(function(key,i){if(i)sl.appendChild(document.createTextNode(' · '));sl.appendChild(h('a',{href:SRC_URL[key],target:'_blank',rel:'noopener',text:t('src.'+key)}))});
+  ['schema','nuf','loket','gov','mboRijks','sk123','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_which_diplomas_give_access','nuffic_ib_level'].forEach(function(key,i){if(i)sl.appendChild(document.createTextNode(' · '));sl.appendChild(h('a',{href:SRC_URL[key],target:'_blank',rel:'noopener',text:t('src.'+key)}))});
 }
 
 /* ================= FAQ ================= */
@@ -1198,8 +1227,10 @@ function renderFaq(){
         else if(b.ul){var ul=h('ul');b.ul.forEach(function(li){ul.appendChild(hr('li','',li))});a.appendChild(ul)}
       });
       a.appendChild(srcLine(x.src));
+      if(x.checked)a.appendChild(h('p',{class:'src',text:checkedText(x.checked,x.checkedFor)}));
       var fl=h('p',{class:'faqlink'},h('a',{href:U.faqItem(x.id),text:t('faq.link')}));
       if((tv('faq.pages')||[]).some(function(pg){return pg.id===x.id})){fl.appendChild(document.createTextNode(' · '));fl.appendChild(h('a',{href:U.faqPage(x.id),text:t('faq.pageLink')}))}
+      fl.appendChild(document.createTextNode(' · '));fl.appendChild(reportLink(x.q));
       a.appendChild(fl);
       d.appendChild(a);sec.appendChild(d);
     });

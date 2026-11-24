@@ -14,6 +14,8 @@
     "system": "The whole Dutch school system | {brand}",
     "faq": "Questions parents ask | {brand}",
     "sources": "Data and sources | {brand}",
+    "about": "About us | {brand}",
+    "contact": "Contact | {brand}",
     "school": "{name}, {type} school in {city} | {brand}",
     "schoolNoCity": "{name}, {type} school | {brand}",
     "schoolAddr": "{name}, {type} school in {city}, {addr} | {brand}",
@@ -105,6 +107,10 @@
       "the three main secondary levels, 4, 5 and 6 years"
     ],
     [
+      "atheneum, gymnasium",
+      "the two forms of vwo. Both lead to the same vwo diploma level and to university admission. A gymnasium adds Latin and Greek, and pupils take the final exam in at least one of them"
+    ],
+    [
       "mbo",
       "vocational college, levels 1 to 4"
     ],
@@ -115,6 +121,10 @@
     [
       "wo",
       "research university"
+    ],
+    [
+      "21+ test, colloquium doctum",
+      "an admission test for people from age 21 who lack the usual diploma. At hbo it is called the 21+ test (toelatingsonderzoek). Research universities (wo) use a similar test, called colloquium doctum. The institution decides and runs it"
     ],
     [
       "brugklas",
@@ -130,7 +140,7 @@
     ],
     [
       "IB",
-      "International Baccalaureate, an international programme and diploma"
+      "International Baccalaureate, an international programme and diploma. The Middle Years Programme (MYP) covers the lower years and the Diploma Programme (DP) the last two years of secondary school"
     ],
     [
       "technasium",
@@ -260,11 +270,14 @@
       "age": "12 to 13",
       "unit": "year 1",
       "what": [
-        "Year 1 usually lasts one year, sometimes two. Many schools combine at least two levels in one class, for example vmbo-t with havo, or havo with vwo. Some schools are single-level and start in one level directly."
+        "Year 1 usually lasts one year, sometimes two. Many schools combine at least two levels in one class, for example vmbo-t with havo, or havo with vwo. Some schools are single-level and start in one level directly.",
+        "vwo comes in two forms, atheneum and gymnasium. Both lead to the same vwo diploma level and to university admission. A gymnasium adds Latin and Greek, and pupils take the final exam in at least one of them. A categorical gymnasium is a school with only gymnasium classes. Some schools also offer a technasium or a bilingual (tto) stream.",
+        "Some schools offer the International Baccalaureate Middle Years Programme (MYP) in the lower years. It takes 5 years and ends in an MYP certificate. Ask the school how it fits with the Dutch levels and who can join."
       ],
       "todo": [
         "Ask how and when a child can move up or down a level. The school decides.",
-        "Ask what extra support the school gives."
+        "Ask what extra support the school gives.",
+        "Ask which vwo forms (atheneum, gymnasium), streams (tto, technasium) and IB programmes the school offers."
       ]
     },
     "vo23": {
@@ -285,11 +298,13 @@
       "age": "15 to 18",
       "unit": "exam year",
       "what": [
-        "The final exam year is year 4 in vmbo (age 15 to 16), year 5 in havo (age 16 to 17) and year 6 in vwo (age 17 to 18). Practical education runs to about age 18."
+        "The final exam year is year 4 in vmbo (age 15 to 16), year 5 in havo (age 16 to 17) and year 6 in vwo (age 17 to 18). Practical education runs to about age 18.",
+        "In the last two years of secondary school, some schools offer the IB Diploma Programme (DP), and international schools teach it too. It takes 2 years. Joining is often linked to an international background, and the school decides. Ask how the IB fits with the Dutch exam at that school."
       ],
       "todo": [
         "For mbo, apply to the programme by 1 April of the exam year. You can apply later, but then you have no right to admission.",
-        "For hbo or wo, check the subjects and application dates of each programme early."
+        "For hbo or wo, check the subjects and application dates of each programme early.",
+        "If your child may take the IB Diploma, ask the school who can join, what it costs and where the diploma leads."
       ]
     },
     "he": {
@@ -300,11 +315,15 @@
         "<b>mbo</b> (vocational college) has four levels: level 1 takes 1 year, level 2 takes 1 to 2, level 3 takes 2 to 3 and level 4 takes 3 to 4 years. A level 4 diploma gives the right to enter hbo.",
         "<b>hbo</b> (university of applied sciences): a bachelor takes 4 years, and the first year is the first-year certificate (propedeuse). An associate degree takes 2 years. A master takes 1 to 2 years.",
         "<b>wo</b> (research university): a bachelor takes 3 years and a master 1 to 3 years. A PhD usually takes about 4 years. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. A havo diploma does not give direct entry. Some programmes also ask for particular subjects, and some select applicants. An hbo bachelor usually needs a bridging programme (pre-master) before a wo master.",
-        "Without the usual diploma, people from age 21 can usually ask for an admission test (21+ test). The institution decides and runs it."
+        "The <b>IB Diploma</b> (International Baccalaureate) can lead to hbo and wo too. Nuffic compares the full diploma with a vwo diploma. A university of applied sciences or a research university can still set subject and grade requirements, for example a maths level, so check each programme.",
+        "Without the usual diploma, people from age 21 can usually ask for an admission test. At hbo it is called the 21+ test (toelatingsonderzoek). Research universities (wo) use a similar entrance exam without the usual diploma, called colloquium doctum, often from age 21. Some sources use both names for either kind. The institution decides and runs it, and requirements differ."
       ],
       "todo": [
-        "Check the entry rules, dates and any selection of each programme."
-      ]
+        "Check the entry rules, dates and any selection of each programme.",
+        "With an IB diploma, or without the usual diploma, ask the programme what it requires."
+      ],
+      "checked": "2026-11-24",
+      "checkedFor": "Admission rules"
     },
     "newc": {
       "when": "First, on average for about two years",
@@ -1389,7 +1408,16 @@
     "oco_amsterdam_when_to_register": "OCO Amsterdam: when to register",
     "inspectie_oordelen_2026": "Inspectie: open data oordelen, 1 November 2026",
     "inspectie_toezichtresultaten": "Inspectie: supervision results site",
-    "duo_so_pupils_cluster": "DUO: pupils in special education by cluster and age"
+    "duo_so_pupils_cluster": "DUO: pupils in special education by cluster and age",
+    "nuffic_ib_level": "Nuffic: level of the IB diplomas",
+    "nuffic_ib_secondary": "Nuffic: IB secondary education",
+    "nuffic_ib_schools": "Nuffic: schools offering the International Baccalaureate",
+    "dis_admissions": "Dutch International Schools: admissions",
+    "kamerstuk_intl_2023": "Tweede Kamer: letter on international education, December 2023",
+    "tudelft_ib_requirements": "TU Delft: specific diploma requirements (IB example)",
+    "uva_colloquium_doctum": "University of Amsterdam: colloquium doctum",
+    "duo_schoolsoort_wisselen": "DUO: changing school type (atheneum and gymnasium)",
+    "cbs_gymnasium": "CBS: gymnasium"
   },
   "sys": {
     "heading": "The whole system on one page",
@@ -1410,7 +1438,7 @@
     },
     "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. Letters and numbers match the list.",
     "title": "The Dutch school system, top to bottom",
-    "desc": "Primary school of eight year groups leads, after school advice, to practical education, vmbo, havo or vwo. After those come mbo, hbo and wo. Arrows show how children can move between tracks.",
+    "desc": "Primary school of eight year groups leads, after school advice, to practical education, vmbo, havo or vwo. After those come mbo, hbo and wo. Arrows show how children can move between tracks. A dashed arrow shows the IB Diploma route to higher education.",
     "primary": "PRIMARY SCHOOL",
     "yearGroup": "Year group {n}",
     "age": "age {n}",
@@ -1423,7 +1451,7 @@
       "vwo": "vwo"
     },
     "mboLevels": "levels 1 to 4",
-    "legend": "AD = associate degree, M = master",
+    "legend": "AD = associate degree, M = master, IB = International Baccalaureate",
     "xfers": [
       {
         "k": "1",
@@ -1455,7 +1483,11 @@
       },
       {
         "k": "8",
-        "text": "vwo diploma to a wo bachelor, or to an hbo bachelor or associate degree. Some studies ask for particular subjects or select."
+        "text": "vwo diploma (atheneum or gymnasium) to a wo bachelor, or to an hbo bachelor or associate degree. Some studies ask for particular subjects or select."
+      },
+      {
+        "k": "9",
+        "text": "IB Diploma Programme to hbo or wo. The IB Diploma is taken in the last two years of secondary school, at some schools and at international schools. Nuffic compares the full diploma with a vwo diploma. Dashed because the university or university of applied sciences can set subject and grade requirements, for example a maths level. Check the programme."
       },
       {
         "k": "a",
@@ -1765,6 +1797,35 @@
               "sk123",
               "vo_raad_moving_from_vmbo_to_havo_and_fro"
             ]
+          },
+          {
+            "id": "vwo-atheneum-gymnasium",
+            "q": "What are atheneum and gymnasium within vwo?",
+            "blocks": [
+              {
+                "p": "vwo takes 6 years and prepares for study at a research university. It comes in two forms: atheneum and gymnasium. Both take the same vwo final exam, and both lead to the same vwo diploma level and the same university admission. The diploma says which form the pupil followed."
+              },
+              {
+                "ul": [
+                  "A gymnasium adds Latin and Greek. Pupils usually learn both in the lower years, and must take the final exam in at least one of them.",
+                  "A categorical gymnasium is a school with only gymnasium classes. A categorical gymnasium may also enrol atheneum pupils if it offers atheneum and says so in its name.",
+                  "Some schools offer a technasium stream (design and research assignments for outside clients) or a bilingual (tto) stream. Not every school has them."
+                ]
+              },
+              {
+                "p": "The choice between atheneum and gymnasium does not change what the vwo diploma opens. Some university programmes still ask for particular subjects, whichever form a pupil followed."
+              },
+              {
+                "say": "Ask which forms and streams the school offers, and whether a pupil can change between atheneum and gymnasium. The school decides."
+              }
+            ],
+            "src": [
+              "vwo",
+              "duo_schoolsoort_wisselen",
+              "cbs_gymnasium",
+              "rijksoverheid_what_is_tto",
+              "rijksoverheid_which_diplomas_give_access"
+            ]
           }
         ]
       },
@@ -1792,6 +1853,40 @@
               "dutch_international_schools",
               "sio"
             ]
+          },
+          {
+            "id": "ib-route",
+            "q": "Can my child take the International Baccalaureate (IB) in the Netherlands?",
+            "blocks": [
+              {
+                "p": "At some schools, yes. The IB is an international programme with its own diploma. International schools teach it, and our school list also flags Dutch secondary schools with an IB programme. The IB calls approved schools IB World Schools, and some offer every phase while others offer only one or two."
+              },
+              {
+                "ul": [
+                  "Lower years: the Middle Years Programme (MYP) takes 5 years and ends in an MYP certificate. Nuffic compares it with 4 years of vwo.",
+                  "Last two years: the Diploma Programme (DP) takes 2 years. Nuffic lists the MYP certificate as the entry requirement, but schools set their own rules. The Dutch International Secondary Schools, for example, ask for a havo diploma or a pass into vwo year 5, plus enough English.",
+                  "Who can join: this is often linked to an international background, and the school decides. The funded Dutch International Schools (DIS) admit a pupil under national rules, for example a non-Dutch pupil whose parent works in the Netherlands for a limited time, or a Dutch pupil who lived abroad for at least two years because of a parent's posting.",
+                  "Cost: a funded school may ask a parental contribution, and the minister wrote in 2023 that funded international education may make it compulsory. Amounts differ per school, so ask for the fee schedule."
+                ]
+              },
+              {
+                "p": "Where it leads: Nuffic compares the full IB Diploma with a vwo diploma and says it gives access to higher education. A university of applied sciences or a research university can still set subject and grade requirements. TU Delft, for example, accepts only Mathematics: Analysis and Approaches at higher level. Check each programme."
+              },
+              {
+                "say": "Ask the school which IB programmes it runs, whether it is an IB World School, who can join, what it costs and how the IB fits with the Dutch levels."
+              }
+            ],
+            "src": [
+              "nuffic_ib_level",
+              "nuffic_ib_secondary",
+              "nuffic_ib_schools",
+              "dis_admissions",
+              "kamerstuk_intl_2023",
+              "study_in_nl_checking_your_diploma",
+              "tudelft_ib_requirements",
+              "duo_open_education_data"
+            ],
+            "checked": "2026-11-24"
           },
           {
             "id": "international-school-costs",
@@ -1977,7 +2072,8 @@
                 "ul": [
                   "vwo is the usual route to wo. havo leads to hbo. An mbo level 4 diploma also gives the right to enter hbo.",
                   "A havo diploma alone does not give access to wo. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. Some programmes also ask for particular subjects, and some select applicants.",
-                  "Without the usual diploma, people from age 21 can usually ask for an admission test (the 21+ test). The institution decides and runs it."
+                  "Without the usual diploma, people from age 21 can usually ask for an admission test. At hbo it is called the 21+ test (toelatingsonderzoek). Research universities (wo) use a similar entrance exam without the usual diploma, called colloquium doctum, often from age 21. Some sources use both names for either kind. The institution decides and runs it, and requirements differ.",
+                  "The International Baccalaureate (IB) diploma is compared with a vwo diploma. Programmes can still set subject and grade requirements, such as a maths level."
                 ]
               }
             ],
@@ -1985,8 +2081,13 @@
               "gov",
               "sk123",
               "sk21",
-              "schema"
-            ]
+              "schema",
+              "nuffic_ib_level",
+              "uva_colloquium_doctum",
+              "rijksoverheid_which_diplomas_give_access"
+            ],
+            "checked": "2026-11-24",
+            "checkedFor": "Admission rules"
           },
           {
             "id": "english-taught-university",
@@ -2113,6 +2214,19 @@
         ],
         "links": [
           "intl"
+        ]
+      },
+      {
+        "id": "ib-route",
+        "title": "Can my child take the IB in the Netherlands?",
+        "desc": "The IB runs in the lower years (MYP) and the last two years (Diploma) at some schools. Read who can join, what it costs and where the diploma leads next.",
+        "related": [
+          "dutch-international-bilingual",
+          "international-school-costs",
+          "wo-vs-hbo"
+        ],
+        "links": [
+          "system"
         ]
       },
       {
@@ -2268,7 +2382,9 @@
     "intl": "International schools",
     "munis": "All municipalities",
     "system": "How the system works",
-    "sources": "Data and sources"
+    "sources": "Data and sources",
+    "about": "About us",
+    "contact": "Contact"
   },
   "so": {
     "type": {
@@ -2375,6 +2491,8 @@
       "system": "The whole Dutch school system on one page, from primary school to university, with the tracks, the diplomas and the ways a child can move between them.",
       "faq": "Plain English answers to what parents new to the Netherlands ask about Dutch schools: registration, school advice, levels, fees and international options.",
       "sources": "Where the school numbers on this site come from (DUO, Inspectie, CBS, Kadaster), how to read them, what is hidden for privacy, and what this site is not.",
+      "about": "Who makes the Dutch School Guide and why. A free, independent guide for expat parents, with no ads or paid listings, and what the site stores on your device.",
+      "contact": "How to reach the Dutch School Guide: send a correction, a missing school or feedback by e-mail. What to include, what to expect and what we cannot help with.",
       "municipalities": "Every Dutch municipality with its primary, special and secondary schools, grouped by province. Open a municipality to see its schools and the facts we hold.",
       "compare": "Compare up to four Dutch schools of the same type side by side: pupils, levels, exam results and inspection information from open data. Context, not a ranking.",
       "notFound": "This page does not exist on Dutch School Guide. Search for a Dutch school by name, town or postcode, or read our English guide to the Dutch school system.",
@@ -2412,6 +2530,7 @@
     "linksQuestions": "Questions parents ask",
     "intlTitle": "International options",
     "intlIntro": "Dutch, bilingual, IB, funded and private international schools, and newcomer classes, by city:",
+    "intlIB": "The IB route: can my child take the International Baccalaureate here?",
     "guidesTitle": "Guides for parents new to the Netherlands",
     "guidesAll": "All guides"
   },
@@ -2487,6 +2606,8 @@
     "noscript": "The map needs JavaScript. Without it, browse by municipality instead."
   },
   "intl": {
+    "ibH": "The International Baccalaureate (IB)",
+    "ibText": "Some Dutch state schools and the international schools offer the IB programmes. Read how the route works, what it costs and how it connects to Dutch education:",
     "crumb": "International schools",
     "indexTitle": "International schools in the Netherlands, by city",
     "indexH1": "International schools in the Netherlands, by city",
@@ -2509,7 +2630,7 @@
       },
       {
         "k": "IB at a Dutch school",
-        "text": "Some Dutch schools offer an International Baccalaureate (IB) programme. Ask each school which years it covers and who can join."
+        "text": "Some Dutch schools offer an International Baccalaureate (IB) programme, such as the Middle Years Programme in the lower years or the Diploma Programme in the last two years. Ask each school which years it covers and who can join."
       },
       {
         "k": "Government-funded international school",
@@ -2549,7 +2670,8 @@
     "muniLink": "Schools in {name}",
     "q": "Questions",
     "allCities": "All cities",
-    "findLink": "Search for a school"
+    "findLink": "Search for a school",
+    "ibMore": "How the IB route works"
   },
   "guides": {
     "crumb": "Guides",
@@ -2585,5 +2707,77 @@
     "sourcesNote": "Official pages, mostly in Dutch. We summarise them in our own words.",
     "next": "Read next",
     "all": "All guides"
+  },
+  "about": {
+    "crumb": "About us",
+    "h1": "About the Dutch School Guide",
+    "intro": "The Dutch School Guide is a free, independent guide to Dutch schools for expat and immigrant parents. It explains the school system in plain English and shows the schools near your postcode.",
+    "whoH": "Who makes it",
+    "who1": "The guide is made by Arktos AI Lab and run by Ernst van Gassen, an independent researcher.",
+    "who2": "Moving to a new country is hard enough. Choosing a school when the rules and the words are in another language is harder. We wrote the guide to make that first step easier.",
+    "whoLink": "Arktos AI Lab",
+    "indepH": "Independent, free and without ads",
+    "indep": [
+      "There are no ads and no paid listings.",
+      "A school cannot pay to appear on this site or to be shown higher.",
+      "We do not rank schools. The numbers are context for a talk with a school.",
+      "The guide links to schools and to official sources. It does not replace them."
+    ],
+    "dataH": "Where the facts come from",
+    "data1": "School data comes from open government data, mainly DUO and the Inspectie van het Onderwijs. The rules and dates in the guides come from official sources, mostly the Rijksoverheid.",
+    "data2": "The page with the full list shows what each part of a school profile is based on.",
+    "dataLink": "Data and sources",
+    "aiH": "How it is made",
+    "ai1": "The guide is built and maintained with help from AI (Claude). Every fact is tied to an official source and dated where it can change.",
+    "ai2": "Mistakes are still possible. Please check details with the school and your municipality, and tell us if you find an error.",
+    "privH": "Privacy: what the site stores and loads",
+    "priv": [
+      "The site has no ads, no analytics, no tracking scripts and no accounts. It sets no cookies.",
+      "Your choices stay on your device. The site saves your language, the age and postcode you enter, your filter choices and the schools you add to compare. They are kept in your browser's local storage and are never sent to us. Clear your browser data to remove them.",
+      "The map page loads the Leaflet map code from cdnjs.cloudflare.com and map tiles from OpenStreetMap. Those services can see your IP address and the part of the map you look at, as with any web page. Nothing else loads from another site. Fonts, code and data come from this site.",
+      "The site is a set of static pages hosted on GitHub Pages. GitHub may log visits, as any web host does. We keep no visitor records ourselves.",
+      "Links to schools and official sources open other sites, with their own rules. If you write to us, we only receive what your e-mail contains."
+    ],
+    "moreH": "More",
+    "toContact": "Contact us"
+  },
+  "contact": {
+    "crumb": "Contact",
+    "h1": "Contact",
+    "intro": "We read every message about the guide. Write to us for corrections, missing schools, feedback or press questions.",
+    "mailH": "E-mail",
+    "mailLead": "Write to",
+    "mailSubject": "Dutch School Guide",
+    "fixH": "Sending a correction",
+    "fixIntro": "Please include:",
+    "fix": [
+      "The page, with its link or its title.",
+      "What is wrong, and what it should say if you know.",
+      "A source, such as a link to an official page."
+    ],
+    "fixNote": "The Report an error link at the bottom of a page opens an e-mail with these questions already filled in.",
+    "missH": "A missing school or other feedback",
+    "miss": "For a school that is missing, send its name, town and, if you have it, its BRIN code or website. Feedback on what is unclear or hard to find is just as welcome.",
+    "replyH": "What to expect",
+    "reply": "We reply when we can. We cannot promise a date. Corrections that come with an official source are usually the quickest to fix.",
+    "cantH": "What we cannot do",
+    "cant1": "We cannot give personal advice about a specific child or a school placement, and we cannot speak to a school for you.",
+    "cant2": "For that, ask the school itself, your municipality, or an official helpdesk:",
+    "cantLinks": [
+      ["rijks", "Rijksoverheid, the Dutch government information site"],
+      ["loket", "Onderwijsloket, advice on the Dutch education system"],
+      ["insp", "Inspectie van het Onderwijs, the education inspectorate"]
+    ],
+    "toAbout": "About us",
+    "moreH": "More"
+  },
+  "report": {
+    "email": "info@arktosailab.com",
+    "link": "Report an error",
+    "subject": "Dutch School Guide: correction for {title}",
+    "body": "Hello,\n\nI think something is wrong in \"{title}\" on the Dutch School Guide.\n\nWhat is wrong:\n\n\nWhat it should say, if you know:\n\n\nA source (a link, if possible):\n\n\nThank you.",
+    "general": "a page of the Dutch School Guide",
+    "checked": "Last checked: {date}",
+    "checkedFor": "{what} last checked: {date}"
   }
 }

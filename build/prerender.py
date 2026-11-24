@@ -20,6 +20,7 @@ import sys
 import unicodedata
 import zlib
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
@@ -358,7 +359,7 @@ class Build:
         h.append(f"<title>{e(title)}</title>")
         h.append(f'<meta name="description" content="{e(desc)}">')
         h.append(f'<meta name="robots" content="{robots}">')
-        h.append(f'<meta name="theme-color" content="#E8DCC3">')
+        h.append(f'<meta name="theme-color" content="#1D4E89">')
         h.append(f'<meta name="sp-base" content="{e(self.base)}">')
         h.append(f'<meta name="sp-ver" content="{self.ver['i18n']}">')
         if p.get("canonical", True):
@@ -473,7 +474,8 @@ class Build:
             "ageopts": self.age_options() if home else "",
             "exrow": self.ex_row() if home else "",
             "gloss": self.gloss() if home else "",
-            "footchecked": e(t("foot.checked", date=fmt_day(self.last_checked))),
+            "footchecked": e(t("foot.checked", date=fmt_day(self.last_checked))) + " &middot; " + self.report_link(t("report.general")),
+            "sysrpt": self.report_link(t("sys.heading")),
             "schoolattrs": "",
             "homelinks": "",
             "footlinks": self.foot_links(),
@@ -489,7 +491,7 @@ class Build:
     def foot_links(self):
         """site-wide links in the footer, so every content page is one click from every page"""
         t = self.t
-        ks = [("guides/", "foot.guides"), ("questions/", "foot.questions"), ("international/", "foot.intl"), ("municipalities/", "foot.munis"), ("system/", "foot.system")]
+        ks = [("guides/", "foot.guides"), ("questions/", "foot.questions"), ("international/", "foot.intl"), ("municipalities/", "foot.munis"), ("system/", "foot.system"), ("about/", "foot.about"), ("contact/", "foot.contact")]
         if not self.guides:
             ks = ks[1:]
         li = "".join(f'<li><a href="{self.href(r)}">{e(t(k))}</a></li>' for r, k in ks)
@@ -521,7 +523,9 @@ class Build:
         return "".join(o)
 
     def gloss(self):
-        return "".join(f"<dt>{e(a)}</dt><dd>{e(b)}</dd>" for a, b in self.en["glossary"])
+        more = {"IB": ("questions/ib-route/", "How the IB route works")}   # glossary term -> page that explains it
+        return "".join(f"<dt>{e(a)}</dt><dd>{e(b)}" + (f' <a href="{self.href(more[a][0])}">{e(more[a][1])}</a>' if a in more else "") + "</dd>"
+                       for a, b in self.en["glossary"])
 
     def crumbs(self, items):
         t = self.t
@@ -532,6 +536,17 @@ class Build:
             else:
                 li.append(f'<li><span aria-current="page">{e(label)}</span></li>')
         return f'<nav class="crumbs" aria-label="{e(t("crumb.aria"))}"><ol>{"".join(li)}</ol></nav>'
+
+    def report_link(self, title):
+        """mailto link for a correction, same text as reportHref() in app.js"""
+        t = self.t
+        href = "mailto:" + t("report.email") + "?subject=" + quote(t("report.subject", title=title), safe="") + "&body=" + quote(t("report.body", title=title), safe="")
+        return f'<a class="rpt" href="{e(href)}">{e(t("report.link"))}</a>'
+
+    def checked_p(self, iso, what=""):
+        t = self.t
+        key, kw = ("report.checkedFor", {"what": what, "date": fmt_day(iso)}) if what else ("report.checked", {"date": fmt_day(iso)})
+        return f'<p class="src">{e(t(key, **kw))}</p>'
 
     def src_line(self, keys, cls="src"):
         t = self.t
@@ -639,6 +654,10 @@ class Build:
         mk(190, 385, "7")
         path("M310 372V424")
         mk(310, 396, "8")
+        path("M332 372V424", True)
+        o.append('<rect class="lbl" x="322" y="380" width="20" height="13"/>')
+        text(332, 390, "IB", "ax", "middle")
+        mk(332, 397, "9")
         path("M296 372V404H258V424")
         mk(277, 397, "8")
         rect(40, 424, 132, 18, "f-mbo", "mbo", "hd")
@@ -673,7 +692,7 @@ class Build:
         xf = "".join(f'<li><b>{e(x["k"])}</b><span>{e(x["text"])}</span></li>' for x in self.en["sys"]["xfers"])
         xf += f'<li><b>+</b><span>{e(t("sys.xfersExtra"))}</span></li>'
         links = []
-        for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "vo_raad_moving_from_vmbo_to_havo_and_fro", "rijksoverheid_which_diplomas_give_access"]:
+        for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "vo_raad_moving_from_vmbo_to_havo_and_fro", "rijksoverheid_which_diplomas_give_access", "nuffic_ib_level"]:
             links.append(f'<a href="{e(self.src_url[key])}" target="_blank" rel="noopener">{e(t("src." + key))}</a>')
         syssrc = e(t("src.label")) + " " + " · ".join(links)
         return {"sysfig": self.system_svg(), "syskeys": keys, "xfers": xf, "syssrc": syssrc}
@@ -699,8 +718,10 @@ class Build:
                     elif "ul" in b:
                         o.append("<ul>" + "".join(f"<li>{rich(li)}</li>" for li in b["ul"]) + "</ul>")
                 o.append(self.src_line(x.get("src", [])))
+                if x.get("checked"):
+                    o.append(self.checked_p(x["checked"], x.get("checkedFor", "")))
                 pl = f' &middot; <a href="{self.href("questions/" + x["id"] + "/")}">{e(t("faq.pageLink"))}</a>' if x["id"] in self.faq_page_ids else ""
-                o.append(f'<p class="faqlink"><a href="{self.href("questions/#" + x["id"])}">{e(t("faq.link"))}</a>{pl}</p></div></details>')
+                o.append(f'<p class="faqlink"><a href="{self.href("questions/#" + x["id"])}">{e(t("faq.link"))}</a>{pl} &middot; {self.report_link(x["q"])}</p></div></details>')
             o.append("</section>")
         return "".join(o)
 
@@ -742,7 +763,7 @@ class Build:
                     ans.append(f'<p class="say">{rich(b["say"])}</p>')
                 elif "ul" in b:
                     ans.append("<ul>" + "".join(f"<li>{rich(li)}</li>" for li in b["ul"]) + "</ul>")
-            o.append(f'<section class="psec qa"><div class="ans">{"".join(ans)}</div>{self.src_line(x.get("src", []))}</section>')
+            o.append(f'<section class="psec qa"><div class="ans">{"".join(ans)}</div>{self.src_line(x.get("src", []))}{self.checked_p(x["checked"], x.get("checkedFor", "")) if x.get("checked") else ""}<p class="src rptline">{self.report_link(x["q"])}</p></section>')
             li = []
             for rid in pg["related"]:
                 href = self.href(f"questions/{rid}/") if rid in self.faq_page_ids else self.href(f"questions/#{rid}")
@@ -873,6 +894,63 @@ class Build:
             self.write(rel, self.page(page))
             self.sitemap["pages"].append(rel)
 
+    # ------------------------------------------------------------ about and contact
+    LAB_NAME = "Arktos AI Lab"
+    LAB_URL = "https://arktosailab.com/"
+
+    def about_contact_pages(self):
+        t = self.t
+        A, C = self.en["about"], self.en["contact"]
+        mail = t("report.email")
+        org = {"@type": "Organization", "name": self.LAB_NAME, "url": self.LAB_URL, "email": mail}
+        ext = lambda url, label: f'<a href="{e(url)}" target="_blank" rel="noopener">{e(label)}</a>'
+
+        def build(rel, kind, crumb, h1, body, ld_type, title_key, desc_key):
+            cr = [(t("crumb.home"), self.href("")), (crumb, None)]
+            head = f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(h1)}</h1>{body[0]}</div>'
+            page = {"rel": rel, "view": "static", "tab": None, "title": t(title_key), "desc": self.en["seo"]["desc"][desc_key],
+                    "jsonld": [{"@context": "https://schema.org", "@type": ld_type, "name": t(title_key).split(" | ")[0], "url": self.canon(rel),
+                                "description": self.en["seo"]["desc"][desc_key], "inLanguage": self.langs[0],
+                                "isPartOf": {"@type": "WebSite", "name": self.brand, "url": self.canon("")},
+                                "publisher": org, "about": org},
+                               {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                                   {"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
+                                   {"@type": "ListItem", "position": 2, "name": crumb, "item": self.canon(rel)}]}],
+                    "slots": {"static": head + "".join(body[1:])}}
+            self.write(rel, self.page(page))
+            self.sitemap["pages"].append(rel)
+
+        sec = lambda h, inner: f'<section class="psec"><h2>{e(h)}</h2>{inner}</section>'
+        ul = lambda items: '<ul class="plist">' + "".join(f"<li>{e(x)}</li>" for x in items) + "</ul>"
+        p_ = lambda x: f"<p>{e(x)}</p>"
+        link = lambda rel, label: f'<a href="{self.href(rel)}">{e(label)}</a>'
+
+        about = [
+            f'<p class="lede">{e(A["intro"])}</p>',
+            sec(A["whoH"], p_(A["who1"]) + p_(A["who2"]) + f'<p>{ext(self.LAB_URL, A["whoLink"])}</p>'),
+            sec(A["indepH"], ul(A["indep"])),
+            sec(A["dataH"], p_(A["data1"]) + f'<p>{e(A["data2"])} {link("sources/", A["dataLink"])}</p>'),
+            sec(A["aiH"], p_(A["ai1"]) + p_(A["ai2"])),
+            sec(A["privH"], ul(A["priv"])),
+            sec(A["moreH"], f'<p>{link("sources/", A["dataLink"])} &middot; {link("contact/", A["toContact"])}</p>'),
+        ]
+        build("about/", "about", A["crumb"], A["h1"], about, "AboutPage", "title.about", "about")
+
+        subj = quote(C["mailSubject"], safe="")
+        mailto = f'<a href="mailto:{e(mail)}?subject={subj}">{e(mail)}</a>'
+        urls = {"rijks": "https://www.rijksoverheid.nl/", "loket": "https://onderwijsloket.com/", "insp": self.safe_url("https://www.onderwijsinspectie.nl/")}
+        cl = "".join(f"<li>{ext(urls[k], v)}</li>" for k, v in C["cantLinks"])
+        contact = [
+            f'<p class="lede">{e(C["intro"])}</p>',
+            sec(C["mailH"], f'<p>{e(C["mailLead"])} {mailto}</p>'),
+            sec(C["fixH"], p_(C["fixIntro"]) + ul(C["fix"]) + f'<p>{e(C["fixNote"])}</p>'),
+            sec(C["missH"], p_(C["miss"])),
+            sec(C["replyH"], p_(C["reply"])),
+            sec(C["cantH"], p_(C["cant1"]) + p_(C["cant2"]) + f'<ul class="plist">{cl}</ul>'),
+            sec(C["moreH"], f'<p>{link("about/", C["toAbout"])} &middot; {link("sources/", A["dataLink"])}</p>'),
+        ]
+        build("contact/", "contact", C["crumb"], C["h1"], contact, "ContactPage", "title.contact", "contact")
+
     # ------------------------------------------------------------ sources (port of renderSources)
     def sources_html(self):
         t = self.t
@@ -952,7 +1030,8 @@ class Build:
             o.append(f'<li><a href="{self.href("municipality/" + self.mslug[mun] + "/")}">{e(mun)}<small>{e(prov)}</small></a></li>')
         o.append("</ul>")
         il = " &middot; ".join(f'<a href="{self.href("international/" + k + "/")}">{e(c["name"])}</a>' for k, c in self.intl["cities"].items())
-        o.append(f'<h3>{e(t("home.intlTitle"))}</h3><p>{e(t("home.intlIntro"))} {il}</p>')
+        ib = f'<p><a class="ib-link" href="{self.href("questions/ib-route/")}">{e(t("home.intlIB"))}</a></p>'
+        o.append(f'<h3>{e(t("home.intlTitle"))}</h3><p>{e(t("home.intlIntro"))} {il}</p>{ib}')
         if self.guides:
             gl = " &middot; ".join(f'<a href="{self.href("guides/" + k + "/")}">{e(g["h1"])}</a>' for k, g in sorted(self.guides.items(), key=lambda kv: kv[1].get("home", 99)) if g.get("home"))
             o.append(f'<h3>{e(t("home.guidesTitle"))}</h3><p>{gl}{" &middot; " if gl else ""}<a href="{self.href("guides/")}">{e(t("home.guidesAll"))}</a></p>')
@@ -1439,7 +1518,8 @@ class Build:
         li = "".join(f'<li><a href="{self.href("international/" + k + "/")}">{e(c["name"])}</a></li>' for k, c in cities.items())
         cr = [(t("crumb.home"), self.href("")), (t("intl.crumb"), None)]
         o = [f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(t("intl.indexH1"))}</h1><p>{e(t("intl.indexIntro"))}</p></div>',
-             f'<section class="psec"><h2>{e(t("intl.indexCities"))}</h2><ul class="muni-list">{li}</ul></section>']
+             f'<section class="psec"><h2>{e(t("intl.indexCities"))}</h2><ul class="muni-list">{li}</ul></section>',
+             f'<section class="psec"><h2>{e(t("intl.ibH"))}</h2><p>{e(t("intl.ibText"))} <a href="{self.href("questions/ib-route/")}">{e(t("home.intlIB"))}</a></p></section>']
         bl = [{"@type": "ListItem", "position": 1, "name": t("crumb.home"), "item": self.canon("")},
               {"@type": "ListItem", "position": 2, "name": t("intl.crumb"), "item": self.canon("international/")}]
         page = {"rel": "international/", "view": "static", "tab": None, "title": t("intl.indexTitle"), "desc": t("intl.indexDesc"),
@@ -1470,8 +1550,9 @@ class Build:
                     groups["newcomer"].append(s)
             cr = [(t("crumb.home"), self.href("")), (t("intl.crumb"), self.href("international/")), (name, None)]
             o = [f'<div class="phead">{self.crumbs(cr)}<h1 class="vh" id="h-static" tabindex="-1">{e(t("intl.cityH1", city=name))}</h1><p>{e(t("intl.cityIntro", city=name))}</p></div>']
-            opts = "".join(f'<li><b>{e(x["k"])}</b> {e(x["text"])}</li>' for x in self.en["intl"]["opt"])
-            qlinks = " &middot; ".join(f'<a href="{self.href("questions/" + q + "/")}">{e(self.faq_q[q])}</a>' for q in ("dutch-international-bilingual", "without-dutch", "international-school-costs"))
+            ib_link = f' <a href="{self.href("questions/ib-route/")}">{e(t("intl.ibMore"))}</a>'
+            opts = "".join(f'<li><b>{e(x["k"])}</b> {e(x["text"])}{ib_link if x["k"] == "IB at a Dutch school" else ""}</li>' for x in self.en["intl"]["opt"])
+            qlinks = " &middot; ".join(f'<a href="{self.href("questions/" + q + "/")}">{e(self.faq_q[q])}</a>' for q in ("dutch-international-bilingual", "ib-route", "without-dutch", "international-school-costs"))
             o.append(f'<section class="psec"><h2>{e(t("intl.optH"))}</h2><ul class="intl-opts">{opts}</ul><p class="note">{e(t("intl.optMore"))}: {qlinks}</p></section>')
             body = []
             for g in ("tto", "ib", "international", "newcomer"):
@@ -1636,6 +1717,7 @@ class Build:
         simple("system/", "system", "title.system", D["system"], self.system_slots(), tab="system")
         simple("questions/", "faq", "title.faq", D["faq"], {"faq": self.faq_html()}, [self.faq_jsonld()], tab="faq")
         simple("sources/", "sources", "title.sources", D["sources"], {"sourcesout": self.sources_html()}, tab="sources")
+        self.about_contact_pages()
         self.question_pages()
         if self.guides:
             self.guide_pages()
