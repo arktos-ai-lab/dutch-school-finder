@@ -35,6 +35,7 @@
     {"id": "not-final-word", "h": "The advice is not the final word", "blocks": [
       {"p": "The advice is the starting point. A secondary school may not place your child below it. It may place your child above it, but that is not a right. The school decides, so you have to ask and explain why."},
       {"p": "Schools differ. Some have a combined first year, such as havo and vwo or vmbo-t and havo. That keeps more options open, because the school looks again later. A child with a double advice can always be registered for the higher of the two levels. The school still chooses the class."},
+      {"p": "Before school year 2014-15 the rules were different: secondary schools decided on admission themselves and often went by the Cito test score. Stories from people who started secondary school before then may not apply today."},
       {"p": "The advice can also go up after a higher doorstroomtoets result, as described above. And a child can still move up later. See Other ways through on [the whole system on one page](/system/)."},
       {"say": "Our child has a havo advice. Would you consider a place in a havo/vwo class? What would you want to see?"}
     ]},

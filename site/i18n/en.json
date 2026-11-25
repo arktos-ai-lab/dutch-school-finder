@@ -258,7 +258,7 @@
       "afterSignup": "Test results go to primary schools by 15 March 2027. After the sign-up week, placements start from 1 April 2027, and the secondary school decides on admission by 12 May 2027. In some regions registration can open earlier, but only with a final advice.",
       "note2": {
         "title": "The advice is not the final word",
-        "text": "The school advice is the starting point. A secondary school may not place your child below it. It may place your child higher, but only if it agrees, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. A higher test result can also raise the advice. Moving up later is possible too. A vmbo-t (mavo) advice does not rule out vwo: a school may place your child higher, or your child can stack levels (vmbo-t diploma, havo 4, havo diploma, vwo 5). Even from vmbo, each step up has an official route, up to a PhD. People have done it. See the whole system page for the routes."
+        "text": "The school advice is the starting point, and since 2014 it decides where your child is admitted. The main way up is the doorstroomtoets: if the result is higher than the advice, the primary school must reconsider and normally raises the advice (rules since school year 2023-24). A secondary school may also place your child higher if it agrees, but that is not a right, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. Moving up later is possible too. A vmbo-t (mavo) advice does not rule out vwo: a higher test result can raise the advice, a school may place your child higher, or your child can stack levels (vmbo-t diploma, havo 4, havo diploma, vwo 5). Even from vmbo, each step up has an official route, up to a PhD. People have done it. See the whole system page for the routes."
       },
       "note": {
         "title": "Act on time",
@@ -1449,7 +1449,12 @@
     "keyAria": "Colour key",
     "hDiagram": "The diagram",
     "hKey": "Colour key",
-    "hOther": "Other ways through",
+    "hOther": "Other ways through",
+
+
+
+
+
     "kind": {
       "standard": "Usual route",
       "right": "A right",
@@ -1490,13 +1495,13 @@
     },
     "adviceNote": {
       "title": "The advice is not the final word",
-      "text": "The school advice is the starting point. A secondary school may not place your child below it. It may place your child higher, but only if it agrees, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. A higher test result can also raise the advice. Moving up later is possible too: see Other ways through below.",
-      "text2": "A vmbo-t (mavo) advice does not rule out vwo. Either a school places your child higher, if it agrees. Or your child stacks the levels: vmbo-t diploma with one extra general subject, havo 4, havo diploma, then vwo 5. Even from vmbo, each step up has an official route: mbo level 4, hbo bachelor, a pre-master, a wo master, then a PhD. People have done it."
+      "text": "The school advice is the starting point, and since 2014 it decides where your child is admitted. The main way up is the doorstroomtoets: if the result is higher than the advice, the primary school must reconsider and normally raises the advice (rules since school year 2023-24). A secondary school may also place your child higher if it agrees, but that is not a right, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. Moving up later is possible too: see Other ways through below.",
+      "text2": "A vmbo-t (mavo) advice does not rule out vwo. A higher doorstroomtoets result can raise the advice, or a school may place your child higher if it agrees. Or your child stacks the levels: vmbo-t diploma with one extra general subject, havo 4, havo diploma, then vwo 5. Even from vmbo, each step up has an official route: mbo level 4, hbo bachelor, a pre-master, a wo master, then a PhD. People have done it."
     },
     "realRoutes": {
       "title": "Real routes: reader experiences",
       "one": "A reader went from vmbo to a PhD.",
-      "two": "Another went from a mavo advice to vwo.",
+      "two": "Another got a vmbo-t (mavo) advice in 2008 and started in a vwo first year. The rules were different then: secondary schools decided on admission themselves and often went by the Cito test score. Today the advice decides admission, and the usual way up is a higher doorstroomtoets result.",
       "note": "These are experiences readers shared. They are not rules or sourced facts, and every child's route depends on the child and the school."
     },
     "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. All arrows point down, from earlier to later. Bachelor to master and master to PhD can involve selection.",
