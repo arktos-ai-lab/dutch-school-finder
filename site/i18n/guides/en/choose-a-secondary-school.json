@@ -6,7 +6,7 @@
   "desc": "The school advice is the starting point. Then you compare schools, visit open days and sign up in late March. See the 2027 dates, lotteries, bilingual (tto) and more.",
   "h1": "How do I choose a secondary school (middelbare school) in the Netherlands?",
   "lede": "The school advice at the end of group 8 is the starting point for the level. Within that level you choose the school: visit open days, then sign up in the central week of 25 to 31 March 2027. Some cities place children by lottery.",
-  "checked": "2026-11-22",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "advice",
@@ -53,7 +53,7 @@
               ],
               [
                 "25 to 31 March 2027",
-                "Central sign-up week (aanmeldweek). Some regions let you sign up before 25 March; ask your child's primary school."
+                "Central sign-up week (aanmeldweek). Some regions open sign-up earlier, but only for pupils who already have a final advice, and it gives no advantage. Ask your child's primary school."
               ],
               [
                 "By 12 May 2027",
@@ -94,10 +94,13 @@
       "h": "Step 4: sign up, lotteries and limits",
       "blocks": [
         {
-          "p": "You may sign up at more than one school, because a school can be full. A school may not give extra tests to decide the level, and may not use IQ scores. A bilingual (tto) or top-sport school may test only for the special skills it needs. Read [Can I choose any secondary school?](/questions/#choose-any-secondary)."
+          "p": "You may sign up at more than one school, because a school can be full. A school may not give extra tests to decide the level, and may not use IQ scores. A bilingual (tto) or top-sport school may test only for the special skills it needs. A child who arrives from abroad has no Dutch advice. Then the school looks at a doorstroomtoets if the child took one, and otherwise may run its own suitability check. A child who turns 14 during that school year can also be admitted to year 1. Read [Can I choose any secondary school?](/questions/#choose-any-secondary)."
         },
         {
           "p": "In some regions the municipality or the schools place children together. Amsterdam, for example, places pupils in one central round with a random lot number and a ranked list of schools. In other regions a lottery is used only at schools that have more applicants than places. These rules change, so see [Which cities use a lottery?](/questions/secondary-lottery-cities/) and ask your primary school for the current guide of your region."
+        },
+        {
+          "p": "A school can refuse your child if it is full. Admission to year 1 cannot be conditional, and it cannot depend on a payment other than one set by law. A school with a religious or philosophical basis (a bijzondere school) may ask you to declare that you respect that basis. It must give a refusal in writing with reasons, and you can object within 6 weeks. Dutch language support is not counted as extra support in the law."
         },
         {
           "p": "You need your child's citizen service number (BSN) to sign up. If your child has no BSN yet, your child gets a temporary education number through the school. See [BSN and address](/questions/bsn-and-address/)."
@@ -115,7 +118,7 @@
           "p": "In a bilingual school (tto), at least half of the lessons in the first years of havo and vwo are in English, and in vmbo 30 percent. Pupils sit the normal Dutch exams. Your child still needs Dutch for the other lessons, so it is not a way around Dutch. Nuffic keeps a [list of tto schools](https://www.nuffic.nl/onderwijssectoren/voortgezet-onderwijs/tweetalig-onderwijs/alle-tto-scholen-in-nederland)."
         },
         {
-          "p": "Other options are a school with a teaching concept, a gymnasium (a vwo with Latin and Greek), or an international school. See [Dutch school or international school?](/guides/dutch-or-international-school/)."
+          "p": "Other options are a school with a teaching concept, a gymnasium (a vwo that also teaches Latin and Greek), or an international school. See [Dutch school or international school?](/guides/dutch-or-international-school/)."
         }
       ]
     },
@@ -124,7 +127,7 @@
       "h": "How to use the data on our school pages",
       "blocks": [
         {
-          "p": "On the [school finder](/find/) you can see for each school the levels offered, pupil numbers, the mix of school advice of the pupils and the inspection judgement. These numbers are context, not a ranking. Exam pass rates depend on who the school admits. A blank or \"fewer than 5\" means a small group is hidden. A missing inspection judgement is not a rating; the Inspectie mostly gives one after a visit. Read [How should I read the numbers?](/questions/#reading-the-numbers) before you compare."
+          "p": "On the [school finder](/find/) you can see for each school the levels offered, pupil numbers, the mix of school advice of the pupils and the inspection judgement. These numbers are context, not a ranking. Exam pass rates depend on who the school admits. A blank or \"fewer than 5\" means a small group is hidden. A missing inspection judgement is not a rating. It can mean too little data or no recent Inspectie investigation. Read [How should I read the numbers?](/questions/#reading-the-numbers) before you compare."
         },
         {
           "p": "Use the numbers to prepare questions for the open day."
@@ -148,6 +151,18 @@
     {
       "label": "Rijksoverheid: what is bilingual education (tto) (Dutch)",
       "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs"
+    },
+    {
+      "label": "Law: Wet voortgezet onderwijs 2020, article 8.8 (registration and admission)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0044212&artikel=8.8"
+    },
+    {
+      "label": "Law: Wet voortgezet onderwijs 2020, article 8.6 (decision on admission to year 1)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0044212&artikel=8.6"
+    },
+    {
+      "label": "Law: Uitvoeringsbesluit WVO 2020, article 8.3 (admission without a final advice)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0045787&artikel=8.3"
     }
   ],
   "related_guides": [

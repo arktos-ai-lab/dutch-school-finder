@@ -6,8 +6,8 @@
   "title": "Which year group will my child join? Age table, group 1 to 8",
   "desc": "Dutch primary school has groups 1 to 8, from about age 4 to 12. No national rule sets placement: the school decides. See the age table and mid-year arrival.",
   "h1": "Which group or class does my child join in the Netherlands?",
-  "lede": "Primary school has eight groups, from group 1 at about age 4 to group 8 at about age 11 to 12. There is no national rule for the group. The school decides, and for a child from abroad it looks at age, development and earlier schooling.",
-  "checked": "2026-11-22",
+  "lede": "Primary school has eight groups, from group 1 at about age 4 to group 8 at about age 11 to 12. We found no national rule for the group. The school decides, and for a child from abroad it usually looks at age, development and earlier schooling.",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "table",
@@ -18,9 +18,9 @@
           "caption": "Groups and classes by approximate age",
           "head": ["Approximate age", "Group or class", "Notes"],
           "rows": [
-            ["4 to 5", "Group 1 (primary)", "Children may start at 4. Many schools combine groups 1 and 2 in one class."],
-            ["5 to 6", "Group 2", "School becomes compulsory (leerplicht) on the first day of the month after the fifth birthday, so in group 1 or 2."],
-            ["6 to 7", "Group 3", "Formal reading and writing start."],
+            ["4 to 5", "Group 1 (primary)", "Children may start at 4. Some schools combine groups 1 and 2 in one class."],
+            ["5 to 6", "Group 2", "School becomes compulsory (leerplicht) on the first day of the month after the fifth birthday, so usually in group 2."],
+            ["6 to 7", "Group 3", "Formal reading and writing usually start."],
             ["7 to 8", "Group 4", ""],
             ["8 to 9", "Group 5", ""],
             ["9 to 10", "Group 6", ""],
@@ -38,7 +38,7 @@
       "h": "The 1 October rule: what is left of it",
       "blocks": [
         {"p": "Old guides say that a child had to be 6 by 1 October to start group 3. That national rule ended in August 1985. There is no longer a national cut-off date, and there are no legal rules for moving up. The school decides."},
-        {"p": "Some schools still use the old date or age as a guide. Most schools look at whether a child's development is far enough for group 3, and talk to parents about it. The school guide (schoolgids) explains the school's policy."},
+        {"p": "Some schools still use the old date or age as a guide. Most schools look at whether a child's development is far enough for group 3, and talk to parents about it. The school guide (schoolgids) explains the school's policy. An extra year in the first groups is called kleuterverlenging. There are no legal rules for it either, and the school decides."},
         {"p": "This matters if your child has a birthday in the autumn or winter. Ask the school: how do you decide on the move to group 3, and when do you tell parents? You can also read about [repeating a year](/questions/#repeating-a-year)."}
       ]
     },
@@ -46,7 +46,7 @@
       "id": "abroad",
       "h": "A child arriving from abroad",
       "blocks": [
-        {"p": "For a child who comes from another country, the school decides which group fits. The school looks at age, development and earlier schooling. The school may also ask for school reports. It is normal that the group is not the same as the grade your child had at home."},
+        {"p": "For a child who comes from another country, the school decides which group fits. The school looks at age, development and earlier schooling. The school may also ask for school reports. The group may not match the grade your child had at home."},
         {"p": "So your child may be in a group that is not the one in the table. Dutch is also part of the choice. Some schools put a child in the age group and add extra Dutch lessons. Others suggest a language class first. See [newcomer classes](/guides/newcomer-classes-isk/)."},
         {"steps": [
           "Collect your child's latest school reports, a list of subjects and the date the school year began and ended at home.",
@@ -62,6 +62,7 @@
       "h": "Arriving in the middle of the school year",
       "blocks": [
         {"p": "You can register at any time of the year. The school may have no places in the group that fits. Register at more than one school if you can. See [arriving mid-year](/questions/mid-year-arrival/)."},
+        {"p": "You can register a child from age 3. Some schools offer trial days (wendagen) from the age of 3 years and 10 months, up to 5 days, but not every school does. Once school is compulsory, parents can be prosecuted if the child does not attend. The duty ends after 12 full school years or at the end of the school year in which the child turns 16. From 16 to 18 the qualification duty applies to a young person without a havo, vwo or mbo level 2 diploma."},
         {"p": "Ask the school which group your child joins now, and how and when the school decides about the move to the next group at the end of the year."},
         {"p": "Bring a passport, school reports and proof of the previous school. Without a citizen service number (BSN) a school can use a temporary education number. See [BSN and address](/questions/bsn-and-address/)."}
       ]

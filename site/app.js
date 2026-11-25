@@ -237,17 +237,15 @@ var SRC_URL={
   ocw_brief_overgang_2016:'https://eerstekamer.nl/9370000/1/j4nvgs5kjg27kof_j9vvkfvj6b325az/vk4xq8094uyn',
   inspectie_feiten_fabels_2024:'https://www.onderwijsinspectie.nl/binaries/onderwijsinspectie/documenten/rapporten/2022/04/19/feiten-en-fabels-in-de-overgang-van-po-naar-vo/FEITEN_EN_FABELS_IN_DE_OVERGANG_VAN_PO_NAAR_VO.pdf',
   advies:'https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies',
-  voraad:'https://vo-raad.nl/nieuws/data-2026-2027-rondom-doorstroomtoets-en-aanmelding-in-het-vo',
   inschr:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/inschrijven-voortgezet-onderwijs',
   weiger:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/weigeren-kind-voortgezet-onderwijs',
   vmbo:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-het-vmbo-in-elkaar',
   havo:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-de-havo-in-elkaar',
   vwo:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/hoe-zit-het-vwo-in-elkaar',
   pro:'https://www.rijksoverheid.nl/themas/onderwijs/voortgezet-onderwijs/vraag-en-antwoord/voortgezet-onderwijs/hoe-lang-mogen-leerlingen-doen-over-het-voortgezet-onderwijs',
-  brug:'https://www.vo-raad.nl/nieuws/factsheet-brede-brugklas-vergroot-kansen-leerlingen',
   loket:'https://onderwijsloket.com/kennisbank/artikelen/hoe-zit-het-nederlandse-onderwijssysteem-in-elkaar',
   schema:'https://www.nuffic.nl/onderwijssystemen/nederland/schema-onderwijssysteem-nederland',
-  nuf:'https://www.nuffic.nl/en/education-systems/netherlands',
+  nuf:'https://www.nuffic.nl/en/study-and-work-in-the-netherlands/education-in-the-netherlands',
   nufMbo:'https://www.nuffic.nl/en/education-systems/the-netherlands/secondary-vocational-education',
   kiesmbo:'https://www.kiesmbo.nl/over-het-mbo/vooropleiding-en-toelating',
   kiesEntree:'https://www.kiesmbo.nl/over-het-mbo/entreeopleiding',
@@ -276,7 +274,6 @@ var SRC_URL={
   rijksoverheid_tpo_pilot_evaluation:'https://www.rijksoverheid.nl/documenten/rapporten/2023/07/06/bijlage-2-flankerend-onderzoek-pilot-tpo',
   inspectie_vrijwillige_ouderbijdrage_page:'https://www.onderwijsinspectie.nl/onderwerpen/vrijwillige-ouderbijdrage',
   kamerstuk_35063_15:'https://zoek.officielebekendmakingen.nl/kst-35063-15.html',
-  vo_raad_moving_from_vmbo_to_havo_and_fro:'https://vo-raad.nl/onderwerpen/overgang-vmbo-havo-havo-vwo/wat-speelt-er',
   rijksoverheid_what_is_tto:'https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs',
   dutch_international_schools:'https://www.dutchinternationalschools.nl/',
   isa_fees_2026_27:'https://www.isa.nl/fees/',
@@ -308,6 +305,14 @@ var SRC_URL={
   nuffic_hoger_system:'https://www.nuffic.nl/onderwijssystemen/nederland/hoger-onderwijs',
   wetten_uitvoeringsbesluit_wvo_2020:'https://wetten.overheid.nl/BWBR0045787/2026-08-01',
   stb_2020_121:'https://zoek.officielebekendmakingen.nl/stb-2020-121.html',
+  stb_2020_171:'https://zoek.officielebekendmakingen.nl/stb-2020-171.html',
+  wvo_art_8_9a:'https://wetten.overheid.nl/jci1.3:c:BWBR0044212&artikel=8.9a',
+  wvo_art_8_6:'https://wetten.overheid.nl/jci1.3:c:BWBR0044212&artikel=8.6',
+  ub_wvo_art_8_3:'https://wetten.overheid.nl/jci1.3:c:BWBR0045787&artikel=8.3',
+  web_art_8_1_1b:'https://wetten.overheid.nl/jci1.3:c:BWBR0007625&artikel=8.1.1b',
+  web_art_8_2_1:'https://wetten.overheid.nl/jci1.3:c:BWBR0007625&artikel=8.2.1',
+  rijksoverheid_geen_doorstroomtoets:'https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/vraag-en-antwoord/wanneer-geen-doorstroomtoets-maken',
+  rijksoverheid_toegestane_doorstroomtoetsen:'https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toegestane-doorstroomtoetsen-basisschool',
   rijksoverheid_overstappen_bovenbouw:'https://www.rijksoverheid.nl/onderwerpen/voortgezet-onderwijs/vraag-en-antwoord/overstappen-in-bovenbouw-havo-vwo',
   rijksoverheid_which_diplomas_give_access:'https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/hoger-onderwijs/met-welke-diploma-s-kan-ik-naar-de-universiteit-of-hogeschool',
   duo_open_education_data:'https://duo.nl/open_onderwijsdata/',
@@ -328,8 +333,8 @@ var SRC_URL={
   duo_schoolsoort_wisselen:'https://duo.nl/zakelijk/examenloket/wisselen-schoolsoort-of-leerweg/overstappen.jsp',
   cbs_gymnasium:'https://cbs.nl/nl-nl/onze-diensten/methoden/begrippen/gymnasium'
 };
-var SRC_ORDER=['schema','nuf','loket','gov','sk123','sk21','basis','wanneer','blijven','tijdlijn','advies','ocw_brief_overgang_2016','inspectie_feiten_fabels_2024','voraad','inschr','weiger','vmbo','havo','vwo','pro','brug','kiesmbo','kiesEntree','mboRijks','mboToel','nufMbo','mboraad','nieuw','sio','oco','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_what_is_tto','dutch_international_schools','isa_fees_2026_27','iamexpat_school_fees_third_party_guide','rijksoverheid_passend_onderwijs','rijksoverheid_bsn_in_education','rijksoverheid_leerplicht_en_kwalificatie','rijksoverheid_compulsory_education_and_a','rijksoverheid_leerplicht_and_school_holi','rijksoverheid_voluntary_parental_contrib','inspectie_voluntary_parental_contributio','rijksoverheid_lunch_at_primary_school','rijksoverheid_childcare_benefit_amounts_','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_priority_rules_for_primary','de_vo_gids_how_lotteries_work','samen_naar_het_vo_utrecht_2026','bovo_haaglanden_results_2026','rijksoverheid_passend_onderwijs2','rijksoverheid_public_and_special_educati','belastingdienst_content_of_the_expat_sch','business_gov_nl_30_ruling_down_to_27','nuffic_applying_for_a_credential_evaluat','study_in_nl_checking_your_diploma','study_in_nl','study_in_nl_phd','nuffic_basis_vo','nuffic_mbo_system','nuffic_hoger_system','wetten_uitvoeringsbesluit_wvo_2020','stb_2020_121','rijksoverheid_overstappen_bovenbouw','rijksoverheid_which_diplomas_give_access','duo_open_education_data','inspectie_van_het_onderwijs','nuffic_bilingual_education','nuffic_all_tto_schools','oco_amsterdam_when_to_register','inspectie_oordelen_2026','inspectie_toezichtresultaten','duo_so_pupils_cluster','nuffic_ib_level','nuffic_ib_secondary','nuffic_ib_schools','dis_admissions','kamerstuk_intl_2023','tudelft_ib_requirements','uva_colloquium_doctum','duo_schoolsoort_wisselen','cbs_gymnasium','schoolkeuze020_de_overstap','rijksoverheid_expat_ruling','rijksoverheid_belastingplan_2025_news','belastingdienst_extraterritorial_costs','belastingdienst_kg_school_fees','kamerstuk_36602_41','wet_lb_art_31a','uitvoeringsbesluit_lb_art_10ea','wet_leerplichtwet_art_3','wpo_art_40','wpo_art_13','rijksoverheid_brp_registration','ise_school_fees_2026_27','rijksoverheid_tpo_pilot_evaluation','inspectie_vrijwillige_ouderbijdrage_page','kamerstuk_35063_15'];
-var LAST_CHECKED='2026-11-10';
+var SRC_ORDER=['schema','nuf','loket','gov','sk123','sk21','basis','wanneer','blijven','tijdlijn','advies','ocw_brief_overgang_2016','inspectie_feiten_fabels_2024','inschr','weiger','vmbo','havo','vwo','pro','kiesmbo','kiesEntree','mboRijks','mboToel','nufMbo','mboraad','nieuw','sio','oco','rijksoverheid_what_is_tto','dutch_international_schools','isa_fees_2026_27','iamexpat_school_fees_third_party_guide','rijksoverheid_passend_onderwijs','rijksoverheid_bsn_in_education','rijksoverheid_leerplicht_en_kwalificatie','rijksoverheid_compulsory_education_and_a','rijksoverheid_leerplicht_and_school_holi','rijksoverheid_voluntary_parental_contrib','inspectie_voluntary_parental_contributio','rijksoverheid_lunch_at_primary_school','rijksoverheid_childcare_benefit_amounts_','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_priority_rules_for_primary','de_vo_gids_how_lotteries_work','samen_naar_het_vo_utrecht_2026','bovo_haaglanden_results_2026','rijksoverheid_passend_onderwijs2','rijksoverheid_public_and_special_educati','belastingdienst_content_of_the_expat_sch','business_gov_nl_30_ruling_down_to_27','nuffic_applying_for_a_credential_evaluat','study_in_nl_checking_your_diploma','study_in_nl','study_in_nl_phd','nuffic_basis_vo','nuffic_mbo_system','nuffic_hoger_system','wetten_uitvoeringsbesluit_wvo_2020','stb_2020_121','stb_2020_171','wvo_art_8_9a','wvo_art_8_6','ub_wvo_art_8_3','web_art_8_1_1b','web_art_8_2_1','rijksoverheid_geen_doorstroomtoets','rijksoverheid_toegestane_doorstroomtoetsen','rijksoverheid_overstappen_bovenbouw','rijksoverheid_which_diplomas_give_access','duo_open_education_data','inspectie_van_het_onderwijs','nuffic_bilingual_education','nuffic_all_tto_schools','oco_amsterdam_when_to_register','inspectie_oordelen_2026','inspectie_toezichtresultaten','duo_so_pupils_cluster','nuffic_ib_level','nuffic_ib_secondary','nuffic_ib_schools','dis_admissions','kamerstuk_intl_2023','tudelft_ib_requirements','uva_colloquium_doctum','duo_schoolsoort_wisselen','cbs_gymnasium','schoolkeuze020_de_overstap','rijksoverheid_expat_ruling','rijksoverheid_belastingplan_2025_news','belastingdienst_extraterritorial_costs','belastingdienst_kg_school_fees','kamerstuk_36602_41','wet_lb_art_31a','uitvoeringsbesluit_lb_art_10ea','wet_leerplichtwet_art_3','wpo_art_40','wpo_art_13','rijksoverheid_brp_registration','ise_school_fees_2026_27','rijksoverheid_tpo_pilot_evaluation','inspectie_vrijwillige_ouderbijdrage_page','kamerstuk_35063_15'];
+var LAST_CHECKED='2026-11-25';
 function srcLine(keys,cls){
   var p=h('p',{class:cls||'src'},[t('src.label')+' ']);
   keys.forEach(function(k,i){var u=SRC_URL[k];if(!u)return;if(i)p.appendChild(document.createTextNode(' · '));
@@ -859,7 +864,7 @@ function pathText(grp){
 }
 
 var STOP_ICON={pre:'clock',g12:'school',g35:'school',g67:'book',g8:'fork',vo1:'school',vo23:'pencil',fin:'pencil',he:'cap'};
-var STOP_SRC={pre:['basis','wanneer','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_when_to_register','oco_amsterdam_priority_rules_for_primary'],g12:['wanneer','blijven'],g35:['blijven','loket'],g67:['tijdlijn','loket'],g8:['tijdlijn','voraad','advies','ocw_brief_overgang_2016','inspectie_feiten_fabels_2024','inschr','weiger'],vo1:['brug','weiger','loket','vwo','duo_schoolsoort_wisselen','cbs_gymnasium','nuffic_ib_secondary'],vo23:['nuffic_basis_vo','vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','mboRijks'],fin:['nuffic_basis_vo','mboToel','mboRijks','kiesmbo','vmbo','havo','vwo','vo_raad_moving_from_vmbo_to_havo_and_fro','pro','advies','nuffic_ib_secondary','dis_admissions'],he:['schema','nuffic_mbo_system','nuffic_hoger_system','study_in_nl_phd','gov','sk123','sk21','rijksoverheid_which_diplomas_give_access','uva_colloquium_doctum','nuffic_ib_level','study_in_nl_checking_your_diploma','mboRijks','nuf']};
+var STOP_SRC={pre:['basis','wanneer','rijksoverheid_when_to_register_at_a_prim','oco_amsterdam_when_to_register','oco_amsterdam_priority_rules_for_primary'],g12:['wanneer','blijven'],g35:['blijven','loket'],g67:['tijdlijn','loket'],g8:['tijdlijn','advies','ocw_brief_overgang_2016','inspectie_feiten_fabels_2024','inschr','weiger','wvo_art_8_6','ub_wvo_art_8_3','rijksoverheid_geen_doorstroomtoets','rijksoverheid_toegestane_doorstroomtoetsen'],vo1:['weiger','loket','vwo','duo_schoolsoort_wisselen','cbs_gymnasium','nuffic_ib_secondary'],vo23:['nuffic_basis_vo','vmbo','havo','vwo','wvo_art_8_9a','mboRijks'],fin:['nuffic_basis_vo','mboToel','mboRijks','kiesmbo','vmbo','havo','vwo','wvo_art_8_9a','web_art_8_1_1b','web_art_8_2_1','pro','advies','nuffic_ib_secondary','dis_admissions'],he:['schema','nuffic_mbo_system','nuffic_hoger_system','study_in_nl_phd','gov','sk123','sk21','rijksoverheid_which_diplomas_give_access','uva_colloquium_doctum','nuffic_ib_level','study_in_nl_checking_your_diploma','mboRijks','nuf']};
 function stopDef(id,m,grp){
   var s={id:id,icon:STOP_ICON[id],when:whenText(id,m),title:t('stops.'+id+'.title'),schools:null,src:STOP_SRC[id].slice(),todo:tv('stops.'+id+'.todo')||[],what:(tv('stops.'+id+'.what')||[]).slice()};
   var cur=(m.cur===id);
@@ -1238,7 +1243,7 @@ function renderSystem(force){
   SYS_KEYS.forEach(function(x){k.appendChild(h('li',null,[h('i',{style:x==='phd'?'background:var(--soft);border:2px dashed var(--ink2);box-sizing:border-box':'background:var(--c-'+x+')'}),t('sys.key.'+x)]))});
   var sr=$('sysrpt');if(sr){clear(sr);sr.appendChild(reportLink(t('sys.heading')))}
   var sl=$('syssrc');clear(sl);sl.appendChild(document.createTextNode(t('src.label')+' '));
-  ['schema','nuf','loket','gov','mboRijks','sk123','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_which_diplomas_give_access','nuffic_ib_level'].forEach(function(key,i){if(i)sl.appendChild(document.createTextNode(' · '));sl.appendChild(h('a',{href:SRC_URL[key],target:'_blank',rel:'noopener',text:t('src.'+key)}))});
+  ['schema','nuf','loket','gov','mboRijks','sk123','wvo_art_8_9a','rijksoverheid_which_diplomas_give_access','nuffic_ib_level'].forEach(function(key,i){if(i)sl.appendChild(document.createTextNode(' · '));sl.appendChild(h('a',{href:SRC_URL[key],target:'_blank',rel:'noopener',text:t('src.'+key)}))});
   var so=$('sysopen');if(so){clear(so);so.appendChild(h('a',{href:BASE+'data/routes.json',text:t('sys.openJson')}));so.appendChild(document.createTextNode(' \u00b7 '));so.appendChild(h('a',{href:BASE+'data/routes.mmd',text:t('sys.openMmd')}))}
   if(VIEW==='system')ensureSystem(!!force);
 }

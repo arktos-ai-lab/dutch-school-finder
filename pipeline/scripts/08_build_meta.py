@@ -101,7 +101,7 @@ def main():
             {"source": "Rijksoverheid, schoolvakanties",
              "text": "School holiday dates per region (noord, midden, zuid) for 2025-2026 to 2027-2028: Rijksoverheid open data (Ministerie van Algemene Zaken), "
                      "opendata.rijksoverheid.nl. Each school is linked to its region through the VAKANTIEREGIO field of the DUO address files. "
-                     "The autumn, spring and extra May holidays are advice dates; schools can differ.",
+                     "Christmas, May and summer are fixed holidays; the autumn and spring dates are advice, which a school can change with its participation council's agreement.",
              "licence": "CC0 1.0 Universal (stated in the data itself)",
              "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
              "url": "https://opendata.rijksoverheid.nl/v1/infotypes/schoolholidays"},

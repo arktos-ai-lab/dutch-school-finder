@@ -61,7 +61,7 @@ def main():
         "den": dens,
         "levels": [],
         "clusters": {"1": "visual impairment", "2": "hearing impairment and severe speech/language disorders",
-                     "3": "physical or intellectual disability, long-term illness", "4": "behavioural or psychiatric problems"},
+                     "3": "physical or intellectual disability, long-term illness", "4": "psychological disorders and behavioural problems"},
         "rows": rows,
     }
     write_json_atomic(os.path.join(OUT, "schools_so.json"), out)

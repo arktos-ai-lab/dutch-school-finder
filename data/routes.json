@@ -593,15 +593,16 @@
    "to": "mbo",
    "kind": "standard",
    "shown": "diagram",
-   "condition": "Conditions, selection or a school decision apply.",
+   "condition": "After compulsory schooling ends, a practical education leaver has a right to start the mbo entry programme (level 1) without a vmbo diploma. Level 2 needs the entry programme diploma or another listed diploma, unless the college exempts the pupil after an aptitude test.",
    "sources": [
-    "mboRijks",
-    "schema"
+    "web_art_8_1_1b",
+    "web_art_8_2_1",
+    "kiesEntree"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M70 352V424",
-    "dashed": true,
+    "dashed": false,
     "layer": "late"
    }
   },
@@ -611,9 +612,10 @@
    "to": "mbo",
    "kind": "standard",
    "shown": "diagram",
-   "condition": "The diploma normally gives the right to move on.",
+   "condition": "A vmbo diploma gives the right to start mbo if you apply by 1 April. Basis leads to level 2. Kader, gl and tl also lead to levels 3 and 4.",
    "sources": [
     "mboRijks",
+    "web_art_8_2_1",
     "schema"
    ],
    "checked": "2026-11-25",
@@ -743,7 +745,7 @@
    "group": "vmbo",
    "condition": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
    "sources": [
-    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+    "wvo_art_8_9a"
    ],
    "checked": "2026-11-25"
   },
@@ -754,11 +756,12 @@
    "kind": "conditional",
    "shown": "card",
    "group": "vmbo",
-   "condition": "You need one extra general exam subject (not a vocational one). Then the havo school may not turn you away for your knowledge or skills. Without it, the havo school decides. This right exists since 1 August 2020.",
+   "condition": "You need one extra general subject from the list in the Uitvoeringsbesluit (not a vocational one). Then the havo school may not turn you away for your knowledge, skills or attitude. Without it, the havo school decides. The rule was introduced for 1 August 2020.",
    "sources": [
-    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "wvo_art_8_9a",
     "wetten_uitvoeringsbesluit_wvo_2020",
-    "stb_2020_121"
+    "stb_2020_121",
+    "stb_2020_171"
    ],
    "checked": "2026-11-25"
   },
@@ -776,7 +779,7 @@
    "group": "vmbo",
    "condition": "No year is repeated. The number 4 comes twice because vmbo and havo each count their own years. It is 4 years of vmbo, 2 of havo and 2 of vwo: 8 years in all, against 6 years straight through vwo.",
    "sources": [
-    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "wvo_art_8_9a",
     "wetten_uitvoeringsbesluit_wvo_2020",
     "stb_2020_121",
     "rijksoverheid_overstappen_bovenbouw"
@@ -792,7 +795,7 @@
    "group": "havo",
    "condition": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
    "sources": [
-    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+    "wvo_art_8_9a"
    ],
    "checked": "2026-11-25"
   },
@@ -816,10 +819,10 @@
    "kind": "right",
    "shown": "card",
    "group": "havo",
-   "condition": "This is a right, and the vwo school may not turn you away for your knowledge or skills. Ask about exemptions, for example for CKV and maatschappijleer.",
+   "condition": "This is a right, and the vwo school may not turn you away for your knowledge, skills or attitude. Ask about exemptions, for example for CKV and maatschappijleer.",
    "sources": [
     "rijksoverheid_overstappen_bovenbouw",
-    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "wvo_art_8_9a",
     "stb_2020_121"
    ],
    "checked": "2026-11-25"
@@ -831,9 +834,10 @@
    "kind": "right",
    "shown": "card",
    "group": "havo",
-   "condition": "Proof that you passed the first 3 years is enough. It also works from a later year or with a havo diploma. Ask the college which document it wants.",
+   "condition": "Proof that you passed the first 3 years is enough. A pupil who leaves in a later year, or with a havo diploma, has passed those years too, so the same proof should work. Ask the college which document it wants.",
    "sources": [
-    "mboRijks"
+    "mboRijks",
+    "web_art_8_2_1"
    ],
    "checked": "2026-11-25"
   },
@@ -846,7 +850,7 @@
    "group": "vwo",
    "condition": "Moving down a level in the first years is sometimes possible. The school decides.",
    "sources": [
-    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+    "wvo_art_8_9a"
    ],
    "checked": "2026-11-25"
   },
@@ -870,9 +874,10 @@
    "kind": "right",
    "shown": "card",
    "group": "vwo",
-   "condition": "Proof that you passed the first 3 years is enough. It also works from a later year or with a vwo diploma. Ask the college which document it wants.",
+   "condition": "Proof that you passed the first 3 years is enough. A pupil who leaves in a later year, or with a vwo diploma, has passed those years too, so the same proof should work. Ask the college which document it wants.",
    "sources": [
-    "mboRijks"
+    "mboRijks",
+    "web_art_8_2_1"
    ],
    "checked": "2026-11-25"
   },
@@ -899,7 +904,8 @@
    "group": "vwo",
    "condition": "Nuffic compares the full IB Diploma with a vwo diploma. The programme can still ask for particular subjects or grades, for example in maths.",
    "sources": [
-    "nuffic_ib_level"
+    "nuffic_ib_level",
+    "tudelft_ib_requirements"
    ],
    "checked": "2026-11-25"
   },
@@ -941,7 +947,7 @@
    "kind": "conditional",
    "shown": "card",
    "group": "hbo",
-   "condition": "You usually take a bridging programme (pre-master) first. Length and cost differ per programme, and selection is possible.",
+   "condition": "You usually take a bridging programme (pre-master) first. Ask the programme about length, cost and selection.",
    "sources": [
     "sk123",
     "schema"

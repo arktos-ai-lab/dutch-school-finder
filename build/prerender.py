@@ -737,7 +737,7 @@ class Build:
         keys = "".join(f'<li><i style="{"background:var(--soft);border:2px dashed var(--ink2);box-sizing:border-box" if x == "phd" else "background:var(--c-" + x + ")"}"></i>{e(t("sys.key." + x))}</li>' for x in ["bo", "pro", "vbk", "havo", "vwo", "mbo", "hbo", "wo", "phd"])
         xf = self.moves_html()
         links = []
-        for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "vo_raad_moving_from_vmbo_to_havo_and_fro", "rijksoverheid_which_diplomas_give_access", "nuffic_ib_level"]:
+        for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "wvo_art_8_9a", "rijksoverheid_which_diplomas_give_access", "nuffic_ib_level"]:
             links.append(f'<a href="{e(self.src_url[key])}" target="_blank" rel="noopener">{e(t("src." + key))}</a>')
         syssrc = e(t("src.label")) + " " + " · ".join(links)
         return {"sysfig": self.system_svg(), "syskeys": keys, "moves": xf, "syssrc": syssrc,

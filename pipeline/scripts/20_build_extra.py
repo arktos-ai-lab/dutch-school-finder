@@ -64,7 +64,10 @@ def holidays():
                 else:
                     by[r["region"].strip().lower()] = rng
             if all(g in by for g in REGIONS):
-                rows.append([key, 1 if v.get("compulsorydates") == "true" else 0, [by[g] for g in REGIONS]])
+                # The open data flags the May holiday as not compulsory, but Rijksoverheid lists three compulsory holidays
+                # (Christmas, May, summer); only autumn and spring are advice dates. Take the flag from the law, not the file.
+                comp = 1 if (key == "may" or v.get("compulsorydates") == "true") else 0
+                rows.append([key, comp, [by[g] for g in REGIONS]])
         if rows:
             out[y] = rows
     return out, lic

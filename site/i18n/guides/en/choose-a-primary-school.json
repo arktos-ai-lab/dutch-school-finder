@@ -5,18 +5,18 @@
   "title": "How to choose a primary school (basisschool) in the Netherlands",
   "desc": "You can register at any primary school, and at more than one. See when to register, what to ask on a visit and how to read school data without a ranking.",
   "h1": "How do I choose a primary school (basisschool) in the Netherlands?",
-  "lede": "You may register your child at any primary school that has room, and at more than one. Some municipalities add local rules, such as a lottery. Visit two or three schools, ask the same questions at each, and register at least 10 weeks before your child turns 4.",
-  "checked": "2026-11-22",
+  "lede": "You may register your child at any primary school that has room, and at more than one. Some areas add local agreements on how pupils are distributed. Visit two or three schools, ask the same questions at each, and, if possible, register at least 10 weeks before your child turns 4.",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "free-choice",
       "h": "You choose, but the school must have room",
       "blocks": [
         {
-          "p": "Dutch parents choose the school. You can look at schools in your own neighbourhood or further away. A school may be full, keep a waiting list, or give priority to some children, such as brothers and sisters. Read more in [Can I choose any primary school?](/questions/#choose-any-primary)."
+          "p": "Dutch parents choose the school. You can look at schools in your own neighbourhood or further away. A school may be full or keep a waiting list. Ask which priority rules it uses. Read more in [Can I choose any primary school?](/questions/#choose-any-primary)."
         },
         {
-          "p": "Some municipalities have their own rules or agreements. Depending on the area, your child may have to go to a school in your own neighbourhood, a lottery may decide placement, or siblings may come first. Check your municipality's website, or ask the school whether you can choose freely. Our [municipality pages](/municipalities/) link to local information."
+          "p": "Some areas have local agreements on how pupils are distributed. Check your municipality's website, or ask the school whether you can choose freely. Our [municipality pages](/municipalities/) link to local information."
         }
       ]
     },
@@ -25,7 +25,10 @@
       "h": "When to register",
       "blocks": [
         {
-          "p": "Register at least 10 weeks before your child turns 4. You can register from age 3, not earlier. Your child may start at 4. Attendance is compulsory from age 5. See [When must my child go to school?](/questions/when-must-child-go/)."
+          "p": "If possible, register at least 10 weeks before your child turns 4. You can register from age 3, not earlier. Your child may start at 4. Attendance is compulsory from the first day of the month after your child turns 5. See [When must my child go to school?](/questions/when-must-child-go/)."
+        },
+        {
+          "p": "A school cannot make admission depend on your residence status or on a payment. It decides within 6 weeks of registration, or tells you by when it will decide, which is at most 4 weeks later. If there is no decision after 10 weeks and your child is not at another school, your child is placed at the school for the time being. Needing Dutch language support is not \"extra support\" in the law."
         },
         {
           "p": "If you arrive from abroad with an older child, you can register during the school year. See [mid-year arrival](/questions/mid-year-arrival/) and [Which year group will my child join?](/questions/#which-year-group)."
@@ -40,13 +43,13 @@
       "h": "Types of school and what they mean",
       "blocks": [
         {
-          "p": "A <b>public school (openbare school)</b> is open to every child and does not teach from a religion. A <b>special school (bijzondere school)</b> teaches from a faith or a belief, or from a teaching concept such as Montessori or Dalton. Schools with a teaching concept can be public or special."
+          "p": "A <b>public school (openbare school)</b> is open to every child and does not teach from a religion. A <b>special school (bijzondere school)</b> teaches from a faith, a belief or a view on education. A school with a teaching concept such as Montessori or Dalton can be public or special. Some schools also have an international department (IGBO) for families who stay in the Netherlands for a short time."
         },
         {
-          "p": "A school with a religious basis may, in some cases, set conditions that relate to that basis. It may not discriminate, for example on origin. Read the school guide (schoolgids) and ask about the admission policy before you register. More in [Can a religious school refuse my child?](/questions/#religious-school-refuse)."
+          "p": "A school with a religious basis may ask you to respect that basis, or to sign a statement that you subscribe to it. It may not discriminate, for example on origin. Read the school guide (schoolgids) and ask about the admission policy before you register. More in [Can a religious school refuse my child?](/questions/#religious-school-refuse)."
         },
         {
-          "p": "Some primary schools run childcare and after-school activities on the same site. Ask what the school day looks like. See [school hours and lunch](/questions/#school-hours-lunch)."
+          "p": "Some primary schools run childcare and after-school activities on the same site. If parents ask, the school board must arrange before and after school care, and parents pay for it. Ask what the school day looks like. See [school hours and lunch](/questions/#school-hours-lunch)."
         }
       ]
     },
@@ -106,7 +109,7 @@
           "ul": [
             "A blank or \"fewer than 5\" means a small group is hidden to protect privacy.",
             "In a small school, one pupil can move a percentage a lot.",
-            "Many schools have no current inspection judgement. The Inspectie mostly gives one after a visit, so a missing judgement is not a rating.",
+            "Many schools have no current inspection judgement. A missing judgement is not a rating. It can mean too little data or no recent Inspectie investigation.",
             "The mix of pupils describes who attends. It does not describe teaching quality."
           ]
         },
@@ -124,6 +127,14 @@
     {
       "label": "Rijksoverheid: choosing a primary school (Dutch)",
       "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/basisschool-kiezen-voor-kind"
+    },
+    {
+      "label": "Rijksoverheid: when may my child go to primary school (Dutch)",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/basisonderwijs/wanneer-mag-mijn-kind-naar-de-basisschool"
+    },
+    {
+      "label": "Law: Wet op het primair onderwijs, article 40 (admission)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0003420&artikel=40"
     },
     {
       "label": "Rijksoverheid: public and special education (Dutch)",

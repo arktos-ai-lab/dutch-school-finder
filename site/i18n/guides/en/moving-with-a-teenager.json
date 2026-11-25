@@ -6,7 +6,7 @@
   "desc": "A teen of 12 to 18 can join an ISK, a regular school, a bilingual (tto) or an international school. School is compulsory to 16, and to 18 without a diploma.",
   "h1": "We are moving with a 12 to 18 year old: what are the school options?",
   "lede": "A teenager who speaks little Dutch usually starts in an ISK, then moves to regular secondary school or mbo. Bilingual (tto) and international schools are other options. School is compulsory until the end of the school year in which your child turns 16. Without a havo, vwo or mbo level 2 diploma, your child must then keep learning until 18.",
-  "checked": "2026-11-22",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "options",
@@ -17,7 +17,7 @@
           "caption": "School routes for a teenager who arrives",
           "head": ["Route", "Language of teaching", "Good to know"],
           "rows": [
-            ["ISK, then regular secondary school or mbo", "Dutch", "For pupils from 12 who arrived recently and speak little or no Dutch. Free, as regular education. On average about two years."],
+            ["ISK, then regular secondary school or mbo", "Dutch", "For pupils from 12 who arrived recently and speak little or no Dutch. Free, as regular education. How long a pupil stays depends on the pupil."],
             ["Regular secondary school with extra Dutch", "Dutch", "Possible when the pupil already speaks some Dutch. Ask the school what support exists."],
             ["Bilingual school (tto)", "Usually English: at least half of lessons in the lower years of havo and vwo, 30 percent in vmbo", "Exams are in Dutch. Still hard for an older child who starts without Dutch."],
             ["International school", "Mostly English", "Fees. Often a different diploma. See [international schools](/international/) and [costs](/questions/international-school-costs/)."]
@@ -30,8 +30,8 @@
       "id": "isk-then-regular",
       "h": "ISK first, then regular secondary school",
       "blocks": [
-        {"p": "In the ISK your teenager learns Dutch and takes subjects like maths and citizenship. Then the pupil moves on to regular secondary school or mbo, with extra language help where needed. How it works, how to get a place and how long it lasts is in [newcomer classes and ISK](/guides/newcomer-classes-isk/)."},
-        {"p": "The ISK does not choose the track alone. The regular school decides on the level it will offer, looking at results and age. Ask the ISK which schools its pupils usually move to, and when the planning starts. For a teenager of 14 or 15, the planning matters, because the exam years come soon."},
+        {"p": "In the ISK your teenager learns Dutch and takes subjects like maths and citizenship. Then the pupil moves on to regular secondary school or mbo, with extra language help where needed. How it works, how to get a place and how long it lasts is in [newcomer classes and ISK](/guides/newcomer-classes-isk/). The law does not count Dutch language support as \"extra support\", so ask the school what it offers."},
+        {"p": "The ISK does not choose the track alone. A pupil from abroad has no Dutch school advice. The regular school looks at a doorstroomtoets if the pupil took one. If not, it may run its own suitability check. The school decides on admission and level. A pupil who turns 14 during that school year can also be admitted to year 1. Ask the ISK which schools its pupils usually move to, and when the planning starts. For a teenager of 14 or 15, the planning matters, because the exam years come soon."},
         {"say": "Our son is 14 and will finish the ISK in about a year. How do you plan the move to a regular school and the level?"}
       ]
     },
@@ -50,7 +50,8 @@
       "h": "Compulsory school until 16, then until 18",
       "blocks": [
         {"p": "Every child who lives in the Netherlands must go to school, whatever the nationality. This duty (leerplicht) ends at the end of the school year in which the child turns 16, or earlier after 12 full school years."},
-        {"p": "After that comes the qualification duty (kwalificatieplicht). Young people aged 16 and 17 who do not yet have a havo, vwo or mbo level 2 diploma (or higher) must keep going to school. They may not work full time. The mbo route that combines work and learning (bbl) counts. Mbo is free for students under 18."},
+        {"p": "After that comes the qualification duty (kwalificatieplicht). Young people aged 16 and 17 who do not yet have a havo, vwo or mbo level 2 diploma (or higher) must keep going to school. They may not work full time. The mbo route that combines work and learning (bbl) counts. A pupil with a praktijkonderwijs diploma, or who leaves certain special education tracks, is exempt from this duty. Mbo has no tuition fee for students who are under 18 on 1 August. Books and materials may still cost money."},
+        {"p": "Mbo level 1 (the entry programme) needs no earlier diploma and is open once full-time compulsory schooling has ended. Levels 2 and 3 need a listed vmbo or mbo diploma, or proof that the pupil passed the first 3 years of havo or vwo. The official lists do not cover foreign diplomas, so ask the mbo school what it accepts. Nuffic can evaluate a foreign diploma."},
         {"p": "If you live in the Netherlands and your child goes to school abroad, rules differ. For a school in Belgium or Germany you can ask your municipality's school attendance officer (leerplichtambtenaar) for an exemption, and you must report it again each year. Ask your municipality about other cases."},
         {"note": "Unsure about the rules for a 16 or 17 year old? Ask the leerplicht department of your municipality. A school can also help."}
       ]
@@ -71,7 +72,7 @@
         {"steps": [
           "Collect school reports, a list of subjects, and the diploma or exam plan from the school at home.",
           "Contact your municipality about newcomer places and ISK, or contact a secondary school directly. Do this before the move if you can.",
-          "Register at more than one school, since classes can be full. A school may take a few weeks to decide.",
+          "Register in writing at more than one school, since classes can be full. If possible, do it at least 10 weeks before the start date you want. A school has 6 weeks to decide, and 4 more if it tells you it needs them.",
           "Ask for the intake and ask who decides on the level.",
           "Register with your municipality and get a BSN. See [BSN and address](/questions/bsn-and-address/)."
         ]},
@@ -82,11 +83,14 @@
   "sources": [
     {"label": "Rijksoverheid: questions about newcomer education", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/onderwijs-voor-nieuwkomers"},
     {"label": "Rijksoverheid: compulsory education and qualification duty", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/leerplicht-en-kwalificatieplicht"},
-    {"label": "VO-raad: education for newcomers", "url": "https://vo-raad.nl/onderwerpen/onderwijs-aan-nieuwkomers"},
     {"label": "Rijksoverheid: school abroad and compulsory education", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/vraag-en-antwoord/leerplicht-buitenlandse-school"},
     {"label": "Rijksoverheid: what is bilingual education (tto)", "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/onderwijs-en-internationalisering/wat-is-tweetalig-onderwijs-tto-in-het-voortgezet-onderwijs"},
     {"label": "Nuffic: credential evaluation", "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation"},
-    {"label": "Nuffic: the Dutch education system", "url": "https://www.nuffic.nl/en/education-systems/netherlands"}
+    {"label": "Nuffic: the Dutch education system", "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/education-in-the-netherlands"},
+    {"label": "Rijksoverheid: tuition fee (lesgeld) and course fee (cursusgeld) in mbo (Dutch)", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/middelbaar-beroepsonderwijs/hoogte-lesgeld-en-cursusgeld-mbo"},
+    {"label": "Rijksoverheid: which mbo programmes can I choose (Dutch)", "url": "https://www.rijksoverheid.nl/themas/onderwijs/middelbaar-beroepsonderwijs/vraag-en-antwoord/middelbaar-beroepsonderwijs/uit-welke-mbo-opleidingen-kan-ik-kiezen"},
+    {"label": "Law: Uitvoeringsbesluit WVO 2020, article 8.3 (admission without a final advice)", "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0045787&artikel=8.3"},
+    {"label": "Law: Leerplichtwet 1969, article 4a (qualification duty and exemptions)", "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0002628&artikel=4a"}
   ],
   "related_guides": ["newcomer-classes-isk", "dutch-or-international-school", "international-school-admission", "choose-a-secondary-school"],
   "related_questions": ["without-dutch", "foreign-diplomas", "dutch-international-bilingual", "mid-year-arrival"],

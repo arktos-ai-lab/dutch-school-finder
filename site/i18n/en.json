@@ -49,7 +49,7 @@
     "title": "Your child's route through Dutch schools, step by step, and the schools near you.",
     "v1": "Only the steps still ahead of your child, with dates and what you have to do.",
     "v2": "Schools near your postcode, with pupil numbers, where their pupils go next and exam results.",
-    "v3": "Every municipality in the Netherlands. Free, with no account."
+    "v3": "Every municipality that has a school in the open data. Free, with no account."
   },
   "form": {
     "ageLabel": "Child's age",
@@ -108,7 +108,7 @@
     ],
     [
       "atheneum, gymnasium",
-      "the two forms of vwo. Both lead to the same vwo diploma level and to university admission. A gymnasium adds Latin and Greek, and pupils take the final exam in at least one of them"
+      "the two forms of vwo. Both lead to the same vwo diploma level and to university admission. A gymnasium also teaches Latin and Greek"
     ],
     [
       "mbo",
@@ -201,7 +201,7 @@
         "text": "Popular schools and concept schools (Montessori, Dalton, Jenaplan, Steiner, bilingual primaries) can have long local waiting lists, so check each school's registration rules early. Some schools keep their own early lists. Ask what such a list means at that school. In some cities there is a central procedure. In Amsterdam the municipality sends a letter and a form around the third birthday. You hand it in at your first-choice school by a deadline that depends on the birth date, and places follow priority rules and a lottery."
       },
       "what": [
-        "A child may start primary school at age 4. You can register from age 3, not earlier, and the Rijksoverheid asks you to register at least 10 weeks before the fourth birthday. You may register at more than one school. Some municipalities have their own registration rules and deadlines. Many schools let a child come for a few settling-in days from age 3 years 10 months, up to 5 in total, but not every school offers them. Compulsory attendance starts on the first day of the month after the fifth birthday.",
+        "A child may start primary school at age 4. You can register from age 3, not earlier, and the Rijksoverheid asks you to register, if possible, at least 10 weeks before the fourth birthday. You may register at more than one school. Some municipalities have their own registration rules and deadlines. Many schools let a child come for a few settling-in days from age 3 years 10 months, up to 5 in total, but not every school offers them. Compulsory attendance starts on the first day of the month after the fifth birthday.",
         "Public schools are open to every child, if they have a place. Schools can have a waiting list or priority rules. A denominational or other \"special\" school works from a religion or belief. Both kinds can follow methods such as Montessori or Dalton."
       ],
       "todo": [
@@ -255,7 +255,7 @@
       "checked": "2026-11-25",
       "checkedFor": "Placement above or below the advice",
       "whatDated": "Dates for school year 2026-27. They are set again every year.",
-      "afterSignup": "Test results go to primary schools by 15 March 2027. After the sign-up week, placements start from 1 April 2027, and the secondary school decides on admission by 12 May 2027. In some regions registration can open earlier, but only with a final advice.",
+      "afterSignup": "After the sign-up week, placements start from 1 April 2027, and the secondary school decides on admission by 12 May 2027. In some regions registration can open earlier, but only with a final advice, and it gives no advantage.",
       "note2": {
         "title": "The advice is not the final word",
         "text": "The school advice is the starting point. Since the 2014-15 school year a secondary school must base admission on it, and in practice it places your child at least at that level. The main way up is the doorstroomtoets: if the result is higher than the advice, the primary school normally raises the advice, and it must explain why if it does not. Some secondary schools place a child above the advice, but the law gives you no right to this, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. Moving up later is possible too. A vmbo-t (mavo) advice does not rule out vwo: a higher test result can raise the advice, a school may choose to place your child higher, or your child can stack levels (a vmbo-t diploma with one extra subject from the allowed list gives the right to havo 4, and a havo diploma the right to vwo 5). Even from vmbo, each step up has an official route, up to a PhD. People have done it. See the whole system page for the routes."
@@ -269,7 +269,7 @@
         "Visit open days and make a short list of schools that offer the advised level.",
         "Ask how your region organises sign-up, and sign up within the sign-up week.",
         "If you hope for a higher level than the advice, ask the school early whether it places children above the advice, and what it looks at.",
-        "A secondary school may refuse a child only on limited grounds, such as having no places left. It may not use extra tests or IQ scores to refuse a child. Bilingual (tto) and top-sport schools may test for their specific skills."
+        "A secondary school may refuse a child only on limited grounds, such as having no places left. It may not use extra tests or IQ scores to refuse a child. Bilingual (tto) and top-sport schools may test for their specific skills. A child who arrives from abroad has no Dutch advice, so the school looks at a doorstroomtoets if the child took one, and otherwise runs its own suitability check."
       ]
     },
     "vo1": {
@@ -278,7 +278,7 @@
       "unit": "year 1",
       "what": [
         "Year 1 usually lasts one year, sometimes two. Many schools combine at least two levels in one class, for example vmbo-t with havo, or havo with vwo. Some schools are single-level and start in one level directly.",
-        "vwo comes in two forms, atheneum and gymnasium. Both lead to the same vwo diploma level and to university admission. A gymnasium adds Latin and Greek, and pupils take the final exam in at least one of them. A categorical gymnasium is a school with only gymnasium classes. Some schools also offer a technasium or a bilingual (tto) stream.",
+        "vwo comes in two forms, atheneum and gymnasium. Both lead to the same vwo diploma level and to university admission. A gymnasium also teaches Latin and Greek. A categorical gymnasium is a school with only gymnasium classes. Some schools also offer a technasium or a bilingual (tto) stream.",
         "Some schools offer the International Baccalaureate Middle Years Programme (MYP) in the lower years. It takes 5 years and ends in an MYP certificate. Ask the school how it fits with the Dutch levels and who can join."
       ],
       "todo": [
@@ -294,7 +294,7 @@
       "what": [
         "In vmbo, pupils choose a sector and one of four learning pathways by the end of year 2: basis (basisberoepsgerichte), kader (kaderberoepsgerichte), mixed (gemengde) or theoretical (theoretische). The pathways differ in level and in how practical or theoretical the lessons are. Basis leads to mbo level 2. Kader, mixed and theoretical lead to mbo level 3 or 4. A mixed or theoretical diploma plus one extra general exam subject also gives the right to start havo year 4.",
         "In havo and vwo, pupils choose one of four profiles after year 3. Schools usually ask at the end of year 3. The profiles are culture and society (cultuur en maatschappij), economics and society (economie en maatschappij), nature and health (natuur en gezondheid) and nature and technology (natuur en techniek). Havo and vwo use the same four. Each profile points to different fields of study, so ask the school which studies each one opens.",
-        "After year 3 of havo or vwo, proof that you passed the first 3 years (the pass to year 4) gives access to mbo level 2, 3 or 4. This is a common route. The same applies when a pupil leaves in a later year (havo 4 or 5, vwo 4, 5 or 6), because those first 3 years are then passed too. Ask the mbo college which document it wants."
+        "After year 3 of havo or vwo, proof that you passed the first 3 years (the pass to year 4) gives access to mbo level 2, 3 or 4. This is a common route. A pupil who leaves in a later year (havo 4 or 5, vwo 4, 5 or 6) has passed those first 3 years too, so the same proof should work. Ask the mbo college which document it wants."
       ],
       "todo": [
         "Ask which profiles the school offers and which studies each one opens.",
@@ -325,10 +325,10 @@
       "age": "from about 16 to 18",
       "unit": "after the exam year",
       "what": [
-        "<b>mbo</b> (vocational college) has four levels: level 1 takes 1 year, level 2 takes 1 to 2, level 3 takes 2 to 3 and level 4 takes 3 to 4 years. Level 4 also has a one-year specialist programme that follows a level 3 or level 4 programme. Only a level 4 diploma gives the right to enter hbo. Level 1 (the entry programme) needs no diploma. It is for people who do not meet the level 2 requirements and are at least 16 on 1 August. Levels 2, 3 and 4 need one of these: a vmbo diploma (any pathway for level 2, kader, mixed or theoretical for levels 3 and 4), proof that you passed the first 3 years of havo or vwo, or a havo or vwo diploma. This is a common route from havo and vwo.",
+        "<b>mbo</b> (vocational college) has four levels: level 1 takes 1 year, level 2 takes 1 to 2, level 3 takes 2 to 3 and level 4 takes 3 to 4 years. Level 4 also has a one-year specialist programme that follows a level 3 or level 4 programme. Only a level 4 diploma gives the right to enter hbo. Level 1 (the entry programme) needs no diploma. It is for people who do not meet the level 2 requirements and for whom full-time compulsory schooling has ended, usually from about age 16. Levels 2, 3 and 4 need one of these: a vmbo diploma (any pathway for level 2, kader, mixed or theoretical for levels 3 and 4), proof that you passed the first 3 years of havo or vwo, or a havo or vwo diploma. Level 2 also accepts the entry programme diploma, and a college can exempt someone after an aptitude test. This is a common route from havo and vwo.",
         "There are two ways to follow an mbo programme. <b>BOL</b> (school-based) has 20 to 60 percent practical training in a workplace. <b>BBL</b> (work-based) has at least 60 percent of the programme in a workplace. Both give the same diploma.",
         "<b>hbo</b> (university of applied sciences, a hogeschool) is more practice-oriented than wo. It is taught in seven sectors: economics, healthcare, agriculture, pedagogical education (teacher training), socio-pedagogical education, arts and technology. A bachelor takes 4 years (sometimes 3 after vwo), and the first year is the first-year certificate (propedeuse). An associate degree takes 2 years. A master usually takes 1 year, sometimes 2.",
-        "<b>wo</b> (research university) is more theory- and research-oriented. It trains scientists, and professionals who apply scientific knowledge. A bachelor takes 3 years. A master takes 1 year in most fields, 2 years in technical, science and research masters, and 3 years in medicine, veterinary medicine, pharmacy and dentistry. A PhD (promotie) is not more school. In the Netherlands it is usually a paid research job at a university, and most PhD candidates are employees. It usually takes about 4 years, and you can start one after any type of master's. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. A havo diploma does not give direct entry. Some programmes also ask for particular subjects, and some select applicants. An hbo bachelor usually needs a bridging programme (pre-master) before a wo master.",
+        "<b>wo</b> (research university) is more theory- and research-oriented. It trains scientists, and professionals who apply scientific knowledge. A bachelor takes 3 years. A master takes 1 year in most fields, 2 years in technical, science and research masters, and 3 years in medicine, veterinary medicine, pharmacy and dentistry. A PhD (promotie) is not more school. In the Netherlands it is usually a paid research job at a university, and most PhD candidates are employees. It usually takes about 4 years. You can start one after a recognised master's degree, if a university offers you a place and a supervisor. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. A havo diploma does not give direct entry. Some programmes also ask for particular subjects, and some select applicants. An hbo bachelor usually needs a bridging programme (pre-master) before a wo master.",
         "<b>Numerus fixus and selection:</b> some programmes admit only a fixed number of students. If more people apply than there are places, the institution may select. It can weigh the average final exam grade, motivation, personality and earlier school results. Check the rules and dates of each programme.",
         "The <b>IB Diploma</b> (International Baccalaureate) can lead to hbo and wo too. Nuffic compares the full diploma with a vwo diploma. A university of applied sciences or a research university can still set subject and grade requirements, for example a maths level, so check each programme.",
         "Without the usual diploma, people from age 21 can usually ask for an admission test. At hbo it is called the 21+ test (toelatingsonderzoek). Research universities (wo) use a similar entrance exam without the usual diploma, called colloquium doctum, often from age 21. Some sources use both names for either kind. The institution decides and runs it, and requirements differ."
@@ -341,16 +341,16 @@
       "checkedFor": "Admission rules, mbo pathways and higher education"
     },
     "newc": {
-      "when": "First, on average for about two years",
+      "when": "First, until the school decides your child is ready",
       "age": "any age from 4",
-      "unit": "on average about two years",
+      "unit": "no fixed length",
       "young": {
         "title": "Newcomer class in primary school",
-        "what": "Parents usually choose between a special language class (schakelklas) for children who just arrived, and a regular class with extra Dutch lessons. A temporary newcomer provision can enrol a child for at most 2 years in total."
+        "what": "Both exist: a special language class (schakelklas) for children who just arrived, and a regular class with extra Dutch lessons. Ask the school which it offers. A school board can open a temporary newcomer provision with the minister's permission. A child can be enrolled there for at most 2 years in total."
       },
       "old": {
         "title": "Newcomer class in secondary school (ISK)",
-        "what": "A special class at a regular secondary school for recently arrived pupils who speak little or no Dutch. Lessons are mainly Dutch, plus other subjects that prepare pupils for regular classes and for regular secondary or mbo education. Pupils stay on average about two years, then move to a regular class."
+        "what": "A special class at a regular secondary school for recently arrived pupils who speak little or no Dutch. Lessons are mainly Dutch, plus other subjects that prepare pupils for regular classes and for regular secondary or mbo education. There is no official national length. Pupils move on to regular secondary school or mbo when the school decides they are ready."
       },
       "todo": [
         "Ask your municipality, a reception location or the nearest school where places exist.",
@@ -359,7 +359,7 @@
     }
   },
   "path": {
-    "pro": "<b>Practical education (praktijkonderwijs):</b> pupils can stay until the end of the school year in which they turn 18, and the Inspectie can allow an extension. Admission needs a declaration of eligibility (toelaatbaarheidsverklaring) from the regional partnership (samenwerkingsverband), not only the school advice. Next: the mbo entry programme (level 1, one year, no earlier diploma needed, for pupils who are 16 on 1 August) or a work route that the school arranges with the mbo college.",
+    "pro": "<b>Practical education (praktijkonderwijs):</b> pupils can stay until the end of the school year in which they turn 18, and the Inspectie can allow an extension. Admission needs a declaration of eligibility (toelaatbaarheidsverklaring) from the regional partnership (samenwerkingsverband), not only the school advice. Next: mbo. Once full-time compulsory schooling has ended, a pupil has a right to start the mbo entry programme (level 1, one year) without a vmbo diploma. Level 2 needs the entry programme diploma or another listed diploma, or an exemption after an aptitude test.",
     "vbk": "<b>vmbo basis or kader:</b> a diploma after 4 years. Basis leads to mbo level 2 (1 to 2 years). Kader leads to mbo level 3 (2 to 3 years) or level 4 (3 to 4 years), as the official entry requirements for 3 and 4 are the same. Programmes can add their own conditions, so ask the mbo college. A lower level is usually possible, and moving up later within mbo is possible.",
     "vgt": "<b>vmbo gl/tl:</b> a diploma after 4 years. Leads to mbo level 3 or 4. With one extra general exam subject, a diploma gives the right to enter havo year 4. This is a new school year, not a repeat. Without the extra subject, the havo school decides.",
     "havo": "<b>havo:</b> a diploma after 5 years. Leads to an hbo bachelor (4 years), an associate degree (2 years), mbo at any level (passing year 3 already gives access to mbo level 2, 3 or 4), or vwo year 5 (a havo diploma gives the right to enter, and it is a new school year, not a repeat). A havo diploma alone does not give access to wo.",
@@ -371,7 +371,7 @@
     "coming": "Coming up",
     "nothing": "Nothing to book yet",
     "g8": {
-      "more": "Four dates this school year: 10 to 31 Jan, 25 Jan to 12 Feb, 24 Mar, 25 to 31 Mar 2027. Then placement from 1 April 2027 and the admission decision by 12 May 2027 (source: Rijksoverheid, VO-raad).",
+      "more": "Four dates this school year: 10 to 31 Jan, 25 Jan to 12 Feb, 24 Mar, 25 to 31 Mar 2027. Then placement from 1 April 2027 and the admission decision by 12 May 2027 (source: Rijksoverheid).",
       "text": "Dates are set each year. Start visiting schools and ask your child's school for its calendar."
     },
     "g67": {
@@ -380,7 +380,7 @@
     "pre": {
       "date": "From age 3",
       "title": "Choose and register at a primary school",
-      "text": "You can register from age 3 and at least 10 weeks before the fourth birthday. Some municipalities, such as Amsterdam, have their own procedure and deadlines. Visit schools early and ask each how sign-up and any waiting list work."
+      "text": "You can register from age 3 and, if possible, at least 10 weeks before the fourth birthday. Some municipalities, such as Amsterdam, have their own procedure and deadlines. Visit schools early and ask each how sign-up and any waiting list work."
     },
     "adv": {
       "title": "School advice and secondary sign-up"
@@ -551,7 +551,7 @@
     "other": "Other"
   },
   "ft": {
-    "tto": "Bilingual (tto): secondary, at least half in English",
+    "tto": "Bilingual (tto): secondary, at least half in English in havo and vwo, 30 percent in vmbo",
     "ib": "IB",
     "technasium": "Technasium",
     "international": "International",
@@ -910,7 +910,7 @@
     },
     "mixedSo": "Compare works within one type. Your list has special education schools. Clear it to start a new list.",
     "metaSo": "Same-type comparison of up to 4 special education schools. Numbers are context, not a ranking.",
-    "noteSo": "Pupil counts come from DUO Open Onderwijsdata{y}. A blank or \"fewer than 5\" means DUO hides small groups. Admission to special education needs a toelaatbaarheidsverklaring (TLV).",
+    "noteSo": "Pupil counts come from DUO Open Onderwijsdata{y}. A blank or \"fewer than 5\" means DUO hides small groups. Admission to special education needs a formal decision: a toelaatbaarheidsverklaring (TLV) for clusters 3 and 4.",
     "noteOv": "Onderbouw speed, upper-year success, Inspectie exam grade and the calculated verdict are the Inspectie's three-year figures, with norms corrected for the pupil population. They are not a ranking.",
     "noteInsp": "No current final judgement and basic supervision are not ratings. \"Reach\" means at least that level.",
     "notListed": "not listed",
@@ -972,7 +972,7 @@
     },
     "test": {
       "title": "End-of-primary test (doorstroomtoets)",
-      "expl": "In group 8 every child takes an end-of-primary test (doorstroomtoets). Many parents still call it the Cito test. Schools choose from five approved tests, and each test has its own scale: an average of 177 on one test and 405 on another says nothing about which school did better. Compare a school's average only with the national average for the same test, shown below. The average is context for the school advice, not a grade for the school.",
+      "expl": "In group 8 almost every child takes an end-of-primary test (doorstroomtoets). A few groups do not have to, for example children who have been in the Netherlands for four years or less and do not yet speak enough Dutch. Many parents still call it the Cito test. Schools choose from a list of approved tests, and the list changes by school year. For 2026-27 it has five: Dia, IEP, Leerling in beeld (Cito), Route 8 and the government's own DOE test. Each test has its own scale: an average of, for example, 177 on one test and 405 on another says nothing about which school did better. Compare a school's average only with the national average for the same test, shown below. The average is context for the school advice, not a grade for the school.",
       "note": "Compare averages only between schools that used the same test.",
       "noAvg": "average not shown",
       "avg": "average score {v}",
@@ -989,7 +989,7 @@
     },
     "dist": {
       "title": "How far pupils live",
-      "expl": "This is the straight-line distance between pupils' homes and the school. A small number means the school is mostly a neighbourhood school. A large number means pupils travel in from further away, which can matter for cycling and for friendships after school.",
+      "expl": "This is the straight-line distance between pupils' homes and the school, measured from the centre of the home postcode area. A small number means the school is mostly a neighbourhood school. A large number means pupils travel in from further away, which can matter for cycling and for friendships after school.",
       "median": "Median distance from home to school",
       "avg": "Average distance",
       "counted": "Pupils counted",
@@ -1026,7 +1026,7 @@
     },
     "insp": {
       "title": "Inspection",
-      "expl": "The Dutch Inspectorate of Education (Inspectie van het Onderwijs) judges the quality of schools. It mostly publishes a judgement after a visit, and visits are often triggered by concerns. So having a judgement, or not having one, says little by itself. Many schools are listed without a current final judgement, and that is not a rating. We do not rank, sort or average schools by it.",
+      "expl": "The Dutch Inspectorate of Education (Inspectie van het Onderwijs) judges the quality of schools. It publishes a judgement after an investigation, and many schools have none because they were not investigated recently. So having a judgement, or not having one, says little by itself. Many schools are listed without a current final judgement, and that is not a rating. We do not rank, sort or average schools by it.",
       "linkText": "Inspectie van het Onderwijs",
       "dated": "Judgement dated {date}",
       "lowest": "Lowest of the programme judgements below (our summary, not an Inspectie rule).",
@@ -1055,11 +1055,11 @@
     },
     "sbo": {
       "title": "About special primary schools",
-      "text": "A special primary school (sbo) is for children who need more support than a regular school can give. Admission needs a formal decision first. Ask your child's current school or your municipality."
+      "text": "A special primary school (sbo) is for children who need more support than a regular school can give. Admission needs a formal decision first. Ask your child's current school or the samenwerkingsverband of your region."
     },
     "so": {
       "title": "Special education (SO and VSO)",
-      "expl": "Special education has two parts. SO (speciaal onderwijs) is for children of primary-school age who need more support than a regular or special primary school (sbo) can give. VSO (voortgezet speciaal onderwijs) is the same for secondary-school age. Schools are grouped in four clusters by the kind of need they serve. A child can only be admitted with a formal decision called a toelaatbaarheidsverklaring (TLV). The samenwerkingsverband (the regional partnership of schools that arranges extra support) issues it. There are fewer of these schools than regular ones, so children often travel further.",
+      "expl": "Special education has two parts. SO (speciaal onderwijs) is for children of primary-school age who need more support than a regular or special primary school (sbo) can give. VSO (voortgezet speciaal onderwijs) is the same for secondary-school age. Schools are grouped in four clusters by the kind of need they serve. A child can only be admitted after a formal decision. For clusters 3 and 4 it is a toelaatbaarheidsverklaring (TLV), which the samenwerkingsverband (the regional partnership of schools that arranges extra support) issues. For clusters 1 and 2 the institution decides whether a child qualifies. There are fewer of these schools than regular ones, so children often travel further.",
       "type": "Type",
       "cluster": "Cluster",
       "clusterNone": "Not stated in the data",
@@ -1068,9 +1068,9 @@
       "noCount": "Not shown (no count, or fewer than 5)",
       "faqQ": "How does my child get a place?",
       "faqA": [
-        "You cannot simply enrol your child. A toelaatbaarheidsverklaring (TLV) comes first. It is a formal statement that your child may attend special education.",
-        "The request is normally made together with the school your child attends now, with a description of your child's needs and of the support tried so far. The samenwerkingsverband of the region decides. If your child is not at a Dutch school yet, ask the school you have in mind, or the samenwerkingsverband of your area, where to start.",
-        "A TLV is valid for a set period and is reviewed, and some children later move back to regular education. Schools for clusters 1 and 2 work on a national basis, so the route can differ. Ask the school, and read the Rijksoverheid page on passend onderwijs."
+        "You cannot simply enrol your child. A formal decision comes first. For clusters 3 and 4 it is a toelaatbaarheidsverklaring (TLV), a formal statement that your child may attend special education.",
+        "The request is normally made together with the school your child attends now, with a description of your child's needs and of the support tried so far. The samenwerkingsverband of the region decides for clusters 3 and 4. If your child is not at a Dutch school yet, ask the school you have in mind, or the samenwerkingsverband of your area, where to start.",
+        "For clusters 1 and 2 the institution itself decides whether a child qualifies, so the route differs. A TLV is valid for one or more school years. Ask the school, and read the Rijksoverheid page on special education."
       ]
     },
     "lj": {
@@ -1103,7 +1103,7 @@
       "line": "Advice reconsidered for <b>{rec}</b> leavers, raised for <b>{rai}</b>.",
       "lineText": "reconsidered for {rec}, raised for {rai}",
       "of": "Out of {n} group 8 leavers who took the test.",
-      "noRatio": "The two counts are shown separately and should not be turned into a percentage: DUO also counts some raised advices outside the group that was reconsidered.",
+      "noRatio": "The two counts are shown separately and should not be turned into a percentage, because they may not cover exactly the same pupils.",
       "src": "Source: DUO, reconsiderations and adjusted advice"
     },
     "ce": {
@@ -1128,7 +1128,7 @@
       "down": "Moved to a lower level",
       "up": "Moved to a higher level",
       "share": "({p}%)",
-      "note": "All levels together, for this location. DUO hides counts below 5.",
+      "note": "All levels together, for this location. DUO hides most counts below 5.",
       "src": "Source: DUO, repeaters and up- and down-streaming in secondary education"
     },
     "ov": {
@@ -1141,7 +1141,7 @@
       },
       "def": {
         "ob": "The share of pupils who get through the first years (onderbouw) on time, without delay.",
-        "bb": "The share of pupils who get through the upper years (bovenbouw) successfully, as the Inspectie calculates it from progress and exam data.",
+        "bb": "The share of pupils from year 3 who progress without delay: they move up, pass the exam or move to a higher level, as the Inspectie calculates it.",
         "ce": "The mean central-exam grade of the candidates, on the scale of 1 to 10.",
         "verdict": "A verdict the Inspectie derives from the three measures for this type of education: sufficient, insufficient, or insufficient unless a closer look shows otherwise. It is a calculation, not a judgement of the school."
       },
@@ -1162,12 +1162,12 @@
     },
     "op": {
       "title": "Placement compared with the primary advice",
-      "expl": "In year 3 the Inspectie compares the level each pupil is in with the level the primary school advised. The measure is the share of pupils placed above their advice minus the share placed below it, in percentage points. A negative number is common.",
+      "expl": "In year 3 the Inspectie compares the level each pupil is in with the level the primary school advised. The measure is the share of pupils placed above their advice minus the share placed below it, in percentage points. It is calculated for the whole location, for pupils who started there in year 1.",
       "value": "Result",
       "norm": "Norm",
       "cmp": "Compared with the norm",
       "pts": "{v} points",
-      "note": "Compare the result with the norm only. A higher number means more pupils were placed above their advice relative to those placed below it."
+      "note": "Compare the result with the norm only. This norm is not corrected for the pupil population: the Inspectie compares schools with the same offer. A higher number means more pupils were placed above their advice relative to those placed below it."
     },
     "ctx": {
       "type": {
@@ -1304,12 +1304,12 @@
       },
       "advice": "advice date",
       "to": "to",
-      "note": "The Christmas and summer holidays are fixed. The autumn, spring and May holidays are advice dates, so a school can choose other dates. Check the school's own calendar.",
+      "note": "The Christmas, May and summer holidays are fixed. The autumn and spring dates are advice, and a school can choose other dates once its participation council agrees. Check the school's own calendar.",
       "src": "Source: Rijksoverheid school holiday dates (open data), region from the DUO address file"
     },
     "lr": {
       "title": "Results compared with the Inspectie signal value",
-      "expl": "At the end of primary school the doorstroomtoets shows whether pupils reach set levels in reading, language and maths. The Inspectie pools three years (2024, 2025 and 2026) and compares the share of pupils who reach a level with a signal value (signaleringswaarde). The signal value is lower for schools whose pupils have more disadvantages (see the schoolweging below).",
+      "expl": "At the end of primary school the doorstroomtoets shows whether pupils reach set levels in reading, language and maths. The Inspectie pools three years (2024, 2025 and 2026) and compares the share of pupils who reach a level with a signal value (signaleringswaarde). The signal value for the higher level (2F and 1S) is lower for schools whose pupils have more disadvantages (see the schoolweging below).",
       "i": {
         "1f": "Reach level 1F",
         "2f": "Reach level 1S or 2F"
@@ -1334,11 +1334,11 @@
       "title": "Schoolweging",
       "value": "{v}",
       "ctx": "The average across Dutch primary school locations is {mean} (middle value {median}).",
-      "expl": "The schoolweging is a number that Statistics Netherlands (CBS) calculates for each primary school. It describes how complex the pupil population is, based on the education of the parents, their country of birth, how long the mother has lived in the Netherlands and whether the parents are in debt restructuring. A higher number means more pupils with such disadvantages. It is an average of 2022/23 to 2024/25. The Inspectie uses it to set the signal value above."
+      "expl": "The schoolweging is a number that Statistics Netherlands (CBS) calculates for each primary school. It describes how complex the pupil population is, based on the education of the parents and the average education of the mothers at the school, the parents' country of birth, how long the mother has lived in the Netherlands and whether the parents are in debt restructuring. The scale runs from about 20 to 40. A higher number means more pupils with such disadvantages. It is an average of 2022/23 to 2024/25. The Inspectie uses it to set the signal value above."
     },
     "sv": {
       "title": "Suspensions and removals",
-      "expl": "Schools must tell the Inspectie when a pupil is suspended for more than one day, or removed from the school. This shows the number reported for the school year 2025 to 2026 (1 August 2025 to 31 July 2026). It is a count, not a rate: a bigger school has more pupils. It says little on its own.",
+      "expl": "Secondary schools must tell the Inspectie when a pupil is suspended for more than one day, or removed from the school. Primary and special schools must report suspensions of more than one day. This shows the number reported for the school year 2025 to 2026 (1 August 2025 to 31 July 2026). It is a count, not a rate: a bigger school has more pupils. It says little on its own.",
       "susp": "Suspensions of more than one day",
       "rem": "Removals",
       "none": "The Inspectie file for 2025 to 2026 lists no suspensions or removals for this school.",
@@ -1355,7 +1355,7 @@
       "expl": "The Inspectie used to give the predicaat Excellent School to schools with outstanding results in a field of their own choice. It was awarded for three years.",
       "line": "This school was on the Inspectie list of excellent schools until 1 July {y} (round {rng}).",
       "afd": "The predicaat applied to: {list}.",
-      "end": "The Inspectie has stopped awarding the predicaat. The last round ended on 1 July 2026, so it is no longer in force. It tells you what the school did in the past, not how it is doing today.",
+      "end": "The Inspectie has stopped awarding the predicaat. The last predicates were awarded in June 2023 and ran to the end of school year 2025 to 2026, so none is in force now. It tells you what the school did in the past, not how it is doing today.",
       "src": "Source: Inspectie van het Onderwijs, overview of excellent schools 2020 to 1 July 2026 (CC0)"
     }
   },
@@ -1368,14 +1368,12 @@
     "ocw_brief_overgang_2016": "Ministry of Education: letter to schools on the move from primary to secondary school, 15 February 2016",
     "inspectie_feiten_fabels_2024": "Inspectie van het Onderwijs: facts and myths on the move from primary to secondary school (updated October 2024)",
     "advies": "Rijksoverheid: admission to secondary school based on the final school advice",
-    "voraad": "VO-raad: dates 2026-27 around the test and sign-up",
     "inschr": "Rijksoverheid: registering at a secondary school",
     "weiger": "Rijksoverheid: may a secondary school refuse my child",
     "vmbo": "Rijksoverheid: how vmbo works",
     "havo": "Rijksoverheid: how havo works",
     "vwo": "Rijksoverheid: how vwo works",
     "pro": "Rijksoverheid: how long pupils may stay in secondary school",
-    "brug": "VO-raad: factsheet on the broad first year",
     "loket": "Onderwijsloket: how the Dutch education system fits together",
     "schema": "Nuffic: diagram of the Dutch education system",
     "nuf": "Nuffic: education system in the Netherlands",
@@ -1392,7 +1390,6 @@
     "sio": "SIO: international schools",
     "oco": "OCO Amsterdam: questions about the central lottery and matching",
     "schoolkeuze020_de_overstap": "Schoolkeuze020: the move to secondary school (central registration and lottery)",
-    "vo_raad_moving_from_vmbo_to_havo_and_fro": "VO-raad: moving from vmbo to havo and from havo to vwo",
     "rijksoverheid_what_is_tto": "Rijksoverheid: what is tto",
     "dutch_international_schools": "Dutch International Schools",
     "isa_fees_2026_27": "ISA fees 2026-27",
@@ -1439,6 +1436,14 @@
     "nuffic_hoger_system": "Nuffic: higher education in the Netherlands",
     "wetten_uitvoeringsbesluit_wvo_2020": "wetten.overheid.nl: Uitvoeringsbesluit WVO 2020, article 8.9",
     "stb_2020_121": "Staatsblad 2020, 121: Wet gelijke kans op doorstroom naar havo en vwo",
+    "stb_2020_171": "Staatsblad 2020, 171: decree on the move to havo and on equal treatment when repeating",
+    "wvo_art_8_9a": "Law: Wet voortgezet onderwijs 2020, article 8.9a (admission to havo and vwo after a diploma)",
+    "wvo_art_8_6": "Law: Wet voortgezet onderwijs 2020, article 8.6 (decision on admission to year 1)",
+    "ub_wvo_art_8_3": "Law: Uitvoeringsbesluit WVO 2020, article 8.3 (admission without a final advice)",
+    "web_art_8_1_1b": "Law: Wet educatie en beroepsonderwijs, article 8.1.1b (entry programme)",
+    "web_art_8_2_1": "Law: Wet educatie en beroepsonderwijs, article 8.2.1 (entry requirements for mbo levels 2 to 4)",
+    "rijksoverheid_geen_doorstroomtoets": "Rijksoverheid: who does not have to take the doorstroomtoets",
+    "rijksoverheid_toegestane_doorstroomtoetsen": "Rijksoverheid: permitted doorstroomtoetsen",
     "rijksoverheid_overstappen_bovenbouw": "Rijksoverheid: switching between havo and vwo in the upper years",
     "rijksoverheid_which_diplomas_give_access": "Rijksoverheid: which diplomas give access to university or hbo",
     "duo_open_education_data": "DUO open education data",
@@ -1495,7 +1500,7 @@
       "sources": "Sources"
     },
     "openTitle": "Open data",
-    "openText": "Every route on this page is stored in one data file. Each rule carries its official source and the date we last checked it. The .mmd file is a flowchart of the same routes: paste it into any Mermaid viewer to see it drawn. Corrections are welcome through Report an error above.",
+    "openText": "Every route on this page is stored in one data file. Each rule carries its source and the date we last checked it. The .mmd file is a flowchart of the same routes: paste it into any Mermaid viewer to see it drawn. Corrections are welcome through Report an error above.",
     "openJson": "Routes as data (routes.json)",
     "openMmd": "Flowchart source (routes.mmd), for any Mermaid viewer",
     "key": {
@@ -1520,7 +1525,7 @@
       "two": "Another got a vmbo-t (mavo) advice in 2008 and started in a vwo first year. Before 2014 that was allowed: a secondary school made its own admission decision, and some used the Cito score or their own entrance test. Today admission must be based on the advice, and the usual way up is a higher doorstroomtoets result.",
       "note": "These are experiences readers shared. They are not rules or sourced facts, and every child's route depends on the child and the school."
     },
-    "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. All arrows point down, from earlier to later. Bachelor to master and master to PhD can involve selection.",
+    "arrowNote": "An arrow means a child can move that way. A solid arrow means the pupil normally has a right to move that way, under the conditions the rules set. A dashed arrow means conditions, selection or a school decision apply. All arrows point down, from earlier to later. Bachelor to master and master to PhD can involve selection.",
     "title": "The Dutch school system, top to bottom",
     "desc": "Primary school of eight year groups leads, after school advice and sign-up at about age 12, to practical education, vmbo, havo or vwo. The advice is a starting point: a secondary school may not place a child lower, and may place a child higher if it agrees. After those come mbo, hbo and wo. Arrows show the usual routes, always from earlier to later. Other ways through are listed under the diagram.",
     "primary": "PRIMARY SCHOOL",
@@ -1537,9 +1542,9 @@
     "mboLevels": "levels 1 to 4",
     "toHbo": "to hbo",
     "phdNote1": "PhD: usually a paid research job at a university,",
-    "phdNote2": "not more school. You can start one after any type",
-    "phdNote3": "of master's. Shown because Nuffic includes it",
-    "phdNote4": "in its diagram of the education system.",
+    "phdNote2": "not more school. You can start one after a",
+    "phdNote3": "recognised master's, if a university offers",
+    "phdNote4": "you a place and a supervisor.",
     "legend": "AD = associate degree, M = master, IB = International Baccalaureate",
     "moves": {
       "intro": "The chart shows the usual routes. These are the other ways. Rules are short here, and the school or programme decides the details.",
@@ -1679,15 +1684,18 @@
                 "p": "Yes. What is on offer depends on age. In primary school, newcomers can join a language class or a transition class (taalklas or schakelklas), or a regular class with extra Dutch lessons."
               },
               {
-                "p": "In secondary school, pupils from age 12 who speak little or no Dutch can join an international transition class (ISK). Pupils learn Dutch and prepare for regular lessons. On average pupils stay about two years, then move to a regular class."
+                "p": "In secondary school, pupils from age 12 who recently arrived and speak little or no Dutch can join an international transition class (ISK). Pupils learn Dutch and prepare for regular secondary school or mbo. There is no official national length. Two years is the limit for the extra funding, not a standard stay."
               },
               {
-                "p": "Places can be limited in some cities, so ask early. Ask your municipality or a nearby school where places exist. Some schools also run special programmes for non-Dutch speakers, but bilingual schools can be hard for older children who start without Dutch."
+                "p": "Places can be limited, so ask early. Ask your municipality, the reception site or a nearby school where places exist."
+              },
+              {
+                "p": "Schools get extra funding for a newcomer in the first two years. School is compulsory for every child aged 5 to 16 who lives in the Netherlands, whatever the nationality, so a place must be found even without Dutch. From 16 to 18 a young person without a havo, vwo or mbo level 2 diploma must keep going to school."
               }
             ],
             "src": [
               "nieuw",
-              "nuf"
+              "rijksoverheid_leerplicht_en_kwalificatie"
             ]
           },
           {
@@ -1695,7 +1703,7 @@
             "q": "Is repeating a year normal, and who decides?",
             "blocks": [
               {
-                "p": "The school decides whether a child moves up or repeats a year. There are no legal rules for it. The school guide describes how each school handles it. The school must tell you if your child repeats a year. If you disagree, you can object through the school's complaints procedure."
+                "p": "The school decides whether a child moves up or repeats a year. The law does not say when a child must repeat a year. The school guide describes how each school handles it. The school must tell you if your child repeats a year. If you disagree, you can object through the school's complaints procedure."
               },
               {
                 "ul": [
@@ -1743,7 +1751,7 @@
             "q": "Can a religious school refuse my child?",
             "blocks": [
               {
-                "p": "A public school is open to every child, and its lessons are not based on a religion. A bijzondere (special) school teaches from a religion, a belief or a teaching concept, such as Montessori. The Rijksoverheid says a special school may require pupils and teachers to hold a religion or belief."
+                "p": "A public school is open to every child, and its lessons are not based on a religion. A bijzondere (special) school teaches from a religion, a belief or a view on education. A school with a religious basis may ask parents to respect that basis, or to sign a statement that they subscribe to it, and may set religious requirements for teachers."
               },
               {
                 "p": "This applies only where it relates to the school's foundation. A school may not discriminate, for example on origin. A court decides in a dispute."
@@ -1871,7 +1879,7 @@
               {
                 "ul": [
                   "Ask which pathway the advice means: basis, kader or gl/tl.",
-                  "Consider a school with several levels under one roof. A VO-raad factsheet argues that a broad first year keeps more options open. The school list shows this.",
+                  "Consider a school with several levels under one roof, and ask how placing and moving between levels works there. The school list shows which levels each school offers.",
                   "After vmbo gl/tl, a diploma with one extra general subject gives the right to join havo. Without it, the havo school decides.",
                   "The advice is the school's judgement. The end-of-primary test can raise it, and the school must explain if it keeps a lower one. A secondary school may place your child higher if it agrees, so ask. Moving up later is also possible."
                 ]
@@ -1880,10 +1888,9 @@
             "src": [
               "vmbo",
               "mboRijks",
-              "brug",
               "advies",
               "sk123",
-              "vo_raad_moving_from_vmbo_to_havo_and_fro"
+              "wvo_art_8_9a"
             ]
           },
           {
@@ -1895,7 +1902,7 @@
               },
               {
                 "ul": [
-                  "A gymnasium adds Latin and Greek. Pupils usually learn both in the lower years, and must take the final exam in at least one of them.",
+                  "A gymnasium also teaches Latin and Greek.",
                   "A categorical gymnasium is a school with only gymnasium classes. A categorical gymnasium may also enrol atheneum pupils if it offers atheneum and says so in its name.",
                   "Some schools offer a technasium stream (design and research assignments for outside clients) or a bilingual (tto) stream. Not every school has them."
                 ]
@@ -2418,14 +2425,14 @@
     "intro": "Where the numbers and rules on this site come from, how to read them, and what this site is not: a ranking, or part of the bodies that publish the data.",
     "check": {
       "title": "Check with the school and your municipality",
-      "text": "Rules and dates change every year, so check with the school and your municipality. Last checked: {date}. Facts were checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. This page was written with AI assistance. Where sources differ, the page says \"usually\" or \"most schools\"."
+      "text": "Rules and dates change every year, so check with the school and your municipality. Last checked: {date}. Facts were checked mainly against official sources (Rijksoverheid, DUO, Inspectie, Nuffic and others). Other sources, such as sector bodies and third-party guides, are labelled as such. This page was written with AI assistance. Where sources differ, the page says \"usually\" or \"most schools\"."
     },
     "read": {
       "title": "How to read the numbers",
       "items": [
         "DUO, the Dutch education agency, hides any count below 5 pupils to protect privacy. When you see \"fewer than 5\", \"at least\" or \"partial\", some small groups are missing, so the real figure is a little higher.",
         "The numbers are context for a conversation with a school, not a ranking. A high exam pass rate or a particular school advice mix also reflects which pupils the school admits. We never sort or colour schools by quality.",
-        "An Inspectie judgement is only published after a school visit, and visits are often triggered by concerns. Having a judgement, or not having one, says little by itself. Where a school has several programme judgements, we show the lowest one as a summary. That is our own rule, not an Inspectie rule, and the judgement for each programme is shown next to it.",
+        "An Inspectie judgement is published after an Inspectie investigation, and many schools have none because they were not investigated recently. Having a judgement, or not having one, says little by itself. Where a school has several programme judgements, we show the lowest one as a summary. That is our own rule, not an Inspectie rule, and the judgement for each programme is shown next to it.",
         "Many schools are listed by the Inspectie without a current final judgement (Geen eindoordeel) or under basic supervision (Basistoezicht). That is not a rating and not a bad sign. We say so in words and never show it as a score."
       ]
     },
@@ -2456,7 +2463,7 @@
     "counts": {
       "schools": "The data holds {po} primary, {sbo} special primary, {so} special education and {vo} secondary school locations.",
       "insp": "The Inspectie file ({asof}) lists {listed} locations. {rated} have a rating, {none} have no current final judgement and {basic} are under basic supervision.",
-      "by": "Rated locations by judgement: {by}. These counts describe the file, not school quality. The rated set leans towards schools the Inspectie visited after concerns."
+      "by": "Rated locations by judgement: {by}. These counts describe the file, not school quality."
     },
     "insp": {
       "file": "Inspectie file",
@@ -2481,13 +2488,13 @@
     "licence": "Licence: {licence}.",
     "licenceLink": "Licence",
     "sourceLink": "Source",
-    "fallback": "School data: DUO Open Onderwijsdata (CC BY 4.0). Postcode areas: CBS (CC BY 4.0). Addresses and municipalities: Kadaster BAG via PDOK.",
+    "fallback": "School data: DUO Open Onderwijsdata (DUO states CC0; we credit it under CC BY 4.0 as a precaution). Postcode areas: CBS (CC BY 4.0). Addresses and municipalities: Kadaster BAG via PDOK.",
     "fallbackDisc": "Not affiliated with, or endorsed by, DUO, CBS, Kadaster or PDOK."
   },
   "foot": {
     "notAffiliated": "Not affiliated with DUO, the Inspectie or Scholen op de kaart.",
     "sourcesLink": "Data & sources",
-    "checked": "Facts checked against official sources (Rijksoverheid, DUO, Inspectie, VO-raad, Nuffic and others) on 10 November 2026. Rules and dates change every year; check with the school and your municipality.",
+    "checked": "Facts checked mainly against official sources (Rijksoverheid, DUO, Inspectie, Nuffic and others); other sources are labelled. Rules and dates change every year; check with the school and your municipality.",
     "navAria": "Site pages",
     "guides": "Guides",
     "questions": "Questions",
@@ -2522,8 +2529,8 @@
       },
       "4": {
         "chip": "Cluster 4: behaviour",
-        "name": "Cluster 4: behavioural or psychiatric problems",
-        "desc": "Children with serious behavioural or psychiatric problems (zeer moeilijk opvoedbaar, ZMOK)."
+        "name": "Cluster 4: psychological disorders and behavioural problems",
+        "desc": "Children with psychological disorders and behavioural problems (psychische stoornissen en gedragsproblemen)."
       }
     }
   },
@@ -2777,7 +2784,7 @@
     "source": "Source:",
     "checked": "checked {date}",
     "admissions": "Admissions rules of the network",
-    "noOthers": "We list only schools we could verify. No other international school in {city} is listed.",
+    "noOthers": "We list only schools we could verify: the Dutch International Schools network and schools flagged in our data. Other private international schools may exist in {city}.",
     "moreH": "More",
     "muniLink": "Schools in {name}",
     "q": "Questions",
@@ -2813,7 +2820,7 @@
     "toQuestions": "Short answers to frequent questions",
     "toRoute": "Find the route for your child's age",
     "toSystem": "How the Dutch school system works",
-    "checked": "Checked against official sources on {date}. Rules change; check with the school or your municipality.",
+    "checked": "Checked mainly against official sources on {date}. Rules change; check with the school or your municipality.",
     "toc": "On this page",
     "sourcesH": "Sources",
     "sourcesNote": "Official pages, mostly in Dutch. We summarise them in our own words.",
@@ -2836,11 +2843,11 @@
       "The guide links to schools and to official sources. It does not replace them."
     ],
     "dataH": "Where the facts come from",
-    "data1": "School data comes from open government data, mainly DUO and the Inspectie van het Onderwijs. The rules and dates in the guides come from official sources, mostly the Rijksoverheid.",
+    "data1": "School data comes from open government data, mainly DUO and the Inspectie van het Onderwijs. The rules and dates in the guides come from official sources where one exists, mostly the Rijksoverheid. Other sources are labelled.",
     "data2": "The page with the full list shows what each part of a school profile is based on.",
     "dataLink": "Data and sources",
     "aiH": "How it is made",
-    "ai1": "The guide is built and maintained with help from AI (Claude). Every fact is tied to an official source and dated where it can change.",
+    "ai1": "The guide is built and maintained with help from AI (Claude). Each rule is tied to a source, official where one exists, and dated where it can change.",
     "ai2": "Mistakes are still possible. Please check details with the school and your municipality, and tell us if you find an error.",
     "privH": "Privacy: what the site stores and loads",
     "priv": [

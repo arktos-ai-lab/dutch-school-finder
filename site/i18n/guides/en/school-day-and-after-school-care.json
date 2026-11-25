@@ -5,11 +5,11 @@
   "title": "Dutch school day: hours, lunch and after-school care (BSO)",
   "desc": "What a Dutch primary school day looks like: hours, continurooster, lunch, Wednesday afternoons, the voluntary contribution, BSO and childcare benefit.",
   "h1": "What is a Dutch school day like, and who looks after my child after school?",
-  "lede": "Each Dutch school sets its own hours, so the day differs from school to school. Many children eat lunch at school, and after-school care (BSO) is a separate service you arrange and pay for yourself.",
-  "checked": "2026-11-22",
+  "lede": "Each Dutch school sets its own hours, so the day differs from school to school. Many children eat lunch at school, and after-school care (BSO) is a separate service. The school board must arrange it if parents ask, and you pay for it.",
+  "checked": "2026-11-25",
   "sections": [
     {"id": "hours", "h": "School hours", "blocks": [
-      {"p": "There are no national start and finish times. The school sets its own timetable, lessons and breaks, and writes them in the school guide (schoolgids). It sets the hours before each school year, and it cannot change them without the consent of the parent members of the participation council (medezeggenschapsraad, MR)."},
+      {"p": "There are no national start and finish times. The school sets its own timetable, lessons and breaks, and writes them in the school guide (schoolgids). The school cannot change them without the consent of the parent members of the participation council (medezeggenschapsraad, MR)."},
       {"p": "By law a primary school must give at least 7,520 hours of teaching over the eight years: at least 3,520 in the first four and 3,760 in the last four. The school divides the other 240 hours itself. The length of the day follows from how a school spreads these hours."},
       {"p": "Children in groups 3 to 8 attend five days a week. A school may plan up to seven four-day weeks a year. Groups 1 and 2 do not have to attend five days, so ask the school what the youngest children do."}
     ]},
@@ -20,7 +20,7 @@
     ]},
     {"id": "lunch", "h": "Lunch at school", "blocks": [
       {"p": "At a school with a continurooster, teaching staff supervise lunch, so there is no lunch fee, though the school may ask for a voluntary contribution."},
-      {"p": "At a school with a midday break, children can go home or stay for lunch supervision (overblijven, tussenschoolse opvang or TSO). On request the school must organise it. Parents pay a contribution for supervision and food, usually a few euros a day, and the MR must agree to the amount. The school guide explains the rules."}
+      {"p": "At a school with a midday break, children can go home or stay for lunch supervision (overblijven, tussenschoolse opvang or TSO). On request the school must organise it. Parents pay a contribution for supervision and food, usually a few euros a day, and the MR must agree to the amount. Every supervisor must have a certificate of good conduct (VOG), and at least half of the supervisors must have been trained. The school guide explains the rules."}
     ]},
     {"id": "extras", "h": "Gym, trips and the parental contribution", "blocks": [
       {"p": "Ask the school which trips, camps and gym or swimming lessons it plans, and whether your child needs special clothes for them."},
@@ -28,7 +28,7 @@
       {"say": "How much is the parental contribution, and what does it pay for?"}
     ]},
     {"id": "bso", "h": "After-school care (BSO) and childcare benefit", "blocks": [
-      {"p": "After-school care (buitenschoolse opvang, BSO) is not part of the school. A provider looks after school-age children outside school hours. Ask a provider whether it also covers study days and holidays. You choose a provider, sign a contract and pay. Ask the school which providers collect children from it."},
+      {"p": "After-school care (buitenschoolse opvang, BSO) is separate from the lessons. A provider looks after school-age children outside school hours. If one or more parents ask, the school board must arrange this care on school days before and after school and on school-free weekdays, between 07:30 and 18:30. Ask whether it also covers study days and holidays. You sign a contract with the provider and pay the costs. Ask the school which providers collect children from it."},
       {"p": "You may get part of the cost back through the childcare benefit (kinderopvangtoeslag), arranged by Dienst Toeslagen. The amount depends on your income, the hours of care and the type of care. You and your partner must both work, study or follow a route to work, and the provider must be listed in the national childcare register (Landelijk Register Kinderopvang). Lunch supervision at school does not count for the benefit."},
       {"p": "Rules and amounts change each year, so check the official pages below before you sign a contract, and ask the provider whether it is in the register. If you have just arrived, see [BSN and address](/questions/bsn-and-address/)."}
     ]},
@@ -46,6 +46,7 @@
   "sources": [
     {"label": "Rijksoverheid: how primary schools set school hours and lessons", "url": "https://www.rijksoverheid.nl/themas/onderwijs/basisonderwijs/vraag-en-antwoord/schooltijden-en-onderwijstijd/hoe-regelen-basisscholen-de-schooltijden-en-lesuren"},
     {"label": "Rijksoverheid: lunch at primary school", "url": "https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/kan-mijn-kind-tussen-de-middag-overblijven-op-de-basisschool"},
+    {"label": "Law: Wet op het primair onderwijs, article 45 (lunch supervision and organising after-school care)", "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0003420&artikel=45"},
     {"label": "Rijksoverheid: voluntary parental contribution", "url": "https://www.rijksoverheid.nl/documenten/2023/09/01/documenten-vrijwillige-ouderbijdrage-po-en-vo"},
     {"label": "Rijksoverheid: types of childcare", "url": "https://www.rijksoverheid.nl/onderwerpen/kinderopvang/vraag-en-antwoord/soorten-kinderopvang"},
     {"label": "Rijksoverheid: who can get childcare benefit", "url": "https://www.rijksoverheid.nl/onderwerpen/kinderopvangtoeslag/vraag-en-antwoord/wanneer-heb-ik-recht-op-kinderopvangtoeslag"},
