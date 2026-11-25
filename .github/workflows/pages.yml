@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,7 +29,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # The first deploy right after the upload often fails with "No artifacts named github-pages were found"
+      # (the artifact is not registered yet; 3 times on 2026-11-25). So: try, wait, try once more.
       - id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
         with:
           timeout: 1800000   # about 9,000 files; the 10-minute default timed out while syncing (2026-11-10)
+      - name: Wait before retrying the deploy
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 45
+      - id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
