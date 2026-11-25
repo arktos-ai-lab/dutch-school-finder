@@ -1390,7 +1390,8 @@
     "sk21": "Studiekeuze123: 21+ admission test",
     "nieuw": "Rijksoverheid: newcomer education",
     "sio": "SIO: international schools",
-    "oco": "OCO Amsterdam: secondary school advice and sign-up",
+    "oco": "OCO Amsterdam: questions about the central lottery and matching",
+    "schoolkeuze020_de_overstap": "Schoolkeuze020: the move to secondary school (central registration and lottery)",
     "vo_raad_moving_from_vmbo_to_havo_and_fro": "VO-raad: moving from vmbo to havo and from havo to vwo",
     "rijksoverheid_what_is_tto": "Rijksoverheid: what is tto",
     "dutch_international_schools": "Dutch International Schools",
@@ -1414,6 +1415,21 @@
     "rijksoverheid_public_and_special_educati": "Rijksoverheid: public and special education",
     "belastingdienst_content_of_the_expat_sch": "Belastingdienst: content of the expat scheme",
     "business_gov_nl_30_ruling_down_to_27": "Business.gov.nl: 30% ruling down to 27%",
+    "rijksoverheid_expat_ruling": "Rijksoverheid: expat ruling for highly skilled foreign employees",
+    "rijksoverheid_belastingplan_2025_news": "Rijksoverheid: tax changes for 2025, news of 18 December 2024",
+    "belastingdienst_extraterritorial_costs": "Belastingdienst: extraterritorial costs you may reimburse tax-free",
+    "belastingdienst_kg_school_fees": "Belastingdienst: decision KG:041:2023:12 on school fees at international schools",
+    "kamerstuk_36602_41": "Kamerstuk 36602 nr. 41: second note of amendment, 27% from 2027",
+    "wet_lb_art_31a": "Law: Wet op de loonbelasting 1964, article 31a",
+    "uitvoeringsbesluit_lb_art_10ea": "Law: Uitvoeringsbesluit loonbelasting 1965, article 10ea",
+    "wet_leerplichtwet_art_3": "Law: Leerplichtwet 1969, article 3",
+    "wpo_art_40": "Law: Wet op het primair onderwijs, article 40",
+    "wpo_art_13": "Law: Wet op het primair onderwijs, article 13",
+    "rijksoverheid_brp_registration": "Rijksoverheid: when to register in the BRP",
+    "ise_school_fees_2026_27": "International School Eindhoven: school fees and costs 2026-27",
+    "rijksoverheid_tpo_pilot_evaluation": "Rijksoverheid: evaluation of the bilingual primary education (tpo) pilot",
+    "inspectie_vrijwillige_ouderbijdrage_page": "Inspectie: voluntary parental contribution",
+    "kamerstuk_35063_15": "Kamerstuk 35063 nr. 15: answers on the voluntary parental contribution act",
     "nuffic_applying_for_a_credential_evaluat": "Nuffic: applying for a credential evaluation",
     "study_in_nl_checking_your_diploma": "Study in NL: checking your diploma",
     "study_in_nl": "Study in NL",
@@ -1579,7 +1595,7 @@
                 "p": "A child may start at age 4. School is compulsory (leerplicht) from the first day of the month after the fifth birthday. It applies to every child who lives in the Netherlands, whatever the nationality."
               },
               {
-                "p": "Compulsory attendance ends at the end of the school year in which the child turns 16. After that, young people without a havo, vwo or mbo level 2 diploma must keep studying until they are 18 (kwalificatieplicht)."
+                "p": "Compulsory attendance ends at the end of the school year in which the child has been at school for 12 full school years, or at the latest at the end of the school year in which the child turns 16 (Leerplichtwet, article 3). After that, young people without a havo, vwo or mbo level 2 diploma must keep studying until they are 18 (kwalificatieplicht). This does not apply to young people who followed practical education (praktijkonderwijs) or certain tracks of special secondary education (vso)."
               },
               {
                 "p": "If you live in the Netherlands but your child goes to a school abroad, for example in Belgium or Germany, you can ask your municipality's truancy officer for an exemption. You then report every year that your child attends school abroad."
@@ -1588,8 +1604,10 @@
             "src": [
               "rijksoverheid_leerplicht_en_kwalificatie",
               "rijksoverheid_compulsory_education_and_a",
-              "wanneer"
-            ]
+              "wanneer",
+              "wet_leerplichtwet_art_3"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "which-year-group",
@@ -1615,20 +1633,22 @@
             "q": "We arrive in the middle of the school year. Can my child still start?",
             "blocks": [
               {
-                "p": "Yes. Children can register at any time of the year. Secondary school registration also works at any time if you move house."
+                "p": "Yes. If you move house, you can register your child at a secondary school at any time of the year. For primary school you can register your child in writing; ask the school how it handles a start in the middle of the year."
               },
               {
-                "p": "The school may have no places, so register at more than one school if you can. Bring your child's passport, school reports and any proof of the previous school. If your child has no citizen service number (BSN) yet, the school can use a temporary education number."
+                "p": "The school may have no places or a waiting list, so register at more than one school if you can. Bring an identity document or birth certificate and, if your child went to school before, proof of de-registration from the previous school. Ask the school whether it also wants school reports. If your child has no citizen service number (BSN) yet, the school can use a temporary education number."
               },
               {
-                "p": "Special support or a place in a newcomer class can take time. For children who need extra support, register at least 10 weeks before the start date, in writing, and tell the school about the support right away. The school then has 6 weeks to decide, and can extend this once by up to 4 weeks."
+                "p": "A place in a newcomer class can take time; ask the school how long, because this differs per school. For children who need extra support, the rule is to register in writing, if possible at least 10 weeks before the date you want your child to start. If you arrive in the middle of the year, register as early as you can and say at once that your child needs support. The school then has 6 weeks to decide, and can extend this once by up to 4 weeks. If there is no decision after 10 weeks and your child is not at another school, your child gets a temporary place."
               }
             ],
             "src": [
               "inschr",
               "rijksoverheid_passend_onderwijs",
-              "rijksoverheid_bsn_in_education"
-            ]
+              "rijksoverheid_bsn_in_education",
+              "wpo_art_40"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "bsn-and-address",
@@ -1638,16 +1658,18 @@
                 "p": "You can register your child without a citizen service number (BSN). You register your child yourself, and the school asks for the BSN. If your child has none yet, the school can enrol your child with a temporary education number (onderwijsnummer), which DUO issues. Tell the school when your child gets a BSN."
               },
               {
-                "p": "If you live in the Netherlands, you get a BSN by registering with your municipality. Bring a passport, proof of address and de-registration or school reports from the previous school. In municipalities with a central procedure, such as Amsterdam, a proof of the future home address can be required."
+                "p": "If you will live in the Netherlands for more than 4 months, you register at your municipality (the population register, BRP) within 5 days of arrival, and you get a BSN. Children who come with you must come to the town hall too. For a stay of less than 4 months you can register in the non-residents register (RNI) and still get a BSN. Ask the municipality which documents it needs; we did not find a national list."
               },
               {
-                "p": "Ask the school what it needs, and start early."
+                "p": "Ask the school what it needs, and start early. We found no national rule that you need a home address to register your child at a school, so ask the school. We could not confirm that the Amsterdam central procedure asks for proof of a future address, so ask the municipality."
               }
             ],
             "src": [
               "rijksoverheid_bsn_in_education",
-              "inschr"
-            ]
+              "inschr",
+              "rijksoverheid_brp_registration"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "without-dutch",
@@ -1759,13 +1781,16 @@
             "q": "Which cities use a lottery for secondary school?",
             "blocks": [
               {
-                "p": "Where a school has more applicants than places, a lottery can be used. Several large regions do, and the rules differ. Amsterdam places all pupils in one central round with a random lot number and a ranked list of schools. Taking part is mandatory there."
+                "p": "Where a school has more applicants than places, a lottery can be used. Several large regions do, and the rules differ. Amsterdam places pupils for regular secondary schools in one central round. A computer gives each pupil a random lot number and places pupils, in lot order, at the highest school on their ranked list that still has room. A pupil who registers late or withdraws can join a second round. To get a place at a regular Amsterdam secondary school you register online in the central registration week."
               },
               {
-                "p": "In the Utrecht regions a lottery is held at schools that have more first-choice applications than places. In 2026 this happened at twelve schools."
+                "p": "In Amsterdam the number of schools on the list depends on the advice: 12 for havo and vwo, 6 for vmbo-gl/tl, and 4 for vmbo-b and vmbo-k (for entry in 2027). A complete list gives a placement guarantee at one of the listed schools. Pupils for practical education, special secondary education (VSO), the Kopklas, the ISK and the intermediate provision do not take part in the lottery and register another way. A child from abroad without a Dutch advice registers with the first-choice school before the central week."
               },
               {
-                "p": "In Haaglanden eight schools drew lots in 2026. Rotterdam and Eindhoven have their own procedures. We could not confirm the rules for Haarlem or Nijmegen."
+                "p": "In the four Utrecht regions (Utrecht and Stichtse Vecht, Utrecht West, Zuid-Utrecht and Zuidoost Utrecht) a lottery is held at schools that have more first-choice applications than places. In 2026 this happened at twelve schools."
+              },
+              {
+                "p": "In Haaglanden eight schools drew lots in 2026, and pupils who were not drawn go into a central lottery for a place at another school on their list. Rotterdam and Eindhoven have their own regional procedures; we could not confirm the details from an official page, so read the current guide of your region. We could not confirm the rules for Haarlem or Nijmegen either."
               },
               {
                 "p": "Procedures can change every year, so read the current guide of your region and ask your child's primary school."
@@ -1775,8 +1800,10 @@
               "de_vo_gids_how_lotteries_work",
               "samen_naar_het_vo_utrecht_2026",
               "bovo_haaglanden_results_2026",
-              "oco"
-            ]
+              "oco",
+              "schoolkeuze020_de_overstap"
+            ],
+            "checked": "2026-11-25"
           }
         ]
       },
@@ -1795,10 +1822,10 @@
                 "p": "Your child then takes the end-of-primary test. If the test advice is higher, the school adjusts the advice upward, unless it decides this is not in your child's interest, and then it must explain why. If the test result is more than half a level higher, the school may choose a level in between. The test cannot lower the advice."
               },
               {
-                "p": "The school gives the final advice by 24 March 2027. A secondary school must place your child at least at the advised level, and may not require a one-level advice."
+                "p": "The school gives the final advice by 24 March 2027. A secondary school must place your child at least at the advised level, unless you explicitly ask for a lower level, and may not require a one-level advice."
               },
               {
-                "p": "The advice is the starting point, not the final word. A secondary school may not place your child below it. It may place your child above it, but that is not a right. The school decides, so talk to the school and explain why you think your child can do it. Some schools have a mixed first year, such as havo and vwo, which keeps more options open. A child with a double advice can always be registered for the higher of the two levels, but the school chooses the first-year class. A child can also still move up later. See Other ways through on the whole system page."
+                "p": "The advice is the starting point, not the final word. A secondary school may not place your child below it, unless you explicitly ask for a lower level. It may place your child above it, but that is not a right. The school decides, so talk to the school and explain why you think your child can do it. Some schools have a mixed first year, such as havo and vwo, which can keep options open, depending on the school's rules for moving up. A child with a double advice can always be registered for the higher of the two levels, if the school offers that level. The school chooses the first-year class, and a school that offers only one level does not have to take a child with a double advice. A child can also still move up later. See Other ways through on the whole system page."
               }
             ],
             "src": [
@@ -1806,7 +1833,8 @@
               "tijdlijn",
               "ocw_brief_overgang_2016",
               "inspectie_feiten_fabels_2024"
-            ]
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "ask-about-the-advice",
@@ -1898,34 +1926,37 @@
             "q": "What is the difference between a Dutch school, an international school and a bilingual school?",
             "blocks": [
               {
-                "p": "A Dutch school teaches in Dutch and follows the Dutch curriculum. It is paid for by the state, and there are no tuition fees. An international school teaches in English or another language and often follows a programme such as the IB."
+                "p": "A Dutch school teaches in Dutch and follows the Dutch curriculum. It is paid for by the state, and there are no tuition fees. An international school teaches in English or another language and may follow an international programme such as the IB."
               },
               {
-                "p": "Dutch International Schools are partly government funded and meant for children of internationally mobile families. Fully private international schools set their own fees. A bilingual school (tto) is a Dutch secondary school where at least half of the lessons in the first years of havo and vwo are taught in English. Pupils take the normal Dutch exams."
+                "p": "Dutch International Schools are government funded and meant for children of internationally mobile families. Fully private international schools set their own fees. A bilingual school (tto) is a Dutch secondary school where at least half of the lessons in the first years of havo and vwo (30 percent in vmbo) are taught in another language, usually English. Pupils take the normal Dutch exams and also get an extra bilingual certificate."
               },
               {
-                "p": "Your choice depends on how long you will stay, your child's age and which language your child needs later. Bilingual primary schools exist as a small pilot. Nuffic's information on secondary bilingual education describes English. German and French are mentioned only for the primary pilot, and we could not confirm a Dutch-German secondary school."
+                "p": "Your choice depends on how long you will stay, your child's age and which language your child needs later. Bilingual primary education (tpo) also exists: Nuffic says children get 30 to 50 percent of the teaching time in English, German or French. It started as a government pilot (the evaluation was published by the Rijksoverheid in 2023), so ask whether a school near you offers it. For secondary school the Rijksoverheid says the other language is usually English, and Nuffic names English."
               }
             ],
             "src": [
               "nuf",
               "rijksoverheid_what_is_tto",
               "dutch_international_schools",
-              "sio"
-            ]
+              "sio",
+              "nuffic_bilingual_education",
+              "rijksoverheid_tpo_pilot_evaluation"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "ib-route",
             "q": "Can my child take the International Baccalaureate (IB) in the Netherlands?",
             "blocks": [
               {
-                "p": "At some schools, yes. The IB is an international programme with its own diploma. International schools teach it, and our school list also flags Dutch secondary schools with an IB programme. The IB calls approved schools IB World Schools, and some offer every phase while others offer only one or two."
+                "p": "At some schools, yes. The IB is an international programme with its own diploma. International schools teach it, and some Dutch secondary schools may offer it too (our school list has an IB filter; confirm with the school). The IB calls approved schools IB World Schools, and some offer every phase while others offer only one or two."
               },
               {
                 "ul": [
                   "Lower years: the Middle Years Programme (MYP) takes 5 years and ends in an MYP certificate. Nuffic compares it with 4 years of vwo.",
                   "Last two years: the Diploma Programme (DP) takes 2 years. Nuffic lists the MYP certificate as the entry requirement, but schools set their own rules. The Dutch International Secondary Schools, for example, ask for a havo diploma or a pass into vwo year 5, plus enough English.",
-                  "Who can join: this is often linked to an international background, and the school decides. The funded Dutch International Schools (DIS) admit a pupil under national rules, for example a non-Dutch pupil whose parent works in the Netherlands for a limited time, or a Dutch pupil who lived abroad for at least two years because of a parent's posting.",
+                  "Who can join: this is often linked to an international background, and the school decides. The funded Dutch International Schools (DIS) admit a pupil under national rules, for example a non-Dutch pupil whose parent works in the Netherlands for a limited time, or a Dutch pupil who lived abroad because of a parent's posting and went to school there for more than two years (the law for primary departments says more than two years; the DIS page says at least two).",
                   "Cost: a funded school may ask a parental contribution, and the minister wrote in 2023 that funded international education may make it compulsory. Amounts differ per school, so ask for the fee schedule."
                 ]
               },
@@ -1946,7 +1977,7 @@
               "tudelft_ib_requirements",
               "duo_open_education_data"
             ],
-            "checked": "2026-11-24"
+            "checked": "2026-11-25"
           },
           {
             "id": "international-school-costs",
@@ -1959,10 +1990,10 @@
                 "p": "<b>The amounts below are rough estimates, not prices.</b> Fees differ per school and change every year. Always check the school's own fee schedule before you decide."
               },
               {
-                "p": "Private international schools: for 2026-27, one Amsterdam school (ISA) publishes tuition from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Some schools add other fees, such as a deposit or an entry fee."
+                "p": "Private international schools: for 2026-27, one Amsterdam school (ISA) publishes tuition from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. ISA's fee page lists tuition only. Some schools add a registration fee or a deposit, so ask what comes on top."
               },
               {
-                "p": "Dutch International Schools are partly government funded and usually cost much less. Third-party guides report about 4,500 to 9,500 euro a year, but we have not checked this against each school's fee schedule."
+                "p": "Dutch International Schools are government funded and set their fees per school. One example: International School Eindhoven lists, for 2026-27, 6,690 euro a year in its primary international department and 8,569 to 9,466 euro in secondary, plus a registration fee of 200 euro. A funded international department may make the parental contribution compulsory (Kamerstuk 22452 nr 88)."
               },
               {
                 "say": "Ask each school for its current fee schedule, what extra costs come on top, and the rules on who can apply."
@@ -1971,24 +2002,40 @@
             "src": [
               "isa_fees_2026_27",
               "dutch_international_schools",
-              "iamexpat_school_fees_third_party_guide"
-            ]
+              "ise_school_fees_2026_27",
+              "kamerstuk_intl_2023"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "thirty-percent-ruling",
             "q": "I have the 30% ruling. Does that change school choice?",
             "blocks": [
               {
-                "p": "It can matter for international school fees, but not for state-funded Dutch schools, which charge no tuition. In general, employers can sometimes pay school fees for an international school tax-free as extraterritorial costs, under conditions set by the Belastingdienst. The conditions include the type of school and who it is meant for. This site gives no tax advice."
+                "p": "It can matter for international school fees, but not for state-funded Dutch schools, which charge no tuition. Employers can pay school fees for an international school tax-free as extraterritorial costs. The rule is in the Wet op de loonbelasting 1964 (article 31a, paragraph 2, under e) and the Uitvoeringsbesluit loonbelasting 1965 (articles 10e and 10ea). The Belastingdienst conditions include the type of school (an international school or international department, with education based on a foreign system) and who it is meant for (mainly children of seconded employees). This site gives no tax advice."
               },
               {
-                "p": "The 30% ruling is planned to become a 27% ruling from 2027, and the salary conditions change. Do not choose a school only because of a tax rule. Ask your employer's HR or a tax adviser before you sign a contract with a school, and read the current Belastingdienst pages."
+                "p": "From 1 January 2027 the tax-free allowance under the 30% ruling falls to 27%. This is law: it was adopted with the Belastingplan 2025, which the Eerste Kamer approved on 17 December 2024. The transitional rules depend on when your ruling started. If it started up to 31 December 2023, you keep 30% and the current salary norm. If it started in 2024, you move to 27% in 2027 under the current salary norm. If it started from 1 January 2025, you move to 27% in 2027 and a higher salary norm applies. In 2025 and 2026 the maximum is 30%. Since 2026 the allowance is calculated on a salary of at most EUR 262,000 a year (at most EUR 78,600 at 30%)."
+              },
+              {
+                "p": "School fees for an international school are a separate tax-free item. They come on top of the 30% (Wet op de loonbelasting 1964, article 31a, paragraph 8; Uitvoeringsbesluit loonbelasting 1965, article 10ea), and the change to 27% only replaces the 30% and leaves the school fees alone (Kamerstuk 36602 nr 41). Without the ruling, school fees can be reimbursed tax-free as actual extraterritorial costs only if the employer can show a link with the temporary stay outside your home country. In general there is no such link if the child already attended that school before the posting (Belastingdienst, KG:041:2023:12)."
+              },
+              {
+                "p": "Do not choose a school only because of a tax rule. Ask your employer's HR or a tax adviser before you sign a contract with a school, and read the current Belastingdienst pages."
               }
             ],
             "src": [
               "belastingdienst_content_of_the_expat_sch",
+              "belastingdienst_extraterritorial_costs",
+              "belastingdienst_kg_school_fees",
+              "rijksoverheid_expat_ruling",
+              "rijksoverheid_belastingplan_2025_news",
+              "kamerstuk_36602_41",
+              "wet_lb_art_31a",
+              "uitvoeringsbesluit_lb_art_10ea",
               "business_gov_nl_30_ruling_down_to_27"
-            ]
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "foreign-diplomas",
@@ -2020,19 +2067,24 @@
             "q": "Is Dutch school free? What is the ouderbijdrage?",
             "blocks": [
               {
-                "p": "State-funded schools do not charge tuition. Many ask for a voluntary parental contribution (ouderbijdrage) for extras such as trips, sports days or celebrations."
+                "p": "State-funded schools do not charge tuition. Schools may ask for a voluntary parental contribution (ouderbijdrage) for extras such as trips, sports days or celebrations. You do not have to explain why you do not pay. The parent members of the participation council (MR) must agree with the amount. The voluntary rule does not apply to international schools that are aimed at expats, where the contribution can be compulsory (see the answer on international school costs)."
               },
               {
-                "p": "Since a law of August 2021, a school may not exclude your child from activities because you did not pay, and may not offer a free replacement activity. The school guide should say this. You still pay for things that are not part of school, such as a private after-school club or lunch supervision."
+                "p": "Since a law that took effect on 1 August 2021, a school may not exclude your child from activities because you did not pay, and may not give your child a free replacement activity instead (Kamerstuk 35063 nr 15). The school guide must say that the contribution is voluntary and that not paying does not lead to exclusion (Wet op het primair onderwijs, article 13, paragraph 1 e). Lunch supervision (overblijven) costs extra: the school sets the amount and the participation council must approve it."
               },
               {
-                "p": "Some families report pressure in practice. If that happens, point to the school guide and the Rijksoverheid information, and contact the parent council or the Rijksoverheid information line."
+                "p": "If a school asks you to pay as if it were compulsory, point to the school guide and the Rijksoverheid information. You can also contact the parent members of the participation council (MR), Ouders & Onderwijs (088 605 0101, free) or the Inspectie (088 669 6060, weekdays 9.00 to 16.30)."
               }
             ],
             "src": [
               "rijksoverheid_voluntary_parental_contrib",
-              "inspectie_voluntary_parental_contributio"
-            ]
+              "inspectie_voluntary_parental_contributio",
+              "inspectie_vrijwillige_ouderbijdrage_page",
+              "kamerstuk_35063_15",
+              "wpo_art_13",
+              "rijksoverheid_lunch_at_primary_school"
+            ],
+            "checked": "2026-11-25"
           },
           {
             "id": "school-hours-lunch",

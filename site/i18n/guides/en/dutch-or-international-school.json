@@ -4,10 +4,10 @@
   "order": 1,
   "home": 2,
   "title": "Dutch school or international school? A guide by age and plans",
-  "desc": "Dutch school, bilingual (tto), partly funded Dutch International School or private international school: choose by your child's age and how long you stay.",
+  "desc": "Dutch school, bilingual (tto), state-funded Dutch International School or private international school: choose by your child's age and how long you stay.",
   "h1": "Should my child go to a Dutch school or an international school?",
-  "lede": "Staying many years, or have a young child? Most families in that case choose a Dutch school. Staying only 2 or 3 years with an older child? An international school keeps the language of lessons the same.",
-  "checked": "2026-11-22",
+  "lede": "Staying many years, or have a young child? A Dutch school is worth weighing first. Staying only 2 or 3 years with an older child? An international school keeps the language of lessons the same.",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "four-options",
@@ -20,10 +20,10 @@
           "p": "<b>Bilingual school (tweetalig onderwijs, tto).</b> A Dutch secondary school where a large part of the lessons in the first years are in English. In havo and vwo it is at least half of the lessons, in vmbo 30 percent. Pupils still sit Dutch exams and get a normal Dutch diploma. Your child still needs to cope with Dutch in the other lessons."
         },
         {
-          "p": "<b>IB programme.</b> The International Baccalaureate is an international programme with its own diploma. International schools teach it, and some Dutch secondary schools offer it in the lower years or in the last two years. Ask the school who can join. See [Can my child take the IB in the Netherlands?](/questions/ib-route/)."
+          "p": "<b>IB programme.</b> The International Baccalaureate is an international programme with its own diploma. International schools teach it. Some Dutch secondary schools may offer it too, in the lower years or in the last two years; the IB keeps a register of approved schools, and the school can confirm. Ask the school who can join. See [Can my child take the IB in the Netherlands?](/questions/ib-route/)."
         },
         {
-          "p": "<b>Dutch International School (DIS).</b> A school that is partly funded by the Dutch government and meant for children of internationally mobile families, aged 4 to 19. Not every family can enrol. See [who can enrol](/guides/international-school-admission/)."
+          "p": "<b>Dutch International School (DIS).</b> A school that is funded by the Dutch government and meant for children of internationally mobile families, aged 4 to 19. Not every family can enrol. See [who can enrol](/guides/international-school-admission/)."
         },
         {
           "p": "<b>Private international school.</b> Not state-funded. It sets its own fees and its own admission rules."
@@ -58,7 +58,7 @@
               ],
               [
                 "12 to 14 (secondary, years 1 to 3)",
-                "A child who speaks no Dutch can start in a newcomer class (ISK) and move to a regular class later. Many stay up to about two years.",
+                "A child who speaks no Dutch can start in a newcomer class (ISK) and move to a regular class later. The aim is about two years of Dutch lessons first; ask the school how long its ISK takes.",
                 "A common choice for short stays. A bilingual school (tto) is an option only if the child can follow Dutch lessons too."
               ],
               [
@@ -103,8 +103,8 @@
         },
         {
           "ul": [
-            "Dutch International Schools are partly funded. Rough estimate from outside guides: about 4,500 to 9,500 euro a year. We have not checked this for each school.",
-            "Private international schools cost more. Rough estimate: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Some schools add a deposit or an entry fee."
+            "Dutch International Schools are funded by the Dutch government and set their fees per school. One example: International School Eindhoven lists, for 2026-27, 6,690 euro a year in its primary international department and 8,569 to 9,466 euro in secondary. A funded school may make the parental contribution compulsory.",
+            "Private international schools cost more. Rough estimate: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years. Ask whether a registration fee or a deposit comes on top."
           ]
         },
         {
@@ -167,6 +167,18 @@
     {
       "label": "Nuffic: level of the IB diplomas",
       "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas"
+    },
+    {
+      "label": "Rijksoverheid: Dutch lessons for children who speak no Dutch (stated aim: within 2 years)",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/asielbeleid/onderwijs-voor-kinderen-die-geen-nederlands-spreken"
+    },
+    {
+      "label": "International School Eindhoven: school fees and costs 2026-27",
+      "url": "https://www.isecampus.nl/admissions/school-fees-and-costs/"
+    },
+    {
+      "label": "Kamerstuk 22452 nr. 88: funded international departments and the parental contribution",
+      "url": "https://zoek.officielebekendmakingen.nl/kst-22452-88.html"
     }
   ],
   "related_guides": [

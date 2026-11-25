@@ -3,23 +3,23 @@
   "group": "choose",
   "order": 4,
   "title": "Who can enrol at a Dutch International School? Eligibility",
-  "desc": "Dutch International Schools are partly state funded and not for every family. See who can enrol, what to ask about waiting lists and how private schools differ.",
-  "h1": "Who can get a place at a Dutch International School (partly funded)?",
+  "desc": "Dutch International Schools are state funded and not for every family. See who can enrol, what to ask about waiting lists and how private schools differ.",
+  "h1": "Who can get a place at a Dutch International School (state funded)?",
   "lede": "A Dutch International School is for internationally mobile families, not for every child. A child must meet at least one of three conditions about nationality and a parent's work. Places, waiting lists and dates are set per school, so ask the school.",
-  "checked": "2026-11-22",
+  "checked": "2026-11-25",
   "sections": [
     {
       "id": "what",
       "h": "What a Dutch International School is",
       "blocks": [
         {
-          "p": "Dutch International Schools (DIS) are schools for children of expats, from age 4 to 19. The Rijksoverheid describes the primary schools as teaching in English; ask a secondary school about its programme. The Ministry of Education, Culture and Science partly funds them. That is why they are usually cheaper than fully private international schools, and why there are conditions on who can enrol."
+          "p": "Dutch International Schools (DIS) are schools for children of expats, from age 4 to 19. The Rijksoverheid describes the primary schools as teaching in English; ask a secondary school about its programme. The Ministry of Education, Culture and Science funds them. Because they are funded, the law sets conditions on who can be admitted (Wet op het primair onderwijs, article 40, paragraph 10, for the primary departments). Fees differ per school; the examples in the last section are lower than at the private school quoted there."
         },
         {
           "p": "A private international school is a different thing. It gets no state funding and sets its own fees and its own admission rules. See the last section."
         },
         {
-          "note": "The conditions below come from the admissions page of the Dutch International Schools network, checked on 22 November 2026. Rules can change. Check the page and ask the school before you plan around a place."
+          "note": "The conditions below come from the admissions page of the Dutch International Schools network, checked on 25 November 2026 against the law for the primary departments. Rules can change. Check the page and ask the school before you plan around a place."
         }
       ]
     },
@@ -33,7 +33,7 @@
         {
           "ul": [
             "Your child has a non-Dutch nationality (or a non-Dutch nationality next to a Dutch one), and a parent works in the Netherlands or a Dutch border region for a limited time.",
-            "Your child has Dutch nationality, lived abroad and went to school there for at least 2 years because a parent was posted abroad.",
+            "Your child has only Dutch nationality, lived abroad because a parent worked abroad for a set period, and went to school there. The network page says for at least 2 years; the law for the primary departments says for more than 2 years. Ask the school which applies to you.",
             "Your child has Dutch nationality, and a parent (who the child will live with) will be posted abroad within 2 years, for at least 2 years. A written statement from the parent's employer is needed."
           ]
         },
@@ -92,7 +92,7 @@
           "p": "Private international schools do not use the conditions above. They set their own rules. Ask about waiting lists, and whether they charge an entry fee or a deposit next to tuition."
         },
         {
-          "p": "<b>These amounts are rough estimates, not prices.</b> Dutch International Schools: outside guides report a rough 4,500 to 9,500 euro a year, not checked for each school. Private schools: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years, also a rough estimate. Always check the school's own fee schedule."
+          "p": "<b>These amounts are rough estimates, not prices.</b> Dutch International Schools set fees per school. For example, International School Eindhoven lists, for 2026-27, 6,690 euro a year in its primary international department and 8,569 to 9,466 euro in secondary, plus a registration fee of 200 euro. A funded international department may also make the parental contribution compulsory (Kamerstuk 22452 nr 88, December 2023). Private schools: one Amsterdam school publishes tuition for 2026-27 from about 22,800 euro a year in nursery to about 32,800 euro in the last two years, also a rough estimate. Always check the school's own fee schedule."
         },
         {
           "p": "More on costs in [What do international schools cost?](/questions/international-school-costs/). If an employer pays, read [the 30% ruling and school choice](/questions/thirty-percent-ruling/). This site gives no tax advice."
@@ -119,6 +119,18 @@
     {
       "label": "Rijksoverheid: choosing a primary school (mentions English-language schools for temporary residents, Dutch)",
       "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/basisschool-kiezen-voor-kind"
+    },
+    {
+      "label": "Law: Wet op het primair onderwijs, article 40 (paragraph 10: who can join an international department)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0003420&artikel=40"
+    },
+    {
+      "label": "International School Eindhoven: school fees and costs 2026-27",
+      "url": "https://www.isecampus.nl/admissions/school-fees-and-costs/"
+    },
+    {
+      "label": "Kamerstuk 22452 nr. 88: funded international departments and the parental contribution",
+      "url": "https://zoek.officielebekendmakingen.nl/kst-22452-88.html"
     }
   ],
   "related_guides": [

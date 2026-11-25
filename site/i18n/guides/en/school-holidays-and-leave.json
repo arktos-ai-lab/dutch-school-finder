@@ -6,10 +6,10 @@
   "desc": "School holiday dates 2026-27 for the north, middle and south regions, plus the strict rules for extra leave (extra verlof) outside the holidays and how to ask.",
   "h1": "School holidays 2026-27 and taking your child out of school",
   "lede": "Dutch school holidays differ by region, and a family holiday outside them is normally not allowed. Extra leave (verlof) is possible only for a few reasons, the school head decides up to 10 days, and you must ask in time.",
-  "checked": "2026-11-22",
+  "checked": "2026-11-25",
   "sections": [
     {"id": "dates", "h": "School holidays 2026-27 by region", "blocks": [
-      {"p": "The Netherlands has three holiday regions: north (noord), middle (midden) and south (zuid). Each municipality belongs to one of them. The national government sets the summer holiday, the Christmas holiday and one week in May. For the autumn and spring holidays it gives advisory dates, so a school can change them. Always check the school calendar."},
+      {"p": "The Netherlands has three holiday regions: north (noord), middle (midden) and south (zuid). Each municipality is listed under one of them (a few are split by village, so check the Rijksoverheid list of regions). The national government sets the summer holiday, the Christmas holiday and one week in May. For the autumn and spring holidays it gives advisory dates. A school can choose other dates once its participation council (medezeggenschapsraad) agrees. Always check the school calendar."},
       {"table": {"caption": "Dates from the Rijksoverheid. Autumn and spring dates are advisory.", "head": ["Holiday", "North", "Middle", "South"], "rows": [
         ["Autumn", "10 to 18 Oct 2026", "17 to 25 Oct 2026", "17 to 25 Oct 2026"],
         ["Christmas", "19 Dec 2026 to 3 Jan 2027", "19 Dec 2026 to 3 Jan 2027", "19 Dec 2026 to 3 Jan 2027"],
@@ -17,7 +17,7 @@
         ["May", "24 Apr to 2 May 2027", "24 Apr to 2 May 2027", "24 Apr to 2 May 2027"],
         ["Summer", "10 Jul to 22 Aug 2027", "17 Jul to 29 Aug 2027", "24 Jul to 5 Sep 2027"]
       ]}},
-      {"note": "Schools may add days, for example study days for staff, or a second May week (the advisory dates for it are 1 to 9 May 2027). In the south, some schools move the spring holiday to match carnival. Dates checked on the Rijksoverheid overview on 22 November 2026."},
+      {"note": "Schools may add days, for example study days for staff, or a second May week (the advisory dates for it are 1 to 9 May 2027). In the south, a school may move the spring holiday to match carnival: the Rijksoverheid says the advisory spring dates do not fall on carnival in 2027 and that schools may choose other dates, for example to match it. Dates checked on the Rijksoverheid overview on 25 November 2026."},
       {"p": "Each school page in [find a school](/find/) shows the holiday region of that school."}
     ]},
     {"id": "rule", "h": "The basic rule", "blocks": [
@@ -30,13 +30,13 @@
         "<b>Work.</b> Your job means you cannot take a family holiday in any school holiday of the year, for example seasonal work, or self-employment where travelling in the holidays would cost you a large part of your income. You can get up to 10 school days, once per school year, and not in the first 2 weeks after the summer holiday. Employees bring a statement from the employer. Self-employed parents must show the large income loss.",
         "<b>Special circumstances</b> (gewichtige omstandigheden). Events outside your control that cannot be moved to another date, for example a funeral. Ask the school head. If you need more than 10 days, the request goes to the municipality's attendance officer (leerplichtambtenaar)."
       ]},
-      {"p": "<b>Ask your municipality what counts as a special circumstance before you book.</b> Each municipality sets its own list. For example, The Hague lists a family wedding (1 or 2 days, up to 5 days abroad), a death or a serious illness in the family and some family jubilees, each with a maximum number of days. The Hague does not accept family visits, birthdays or a holiday in term time. Your municipality may set other rules."}
+      {"p": "<b>Ask the school or your municipality what counts as a special circumstance before you book.</b> The Rijksoverheid names a funeral as an example and gives no full list. Municipalities publish their own guidance, for example The Hague on the page linked under the sources, with examples and a maximum number of days for each event. We could not confirm one national list, so read the guidance of your own municipality."}
     ]},
     {"id": "how-to-ask", "h": "How to ask for leave", "blocks": [
       {"steps": [
         "Ask the school how it wants the request: a form or a letter.",
         "Send it as early as you can. For leave because of work, the rule is at least 8 weeks before the first day of leave.",
-        "Give the dates, the reason and proof: an employer statement, accounts for self-employed parents, or a letter about the event.",
+        "Give the dates, the reason and proof: an employer statement, proof of the income loss for self-employed parents (ask the school what it accepts), or a letter about the event.",
         "Wait for the answer in writing before you book anything that cannot be refunded.",
         "If the answer is no and you disagree, tell the school head in writing and ask for the reasons."
       ]},
@@ -44,7 +44,7 @@
       {"p": "If you still disagree, ask the school or your municipality what else you can do."}
     ]},
     {"id": "fines", "h": "What happens if you go without permission", "blocks": [
-      {"p": "Going without permission can lead to a fine. We cannot give an amount: the Rijksoverheid does not state one. Your municipality or the attendance officer can tell you more."},
+      {"p": "Going without permission can lead to a fine. We cannot give an amount: the Rijksoverheid does not state one. Parents can also be punished for keeping a child at home once compulsory education applies. Your municipality or the attendance officer can tell you more."},
       {"note": "This guide gives general information, not legal advice. For your own case, ask the school, your municipality or Ouders & Onderwijs."}
     ]}
   ],
@@ -53,7 +53,8 @@
     {"label": "Rijksoverheid: how school holiday dates are set", "url": "https://www.rijksoverheid.nl/onderwerpen/schoolvakanties/vaststellen-data-schoolvakanties"},
     {"label": "Rijksoverheid: compulsory education and school holidays", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/vraag-en-antwoord/leerplicht-schoolvakanties"},
     {"label": "Rijksoverheid: compulsory education (leerplicht)", "url": "https://www.rijksoverheid.nl/onderwerpen/leerplicht/leerplicht-en-kwalificatieplicht"},
-    {"label": "Municipality of The Hague: asking for leave from school", "url": "https://www.denhaag.nl/nl/onderwijs-en-studeren/verlof-van-school-aanvragen/"}
+    {"label": "Rijksoverheid: school holiday regions", "url": "https://www.rijksoverheid.nl/onderwerpen/schoolvakanties/regios-schoolvakantie"},
+    {"label": "Municipality of The Hague: asking for leave from school (an example of municipal guidance)", "url": "https://www.denhaag.nl/nl/onderwijs-en-studeren/verlof-van-school-aanvragen/"}
   ],
   "related_guides": ["school-day-and-after-school-care", "bullying-what-to-do", "types-of-schools"],
   "related_questions": ["holiday-outside-school-breaks", "when-must-child-go"],
