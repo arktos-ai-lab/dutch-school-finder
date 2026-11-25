@@ -1441,6 +1441,29 @@
     "hDiagram": "The diagram",
     "hKey": "Colour key",
     "hOther": "Other ways through",
+    "flowTitle": "All routes as a flowchart",
+    "flowIntro": "Every route in one chart, grouped by stage and read from top to bottom. It is drawn from the same data file as the diagram and the cards above. The line style shows the kind of route.",
+    "flowNoScript": "The chart is written as text below. Open it in any Mermaid viewer, or switch scripts on to see it drawn here.",
+    "flowFail": "The chart could not be drawn here. The text version below and the data file still work.",
+    "flowLoading": "Drawing the chart...",
+    "kind": {
+      "standard": "Usual route",
+      "right": "A right",
+      "school_decides": "School decides",
+      "conditional": "Conditions apply"
+    },
+    "hl": {
+      "hint": "Tap or click a box in the diagram to see the routes that start there.",
+      "legend": "Route kinds",
+      "clear": "Clear selection",
+      "from": "Routes from {name}",
+      "none": "No other routes start here.",
+      "boxAria": "{name}. Show the routes that start here."
+    },
+    "openTitle": "Open data",
+    "openText": "Every route on this page is stored in one data file. Each rule carries its official source and the date we last checked it. Corrections are welcome through Report an error above.",
+    "openJson": "Routes as data (routes.json)",
+    "openMmd": "Flowchart source (routes.mmd)",
     "key": {
       "phd": "PhD (a research job, not a school level)",
       "bo": "Primary",
@@ -1480,315 +1503,23 @@
       "groups": [
         {
           "id": "vmbo",
-          "title": "From vmbo",
-          "cards": [
-            {
-              "route": [
-                {
-                  "l": "vmbo, first years",
-                  "c": "vbk"
-                },
-                {
-                  "l": "havo, first years",
-                  "c": "havo"
-                }
-              ],
-              "text": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
-              "src": [
-                "vo_raad_moving_from_vmbo_to_havo_and_fro"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "vmbo gl/tl diploma",
-                  "c": "vgt"
-                },
-                {
-                  "l": "havo 4",
-                  "c": "havo"
-                }
-              ],
-              "text": "You need one extra general exam subject (not a vocational one). Then the havo school may not turn you away for your knowledge or skills. Without it, the havo school decides. This right exists since 1 August 2020.",
-              "src": [
-                "vo_raad_moving_from_vmbo_to_havo_and_fro",
-                "wetten_uitvoeringsbesluit_wvo_2020",
-                "stb_2020_121"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "vmbo gl/tl diploma",
-                  "c": "vgt"
-                },
-                {
-                  "l": "havo 4",
-                  "c": "havo"
-                },
-                {
-                  "l": "havo 5 diploma",
-                  "c": "havo"
-                },
-                {
-                  "l": "vwo 5",
-                  "c": "vwo"
-                },
-                {
-                  "l": "vwo 6 diploma",
-                  "c": "vwo"
-                }
-              ],
-              "text": "No year is repeated. The number 4 comes twice because vmbo and havo each count their own years. It is 4 years of vmbo, 2 of havo and 2 of vwo: 8 years in all, against 6 years straight through vwo.",
-              "src": [
-                "vo_raad_moving_from_vmbo_to_havo_and_fro",
-                "wetten_uitvoeringsbesluit_wvo_2020",
-                "stb_2020_121",
-                "rijksoverheid_overstappen_bovenbouw"
-              ],
-              "checked": "2026-11-25"
-            }
-          ]
+          "title": "From vmbo"
         },
         {
           "id": "havo",
-          "title": "From havo",
-          "cards": [
-            {
-              "route": [
-                {
-                  "l": "havo, first years",
-                  "c": "havo"
-                },
-                {
-                  "l": "vwo, first years",
-                  "c": "vwo"
-                }
-              ],
-              "text": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
-              "src": [
-                "vo_raad_moving_from_vmbo_to_havo_and_fro"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "havo, upper years",
-                  "c": "havo"
-                },
-                {
-                  "l": "vwo, upper years",
-                  "c": "vwo"
-                }
-              ],
-              "text": "Switching inside the upper years is possible. Ask the vwo school what it requires.",
-              "src": [
-                "rijksoverheid_overstappen_bovenbouw"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "havo diploma",
-                  "c": "havo"
-                },
-                {
-                  "l": "vwo 5",
-                  "c": "vwo"
-                }
-              ],
-              "text": "This is a right, and the vwo school may not turn you away for your knowledge or skills. Ask about exemptions, for example for CKV and maatschappijleer.",
-              "src": [
-                "rijksoverheid_overstappen_bovenbouw",
-                "vo_raad_moving_from_vmbo_to_havo_and_fro",
-                "stb_2020_121"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "havo 3 passed",
-                  "c": "havo"
-                },
-                {
-                  "l": "mbo 2, 3 or 4",
-                  "c": "mbo"
-                }
-              ],
-              "text": "Proof that you passed the first 3 years is enough. It also works from a later year or with a havo diploma. Ask the college which document it wants.",
-              "src": [
-                "mboRijks"
-              ],
-              "checked": "2026-11-25"
-            }
-          ]
+          "title": "From havo"
         },
         {
           "id": "vwo",
-          "title": "From vwo",
-          "cards": [
-            {
-              "route": [
-                {
-                  "l": "vwo, first years",
-                  "c": "vwo"
-                },
-                {
-                  "l": "havo, first years",
-                  "c": "havo"
-                }
-              ],
-              "text": "Moving down a level in the first years is sometimes possible. The school decides.",
-              "src": [
-                "vo_raad_moving_from_vmbo_to_havo_and_fro"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "vwo, upper years",
-                  "c": "vwo"
-                },
-                {
-                  "l": "havo, upper years",
-                  "c": "havo"
-                }
-              ],
-              "text": "Possible. There are no fixed rules. The school checks which grades and exams you can keep.",
-              "src": [
-                "rijksoverheid_overstappen_bovenbouw"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "vwo 3 passed",
-                  "c": "vwo"
-                },
-                {
-                  "l": "mbo 2, 3 or 4",
-                  "c": "mbo"
-                }
-              ],
-              "text": "Proof that you passed the first 3 years is enough. It also works from a later year or with a vwo diploma. Ask the college which document it wants.",
-              "src": [
-                "mboRijks"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "vwo diploma",
-                  "c": "vwo"
-                },
-                {
-                  "l": "hbo bachelor or associate degree",
-                  "c": "hbo"
-                }
-              ],
-              "text": "A vwo diploma gives the right to enter hbo. Some programmes also ask for particular subjects.",
-              "src": [
-                "rijksoverheid_which_diplomas_give_access",
-                "schema"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "IB Diploma",
-                  "c": "ib"
-                },
-                {
-                  "l": "hbo or wo",
-                  "c": "wo"
-                }
-              ],
-              "text": "Nuffic compares the full IB Diploma with a vwo diploma. The programme can still ask for particular subjects or grades, for example in maths.",
-              "src": [
-                "nuffic_ib_level"
-              ],
-              "checked": "2026-11-25"
-            }
-          ]
+          "title": "From vwo"
         },
         {
           "id": "mbo",
-          "title": "From mbo",
-          "cards": [
-            {
-              "route": [
-                {
-                  "l": "mbo 4 diploma",
-                  "c": "mbo"
-                },
-                {
-                  "l": "hbo bachelor",
-                  "c": "hbo"
-                }
-              ],
-              "text": "A level 4 diploma gives the right to enter hbo. Some programmes also ask for particular subjects or skills.",
-              "src": [
-                "rijksoverheid_which_diplomas_give_access",
-                "schema"
-              ],
-              "checked": "2026-11-25"
-            }
-          ]
+          "title": "From mbo"
         },
         {
           "id": "hbo",
-          "title": "From hbo",
-          "cards": [
-            {
-              "route": [
-                {
-                  "l": "hbo first year (propedeuse)",
-                  "c": "hbo"
-                },
-                {
-                  "l": "wo bachelor",
-                  "c": "wo"
-                }
-              ],
-              "text": "A completed first year gives admission, so no entrance exam is needed. Some programmes also ask for particular subjects, and some select.",
-              "src": [
-                "rijksoverheid_which_diplomas_give_access",
-                "uva_colloquium_doctum"
-              ],
-              "checked": "2026-11-25"
-            },
-            {
-              "route": [
-                {
-                  "l": "hbo bachelor",
-                  "c": "hbo"
-                },
-                {
-                  "l": "pre-master",
-                  "c": "wo"
-                },
-                {
-                  "l": "wo master",
-                  "c": "wo"
-                }
-              ],
-              "text": "You usually take a bridging programme (pre-master) first. Length and cost differ per programme, and selection is possible.",
-              "src": [
-                "sk123",
-                "schema"
-              ],
-              "checked": "2026-11-25"
-            }
-          ]
+          "title": "From hbo"
         }
       ]
     }

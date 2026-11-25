@@ -1,0 +1,949 @@
+{
+ "title": "Dutch School Guide: education routes",
+ "about": "Every way a child can move through the Dutch school system that this guide shows. Each edge carries its official sources and the date it was last checked. Prose is English only.",
+ "version": 1,
+ "licence": "Open data. Reuse freely and say where it came from: dutchschoolguide.com.",
+ "kinds": {
+  "standard": "Usual route drawn in the main diagram.",
+  "right": "The pupil has a right to move this way if the stated conditions are met.",
+  "school_decides": "Possible, but the school decides.",
+  "conditional": "Possible when conditions or selection are met."
+ },
+ "stages": [
+  {
+   "id": "primary",
+   "label": "Primary school"
+  },
+  {
+   "id": "secondary",
+   "label": "Secondary school"
+  },
+  {
+   "id": "mbo",
+   "label": "mbo"
+  },
+  {
+   "id": "hbo",
+   "label": "hbo"
+  },
+  {
+   "id": "wo",
+   "label": "wo"
+  },
+  {
+   "id": "phd",
+   "label": "PhD"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "groep8",
+   "label": "Primary, year group 8 (school advice)",
+   "stage": "primary",
+   "rank": 0,
+   "track": "bo",
+   "box": "groep8"
+  },
+  {
+   "id": "pro",
+   "label": "praktijk",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro"
+  },
+  {
+   "id": "pro-1",
+   "label": "praktijk 1",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro",
+   "parent": "pro"
+  },
+  {
+   "id": "pro-2",
+   "label": "praktijk 2",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro",
+   "parent": "pro"
+  },
+  {
+   "id": "pro-3",
+   "label": "praktijk 3",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro",
+   "parent": "pro"
+  },
+  {
+   "id": "pro-4",
+   "label": "praktijk 4",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro",
+   "parent": "pro"
+  },
+  {
+   "id": "pro-5",
+   "label": "praktijk 5",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "pro",
+   "box": "pro",
+   "parent": "pro"
+  },
+  {
+   "id": "vmbo",
+   "label": "vmbo",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo"
+  },
+  {
+   "id": "vmbo-1",
+   "label": "vmbo 1",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "vmbo-2",
+   "label": "vmbo 2",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "vmbo-3",
+   "label": "vmbo 3",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "vmbo-4",
+   "label": "vmbo 4",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "havo",
+   "label": "havo",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo"
+  },
+  {
+   "id": "havo-1",
+   "label": "havo 1",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-2",
+   "label": "havo 2",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-3",
+   "label": "havo 3",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-4",
+   "label": "havo 4",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-5",
+   "label": "havo 5",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "vwo",
+   "label": "vwo",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo"
+  },
+  {
+   "id": "vwo-1",
+   "label": "vwo 1",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-2",
+   "label": "vwo 2",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-3",
+   "label": "vwo 3",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-4",
+   "label": "vwo 4",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-5",
+   "label": "vwo 5",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-6",
+   "label": "vwo 6",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vmbo-early",
+   "label": "vmbo, first years",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vbk",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "vmbo-gt-diploma",
+   "label": "vmbo gl/tl diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vgt",
+   "box": "vmbo",
+   "parent": "vmbo"
+  },
+  {
+   "id": "havo-early",
+   "label": "havo, first years",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-upper",
+   "label": "havo, upper years",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-3-passed",
+   "label": "havo 3 passed",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-diploma",
+   "label": "havo diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "havo-5-diploma",
+   "label": "havo 5 diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "havo",
+   "box": "havo",
+   "parent": "havo"
+  },
+  {
+   "id": "vwo-early",
+   "label": "vwo, first years",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-upper",
+   "label": "vwo, upper years",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-3-passed",
+   "label": "vwo 3 passed",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-diploma",
+   "label": "vwo diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "vwo-6-diploma",
+   "label": "vwo 6 diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "vwo",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "ib-diploma",
+   "label": "IB Diploma",
+   "stage": "secondary",
+   "rank": 1,
+   "track": "ib",
+   "box": "vwo",
+   "parent": "vwo"
+  },
+  {
+   "id": "mbo",
+   "label": "mbo",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo"
+  },
+  {
+   "id": "mbo-1",
+   "label": "mbo level 1",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "box": "mbo-1",
+   "parent": "mbo"
+  },
+  {
+   "id": "mbo-2",
+   "label": "mbo level 2",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "box": "mbo-2",
+   "parent": "mbo"
+  },
+  {
+   "id": "mbo-3",
+   "label": "mbo level 3",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "box": "mbo-3",
+   "parent": "mbo"
+  },
+  {
+   "id": "mbo-4",
+   "label": "mbo level 4",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "box": "mbo-4",
+   "parent": "mbo"
+  },
+  {
+   "id": "mbo-2-4",
+   "label": "mbo 2, 3 or 4",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "parent": "mbo"
+  },
+  {
+   "id": "mbo-4-diploma",
+   "label": "mbo 4 diploma",
+   "stage": "mbo",
+   "rank": 2,
+   "track": "mbo",
+   "box": "mbo-4",
+   "parent": "mbo"
+  },
+  {
+   "id": "hbo-ad",
+   "label": "hbo associate degree",
+   "stage": "hbo",
+   "rank": 3,
+   "track": "hbo",
+   "box": "hbo-ad"
+  },
+  {
+   "id": "hbo-ba",
+   "label": "hbo bachelor",
+   "stage": "hbo",
+   "rank": 3,
+   "track": "hbo",
+   "box": "hbo-ba"
+  },
+  {
+   "id": "hbo-propedeuse",
+   "label": "hbo first year (propedeuse)",
+   "stage": "hbo",
+   "rank": 3,
+   "track": "hbo",
+   "box": "hbo-ba",
+   "parent": "hbo-ba"
+  },
+  {
+   "id": "hbo-ba-or-ad",
+   "label": "hbo bachelor or associate degree",
+   "stage": "hbo",
+   "rank": 3,
+   "track": "hbo"
+  },
+  {
+   "id": "hbo-ma",
+   "label": "hbo master",
+   "stage": "hbo",
+   "rank": 4,
+   "track": "hbo",
+   "box": "hbo-ma"
+  },
+  {
+   "id": "wo-ba",
+   "label": "wo bachelor",
+   "stage": "wo",
+   "rank": 3,
+   "track": "wo",
+   "box": "wo-ba"
+  },
+  {
+   "id": "premaster",
+   "label": "pre-master",
+   "stage": "wo",
+   "rank": 3,
+   "track": "wo",
+   "box": "wo-ba",
+   "parent": "wo-ba"
+  },
+  {
+   "id": "hbo-or-wo",
+   "label": "hbo or wo",
+   "stage": "wo",
+   "rank": 3,
+   "track": "wo"
+  },
+  {
+   "id": "wo-ma",
+   "label": "wo master",
+   "stage": "wo",
+   "rank": 4,
+   "track": "wo",
+   "box": "wo-ma"
+  },
+  {
+   "id": "phd",
+   "label": "PhD",
+   "stage": "phd",
+   "rank": 5,
+   "track": "phd",
+   "box": "phd"
+  }
+ ],
+ "edges": [
+  {
+   "id": "std-groep8-pro",
+   "from": "groep8",
+   "to": "pro",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Primary school leads, after school advice, to practical education, vmbo, havo or vwo.",
+   "sources": [
+    "advies",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M70 184V230",
+    "dashed": false,
+    "layer": "under"
+   }
+  },
+  {
+   "id": "std-groep8-vmbo",
+   "from": "groep8",
+   "to": "vmbo",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Primary school leads, after school advice, to practical education, vmbo, havo or vwo.",
+   "sources": [
+    "advies",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M150 184V230",
+    "dashed": false,
+    "layer": "under"
+   }
+  },
+  {
+   "id": "std-groep8-havo",
+   "from": "groep8",
+   "to": "havo",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Primary school leads, after school advice, to practical education, vmbo, havo or vwo.",
+   "sources": [
+    "advies",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M230 184V230",
+    "dashed": false,
+    "layer": "under"
+   }
+  },
+  {
+   "id": "std-groep8-vwo",
+   "from": "groep8",
+   "to": "vwo",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Primary school leads, after school advice, to practical education, vmbo, havo or vwo.",
+   "sources": [
+    "advies",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M310 184V230",
+    "dashed": false,
+    "layer": "under"
+   }
+  },
+  {
+   "id": "std-pro-mbo",
+   "from": "pro",
+   "to": "mbo",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Conditions, selection or a school decision apply.",
+   "sources": [
+    "mboRijks",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M70 352V424",
+    "dashed": true,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-vmbo-mbo",
+   "from": "vmbo",
+   "to": "mbo",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "The diploma normally gives the right to move on.",
+   "sources": [
+    "mboRijks",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M150 332V424",
+    "dashed": false,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-havo-hbo",
+   "from": "havo",
+   "to": "hbo-ba",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "The diploma normally gives the right to move on.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M230 352V424",
+    "dashed": false,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-vwo-wo",
+   "from": "vwo",
+   "to": "wo-ba",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "The diploma normally gives the right to move on.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M310 372V424",
+    "dashed": false,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-hbo-ba-ma",
+   "from": "hbo-ba",
+   "to": "hbo-ma",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Bachelor to master can involve selection.",
+   "sources": [
+    "sk123",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M244 523V543",
+    "dashed": true,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-wo-ba-ma",
+   "from": "wo-ba",
+   "to": "wo-ma",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Bachelor to master can involve selection.",
+   "sources": [
+    "sk123",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M314 503V525",
+    "dashed": true,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-wo-ma-phd",
+   "from": "wo-ma",
+   "to": "phd",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "Master to PhD can involve selection.",
+   "sources": [
+    "study_in_nl_phd",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M314 567V589",
+    "dashed": true,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "std-mbo-4-hbo",
+   "from": "mbo-4",
+   "to": "hbo-ba",
+   "kind": "standard",
+   "shown": "diagram",
+   "condition": "A level 4 diploma normally gives the right to enter hbo.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "schema"
+   ],
+   "checked": "2026-11-10",
+   "diagram": {
+    "path": "M157 523V549",
+    "dashed": false,
+    "layer": "late"
+   }
+  },
+  {
+   "id": "card-vmbo-early-havo-early",
+   "from": "vmbo-early",
+   "to": "havo-early",
+   "kind": "school_decides",
+   "shown": "card",
+   "group": "vmbo",
+   "condition": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
+   "sources": [
+    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vmbo-gt-havo-4",
+   "from": "vmbo-gt-diploma",
+   "to": "havo-4",
+   "kind": "conditional",
+   "shown": "card",
+   "group": "vmbo",
+   "condition": "You need one extra general exam subject (not a vocational one). Then the havo school may not turn you away for your knowledge or skills. Without it, the havo school decides. This right exists since 1 August 2020.",
+   "sources": [
+    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "wetten_uitvoeringsbesluit_wvo_2020",
+    "stb_2020_121"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vmbo-gt-to-vwo-6",
+   "from": "vmbo-gt-diploma",
+   "to": "vwo-6-diploma",
+   "via": [
+    "havo-4",
+    "havo-5-diploma",
+    "vwo-5"
+   ],
+   "kind": "conditional",
+   "shown": "card",
+   "group": "vmbo",
+   "condition": "No year is repeated. The number 4 comes twice because vmbo and havo each count their own years. It is 4 years of vmbo, 2 of havo and 2 of vwo: 8 years in all, against 6 years straight through vwo.",
+   "sources": [
+    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "wetten_uitvoeringsbesluit_wvo_2020",
+    "stb_2020_121",
+    "rijksoverheid_overstappen_bovenbouw"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-havo-early-vwo-early",
+   "from": "havo-early",
+   "to": "vwo-early",
+   "kind": "school_decides",
+   "shown": "card",
+   "group": "havo",
+   "condition": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
+   "sources": [
+    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-havo-upper-vwo-upper",
+   "from": "havo-upper",
+   "to": "vwo-upper",
+   "kind": "school_decides",
+   "shown": "card",
+   "group": "havo",
+   "condition": "Switching inside the upper years is possible. Ask the vwo school what it requires.",
+   "sources": [
+    "rijksoverheid_overstappen_bovenbouw"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-havo-diploma-vwo-5",
+   "from": "havo-diploma",
+   "to": "vwo-5",
+   "kind": "right",
+   "shown": "card",
+   "group": "havo",
+   "condition": "This is a right, and the vwo school may not turn you away for your knowledge or skills. Ask about exemptions, for example for CKV and maatschappijleer.",
+   "sources": [
+    "rijksoverheid_overstappen_bovenbouw",
+    "vo_raad_moving_from_vmbo_to_havo_and_fro",
+    "stb_2020_121"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-havo-3-mbo",
+   "from": "havo-3-passed",
+   "to": "mbo-2-4",
+   "kind": "right",
+   "shown": "card",
+   "group": "havo",
+   "condition": "Proof that you passed the first 3 years is enough. It also works from a later year or with a havo diploma. Ask the college which document it wants.",
+   "sources": [
+    "mboRijks"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vwo-early-havo-early",
+   "from": "vwo-early",
+   "to": "havo-early",
+   "kind": "school_decides",
+   "shown": "card",
+   "group": "vwo",
+   "condition": "Moving down a level in the first years is sometimes possible. The school decides.",
+   "sources": [
+    "vo_raad_moving_from_vmbo_to_havo_and_fro"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vwo-upper-havo-upper",
+   "from": "vwo-upper",
+   "to": "havo-upper",
+   "kind": "school_decides",
+   "shown": "card",
+   "group": "vwo",
+   "condition": "Possible. There are no fixed rules. The school checks which grades and exams you can keep.",
+   "sources": [
+    "rijksoverheid_overstappen_bovenbouw"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vwo-3-mbo",
+   "from": "vwo-3-passed",
+   "to": "mbo-2-4",
+   "kind": "right",
+   "shown": "card",
+   "group": "vwo",
+   "condition": "Proof that you passed the first 3 years is enough. It also works from a later year or with a vwo diploma. Ask the college which document it wants.",
+   "sources": [
+    "mboRijks"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-vwo-diploma-hbo",
+   "from": "vwo-diploma",
+   "to": "hbo-ba-or-ad",
+   "kind": "right",
+   "shown": "card",
+   "group": "vwo",
+   "condition": "A vwo diploma gives the right to enter hbo. Some programmes also ask for particular subjects.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "schema"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-ib-hbo-wo",
+   "from": "ib-diploma",
+   "to": "hbo-or-wo",
+   "kind": "conditional",
+   "shown": "card",
+   "group": "vwo",
+   "condition": "Nuffic compares the full IB Diploma with a vwo diploma. The programme can still ask for particular subjects or grades, for example in maths.",
+   "sources": [
+    "nuffic_ib_level"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-mbo-4-hbo",
+   "from": "mbo-4-diploma",
+   "to": "hbo-ba",
+   "kind": "right",
+   "shown": "card",
+   "group": "mbo",
+   "condition": "A level 4 diploma gives the right to enter hbo. Some programmes also ask for particular subjects or skills.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "schema"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-hbo-propedeuse-wo",
+   "from": "hbo-propedeuse",
+   "to": "wo-ba",
+   "kind": "right",
+   "shown": "card",
+   "group": "hbo",
+   "condition": "A completed first year gives admission, so no entrance exam is needed. Some programmes also ask for particular subjects, and some select.",
+   "sources": [
+    "rijksoverheid_which_diplomas_give_access",
+    "uva_colloquium_doctum"
+   ],
+   "checked": "2026-11-25"
+  },
+  {
+   "id": "card-hbo-premaster-wo-ma",
+   "from": "hbo-ba",
+   "to": "wo-ma",
+   "via": [
+    "premaster"
+   ],
+   "kind": "conditional",
+   "shown": "card",
+   "group": "hbo",
+   "condition": "You usually take a bridging programme (pre-master) first. Length and cost differ per programme, and selection is possible.",
+   "sources": [
+    "sk123",
+    "schema"
+   ],
+   "checked": "2026-11-25"
+  }
+ ]
+}
