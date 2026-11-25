@@ -1464,6 +1464,15 @@
       "none": "No other routes start here.",
       "boxAria": "{name}. Show the routes that start here."
     },
+    "openSummary": "Open data: every route as a file",
+    "readMore": "Read more",
+    "jump": {
+      "aria": "Jump to a part of this page",
+      "chart": "Chart",
+      "advice": "Advice",
+      "other": "Other ways",
+      "sources": "Sources"
+    },
     "openTitle": "Open data",
     "openText": "Every route on this page is stored in one data file. Each rule carries its official source and the date we last checked it. The .mmd file is a flowchart of the same routes: paste it into any Mermaid viewer to see it drawn. Corrections are welcome through Report an error above.",
     "openJson": "Routes as data (routes.json)",
@@ -1514,6 +1523,12 @@
     "moves": {
       "intro": "The chart shows the usual routes. These are the other ways. Rules are short here, and the school or programme decides the details.",
       "routeAria": "Route",
+      "count": {
+        "one": "{n} route",
+        "other": "{n} routes"
+      },
+      "srcSummary": "Sources and date",
+      "leadsTo": "Leads to",
       "then": "then",
       "groups": [
         {

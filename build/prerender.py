@@ -711,14 +711,20 @@ class Build:
             cards = [c for c in RL.cards(self.routes) if c["group"] == g["id"]]
             if not cards:
                 continue
-            o.append(f'<section class="mgrp" aria-labelledby="mg-{e(g["id"])}"><h3 id="mg-{e(g["id"])}">{e(g["title"])}</h3><ul class="mcards">')
+            nd = {n["id"]: n for n in self.routes["nodes"]}
+            tos = []
+            for c in cards:
+                if c["to"] not in tos:
+                    tos.append(c["to"])
+            chips = "".join(f'<span class="rchip c-{e(nd[k]["track"])}">{e(nd[k]["label"])}</span>' for k in tos)
+            o.append(f'<section class="mgrp" aria-labelledby="mg-{e(g["id"])}"><details class="mdet" data-grp="{e(g["id"])}"><summary><span class="mgl"><h3 id="mg-{e(g["id"])}">{e(g["title"])}</h3><span aria-hidden="true"> &middot; </span><span class="sr">, </span><span class="mgn">{e(self.t("sys.moves.count", n=len(cards)))}</span></span><span class="mgchips"><span class="sr">{e(M["leadsTo"])} </span>{chips}</span></summary><ul class="mcards">')
             for c in cards:
                 o.append(f'<li class="mcard" data-edge="{e(c["id"])}" data-kind="{e(c["kind"])}"><ol class="route" aria-label="{e(M["routeAria"])}">')
                 for i, s in enumerate(RL.chip_nodes(self.routes, c)):
                     arr = f'<span class="rarr"><span aria-hidden="true">\u2192</span><span class="sr">{e(M["then"])}</span></span>' if i else ""
                     o.append(f'<li class="rstep">{arr}<span class="rchip c-{e(s["track"])}">{e(s["label"])}</span></li>')
-                o.append(f'</ol><p class="mtext">{e(c["condition"])}</p>{self.src_line(c["sources"])}{self.checked_p(c["checked"])}</li>')
-            o.append("</ul></section>")
+                o.append(f'</ol><p class="mtext">{e(c["condition"])}</p><details class="msrc"><summary>{e(M["srcSummary"])}</summary>{self.src_line(c["sources"])}{self.checked_p(c["checked"])}</details></li>')
+            o.append("</ul></details></section>")
         return "".join(o)
 
     def open_data_html(self):

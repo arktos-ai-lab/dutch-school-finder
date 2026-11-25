@@ -129,8 +129,9 @@
   <section id="p-system"<!--@hide:system-->>
     <h2 class="vh" data-i18n="sys.heading"></h2>
     <p style="max-width:62ch" data-i18n="sys.intro"></p>
+    <nav class="jumpbar" data-i18n-attr="aria-label:sys.jump.aria"><a class="chip" href="#sys-chart" data-i18n="sys.jump.chart"></a><a class="chip" href="#sys-advice" data-i18n="sys.jump.advice"></a><a class="chip" href="#h-moves" data-i18n="sys.jump.other"></a><a class="chip" href="#syssrc" data-i18n="sys.jump.sources"></a></nav>
     <div class="sysgrid">
-      <figure class="sysfig" style="margin:0">
+      <figure class="sysfig" id="sys-chart" style="margin:0">
         <h2 class="sr" data-i18n="sys.hDiagram"></h2>
         <div id="sysfig"><!--@sysfig--></div>
         <div class="sysctl" id="sysctl" hidden></div>
@@ -138,8 +139,8 @@
       <div>
         <h2 class="sysh" data-i18n="sys.hKey"></h2>
         <ul class="keys" id="syskeys" data-i18n-attr="aria-label:sys.keyAria"><!--@syskeys--></ul>
-        <div class="callout" role="note"><b data-i18n="sys.adviceNote.title"></b><p data-i18n="sys.adviceNote.text"></p><p style="margin-top:.6em" data-i18n="sys.adviceNote.text2"></p></div>
-        <div class="callout" role="note" style="border-left-style:dashed"><b data-i18n="sys.realRoutes.title"></b><p data-i18n="sys.realRoutes.one"></p><p data-i18n="sys.realRoutes.two"></p><p class="note" style="margin-top:.4em" data-i18n="sys.realRoutes.note"></p></div>
+        <div class="callout" id="sys-advice" role="note"><b data-i18n="sys.adviceNote.title"></b><p data-i18n="sys.adviceNote.text"></p><details class="fold"><summary data-i18n="sys.readMore"></summary><p style="margin-top:.6em" data-i18n="sys.adviceNote.text2"></p></details></div>
+        <details class="callout fold" style="border-left-style:dashed"><summary data-i18n="sys.realRoutes.title"></summary><p data-i18n="sys.realRoutes.one"></p><p data-i18n="sys.realRoutes.two"></p><p class="note" style="margin-top:.4em" data-i18n="sys.realRoutes.note"></p></details>
         <p class="note" style="margin-top:0" data-i18n="sys.arrowNote"></p>
         <p class="src" id="syssrc"><!--@syssrc--></p>
         <p class="src" id="sysrpt"><!--@sysrpt--></p>
@@ -149,11 +150,11 @@
       <h2 class="sysh" id="h-moves" data-i18n="sys.hOther"></h2>
       <div id="moves"><!--@moves--></div>
     </section>
-    <section class="opendata" aria-labelledby="h-open">
-      <h2 class="sysh" id="h-open" data-i18n="sys.openTitle"></h2>
+    <details class="opendata callout fold">
+      <summary data-i18n="sys.openSummary"></summary>
       <p data-i18n="sys.openText"></p>
       <p id="sysopen"><!--@sysopen--></p>
-    </section>
+    </details>
   </section>
 
   <section id="p-faq"<!--@hide:faq-->>
