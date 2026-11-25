@@ -19,6 +19,8 @@ Everything runs in the browser from precomputed open data. Nothing you enter is 
 | `build/international_schools.json` | verified names and website addresses of international schools per city, with source and check date |
 | `build/content_dates.json` | fingerprint and date per content page, source of the sitemap `lastmod` (rewritten by the build when a page changes: commit it) |
 | `site/fonts/` | self-hosted woff2 fonts (SIL OFL licences included) |
+| `data/routes.json` | every education route (nodes and edges with kind, sources and check date): the one source for the system diagram arrows, the "Other ways through" cards and the flowchart. Published as `/data/routes.json`, with `/data/routes.mmd` (Mermaid) generated from it |
+| `build/routes_lib.py` | validation of `data/routes.json` and the Mermaid generator; `check_site.py` runs it and fails the build on a missing source, bad date, unknown node or kind, or a standard edge that does not point forward |
 | `build/check_site.py` | link, id, heading, head-tag, JSON-LD and sitemap checker for a built `_site/` |
 | `pipeline/` | open-data pipeline that builds `pipeline/out/*.json` (see `pipeline/README.md`) |
 | `.github/workflows/pages.yml` | runs `python -I build/prerender.py` and deploys `_site/` to GitHub Pages |
