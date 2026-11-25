@@ -5,64 +5,230 @@
   "title": "School advice and the Cito test: doorstroomtoets 2026-27",
   "desc": "The school advice in group 8 is the starting point for your child's secondary level. The Cito end test is now the doorstroomtoets. Dates for 2026-27 and next steps.",
   "h1": "School advice and the doorstroomtoets (the old Cito test)",
-  "lede": "In group 8 the primary school gives a school advice (schooladvies) that is the starting point for the level of secondary school. A secondary school may not place your child lower, and may place your child higher if it agrees. The doorstroomtoets, which parents still call the Cito test, can raise the advice but does not decide it.",
+  "lede": "In group 8 the primary school gives a school advice (schooladvies) that is the starting point for the level of secondary school. A secondary school may not place your child lower, and may choose to place your child higher, but that is not a right. The doorstroomtoets, which parents still call the Cito test, can raise the advice but does not decide it.",
   "checked": "2026-11-25",
   "sections": [
-    {"id": "what-it-is", "h": "What the advice and the test are", "blocks": [
-      {"p": "In the last year of primary school (group 8, age 11 to 12) the school gives a <b>school advice</b> (schooladvies). It says which level of secondary school fits your child, for example vmbo, havo or vwo. The school builds it on your child's whole record: observations in class, work attitude, progress over the years, test results and talks with your child and with you."},
-      {"p": "Parents often say \"the Cito\". That was the old end test (eindtoets). Since the school year 2023-24 it is called the <b>doorstroomtoets</b>: a compulsory transition test in language and arithmetic that every pupil in group 8 takes. Cito is now one of several companies that make an approved test. It is not a pass or fail exam. It gives a second opinion, called the test advice (toetsadvies), next to the school's own judgement."},
-      {"p": "Each school picks one provider for all its pupils. For 2026-27 the approved tests are the Dia-toets, the IEP-doorstroomtoets, the Cito Leerling in beeld doorstroomtoets, the Route 8-doorstroomtoets and the government's own DOE-toets. State-funded schools do not pay for the test."},
-      {"p": "For a child with a disability, the school may use an adapted test from another provider. Ask the school."}
-    ]},
-    {"id": "timeline", "h": "The timeline for 2026-27", "blocks": [
-      {"table": {"caption": "Group 8 in the school year 2026-27, according to the Rijksoverheid timeline", "head": ["When", "What happens"], "rows": [
-        ["10 to 31 January 2027", "The school gives a provisional advice (voorlopig advies) and talks to you."],
-        ["25 January to 12 February 2027", "Your child takes the doorstroomtoets, in one or two half-days."],
-        ["No later than 24 March 2027", "The school gives the final advice (definitief advies)."],
-        ["25 to 31 March 2027", "Central registration week: you register your child at a secondary school."],
-        ["From 1 April 2027", "Placement starts. The secondary school decides within 6 weeks of registration and no later than 12 May 2027."]
-      ]}},
-      {"note": "Some regions let schools open registration earlier, but only for pupils with a final advice, and it gives no advantage: anyone registered before 1 April counts as registered on 31 March. If a school is late with its decision it must tell you and decide no later than 9 June 2027. Ask your child's school which date applies to you."}
-    ]},
-    {"id": "can-it-go-up", "h": "Can the advice go up?", "blocks": [
-      {"p": "Yes. If the test advice is higher than the provisional advice, the primary school should raise the advice to the test level. It may keep the lower advice only if it judges the change is not in your child's interest, and then it must explain why. If the gap is more than half a level, the school may also pick a level in between and explain that choice."},
-      {"p": "The rules describe the test as a reason to raise the advice. They do not say it lowers it."}
-    ]},
-    {"id": "advice-decides", "h": "How the advice sets the level", "blocks": [
-      {"p": "A secondary school must place your child at least at the level of the final advice. If it has several suitable classes, it chooses which one. A primary school may give an advice for one school type or for two, such as havo and vwo. Secondary schools may not ask the primary school for an advice for one type only."},
-      {"p": "Lotteries and sign-up rules differ per city. See [how the secondary lottery works](/questions/secondary-lottery-cities/) and [how the advice works](/questions/school-advice-how-it-works/)."}
-    ]},
-    {"id": "not-final-word", "h": "The advice is not the final word", "blocks": [
-      {"p": "The advice is the starting point. A secondary school may not place your child below it. It may place your child above it, but that is not a right. The school decides, so you have to ask and explain why."},
-      {"p": "Schools differ. Some have a combined first year, such as havo and vwo or vmbo-t and havo. That keeps more options open, because the school looks again later. A child with a double advice can always be registered for the higher of the two levels. The school still chooses the class."},
-      {"p": "Before school year 2014-15 the rules were different: secondary schools decided on admission themselves and often went by the Cito test score. Stories from people who started secondary school before then may not apply today."},
-      {"p": "The advice can also go up after a higher doorstroomtoets result, as described above. And a child can still move up later. See Other ways through on [the whole system on one page](/system/)."},
-      {"say": "Our child has a havo advice. Would you consider a place in a havo/vwo class? What would you want to see?"}
-    ]},
-    {"id": "your-role", "h": "What you can do", "blocks": [
-      {"say": "Which results and observations is the advice based on, and what would change it?"},
-      {"steps": [
-        "Go to the advice talk in January with questions ready, and ask for the reasons in writing.",
-        "If you hope for a higher level than the advice, ask the secondary schools you like whether they place children above the advice, and what they look at.",
-        "If your child is new to Dutch, say so. Ask how the school weighs language when it reads the test.",
-        "If you disagree, first talk to the teacher or the school leader.",
-        "If that does not help, file a complaint with the school's complaints committee. The school guide (schoolgids) describes how."
-      ]},
-      {"p": "Independent assessments exist, but cost and insurance cover vary, so ask before you book. For a first look at schools and levels, use the [route finder](/) and read about [children who arrive without Dutch](/questions/without-dutch/)."},
-      {"p": "In July 2026 the government said it wants every pupil to take the same test, from one provider, from the school year 2029-30. That is a plan, not yet a rule, and it changes nothing for 2026-27."}
-    ]}
+    {
+      "id": "what-it-is",
+      "h": "What the advice and the test are",
+      "blocks": [
+        {
+          "p": "In the last year of primary school (group 8, age 11 to 12) the school gives a <b>school advice</b> (schooladvies). It says which level of secondary school fits your child, for example vmbo, havo or vwo. The school builds it on your child's whole record: observations in class, work attitude, progress over the years, test results and talks with your child and with you."
+        },
+        {
+          "p": "Parents often say \"the Cito\". That was the old end test (eindtoets). Since the school year 2023-24 it is called the <b>doorstroomtoets</b>: a compulsory transition test in language and arithmetic that every pupil in group 8 takes. Cito is now one of several companies that make an approved test. It is not a pass or fail exam. It gives a second opinion, called the test advice (toetsadvies), next to the school's own judgement."
+        },
+        {
+          "p": "Each school picks one provider for all its pupils. For 2026-27 the approved tests are the Dia-toets, the IEP-doorstroomtoets, the Cito Leerling in beeld doorstroomtoets, the Route 8-doorstroomtoets and the government's own DOE-toets. State-funded schools do not pay for the test."
+        },
+        {
+          "p": "For a child with a disability, the school may use an adapted test from another provider. Ask the school."
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "h": "The timeline for 2026-27",
+      "blocks": [
+        {
+          "table": {
+            "caption": "Group 8 in the school year 2026-27, according to the Rijksoverheid timeline",
+            "head": [
+              "When",
+              "What happens"
+            ],
+            "rows": [
+              [
+                "10 to 31 January 2027",
+                "The school gives a provisional advice (voorlopig advies) and talks to you."
+              ],
+              [
+                "25 January to 12 February 2027",
+                "Your child takes the doorstroomtoets, in one or two half-days."
+              ],
+              [
+                "No later than 24 March 2027",
+                "The school gives the final advice (definitief advies)."
+              ],
+              [
+                "25 to 31 March 2027",
+                "Central registration week: you register your child at a secondary school."
+              ],
+              [
+                "From 1 April 2027",
+                "Placement starts. The secondary school decides within 6 weeks of registration and no later than 12 May 2027."
+              ]
+            ]
+          }
+        },
+        {
+          "note": "Some regions let schools open registration earlier, but only for pupils with a final advice, and it gives no advantage: anyone registered before 1 April counts as registered on 31 March. If a school is late with its decision it must tell you and decide no later than 9 June 2027. Ask your child's school which date applies to you."
+        }
+      ]
+    },
+    {
+      "id": "can-it-go-up",
+      "h": "Can the advice go up?",
+      "blocks": [
+        {
+          "p": "Yes. If the test advice is higher than the provisional advice, the primary school should raise the advice to the test level. It may keep the lower advice only if it judges the change is not in your child's interest, and then it must explain why. If the gap is more than half a level, the school may also pick a level in between and explain that choice."
+        },
+        {
+          "p": "One exception: a practical education (praktijkonderwijs) advice is not raised when the test advice is practical education or vmbo-bb."
+        },
+        {
+          "p": "The advice can go up after the test, never down. Reconsidering after a higher test result has been required since the 2014-15 school year. Since the doorstroomtoets started in 2023-24, the test is taken earlier, in February, and raising the advice is the default rather than an option."
+        }
+      ]
+    },
+    {
+      "id": "advice-decides",
+      "h": "How the advice sets the level",
+      "blocks": [
+        {
+          "p": "Since the 2014-15 school year a secondary school must base its admission decision on the final advice. In practice it must place your child at least at the level of that advice. If it has several suitable classes, it chooses which one. A primary school may give an advice for one school type or for two, such as havo and vwo. Secondary schools may not ask the primary school for an advice for one type only."
+        },
+        {
+          "p": "A school can still turn your child down for other reasons: when it is full, or, at a school with a religious or philosophical basis, when parents will not respect that basis. Extra admission tests are not allowed, except at schools that need special skills, such as bilingual or top sport schools."
+        },
+        {
+          "p": "Lotteries and sign-up rules differ per city. See [how the secondary lottery works](/questions/secondary-lottery-cities/) and [how the advice works](/questions/school-advice-how-it-works/)."
+        }
+      ]
+    },
+    {
+      "id": "not-final-word",
+      "h": "The advice is not the final word",
+      "blocks": [
+        {
+          "p": "The advice is the starting point. A secondary school may not place your child below it. Some schools place a child above it, but the law gives you no right to this. The school decides, so you have to ask and explain why."
+        },
+        {
+          "p": "Schools differ. Some have a combined first year, such as havo and vwo or vmbo-t and havo. That keeps more options open, because the school looks again later. According to the Ministry of Education, a child with a double advice must be admitted on that advice, so you can register for the higher of the two levels. The school still chooses the class."
+        },
+        {
+          "p": "Before the 2014-15 school year the rules were different: a secondary school made its own admission decision, and some used the Cito score or their own entrance test. Stories from people who started secondary school before then may not apply today."
+        },
+        {
+          "p": "The advice can also go up after a higher doorstroomtoets result, as described above. And a child can still move up later: a vmbo-t or vmbo-gl diploma with one extra subject from the allowed list gives the right to havo 4, and a havo diploma gives the right to vwo 5. See Other ways through on [the whole system on one page](/system/)."
+        },
+        {
+          "say": "Our child has a havo advice. Would you consider a place in a havo/vwo class? What would you want to see?"
+        }
+      ]
+    },
+    {
+      "id": "no-dutch-advice",
+      "h": "Arriving from abroad, and objections",
+      "blocks": [
+        {
+          "p": "A child who comes from a school abroad has no Dutch school advice. The secondary school then bases admission on a doorstroomtoets result if there is one, and otherwise on its own assessment of what level suits your child. Ask the school how it does this."
+        },
+        {
+          "p": "If a secondary school refuses to admit your child, you can object to the school board within six weeks. If you disagree with the primary school's advice itself, talk to the school first and then use its complaints procedure."
+        },
+        {
+          "p": "A practical education advice does not on its own give admission: the school also needs a statement of eligibility (toelaatbaarheidsverklaring) from the regional support partnership (samenwerkingsverband)."
+        }
+      ]
+    },
+    {
+      "id": "your-role",
+      "h": "What you can do",
+      "blocks": [
+        {
+          "say": "Which results and observations is the advice based on, and what would change it?"
+        },
+        {
+          "steps": [
+            "Go to the advice talk in January with questions ready, and ask for the reasons in writing.",
+            "If you hope for a higher level than the advice, ask the secondary schools you like whether they place children above the advice, and what they look at.",
+            "If your child is new to Dutch, say so. Ask how the school weighs language when it reads the test.",
+            "If you disagree, first talk to the teacher or the school leader.",
+            "If that does not help, file a complaint with the school's complaints committee. The school guide (schoolgids) describes how."
+          ]
+        },
+        {
+          "p": "Independent assessments exist, but cost and insurance cover vary, so ask before you book. For a first look at schools and levels, use the [route finder](/) and read about [children who arrive without Dutch](/questions/without-dutch/)."
+        },
+        {
+          "p": "In July 2026 the government said it wants every pupil to take the same test, from one provider, from the school year 2029-30. That is a plan, not yet a rule, and it changes nothing for 2026-27."
+        }
+      ]
+    }
   ],
   "sources": [
-    {"label": "Rijksoverheid: timeline of the school advice 2027", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/tijdlijn-schooladvies-2027"},
-    {"label": "Rijksoverheid: why a doorstroomtoets (new name since 2023-24)", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/vraag-en-antwoord/waarom-doorstroomtoets"},
-    {"label": "Rijksoverheid: compulsory doorstroomtoets", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/verplichte-doorstroomtoets-basisonderwijs"},
-    {"label": "Rijksoverheid: approved doorstroomtoetsen", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/toegestane-doorstroomtoetsen-basisschool"},
-    {"label": "Rijksoverheid: admission to secondary school based on the final advice", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies"},
-    {"label": "Ministry of Education: letter to schools on the move from primary to secondary school, 15 February 2016 (higher placement allowed, lower not)", "url": "https://eerstekamer.nl/9370000/1/j4nvgs5kjg27kof_j9vvkfvj6b325az/vk4xq8094uyn"},
-    {"label": "Inspectie van het Onderwijs: facts and myths on the move from primary to secondary school (updated October 2024)", "url": "https://www.onderwijsinspectie.nl/binaries/onderwijsinspectie/documenten/rapporten/2022/04/19/feiten-en-fabels-in-de-overgang-van-po-naar-vo/FEITEN_EN_FABELS_IN_DE_OVERGANG_VAN_PO_NAAR_VO.pdf"},
-    {"label": "Rijksoverheid news, 2 July 2026: plan for one doorstroomtoets", "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/07/02/staatssecretaris-wil-van-zes-naar-een-doorstroomtoets"}
+    {
+      "label": "Rijksoverheid: timeline of the school advice 2027",
+      "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/tijdlijn-schooladvies-2027"
+    },
+    {
+      "label": "Rijksoverheid: why a doorstroomtoets (new name since 2023-24)",
+      "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/vraag-en-antwoord/waarom-doorstroomtoets"
+    },
+    {
+      "label": "Rijksoverheid: compulsory doorstroomtoets",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/verplichte-doorstroomtoets-basisonderwijs"
+    },
+    {
+      "label": "Rijksoverheid: approved doorstroomtoetsen",
+      "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/toegestane-doorstroomtoetsen-basisschool"
+    },
+    {
+      "label": "Rijksoverheid: admission to secondary school based on the final advice",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies"
+    },
+    {
+      "label": "Ministry of Education: letter to schools on the move from primary to secondary school, 15 February 2016 (higher placement allowed, lower not)",
+      "url": "https://eerstekamer.nl/9370000/1/j4nvgs5kjg27kof_j9vvkfvj6b325az/vk4xq8094uyn"
+    },
+    {
+      "label": "Inspectie van het Onderwijs: facts and myths on the move from primary to secondary school (updated October 2024)",
+      "url": "https://www.onderwijsinspectie.nl/binaries/onderwijsinspectie/documenten/rapporten/2022/04/19/feiten-en-fabels-in-de-overgang-van-po-naar-vo/FEITEN_EN_FABELS_IN_DE_OVERGANG_VAN_PO_NAAR_VO.pdf"
+    },
+    {
+      "label": "Rijksoverheid news, 2 July 2026: plan for one doorstroomtoets",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/07/02/staatssecretaris-wil-van-zes-naar-een-doorstroomtoets"
+    },
+    {
+      "label": "Law: Wet voortgezet onderwijs 2020, articles 8.6 (admission based on the final advice), 8.8 (decision and objection) and 8.9a (right to havo 4 and vwo 5)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0044212&artikel=8.6"
+    },
+    {
+      "label": "Law: Wet op het primair onderwijs, article 45d (raising the advice after the doorstroomtoets)",
+      "url": "https://wetten.overheid.nl/jci1.3:c:BWBR0003420&artikel=45d"
+    },
+    {
+      "label": "Explanatory memorandum to the Wet eindtoetsing PO (Kamerstuk 33157 nr. 3): the situation before 2014",
+      "url": "https://zoek.officielebekendmakingen.nl/kst-33157-3.html"
+    },
+    {
+      "label": "Toetsbesluit PO (Staatsblad 2014, 209): advice leading from 1 August 2014",
+      "url": "https://zoek.officielebekendmakingen.nl/stb-2014-209.html"
+    },
+    {
+      "label": "Staatsblad 2020, 171: conditions for moving from vmbo to havo 4 and from havo to vwo 5",
+      "url": "https://zoek.officielebekendmakingen.nl/stb-2020-171.html"
+    },
+    {
+      "label": "Kamerstuk 31289 nr. 272: double advice and placement above the advice",
+      "url": "https://zoek.officielebekendmakingen.nl/kst-31289-272.html"
+    }
   ],
-  "related_guides": ["choose-a-secondary-school", "repeating-a-year", "extra-support-passend-onderwijs"],
-  "related_questions": ["school-advice-how-it-works", "ask-about-the-advice", "vmbo-advice"],
-  "links": ["route", "find", "system", "sources"]
+  "related_guides": [
+    "choose-a-secondary-school",
+    "repeating-a-year",
+    "extra-support-passend-onderwijs"
+  ],
+  "related_questions": [
+    "school-advice-how-it-works",
+    "ask-about-the-advice",
+    "vmbo-advice"
+  ],
+  "links": [
+    "route",
+    "find",
+    "system",
+    "sources"
+  ]
 }
