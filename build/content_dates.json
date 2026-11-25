@@ -1,178 +1,178 @@
 {
  "": {
   "date": "2026-11-25",
-  "hash": "796b2a19c94c21e9"
+  "hash": "c889b7505f81e664"
  },
  "about/": {
   "date": "2026-11-25",
-  "hash": "03ce1cb15b38590b"
+  "hash": "a1ce9ce22139df45"
  },
  "contact/": {
   "date": "2026-11-25",
-  "hash": "e9255a2b1eb39842"
+  "hash": "a9c4e57fa8d206a5"
  },
  "find/": {
   "date": "2026-11-25",
-  "hash": "30f046b796ab04cd"
+  "hash": "cf583783245f13e8"
  },
  "guides/": {
   "date": "2026-11-25",
-  "hash": "e323a49d42e19f7c"
+  "hash": "683fcac5a716654a"
  },
  "guides/bullying-what-to-do/": {
   "date": "2026-11-25",
-  "hash": "aebde57ccf053ed6"
+  "hash": "87cc6261a826774e"
  },
  "guides/choose-a-primary-school/": {
   "date": "2026-11-25",
-  "hash": "4534f024745a92d4"
+  "hash": "3e41f9662761767d"
  },
  "guides/choose-a-secondary-school/": {
   "date": "2026-11-25",
-  "hash": "761376a8ae037b4f"
+  "hash": "8a24644c4800f5a4"
  },
  "guides/dutch-for-toddlers-vve/": {
   "date": "2026-11-25",
-  "hash": "1eab6760272d9e7d"
+  "hash": "f5cd5ebfe92f169a"
  },
  "guides/dutch-or-international-school/": {
   "date": "2026-11-25",
-  "hash": "7dfb1ee3dd5b5ed1"
+  "hash": "e5c5c5732bd5ccf0"
  },
  "guides/extra-support-passend-onderwijs/": {
   "date": "2026-11-25",
-  "hash": "219c7c3912a5ac76"
+  "hash": "cf92d6867c125a90"
  },
  "guides/international-school-admission/": {
   "date": "2026-11-25",
-  "hash": "7f17c18359a5ac72"
+  "hash": "5a8591c8a25f4156"
  },
  "guides/moving-with-a-teenager/": {
   "date": "2026-11-25",
-  "hash": "47b34ca28aec38eb"
+  "hash": "58ce9fb59aaf1606"
  },
  "guides/newcomer-classes-isk/": {
   "date": "2026-11-25",
-  "hash": "4035db5d389206d2"
+  "hash": "1d057f76f3179a0f"
  },
  "guides/repeating-a-year/": {
   "date": "2026-11-25",
-  "hash": "53053fd97c1e9cf9"
+  "hash": "21b488937fb92839"
  },
  "guides/school-advice-and-doorstroomtoets/": {
   "date": "2026-11-25",
-  "hash": "54fd6542bcbf68c5"
+  "hash": "f6907d7e83cbf4cd"
  },
  "guides/school-day-and-after-school-care/": {
   "date": "2026-11-25",
-  "hash": "7d3abf643a0d694a"
+  "hash": "72e4f6486b07a438"
  },
  "guides/school-holidays-and-leave/": {
   "date": "2026-11-25",
-  "hash": "cf29e27dbdb48768"
+  "hash": "bb850f0d15db8c3e"
  },
  "guides/types-of-schools/": {
   "date": "2026-11-25",
-  "hash": "1ed1e281e11f2130"
+  "hash": "4da0d933fd183cc3"
  },
  "guides/which-year-group/": {
   "date": "2026-11-25",
-  "hash": "012c44dac291b208"
+  "hash": "f1ad3daa7ba08aff"
  },
  "international/": {
   "date": "2026-11-25",
-  "hash": "e51e0a063614a4be"
+  "hash": "0ca5b767d8f068f3"
  },
  "international/amsterdam/": {
   "date": "2026-11-25",
-  "hash": "b32683e8ed482c85"
+  "hash": "3c4244c61503f86d"
  },
  "international/eindhoven/": {
   "date": "2026-11-25",
-  "hash": "d439ca549c27c6bb"
+  "hash": "9f733b34fcb45be4"
  },
  "international/groningen/": {
   "date": "2026-11-25",
-  "hash": "c40893c4e6f502a5"
+  "hash": "8fa225681f6c118b"
  },
  "international/leiden/": {
   "date": "2026-11-25",
-  "hash": "84779f75db658024"
+  "hash": "7edceec431fd3840"
  },
  "international/rotterdam/": {
   "date": "2026-11-25",
-  "hash": "2e1cb1d3c7973987"
+  "hash": "104660f6f5915b4e"
  },
  "international/the-hague/": {
   "date": "2026-11-25",
-  "hash": "f17d54f6ab858b4f"
+  "hash": "2afec56021f0e1e4"
  },
  "international/utrecht/": {
   "date": "2026-11-25",
-  "hash": "b8acc40689ff3b77"
+  "hash": "140ffbba63227e8b"
  },
  "map/": {
   "date": "2026-11-25",
-  "hash": "48a158d0594375ae"
+  "hash": "ace8d4f4ef6a58bf"
  },
  "municipalities/": {
   "date": "2026-11-25",
-  "hash": "2760bb3d58d927b2"
+  "hash": "6a69fe4792f1252a"
  },
  "questions/": {
   "date": "2026-11-25",
-  "hash": "5ff9bad48cd6ae1b"
+  "hash": "df2984c948201bce"
  },
  "questions/bsn-and-address/": {
   "date": "2026-11-25",
-  "hash": "12bc3dbd9e3302ca"
+  "hash": "bc6e68e0d5972ba6"
  },
  "questions/dutch-international-bilingual/": {
   "date": "2026-11-25",
-  "hash": "6c6b39fb51a3ffb5"
+  "hash": "2eb0eda9bd8e22e7"
  },
  "questions/ib-route/": {
   "date": "2026-11-25",
-  "hash": "f2fb2ca76ab68978"
+  "hash": "6cd18aa8477fb935"
  },
  "questions/international-school-costs/": {
   "date": "2026-11-25",
-  "hash": "e984fe1be160970a"
+  "hash": "b123ed686dce632a"
  },
  "questions/mid-year-arrival/": {
   "date": "2026-11-25",
-  "hash": "24d66c45b0d76da0"
+  "hash": "edc3eb54f57fc3e7"
  },
  "questions/ouderbijdrage-free-school/": {
   "date": "2026-11-25",
-  "hash": "8a395b30d273ec57"
+  "hash": "4aae7d92a1539319"
  },
  "questions/school-advice-how-it-works/": {
   "date": "2026-11-25",
-  "hash": "7d7d6d14dc10f4d7"
+  "hash": "9c1d7dda1b6ad3d0"
  },
  "questions/secondary-lottery-cities/": {
   "date": "2026-11-25",
-  "hash": "91eda5a0413c3772"
+  "hash": "d3f54fba94d5ce8b"
  },
  "questions/thirty-percent-ruling/": {
   "date": "2026-11-25",
-  "hash": "933fc89f4e36ba50"
+  "hash": "86e74204a2ca2ca7"
  },
  "questions/when-must-child-go/": {
   "date": "2026-11-25",
-  "hash": "27faaf6488f59039"
+  "hash": "5f6c666387637cf4"
  },
  "questions/without-dutch/": {
   "date": "2026-11-25",
-  "hash": "2e9f75a4d6c8ca71"
+  "hash": "7e1bfe6c03971ccb"
  },
  "sources/": {
   "date": "2026-11-25",
-  "hash": "d3e3c004996d0086"
+  "hash": "11b866bb56ac6548"
  },
  "system/": {
   "date": "2026-11-25",
-  "hash": "1d45ab9233efe72c"
+  "hash": "6b64308d0cb50bc5"
  }
 }

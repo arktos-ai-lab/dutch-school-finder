@@ -735,7 +735,7 @@ class Build:
             links.append(f'<a href="{e(self.src_url[key])}" target="_blank" rel="noopener">{e(t("src." + key))}</a>')
         syssrc = e(t("src.label")) + " " + " · ".join(links)
         return {"sysfig": self.system_svg(), "syskeys": keys, "moves": xf, "syssrc": syssrc,
-                "sysmmd": e(self.mmd), "sysopen": self.open_data_html()}
+                "sysopen": self.open_data_html()}
 
     # ------------------------------------------------------------ faq
     def faq_html(self):

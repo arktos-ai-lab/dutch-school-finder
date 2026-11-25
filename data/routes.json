@@ -526,7 +526,7 @@
     "advies",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M70 184V230",
     "dashed": false,
@@ -544,7 +544,7 @@
     "advies",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M150 184V230",
     "dashed": false,
@@ -562,7 +562,7 @@
     "advies",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M230 184V230",
     "dashed": false,
@@ -580,7 +580,7 @@
     "advies",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M310 184V230",
     "dashed": false,
@@ -616,7 +616,7 @@
     "mboRijks",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M150 332V424",
     "dashed": false,
@@ -634,7 +634,7 @@
     "rijksoverheid_which_diplomas_give_access",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M230 352V424",
     "dashed": false,
@@ -652,7 +652,7 @@
     "rijksoverheid_which_diplomas_give_access",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M310 372V424",
     "dashed": false,
@@ -668,9 +668,10 @@
    "condition": "Bachelor to master can involve selection.",
    "sources": [
     "sk123",
-    "schema"
+    "schema",
+    "nuffic_hoger_system"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M244 523V543",
     "dashed": true,
@@ -686,9 +687,10 @@
    "condition": "Bachelor to master can involve selection.",
    "sources": [
     "sk123",
-    "schema"
+    "schema",
+    "nuffic_hoger_system"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M314 503V525",
     "dashed": true,
@@ -704,9 +706,10 @@
    "condition": "Master to PhD can involve selection.",
    "sources": [
     "study_in_nl_phd",
-    "schema"
+    "schema",
+    "nuffic_hoger_system"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M314 567V589",
     "dashed": true,
@@ -724,7 +727,7 @@
     "rijksoverheid_which_diplomas_give_access",
     "schema"
    ],
-   "checked": "2026-11-10",
+   "checked": "2026-11-25",
    "diagram": {
     "path": "M157 523V549",
     "dashed": false,

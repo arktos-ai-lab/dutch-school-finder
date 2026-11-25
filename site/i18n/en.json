@@ -1449,12 +1449,7 @@
     "keyAria": "Colour key",
     "hDiagram": "The diagram",
     "hKey": "Colour key",
-    "hOther": "Other ways through",
-    "flowTitle": "All routes as a flowchart",
-    "flowIntro": "Every route in one chart, grouped by stage and read from top to bottom. It is drawn from the same data file as the diagram and the cards above. The line style shows the kind of route.",
-    "flowNoScript": "The chart is written as text below. Open it in any Mermaid viewer, or switch scripts on to see it drawn here.",
-    "flowFail": "The chart could not be drawn here. The text version below and the data file still work.",
-    "flowLoading": "Drawing the chart...",
+    "hOther": "Other ways through",
     "kind": {
       "standard": "Usual route",
       "right": "A right",
@@ -1470,9 +1465,9 @@
       "boxAria": "{name}. Show the routes that start here."
     },
     "openTitle": "Open data",
-    "openText": "Every route on this page is stored in one data file. Each rule carries its official source and the date we last checked it. Corrections are welcome through Report an error above.",
+    "openText": "Every route on this page is stored in one data file. Each rule carries its official source and the date we last checked it. The .mmd file is a flowchart of the same routes: paste it into any Mermaid viewer to see it drawn. Corrections are welcome through Report an error above.",
     "openJson": "Routes as data (routes.json)",
-    "openMmd": "Flowchart source (routes.mmd)",
+    "openMmd": "Flowchart source (routes.mmd), for any Mermaid viewer",
     "key": {
       "phd": "PhD (a research job, not a school level)",
       "bo": "Primary",

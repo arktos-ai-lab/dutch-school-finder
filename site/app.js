@@ -1222,14 +1222,14 @@ function renderSystem(force){
   var so=$('sysopen');if(so){clear(so);so.appendChild(h('a',{href:BASE+'data/routes.json',text:t('sys.openJson')}));so.appendChild(document.createTextNode(' \u00b7 '));so.appendChild(h('a',{href:BASE+'data/routes.mmd',text:t('sys.openMmd')}))}
   if(VIEW==='system')ensureSystem(!!force);
 }
-/* diagram, cards and flowchart come from data/routes.json; the prerendered page already holds them, so they are only built when missing */
+/* diagram, and cards come from data/routes.json; the prerendered page already holds them, so they are only built when missing */
 function ensureSystem(rebuild){
   loadRoutes().then(function(R){
     if(!R)return;
     var f=$('sysfig'),mv=$('moves');
     if(rebuild||!f.querySelector('svg')){clear(f);f.appendChild(buildSystem())}
     if(rebuild||!mv.querySelector('.mcard')){clear(mv);mv.appendChild(buildMoves())}
-    enhanceSystem();initFlow();
+    enhanceSystem();
   });
 }
 /* "show, don't tell": pick a box in the diagram and see the routes that start there. Without scripts none of this exists. */
@@ -1274,29 +1274,6 @@ function enhanceSystem(){
     g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();pick(id)}else if(ev.key==='Escape')pick('')});
   });
 }
-/* flowchart: the .mmd text is already in the page; Mermaid (pinned version) loads only when the section is opened */
-var MERMAID_URL='https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.min.js',MERMAID_SRI='sha384-R63zfMfSwJF4xCR11wXii+QUsbiBIdiDzDbtxia72oGWfkT7WHJfmD/I/eeHPJyT';
-function initFlow(){
-  var d=$('sysflow');if(!d||d.getAttribute('data-ready'))return;
-  d.setAttribute('data-ready','1');
-  var note=$('sysflownote');if(note)note.hidden=true;
-  function draw(){
-    if(d.getAttribute('data-drawn'))return;d.setAttribute('data-drawn','1');
-    var box=$('sysflowsvg'),pre=$('sysmmd');box.textContent=t('sys.flowLoading');
-    function fail(){box.textContent=t('sys.flowFail');d.removeAttribute('data-drawn')}
-    function render(){
-      try{
-        window.mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'base',flowchart:{useMaxWidth:false,htmlLabels:false,curve:'basis'}});
-        window.mermaid.render('sysflowchart',pre.textContent).then(function(r){box.innerHTML=r.svg;box.classList.add('flowdone');pre.hidden=true}).catch(fail);
-      }catch(e){fail()}
-    }
-    if(window.mermaid)return render();
-    var s=document.createElement('script');s.src=MERMAID_URL;s.integrity=MERMAID_SRI;s.crossOrigin='anonymous';s.onload=render;s.onerror=fail;document.head.appendChild(s);
-  }
-  d.addEventListener('toggle',function(){if(d.open)draw()});
-  if(d.open)draw();
-}
-
 /* ================= FAQ ================= */
 function faqSetAll(open){qsa('#faq details').forEach(function(d){d.open=open})}
 function faqFocus(slug){

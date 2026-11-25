@@ -44,8 +44,6 @@ def check_routes(site, problems):
     for ed in R["edges"]:
         if f"%% {ed['id']}" not in text:
             problems.append(f"routes: edge {ed['id']} missing from routes.mmd")
-    if '<details class="flowbox"' not in pg.read_text(encoding="utf8"):
-        problems.append("routes: flowchart section missing on /system/")
 
 
 class P(HTMLParser):
