@@ -30,6 +30,4 @@ claims that expire (dates per school year, fees per year, amounts) with the year
 anything important for expat parents that the page misses, with source. Also check that each listed source
 link still works and supports what it is cited for.
 
-Rules: read-only on the site (do not edit `site/`, `build/` or `data/`), no commit, no push. Temp files in
-`C:\Users\evgga\AppData\Local\Temp\claude\aeacb72904630255\555be67f-e02b-43d6-a6aa-a9446cafc7e6\scratchpad\factcheck\<slug>\`,
-deleted at the end. Do not overstate: if a source does not settle a claim, say so.
+Rules: read-only on the site (do not edit `site/`, `build/` or `data/`), no commit, no push. Temp files go in a scratch folder outside the repo and are deleted at the end. Do not overstate: if a source does not settle a claim, say so.
