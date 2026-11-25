@@ -19,6 +19,35 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "met
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def check_routes(site, problems):
+    """data/routes.json: every rule has sources and a date, nodes exist, standard edges point forward, and the
+    built /system/ page, data/routes.json and data/routes.mmd show exactly the same edges"""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("routes_lib", ROOT / "build" / "routes_lib.py")
+    RL = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(RL)
+    en = json.loads((ROOT / "site" / "i18n" / "en.json").read_text(encoding="utf8"))
+    src_url = RL.src_urls_from_js((ROOT / "site" / "app.js").read_text(encoding="utf8"))
+    rj, mm, pg = site / "data" / "routes.json", site / "data" / "routes.mmd", site / "system" / "index.html"
+    for f in (rj, mm, pg):
+        if not f.is_file():
+            problems.append(f"routes: {f.relative_to(site).as_posix()} missing")
+            return
+    R = json.loads(rj.read_text(encoding="utf8"))
+    if R != RL.load():
+        problems.append("routes: _site/data/routes.json differs from data/routes.json")
+    problems.extend("routes: " + x for x in RL.validate(R, en, src_url))
+    problems.extend(RL.check_page(pg.read_text(encoding="utf8"), R, en))
+    text = mm.read_text(encoding="utf8")
+    if text != RL.mermaid(R, en):
+        problems.append("routes: data/routes.mmd is not the flowchart of routes.json")
+    for ed in R["edges"]:
+        if f"%% {ed['id']}" not in text:
+            problems.append(f"routes: edge {ed['id']} missing from routes.mmd")
+    if '<details class="flowbox"' not in pg.read_text(encoding="utf8"):
+        problems.append("routes: flowchart section missing on /system/")
+
+
 class P(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -114,7 +143,13 @@ def main():
     ap.add_argument("--site", default=str(ROOT / "_site"))
     ap.add_argument("--sample", type=int, default=1, help="check only every Nth school page (default: all)")
     ap.add_argument("--seo", default=str(ROOT / "site" / "seo.json"))
+    ap.add_argument("--routes-only", action="store_true", help="only check data/routes.json against the built site")
     a = ap.parse_args()
+    if a.routes_only:
+        pr = []
+        check_routes(Path(a.site), pr)
+        print("routes: OK" if not pr else "\n".join(pr))
+        return 1 if pr else 0
     site = Path(a.site)
     seo = json.loads(Path(a.seo).read_text(encoding="utf8"))
     base = seo["base_path"]
@@ -129,6 +164,7 @@ def main():
     stats = {"noindex": 0, "desc_out": 0, "robots_bad": 0, "title_long": 0}
 
     files = {x.relative_to(site).as_posix() for x in site.rglob("*") if x.is_file()}
+    check_routes(site, problems)
 
     def exists(path):
         p = unquote(path)
