@@ -222,6 +222,8 @@ a.ft:hover{border-color:var(--brand);background:var(--soft)}
 .sys-svg .lbl{fill:var(--bg)}
 .sys-svg .ah{fill:var(--ink)}
 .f-bo{fill:var(--c-bo)}.f-pro{fill:var(--c-pro)}.f-vbk{fill:var(--c-vbk)}.f-havo{fill:var(--c-havo)}.f-vwo{fill:var(--c-vwo)}.f-mbo{fill:var(--c-mbo)}.f-hbo{fill:var(--c-hbo)}.f-wo{fill:var(--c-wo)}
+.sys-svg .cell.f-phd{fill:var(--soft);stroke:var(--ink2);stroke-width:1.2;stroke-dasharray:3 2}
+.sys-svg .ph{fill:var(--ink);font:800 10px var(--disp)}
 .sysh{font-size:1.05rem;margin:0 0 8px}
 .xfers{margin-top:0}
 .keys{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 12px;list-style:none;font-size:.88rem}
@@ -577,3 +579,18 @@ table.cmp th a{overflow-wrap:anywhere}
 .plist li{margin:0 0 .35em;overflow-wrap:anywhere}
 .ib-link{display:inline-block;background:var(--cta);color:var(--on-cta);font-weight:800;padding:8px 14px;text-decoration:none;margin-top:4px}
 .ib-link:hover{text-decoration:underline}
+
+/* system page: other ways through (cards) */
+.moves{margin-top:26px}
+.movesintro{max-width:62ch;margin:0 0 6px}
+.mgrp{margin-top:20px}
+.mgrp h3{font:800 1.05rem var(--disp);margin:0 0 8px}
+.mcards{list-style:none;padding:0;margin:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.mcard{background:var(--surface);border:1px solid var(--rule);padding:12px;min-width:0}
+.mcard .mtext{margin:10px 0 0;font-size:.95rem}
+.mcard .src{margin:6px 0 0;overflow-wrap:anywhere}
+.route{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rchip{display:inline-block;max-width:100%;padding:5px 9px 5px 12px;font:700 .85rem/1.25 var(--sans);color:var(--ink);background:var(--bg);border:2px solid var(--c-bo);border-left-width:10px;overflow-wrap:anywhere}
+.rstep{display:flex;align-items:center;gap:6px;max-width:100%;min-width:0}
+.rarr{font:800 1.1rem/1 var(--sans);color:var(--ink)}
+.c-vbk{border-color:var(--c-vbk)}.c-vgt{border-color:var(--c-vgt)}.c-havo{border-color:var(--c-havo)}.c-vwo{border-color:var(--c-vwo)}.c-mbo{border-color:var(--c-mbo)}.c-hbo{border-color:var(--c-hbo)}.c-wo{border-color:var(--c-wo)}.c-ib{border-color:var(--c-ib)}

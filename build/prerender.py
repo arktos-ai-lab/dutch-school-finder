@@ -600,10 +600,6 @@ class Build:
             ms = ' marker-start="url(#ah)"' if both else ""
             o.append(f'<path class="ar{" d" if dash else ""}" d="{d}" marker-end="url(#ah)"{ms}/>')
 
-        def mk(cx, y, tx):
-            o.append(f'<rect class="mkb" x="{num(cx - 7)}" y="{num(y)}" width="14" height="14"/>')
-            o.append(f'<text class="mkt" x="{num(cx)}" y="{num(y + 10.5)}" text-anchor="middle">{e(tx)}</text>')
-
         def bar(x, y, w, n, cls, labels=None):
             for i in range(n):
                 rect(x, y + i * 20, w, 20, cls, labels[i] if labels else str(i + 1))
@@ -625,8 +621,7 @@ class Build:
         for x in C:
             path(f"M{x} 184V230")
         o.append('<rect class="lbl" x="36" y="196" width="288" height="24"/>')
-        mk(50, 201, "1")
-        text(64, 213, t("sys.adviceLabel"), "ax")
+        text(44, 213, t("sys.adviceLabel"), "ax")
         names = ["pro", "vmbo", "havo", "vwo"]
         cls = ["f-pro", "f-vbk", "f-havo", "f-vwo"]
         yrs = [5, 4, 5, 6]
@@ -636,30 +631,10 @@ class Build:
             bar(LX[i], 250, LW, yrs[i], cls[i])
         for k, a in enumerate([12, 13, 14, 15, 16, 17]):
             text(34, 250 + k * 20 + 14.5, str(a), "ax", "end")
-        path("M181 278H199", True, True)
-        path("M261 278H279", True, True)
-        mk(190, 284, "2")
-        mk(270, 284, "2")
-        path("M181 314H199", True)
-        mk(190, 320, "3")
-        path("M261 334H279")
-        mk(270, 340, "4")
         path("M70 352V424", True)
-        mk(70, 380, "5")
         path("M150 332V424")
-        mk(150, 380, "6")
         path("M230 352V424")
-        mk(230, 396, "7")
-        path("M214 352V392H166V424")
-        mk(190, 385, "7")
         path("M310 372V424")
-        mk(310, 396, "8")
-        path("M332 372V424", True)
-        o.append('<rect class="lbl" x="322" y="380" width="20" height="13"/>')
-        text(332, 390, "IB", "ax", "middle")
-        mk(332, 397, "9")
-        path("M296 372V404H258V424")
-        mk(277, 397, "8")
         rect(40, 424, 132, 18, "f-mbo", "mbo", "hd")
         rect(200, 424, 62, 18, "f-hbo", "hbo", "hd")
         rect(280, 424, 68, 18, "f-wo", "wo", "hd")
@@ -675,27 +650,41 @@ class Build:
         path("M314 503V525", True)
         bar(280, 526, 68, 2, "f-wo", ["M", ""])
         path("M314 567V589", True)
-        bar(280, 590, 68, 4, "f-wo", ["PhD", "", "", ""])
-        path("M173 470H199")
-        mk(186, 477, "a")
-        path("M263 452H279", True)
-        mk(271, 458, "b")
-        path("M263 512H271V536H279", True)
-        mk(271, 519, "d")
+        rect(280, 590, 68, 20, "f-phd", "PhD", "ph")
+        for q in (1, 2, 3):
+            rect(280, 590 + q * 20, 68, 20, "f-phd")
+        for q, n in enumerate("1234"):
+            text(272, 603 + q * 12, t("sys.phdNote" + n), "ax", "end")
+        path("M157 523V549")
+        rect(129, 550, 56, 18, "f-hbo", t("sys.toHbo"), "hd")
         text(36, 692, t("sys.legend"), "ax")
         o.append("</svg>")
         return "".join(o)
 
+    def moves_html(self):
+        """cards under the system diagram (port of buildMoves in app.js)"""
+        M = self.en["sys"]["moves"]
+        o = [f'<p class="movesintro">{e(M["intro"])}</p>']
+        for g in M["groups"]:
+            o.append(f'<section class="mgrp" aria-labelledby="mg-{e(g["id"])}"><h3 id="mg-{e(g["id"])}">{e(g["title"])}</h3><ul class="mcards">')
+            for c in g["cards"]:
+                o.append(f'<li class="mcard"><ol class="route" aria-label="{e(M["routeAria"])}">')
+                for i, s in enumerate(c["route"]):
+                    arr = f'<span class="rarr"><span aria-hidden="true">\u2192</span><span class="sr">{e(M["then"])}</span></span>' if i else ""
+                    o.append(f'<li class="rstep">{arr}<span class="rchip c-{e(s["c"])}">{e(s["l"])}</span></li>')
+                o.append(f'</ol><p class="mtext">{e(c["text"])}</p>{self.src_line(c["src"])}{self.checked_p(c["checked"])}</li>')
+            o.append("</ul></section>")
+        return "".join(o)
+
     def system_slots(self):
         t = self.t
-        keys = "".join(f'<li><i style="background:var(--c-{x})"></i>{e(t("sys.key." + x))}</li>' for x in ["bo", "pro", "vbk", "havo", "vwo", "mbo", "hbo", "wo"])
-        xf = "".join(f'<li><b>{e(x["k"])}</b><span>{e(x["text"])}</span></li>' for x in self.en["sys"]["xfers"])
-        xf += f'<li><b>+</b><span>{e(t("sys.xfersExtra"))}</span></li>'
+        keys = "".join(f'<li><i style="{"background:var(--soft);border:2px dashed var(--ink2);box-sizing:border-box" if x == "phd" else "background:var(--c-" + x + ")"}"></i>{e(t("sys.key." + x))}</li>' for x in ["bo", "pro", "vbk", "havo", "vwo", "mbo", "hbo", "wo", "phd"])
+        xf = self.moves_html()
         links = []
         for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "vo_raad_moving_from_vmbo_to_havo_and_fro", "rijksoverheid_which_diplomas_give_access", "nuffic_ib_level"]:
             links.append(f'<a href="{e(self.src_url[key])}" target="_blank" rel="noopener">{e(t("src." + key))}</a>')
         syssrc = e(t("src.label")) + " " + " · ".join(links)
-        return {"sysfig": self.system_svg(), "syskeys": keys, "xfers": xf, "syssrc": syssrc}
+        return {"sysfig": self.system_svg(), "syskeys": keys, "moves": xf, "syssrc": syssrc}
 
     # ------------------------------------------------------------ faq
     def faq_html(self):

@@ -285,13 +285,16 @@
       "age": "13 to 15",
       "unit": "years 2 and 3",
       "what": [
-        "In vmbo, pupils choose a learning pathway (basis, kader, mixed or theoretical) and a sector by the end of year 2. In havo and vwo, pupils choose one of four profiles before the upper years: nature and technology, nature and health, economics and society, or culture and society. Schools usually ask at the end of year 3.",
-        "After year 3 of havo or vwo, a recognised pass certificate also gives access to mbo level 2, 3 or 4."
+        "In vmbo, pupils choose a sector and one of four learning pathways by the end of year 2: basis (basisberoepsgerichte), kader (kaderberoepsgerichte), mixed (gemengde) or theoretical (theoretische). The pathways differ in level and in how practical or theoretical the lessons are. Basis leads to mbo level 2. Kader, mixed and theoretical lead to mbo level 3 or 4. A mixed or theoretical diploma plus one extra general exam subject also gives the right to start havo year 4.",
+        "In havo and vwo, pupils choose one of four profiles after year 3. Schools usually ask at the end of year 3. The profiles are culture and society (cultuur en maatschappij), economics and society (economie en maatschappij), nature and health (natuur en gezondheid) and nature and technology (natuur en techniek). Havo and vwo use the same four. Each profile points to different fields of study, so ask the school which studies each one opens.",
+        "After year 3 of havo or vwo, proof that you passed the first 3 years (the pass to year 4) gives access to mbo level 2, 3 or 4. This is a common route. The same applies when a pupil leaves in a later year (havo 4 or 5, vwo 4, 5 or 6), because those first 3 years are then passed too. Ask the mbo college which document it wants."
       ],
       "todo": [
         "Ask which profiles the school offers and which studies each one opens.",
         "Moving between levels in these years is sometimes possible. The school decides."
-      ]
+      ],
+      "checked": "2026-11-25",
+      "checkedFor": "Pathways, profiles and admission to mbo"
     },
     "fin": {
       "title": "Exam year and what comes next",
@@ -299,22 +302,27 @@
       "unit": "exam year",
       "what": [
         "The final exam year is year 4 in vmbo (age 15 to 16), year 5 in havo (age 16 to 17) and year 6 in vwo (age 17 to 18). Practical education runs to about age 18.",
+        "In the final year, pupils sit national exams: in 6 subjects in vmbo, at least 7 in havo and at least 8 in vwo. Ask the school how much of each grade comes from the school's own tests and how much from the central exam.",
         "In the last two years of secondary school, some schools offer the IB Diploma Programme (DP), and international schools teach it too. It takes 2 years. Joining is often linked to an international background, and the school decides. Ask how the IB fits with the Dutch exam at that school."
       ],
       "todo": [
         "For mbo, apply to the programme by 1 April of the exam year. You can apply later, but then you have no right to admission.",
         "For hbo or wo, check the subjects and application dates of each programme early.",
         "If your child may take the IB Diploma, ask the school who can join, what it costs and where the diploma leads."
-      ]
+      ],
+      "checked": "2026-11-25",
+      "checkedFor": "Number of exam subjects"
     },
     "he": {
       "title": "After secondary school: mbo, hbo or wo",
       "age": "from about 16 to 18",
       "unit": "after the exam year",
       "what": [
-        "<b>mbo</b> (vocational college) has four levels: level 1 takes 1 year, level 2 takes 1 to 2, level 3 takes 2 to 3 and level 4 takes 3 to 4 years. A level 4 diploma gives the right to enter hbo.",
-        "<b>hbo</b> (university of applied sciences): a bachelor takes 4 years, and the first year is the first-year certificate (propedeuse). An associate degree takes 2 years. A master takes 1 to 2 years.",
-        "<b>wo</b> (research university): a bachelor takes 3 years and a master 1 to 3 years. A PhD usually takes about 4 years. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. A havo diploma does not give direct entry. Some programmes also ask for particular subjects, and some select applicants. An hbo bachelor usually needs a bridging programme (pre-master) before a wo master.",
+        "<b>mbo</b> (vocational college) has four levels: level 1 takes 1 year, level 2 takes 1 to 2, level 3 takes 2 to 3 and level 4 takes 3 to 4 years. Level 4 also has a one-year specialist programme that follows a level 3 or level 4 programme. Only a level 4 diploma gives the right to enter hbo. Level 1 (the entry programme) needs no diploma. It is for people who do not meet the level 2 requirements and are at least 16 on 1 August. Levels 2, 3 and 4 need one of these: a vmbo diploma (any pathway for level 2, kader, mixed or theoretical for levels 3 and 4), proof that you passed the first 3 years of havo or vwo, or a havo or vwo diploma. This is a common route from havo and vwo.",
+        "There are two ways to follow an mbo programme. <b>BOL</b> (school-based) has 20 to 60 percent practical training in a workplace. <b>BBL</b> (work-based) has at least 60 percent of the programme in a workplace. Both give the same diploma.",
+        "<b>hbo</b> (university of applied sciences, a hogeschool) is more practice-oriented than wo. It is taught in seven sectors: economics, healthcare, agriculture, pedagogical education (teacher training), socio-pedagogical education, arts and technology. A bachelor takes 4 years (sometimes 3 after vwo), and the first year is the first-year certificate (propedeuse). An associate degree takes 2 years. A master usually takes 1 year, sometimes 2.",
+        "<b>wo</b> (research university) is more theory- and research-oriented. It trains scientists, and professionals who apply scientific knowledge. A bachelor takes 3 years. A master takes 1 year in most fields, 2 years in technical, science and research masters, and 3 years in medicine, veterinary medicine, pharmacy and dentistry. A PhD (promotie) is not more school. In the Netherlands it is usually a paid research job at a university, and most PhD candidates are employees. It usually takes about 4 years, and you can start one after any type of master's. A vwo diploma or a completed hbo first year (propedeuse) gives admission to a research university. A havo diploma does not give direct entry. Some programmes also ask for particular subjects, and some select applicants. An hbo bachelor usually needs a bridging programme (pre-master) before a wo master.",
+        "<b>Numerus fixus and selection:</b> some programmes admit only a fixed number of students. If more people apply than there are places, the institution may select. It can weigh the average final exam grade, motivation, personality and earlier school results. Check the rules and dates of each programme.",
         "The <b>IB Diploma</b> (International Baccalaureate) can lead to hbo and wo too. Nuffic compares the full diploma with a vwo diploma. A university of applied sciences or a research university can still set subject and grade requirements, for example a maths level, so check each programme.",
         "Without the usual diploma, people from age 21 can usually ask for an admission test. At hbo it is called the 21+ test (toelatingsonderzoek). Research universities (wo) use a similar entrance exam without the usual diploma, called colloquium doctum, often from age 21. Some sources use both names for either kind. The institution decides and runs it, and requirements differ."
       ],
@@ -322,8 +330,8 @@
         "Check the entry rules, dates and any selection of each programme.",
         "With an IB diploma, or without the usual diploma, ask the programme what it requires."
       ],
-      "checked": "2026-11-24",
-      "checkedFor": "Admission rules"
+      "checked": "2026-11-25",
+      "checkedFor": "Admission rules, mbo pathways and higher education"
     },
     "newc": {
       "when": "First, on average for about two years",
@@ -346,9 +354,9 @@
   "path": {
     "pro": "<b>Practical education (praktijkonderwijs):</b> pupils can stay until the end of the school year in which they turn 18, and the Inspectie can allow an extension. Admission needs a declaration of eligibility (toelaatbaarheidsverklaring) from the regional partnership (samenwerkingsverband), not only the school advice. Next: the mbo entry programme (level 1, one year, no earlier diploma needed, for pupils who are 16 on 1 August) or a work route that the school arranges with the mbo college.",
     "vbk": "<b>vmbo basis or kader:</b> a diploma after 4 years. Basis leads to mbo level 2 (1 to 2 years). Kader leads to mbo level 3 (2 to 3 years) or level 4 (3 to 4 years), as the official entry requirements for 3 and 4 are the same. Programmes can add their own conditions, so ask the mbo college. A lower level is usually possible, and moving up later within mbo is possible.",
-    "vgt": "<b>vmbo gl/tl:</b> a diploma after 4 years. Leads to mbo level 3 or 4. With one extra general exam subject, a diploma gives the right to enter havo. Without it, the havo school decides.",
-    "havo": "<b>havo:</b> a diploma after 5 years. Leads to an hbo bachelor (4 years), an associate degree (2 years), mbo at any level, or vwo year 5 (a havo diploma gives the right to enter). A havo diploma alone does not give access to wo.",
-    "vwo": "<b>vwo:</b> a diploma after 6 years. Leads to a wo bachelor (3 years), an hbo bachelor or an associate degree. Some studies ask for particular subjects or select applicants."
+    "vgt": "<b>vmbo gl/tl:</b> a diploma after 4 years. Leads to mbo level 3 or 4. With one extra general exam subject, a diploma gives the right to enter havo year 4. This is a new school year, not a repeat. Without the extra subject, the havo school decides.",
+    "havo": "<b>havo:</b> a diploma after 5 years. Leads to an hbo bachelor (4 years), an associate degree (2 years), mbo at any level (passing year 3 already gives access to mbo level 2, 3 or 4), or vwo year 5 (a havo diploma gives the right to enter, and it is a new school year, not a repeat). A havo diploma alone does not give access to wo.",
+    "vwo": "<b>vwo:</b> a diploma after 6 years. Leads to a wo bachelor (3 years), an hbo bachelor or an associate degree. Passing year 3 already gives access to mbo level 2, 3 or 4. Some studies ask for particular subjects or select applicants."
   },
   "next": {
     "aria": "Next action",
@@ -1400,6 +1408,13 @@
     "nuffic_applying_for_a_credential_evaluat": "Nuffic: applying for a credential evaluation",
     "study_in_nl_checking_your_diploma": "Study in NL: checking your diploma",
     "study_in_nl": "Study in NL",
+    "study_in_nl_phd": "Study in NL: PhD",
+    "nuffic_basis_vo": "Nuffic: primary and secondary education in the Netherlands",
+    "nuffic_mbo_system": "Nuffic: secondary vocational education (mbo)",
+    "nuffic_hoger_system": "Nuffic: higher education in the Netherlands",
+    "wetten_uitvoeringsbesluit_wvo_2020": "wetten.overheid.nl: Uitvoeringsbesluit WVO 2020, article 8.9",
+    "stb_2020_121": "Staatsblad 2020, 121: Wet gelijke kans op doorstroom naar havo en vwo",
+    "rijksoverheid_overstappen_bovenbouw": "Rijksoverheid: switching between havo and vwo in the upper years",
     "rijksoverheid_which_diplomas_give_access": "Rijksoverheid: which diplomas give access to university or hbo",
     "duo_open_education_data": "DUO open education data",
     "inspectie_van_het_onderwijs": "Inspectie van het Onderwijs",
@@ -1425,8 +1440,9 @@
     "keyAria": "Colour key",
     "hDiagram": "The diagram",
     "hKey": "Colour key",
-    "hMoves": "Moving between levels",
+    "hOther": "Other ways through",
     "key": {
+      "phd": "PhD (a research job, not a school level)",
       "bo": "Primary",
       "pro": "Practical education",
       "vbk": "vmbo",
@@ -1436,9 +1452,9 @@
       "hbo": "hbo",
       "wo": "wo"
     },
-    "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. Letters and numbers match the list.",
+    "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. All arrows point down, from earlier to later. Bachelor to master and master to PhD can involve selection.",
     "title": "The Dutch school system, top to bottom",
-    "desc": "Primary school of eight year groups leads, after school advice, to practical education, vmbo, havo or vwo. After those come mbo, hbo and wo. Arrows show how children can move between tracks. A dashed arrow shows the IB Diploma route to higher education.",
+    "desc": "Primary school of eight year groups leads, after school advice, to practical education, vmbo, havo or vwo. After those come mbo, hbo and wo. Arrows show the usual routes, always from earlier to later. Other ways through are listed under the diagram.",
     "primary": "PRIMARY SCHOOL",
     "yearGroup": "Year group {n}",
     "age": "age {n}",
@@ -1451,58 +1467,331 @@
       "vwo": "vwo"
     },
     "mboLevels": "levels 1 to 4",
+    "toHbo": "to hbo",
+    "phdNote1": "PhD: usually a paid research job at a university,",
+    "phdNote2": "not more school. You can start one after any type",
+    "phdNote3": "of master's. Shown because Nuffic includes it",
+    "phdNote4": "in its diagram of the education system.",
     "legend": "AD = associate degree, M = master, IB = International Baccalaureate",
-    "xfers": [
-      {
-        "k": "1",
-        "text": "After year group 8 (about age 12) the school advice and your sign-up decide the secondary track. The advice can name one level or two, such as havo and vwo."
-      },
-      {
-        "k": "2",
-        "text": "Early years of secondary school: moving up or down a level is sometimes possible, and the school decides. Dashed because it is not a right."
-      },
-      {
-        "k": "3",
-        "text": "vmbo gl/tl to havo: a gl or tl diploma with one extra general exam subject gives the right to enter havo. The extra subject cannot be a vocational subject or a school-specific programme. Without it, the havo school decides."
-      },
-      {
-        "k": "4",
-        "text": "havo diploma to vwo: a havo diploma gives the right to join vwo year 5. A school may not set extra conditions for pupils who passed havo. Ask the vwo school about exemptions for subjects your child has already done."
-      },
-      {
-        "k": "5",
-        "text": "Practical education to the mbo entry programme (level 1) or to work: the school arranges this with the mbo college."
-      },
-      {
-        "k": "6",
-        "text": "vmbo diploma to mbo: basis leads to level 2. Kader, mixed or theoretical lead to level 3 or 4, because the official entry requirements for those are the same. A lower level is usually possible."
-      },
-      {
-        "k": "7",
-        "text": "havo diploma to an hbo bachelor, an associate degree or mbo at any level. It does not give direct access to wo."
-      },
-      {
-        "k": "8",
-        "text": "vwo diploma (atheneum or gymnasium) to a wo bachelor, or to an hbo bachelor or associate degree. Some studies ask for particular subjects or select."
-      },
-      {
-        "k": "9",
-        "text": "IB Diploma Programme to hbo or wo. The IB Diploma is taken in the last two years of secondary school, at some schools and at international schools. Nuffic compares the full diploma with a vwo diploma. Dashed because the university or university of applied sciences can set subject and grade requirements, for example a maths level. Check the programme."
-      },
-      {
-        "k": "a",
-        "text": "An mbo level 4 diploma gives the right to enter hbo."
-      },
-      {
-        "k": "b",
-        "text": "hbo first year (propedeuse) to a wo bachelor: a completed first year gives admission to a research university. Some programmes also ask for particular subjects, and some select applicants."
-      },
-      {
-        "k": "d",
-        "text": "hbo bachelor to a wo master: usually through a bridging programme (pre-master). Length and cost differ per programme, and selection is possible."
-      }
-    ],
-    "xfersExtra": "Other arrows without a letter: bachelor to master and master to PhD. Selection is possible at each."
+    "moves": {
+      "intro": "The chart shows the usual routes. These are the other ways. Rules are short here, and the school or programme decides the details.",
+      "routeAria": "Route",
+      "then": "then",
+      "groups": [
+        {
+          "id": "vmbo",
+          "title": "From vmbo",
+          "cards": [
+            {
+              "route": [
+                {
+                  "l": "vmbo, first years",
+                  "c": "vbk"
+                },
+                {
+                  "l": "havo, first years",
+                  "c": "havo"
+                }
+              ],
+              "text": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
+              "src": [
+                "vo_raad_moving_from_vmbo_to_havo_and_fro"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "vmbo gl/tl diploma",
+                  "c": "vgt"
+                },
+                {
+                  "l": "havo 4",
+                  "c": "havo"
+                }
+              ],
+              "text": "You need one extra general exam subject (not a vocational one). Then the havo school may not turn you away for your knowledge or skills. Without it, the havo school decides. This right exists since 1 August 2020.",
+              "src": [
+                "vo_raad_moving_from_vmbo_to_havo_and_fro",
+                "wetten_uitvoeringsbesluit_wvo_2020",
+                "stb_2020_121"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "vmbo gl/tl diploma",
+                  "c": "vgt"
+                },
+                {
+                  "l": "havo 4",
+                  "c": "havo"
+                },
+                {
+                  "l": "havo 5 diploma",
+                  "c": "havo"
+                },
+                {
+                  "l": "vwo 5",
+                  "c": "vwo"
+                },
+                {
+                  "l": "vwo 6 diploma",
+                  "c": "vwo"
+                }
+              ],
+              "text": "No year is repeated. The number 4 comes twice because vmbo and havo each count their own years. It is 4 years of vmbo, 2 of havo and 2 of vwo: 8 years in all, against 6 years straight through vwo.",
+              "src": [
+                "vo_raad_moving_from_vmbo_to_havo_and_fro",
+                "wetten_uitvoeringsbesluit_wvo_2020",
+                "stb_2020_121",
+                "rijksoverheid_overstappen_bovenbouw"
+              ],
+              "checked": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "havo",
+          "title": "From havo",
+          "cards": [
+            {
+              "route": [
+                {
+                  "l": "havo, first years",
+                  "c": "havo"
+                },
+                {
+                  "l": "vwo, first years",
+                  "c": "vwo"
+                }
+              ],
+              "text": "Moving up a level in the first years is sometimes possible. It is not a right, so the school decides.",
+              "src": [
+                "vo_raad_moving_from_vmbo_to_havo_and_fro"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "havo, upper years",
+                  "c": "havo"
+                },
+                {
+                  "l": "vwo, upper years",
+                  "c": "vwo"
+                }
+              ],
+              "text": "Switching inside the upper years is possible. Ask the vwo school what it requires.",
+              "src": [
+                "rijksoverheid_overstappen_bovenbouw"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "havo diploma",
+                  "c": "havo"
+                },
+                {
+                  "l": "vwo 5",
+                  "c": "vwo"
+                }
+              ],
+              "text": "This is a right, and the vwo school may not turn you away for your knowledge or skills. Ask about exemptions, for example for CKV and maatschappijleer.",
+              "src": [
+                "rijksoverheid_overstappen_bovenbouw",
+                "vo_raad_moving_from_vmbo_to_havo_and_fro",
+                "stb_2020_121"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "havo 3 passed",
+                  "c": "havo"
+                },
+                {
+                  "l": "mbo 2, 3 or 4",
+                  "c": "mbo"
+                }
+              ],
+              "text": "Proof that you passed the first 3 years is enough. It also works from a later year or with a havo diploma. Ask the college which document it wants.",
+              "src": [
+                "mboRijks"
+              ],
+              "checked": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "vwo",
+          "title": "From vwo",
+          "cards": [
+            {
+              "route": [
+                {
+                  "l": "vwo, first years",
+                  "c": "vwo"
+                },
+                {
+                  "l": "havo, first years",
+                  "c": "havo"
+                }
+              ],
+              "text": "Moving down a level in the first years is sometimes possible. The school decides.",
+              "src": [
+                "vo_raad_moving_from_vmbo_to_havo_and_fro"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "vwo, upper years",
+                  "c": "vwo"
+                },
+                {
+                  "l": "havo, upper years",
+                  "c": "havo"
+                }
+              ],
+              "text": "Possible. There are no fixed rules. The school checks which grades and exams you can keep.",
+              "src": [
+                "rijksoverheid_overstappen_bovenbouw"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "vwo 3 passed",
+                  "c": "vwo"
+                },
+                {
+                  "l": "mbo 2, 3 or 4",
+                  "c": "mbo"
+                }
+              ],
+              "text": "Proof that you passed the first 3 years is enough. It also works from a later year or with a vwo diploma. Ask the college which document it wants.",
+              "src": [
+                "mboRijks"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "vwo diploma",
+                  "c": "vwo"
+                },
+                {
+                  "l": "hbo bachelor or associate degree",
+                  "c": "hbo"
+                }
+              ],
+              "text": "A vwo diploma gives the right to enter hbo. Some programmes also ask for particular subjects.",
+              "src": [
+                "rijksoverheid_which_diplomas_give_access",
+                "schema"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "IB Diploma",
+                  "c": "ib"
+                },
+                {
+                  "l": "hbo or wo",
+                  "c": "wo"
+                }
+              ],
+              "text": "Nuffic compares the full IB Diploma with a vwo diploma. The programme can still ask for particular subjects or grades, for example in maths.",
+              "src": [
+                "nuffic_ib_level"
+              ],
+              "checked": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "mbo",
+          "title": "From mbo",
+          "cards": [
+            {
+              "route": [
+                {
+                  "l": "mbo 4 diploma",
+                  "c": "mbo"
+                },
+                {
+                  "l": "hbo bachelor",
+                  "c": "hbo"
+                }
+              ],
+              "text": "A level 4 diploma gives the right to enter hbo. Some programmes also ask for particular subjects or skills.",
+              "src": [
+                "rijksoverheid_which_diplomas_give_access",
+                "schema"
+              ],
+              "checked": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "hbo",
+          "title": "From hbo",
+          "cards": [
+            {
+              "route": [
+                {
+                  "l": "hbo first year (propedeuse)",
+                  "c": "hbo"
+                },
+                {
+                  "l": "wo bachelor",
+                  "c": "wo"
+                }
+              ],
+              "text": "A completed first year gives admission, so no entrance exam is needed. Some programmes also ask for particular subjects, and some select.",
+              "src": [
+                "rijksoverheid_which_diplomas_give_access",
+                "uva_colloquium_doctum"
+              ],
+              "checked": "2026-11-25"
+            },
+            {
+              "route": [
+                {
+                  "l": "hbo bachelor",
+                  "c": "hbo"
+                },
+                {
+                  "l": "pre-master",
+                  "c": "wo"
+                },
+                {
+                  "l": "wo master",
+                  "c": "wo"
+                }
+              ],
+              "text": "You usually take a bridging programme (pre-master) first. Length and cost differ per programme, and selection is possible.",
+              "src": [
+                "sk123",
+                "schema"
+              ],
+              "checked": "2026-11-25"
+            }
+          ]
+        }
+      ]
+    }
   },
   "faq": {
     "heading": "Questions parents ask",
