@@ -25,6 +25,18 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA = ROOT / "pipeline" / "out"
+ROUTES = ROOT / "data" / "routes.json"  # every education route: diagram arrows, cards, flowchart (see build/routes_lib.py)
+
+
+def _load_routes_lib():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("routes_lib", ROOT / "build" / "routes_lib.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+RL = _load_routes_lib()
 
 # per-school files that the build splits into small shards (data/s/<first 3 chars of the BRIN6 id>.json)
 SHARDED = {"detail_po.json", "detail_vo.json", "detail_so.json", "extra.json", "inspectie_extra.json", "inspection.json"}
@@ -238,10 +250,15 @@ class Build:
         self.indexable = bool(self.seo["indexable"])
         self.langs = self.seo["lang"]
         self.en = jload(SITE / "i18n" / "en.json")
+        self.routes = RL.load(ROUTES)
         self.t = Tr(self.en)
         self.brand = self.en["brand"]["name"]
         self.js = (SITE / "app.js").read_text(encoding="utf8")
         self.src_url, self.src_order, self.last_checked, self.feat_attr = read_app_consts(self.js)
+        bad = RL.validate(self.routes, self.en, self.src_url)
+        if bad:
+            sys.exit("data/routes.json is invalid:\n  " + "\n  ".join(bad))
+        self.mmd = RL.mermaid(self.routes, self.en)
         self.shell = (SITE / "index.html").read_text(encoding="utf8")
         self.meta = jload(DATA / "meta.json")
         self.insp = jload(DATA / "inspection.json")
@@ -595,10 +612,19 @@ class Build:
             a = f' text-anchor="{anchor}"' if anchor else ""
             o.append(f'<text class="{cls}" x="{num(x)}" y="{num(y)}"{a}>{e(tx)}</text>')
 
-        def path(d, dash=False, both=False):
-            o.append(f'<path class="arh" d="{d}"/>')
+        def path(d, dash=False, both=False, eid=None):
+            da = f' data-edge="{e(eid)}"' if eid else ""
+            o.append(f'<path class="arh"{da} d="{d}"/>')
             ms = ' marker-start="url(#ah)"' if both else ""
-            o.append(f'<path class="ar{" d" if dash else ""}" d="{d}" marker-end="url(#ah)"{ms}/>')
+            o.append(f'<path class="ar{" d" if dash else ""}"{da} d="{d}" marker-end="url(#ah)"{ms}/>')
+
+        def gs(box):
+            o.append(f'<g data-box="{box}">')
+
+        def ge():
+            o.append("</g>")
+
+        edges = RL.diagram_edges(self.routes)
 
         def bar(x, y, w, n, cls, labels=None):
             for i in range(n):
@@ -615,11 +641,16 @@ class Build:
         text(34, 14, t("sys.ageAxis"), "ax", "end")
         for g in range(1, 9):
             y = 22 + (g - 1) * 20
+            if g == 8:
+                gs("groep8")
             rect(40, y, 308, 20, "f-bo")
             o.append(f'<text class="on" x="48" y="{num(y + 14.5)}">{e(t("sys.yearGroup", n=str(g)))}</text>')
+            if g == 8:
+                ge()
             text(34, y + 14.5, str(g + 3), "ax", "end")
-        for x in C:
-            path(f"M{x} 184V230")
+        for ed in edges:
+            if ed["diagram"].get("layer") == "under":
+                path(ed["diagram"]["path"], ed["diagram"]["dashed"], eid=ed["id"])
         o.append('<rect class="lbl" x="36" y="196" width="288" height="24"/>')
         text(44, 213, t("sys.adviceLabel"), "ax")
         names = ["pro", "vmbo", "havo", "vwo"]
@@ -627,35 +658,46 @@ class Build:
         yrs = [5, 4, 5, 6]
         text(34, 246, t("sys.ageAxis"), "ax", "end")
         for i in range(4):
+            gs(names[i])
             rect(LX[i], 232, LW, 18, cls[i], t("sys.lane." + names[i]), "hd")
             bar(LX[i], 250, LW, yrs[i], cls[i])
+            ge()
         for k, a in enumerate([12, 13, 14, 15, 16, 17]):
             text(34, 250 + k * 20 + 14.5, str(a), "ax", "end")
-        path("M70 352V424", True)
-        path("M150 332V424")
-        path("M230 352V424")
-        path("M310 372V424")
         rect(40, 424, 132, 18, "f-mbo", "mbo", "hd")
         rect(200, 424, 62, 18, "f-hbo", "hbo", "hd")
         rect(280, 424, 68, 18, "f-wo", "wo", "hd")
         for k, l in enumerate([1, 2, 3, 4]):
             lb = [str(l) if q == 0 else "" for q in range(l)]
+            gs(f"mbo-{l}")
             bar(40 + k * 34, 442, 30, l, "f-mbo", lb)
+            ge()
         text(106, 540, t("sys.mboLevels"), "ax", "middle")
+        gs("hbo-ad")
         bar(200, 442, 22, 2, "f-hbo", ["AD", ""])
+        ge()
+        gs("hbo-ba")
         bar(226, 442, 36, 4, "f-hbo")
-        path("M244 523V543", True)
+        ge()
+        gs("hbo-ma")
         bar(226, 544, 36, 2, "f-hbo", ["M", ""])
+        ge()
+        gs("wo-ba")
         bar(280, 442, 68, 3, "f-wo")
-        path("M314 503V525", True)
+        ge()
+        gs("wo-ma")
         bar(280, 526, 68, 2, "f-wo", ["M", ""])
-        path("M314 567V589", True)
+        ge()
+        gs("phd")
         rect(280, 590, 68, 20, "f-phd", "PhD", "ph")
         for q in (1, 2, 3):
             rect(280, 590 + q * 20, 68, 20, "f-phd")
+        ge()
         for q, n in enumerate("1234"):
             text(272, 603 + q * 12, t("sys.phdNote" + n), "ax", "end")
-        path("M157 523V549")
+        for ed in edges:
+            if ed["diagram"].get("layer") != "under":
+                path(ed["diagram"]["path"], ed["diagram"]["dashed"], eid=ed["id"])
         rect(129, 550, 56, 18, "f-hbo", t("sys.toHbo"), "hd")
         text(36, 692, t("sys.legend"), "ax")
         o.append("</svg>")
@@ -666,15 +708,23 @@ class Build:
         M = self.en["sys"]["moves"]
         o = [f'<p class="movesintro">{e(M["intro"])}</p>']
         for g in M["groups"]:
+            cards = [c for c in RL.cards(self.routes) if c["group"] == g["id"]]
+            if not cards:
+                continue
             o.append(f'<section class="mgrp" aria-labelledby="mg-{e(g["id"])}"><h3 id="mg-{e(g["id"])}">{e(g["title"])}</h3><ul class="mcards">')
-            for c in g["cards"]:
-                o.append(f'<li class="mcard"><ol class="route" aria-label="{e(M["routeAria"])}">')
-                for i, s in enumerate(c["route"]):
+            for c in cards:
+                o.append(f'<li class="mcard" data-edge="{e(c["id"])}" data-kind="{e(c["kind"])}"><ol class="route" aria-label="{e(M["routeAria"])}">')
+                for i, s in enumerate(RL.chip_nodes(self.routes, c)):
                     arr = f'<span class="rarr"><span aria-hidden="true">\u2192</span><span class="sr">{e(M["then"])}</span></span>' if i else ""
-                    o.append(f'<li class="rstep">{arr}<span class="rchip c-{e(s["c"])}">{e(s["l"])}</span></li>')
-                o.append(f'</ol><p class="mtext">{e(c["text"])}</p>{self.src_line(c["src"])}{self.checked_p(c["checked"])}</li>')
+                    o.append(f'<li class="rstep">{arr}<span class="rchip c-{e(s["track"])}">{e(s["label"])}</span></li>')
+                o.append(f'</ol><p class="mtext">{e(c["condition"])}</p>{self.src_line(c["sources"])}{self.checked_p(c["checked"])}</li>')
             o.append("</ul></section>")
         return "".join(o)
+
+    def open_data_html(self):
+        t = self.t
+        return (f'<a href="{self.href("data/routes.json")}">{e(t("sys.openJson"))}</a> &middot; '
+                f'<a href="{self.href("data/routes.mmd")}">{e(t("sys.openMmd"))}</a>')
 
     def system_slots(self):
         t = self.t
@@ -684,7 +734,8 @@ class Build:
         for key in ["schema", "nuf", "loket", "gov", "mboRijks", "sk123", "vo_raad_moving_from_vmbo_to_havo_and_fro", "rijksoverheid_which_diplomas_give_access", "nuffic_ib_level"]:
             links.append(f'<a href="{e(self.src_url[key])}" target="_blank" rel="noopener">{e(t("src." + key))}</a>')
         syssrc = e(t("src.label")) + " " + " · ".join(links)
-        return {"sysfig": self.system_svg(), "syskeys": keys, "moves": xf, "syssrc": syssrc}
+        return {"sysfig": self.system_svg(), "syskeys": keys, "moves": xf, "syssrc": syssrc,
+                "sysmmd": e(self.mmd), "sysopen": self.open_data_html()}
 
     # ------------------------------------------------------------ faq
     def faq_html(self):
@@ -1665,6 +1716,8 @@ class Build:
         for f in (SITE / "i18n").glob("*.json"):
             shutil.copy2(f, out / "i18n" / f.name)
         (out / "data").mkdir()
+        shutil.copy2(ROUTES, out / "data" / "routes.json")
+        (out / "data" / "routes.mmd").write_text(self.mmd, encoding="utf8", newline="\n")
         for f in DATA.glob("*.json"):
             if f.name in SHARDED:
                 continue

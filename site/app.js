@@ -1110,22 +1110,31 @@ function renderSources(){
 }
 
 /* ================= other ways through: cards grouped by starting point (same markup as moves_html in build/prerender.py) ================= */
+/* every route lives in data/routes.json (one file: diagram arrows, these cards, the flowchart); the same file is read by build/prerender.py */
+var ROUTES=null,ROUTES_P=null;
+function loadRoutes(){
+  if(!ROUTES_P)ROUTES_P=fetch(BASE+'data/routes.json').then(function(r){if(!r.ok)throw new Error('routes');return r.json()}).then(function(j){ROUTES=j;return j}).catch(function(){ROUTES_P=null;return null});
+  return ROUTES_P;
+}
+function routeNodes(){var m={};ROUTES.nodes.forEach(function(n){m[n.id]=n});return m}
 function buildMoves(){
-  var M=tv('sys.moves')||{},box=document.createDocumentFragment();
+  var M=tv('sys.moves')||{},box=document.createDocumentFragment(),nd=routeNodes();
   box.appendChild(h('p',{class:'movesintro',text:M.intro}));
   (M.groups||[]).forEach(function(g){
+    var cards=ROUTES.edges.filter(function(c){return c.shown==='card'&&c.group===g.id});
+    if(!cards.length)return;
     var sec=h('section',{class:'mgrp','aria-labelledby':'mg-'+g.id});
     sec.appendChild(h('h3',{id:'mg-'+g.id,text:g.title}));
     var ul=h('ul',{class:'mcards'});
-    g.cards.forEach(function(c){
+    cards.forEach(function(c){
       var ol=h('ol',{class:'route','aria-label':M.routeAria});
-      c.route.forEach(function(s,i){
-        var st=h('li',{class:'rstep'});
+      [c.from].concat(c.via||[],[c.to]).forEach(function(k,i){
+        var s=nd[k],st=h('li',{class:'rstep'});
         if(i)st.appendChild(h('span',{class:'rarr'},[h('span',{'aria-hidden':'true',text:'\u2192'}),h('span',{class:'sr',text:M.then})]));
-        st.appendChild(h('span',{class:'rchip c-'+s.c,text:s.l}));
+        st.appendChild(h('span',{class:'rchip c-'+s.track,text:s.label}));
         ol.appendChild(st);
       });
-      var li=h('li',{class:'mcard'},[ol,h('p',{class:'mtext',text:c.text}),srcLine(c.src)]);
+      var li=h('li',{class:'mcard','data-edge':c.id,'data-kind':c.kind},[ol,h('p',{class:'mtext',text:c.condition}),srcLine(c.sources)]);
       li.appendChild(h('p',{class:'src',text:checkedText(c.checked)}));
       ul.appendChild(li);
     });
@@ -1140,17 +1149,23 @@ function buildSystem(){
   S.appendChild(svgEl('desc',{id:'sysD'},t('sys.desc')));
   var defs=svgEl('defs'),mkr=svgEl('marker',{id:'ah',viewBox:'0 0 10 10',refX:'9',refY:'5',markerWidth:'8',markerHeight:'8',markerUnits:'userSpaceOnUse',orient:'auto-start-reverse'});
   mkr.appendChild(svgEl('path',{'class':'ah',d:'M0 0L10 5L0 10z'}));defs.appendChild(mkr);S.appendChild(defs);
+  var cur=S;
+  function gs(box){cur=svgEl('g',{'data-box':box});S.appendChild(cur)}
+  function ge(){cur=S}
   function rect(x,y,w,hh,cls,txt,tcls){
-    S.appendChild(svgEl('rect',{'class':'cell '+cls,x:x,y:y,width:w,height:hh}));
-    if(txt!==undefined&&txt!=='')S.appendChild(svgEl('text',{'class':tcls||'on',x:x+w/2,y:y+hh/2+4,'text-anchor':'middle'},txt));
+    cur.appendChild(svgEl('rect',{'class':'cell '+cls,x:x,y:y,width:w,height:hh}));
+    if(txt!==undefined&&txt!=='')cur.appendChild(svgEl('text',{'class':tcls||'on',x:x+w/2,y:y+hh/2+4,'text-anchor':'middle'},txt));
   }
   function text(x,y,tx,cls,anchor){var a={'class':cls||'ax',x:x,y:y};if(anchor)a['text-anchor']=anchor;S.appendChild(svgEl('text',a,tx))}
-  function path(d,dash,both){
-    S.appendChild(svgEl('path',{'class':'arh',d:d}));
+  function path(d,dash,both,eid){
+    var ha={'class':'arh',d:d};if(eid)ha['data-edge']=eid;
+    S.appendChild(svgEl('path',ha));
     var a={'class':'ar'+(dash?' d':''),d:d,'marker-end':'url(#ah)'};
+    if(eid)a['data-edge']=eid;
     if(both)a['marker-start']='url(#ah)';
     S.appendChild(svgEl('path',a));
   }
+  var edges=ROUTES.edges.filter(function(e){return e.shown==='diagram'});
   function bar(x,y,w,n,cls,labels){for(var i=0;i<n;i++)rect(x,y+i*20,w,20,cls,labels?labels[i]:String(i+1))}
   var LX=[40,120,200,280],LW=60,C=[70,150,230,310];
   /* primary */
@@ -1159,56 +1174,127 @@ function buildSystem(){
   text(34,14,t('sys.ageAxis'),'ax','end');
   for(var g=1;g<=8;g++){
     var y=22+(g-1)*20;
+    if(g===8)gs('groep8');
     rect(40,y,308,20,'f-bo');
-    S.appendChild(svgEl('text',{'class':'on',x:48,y:y+14.5},t('sys.yearGroup',{n:String(g)})));
+    cur.appendChild(svgEl('text',{'class':'on',x:48,y:y+14.5},t('sys.yearGroup',{n:String(g)})));
+    if(g===8)ge();
     text(34,y+14.5,String(g+3),'ax','end');
   }
   /* advice arrows */
-  C.forEach(function(x){path('M'+x+' 184V230')});
+  edges.forEach(function(e){if(e.diagram.layer==='under')path(e.diagram.path,e.diagram.dashed,false,e.id)});
   S.appendChild(svgEl('rect',{'class':'lbl',x:36,y:196,width:288,height:24}));
   text(44,213,t('sys.adviceLabel'),'ax');
   /* secondary lanes */
   var names=['pro','vmbo','havo','vwo'],cls=['f-pro','f-vbk','f-havo','f-vwo'],yrs=[5,4,5,6];
   text(34,246,t('sys.ageAxis'),'ax','end');
   for(var i=0;i<4;i++){
+    gs(names[i]);
     rect(LX[i],232,LW,18,cls[i],t('sys.lane.'+names[i]),'hd');
     bar(LX[i],250,LW,yrs[i],cls[i]);
+    ge();
   }
   [12,13,14,15,16,17].forEach(function(a,k){text(34,250+k*20+14.5,String(a),'ax','end')});
   /* leaving school: standard routes only, every arrow points down. Other ways through are the cards under the diagram. */
-  path('M70 352V424',true);
-  path('M150 332V424');
-  path('M230 352V424');
-  path('M310 372V424');
   /* after secondary: mbo, hbo, wo */
   rect(40,424,132,18,'f-mbo','mbo','hd');rect(200,424,62,18,'f-hbo','hbo','hd');rect(280,424,68,18,'f-wo','wo','hd');
-  [1,2,3,4].forEach(function(l,k){var lb=[];for(var q=0;q<l;q++)lb.push(q===0?String(l):'');bar(40+k*34,442,30,l,'f-mbo',lb)});
+  [1,2,3,4].forEach(function(l,k){var lb=[];for(var q=0;q<l;q++)lb.push(q===0?String(l):'');gs('mbo-'+l);bar(40+k*34,442,30,l,'f-mbo',lb);ge()});
   text(106,540,t('sys.mboLevels'),'ax','middle');
-  bar(200,442,22,2,'f-hbo',['AD','']);
-  bar(226,442,36,4,'f-hbo');
-  path('M244 523V543',true);
-  bar(226,544,36,2,'f-hbo',['M','']);
-  bar(280,442,68,3,'f-wo');
-  path('M314 503V525',true);
-  bar(280,526,68,2,'f-wo',['M','']);
-  path('M314 567V589',true);
-  rect(280,590,68,20,'f-phd','PhD','ph');[1,2,3].forEach(function(q){rect(280,590+q*20,68,20,'f-phd')});
+  gs('hbo-ad');bar(200,442,22,2,'f-hbo',['AD','']);ge();
+  gs('hbo-ba');bar(226,442,36,4,'f-hbo');ge();
+  gs('hbo-ma');bar(226,544,36,2,'f-hbo',['M','']);ge();
+  gs('wo-ba');bar(280,442,68,3,'f-wo');ge();
+  gs('wo-ma');bar(280,526,68,2,'f-wo',['M','']);ge();
+  gs('phd');rect(280,590,68,20,'f-phd','PhD','ph');[1,2,3].forEach(function(q){rect(280,590+q*20,68,20,'f-phd')});ge();
   ['1','2','3','4'].forEach(function(n,q){text(272,603+q*12,t('sys.phdNote'+n),'ax','end')});
   /* mbo level 4 diploma to hbo: straight down from the end of the level 4 bar */
-  path('M157 523V549');rect(129,550,56,18,'f-hbo',t('sys.toHbo'),'hd');
+  edges.forEach(function(e){if(e.diagram.layer!=='under')path(e.diagram.path,e.diagram.dashed,false,e.id)});rect(129,550,56,18,'f-hbo',t('sys.toHbo'),'hd');
   text(36,692,t('sys.legend'),'ax');
   S.setAttribute('style','direction:ltr');
   return S;
 }
 var SYS_KEYS=['bo','pro','vbk','havo','vwo','mbo','hbo','wo','phd'];
-function renderSystem(){
-  var f=$('sysfig');clear(f);f.appendChild(buildSystem());
+function renderSystem(force){
   var k=$('syskeys');clear(k);
   SYS_KEYS.forEach(function(x){k.appendChild(h('li',null,[h('i',{style:x==='phd'?'background:var(--soft);border:2px dashed var(--ink2);box-sizing:border-box':'background:var(--c-'+x+')'}),t('sys.key.'+x)]))});
-  var mv=$('moves');clear(mv);mv.appendChild(buildMoves());
   var sr=$('sysrpt');if(sr){clear(sr);sr.appendChild(reportLink(t('sys.heading')))}
   var sl=$('syssrc');clear(sl);sl.appendChild(document.createTextNode(t('src.label')+' '));
   ['schema','nuf','loket','gov','mboRijks','sk123','vo_raad_moving_from_vmbo_to_havo_and_fro','rijksoverheid_which_diplomas_give_access','nuffic_ib_level'].forEach(function(key,i){if(i)sl.appendChild(document.createTextNode(' · '));sl.appendChild(h('a',{href:SRC_URL[key],target:'_blank',rel:'noopener',text:t('src.'+key)}))});
+  var so=$('sysopen');if(so){clear(so);so.appendChild(h('a',{href:BASE+'data/routes.json',text:t('sys.openJson')}));so.appendChild(document.createTextNode(' \u00b7 '));so.appendChild(h('a',{href:BASE+'data/routes.mmd',text:t('sys.openMmd')}))}
+  if(VIEW==='system')ensureSystem(!!force);
+}
+/* diagram, cards and flowchart come from data/routes.json; the prerendered page already holds them, so they are only built when missing */
+function ensureSystem(rebuild){
+  loadRoutes().then(function(R){
+    if(!R)return;
+    var f=$('sysfig'),mv=$('moves');
+    if(rebuild||!f.querySelector('svg')){clear(f);f.appendChild(buildSystem())}
+    if(rebuild||!mv.querySelector('.mcard')){clear(mv);mv.appendChild(buildMoves())}
+    enhanceSystem();initFlow();
+  });
+}
+/* "show, don't tell": pick a box in the diagram and see the routes that start there. Without scripts none of this exists. */
+var HL_KINDS=['standard','right','school_decides','conditional'];
+function enhanceSystem(){
+  var f=$('sysfig'),ctl=$('sysctl'),svg=f&&f.querySelector('svg'),mv=$('moves');
+  if(!svg||!ctl||!ROUTES)return;
+  var nd=routeNodes();
+  clear(ctl);ctl.hidden=false;
+  var st=h('p',{class:'hlstat',role:'status','aria-live':'polite'});
+  var clr=h('button',{type:'button',class:'btn sec hlclear',hidden:true,text:t('sys.hl.clear'),onclick:function(){pick('')}});
+  var lg=h('ul',{class:'hlkeys','aria-label':t('sys.hl.legend')});
+  ['right','school_decides','conditional'].forEach(function(k){lg.appendChild(h('li',{class:'k-'+k},[h('i',{'aria-hidden':'true'}),t('sys.kind.'+k)]))});
+  ctl.appendChild(h('p',{class:'hlhint',text:t('sys.hl.hint')}));
+  ctl.appendChild(h('div',{class:'hlrow'},[lg,clr]));
+  ctl.appendChild(st);
+  var cur='';
+  function pick(box){
+    cur=(box===cur)?'':box;
+    qsa('g[data-box]',svg).forEach(function(g){var on=g.getAttribute('data-box')===cur;g.classList.toggle('sel',on);g.setAttribute('aria-pressed',on?'true':'false')});
+    qsa('.hl',f).concat(qsa('.hl',mv)).forEach(function(x){x.classList.remove('hl','k-standard','k-right','k-school_decides','k-conditional')});
+    qsa('.kbadge',mv).forEach(function(x){x.parentNode.removeChild(x)});
+    svg.classList.toggle('hl-on',!!cur);mv.classList.toggle('hl-on',!!cur);
+    clr.hidden=!cur;
+    if(!cur){st.textContent='';return}
+    var out=ROUTES.edges.filter(function(e){var n=nd[e.from];return n&&n.box===cur});
+    out.forEach(function(e){
+      qsa('[data-edge="'+e.id+'"]',f).forEach(function(p){p.classList.add('hl','k-'+(e.shown==='diagram'&&e.diagram.dashed?'conditional':e.kind))});
+      qsa('.mcard[data-edge="'+e.id+'"]',mv).forEach(function(c){
+        c.classList.add('hl','k-'+e.kind);
+        c.insertBefore(h('p',{class:'kbadge',text:t('sys.kind.'+e.kind)}),c.firstChild);
+      });
+    });
+    var nm=nd[cur]?nd[cur].label:cur;
+    st.textContent=out.length?t('sys.hl.from',{name:nm})+': '+out.length:t('sys.hl.none');
+  }
+  qsa('g[data-box]',svg).forEach(function(g){
+    var id=g.getAttribute('data-box');
+    g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-pressed','false');
+    g.setAttribute('aria-label',t('sys.hl.boxAria',{name:nd[id]?nd[id].label:id}));
+    g.addEventListener('click',function(){pick(id)});
+    g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();pick(id)}else if(ev.key==='Escape')pick('')});
+  });
+}
+/* flowchart: the .mmd text is already in the page; Mermaid (pinned version) loads only when the section is opened */
+var MERMAID_URL='https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.min.js',MERMAID_SRI='sha384-R63zfMfSwJF4xCR11wXii+QUsbiBIdiDzDbtxia72oGWfkT7WHJfmD/I/eeHPJyT';
+function initFlow(){
+  var d=$('sysflow');if(!d||d.getAttribute('data-ready'))return;
+  d.setAttribute('data-ready','1');
+  var note=$('sysflownote');if(note)note.hidden=true;
+  function draw(){
+    if(d.getAttribute('data-drawn'))return;d.setAttribute('data-drawn','1');
+    var box=$('sysflowsvg'),pre=$('sysmmd');box.textContent=t('sys.flowLoading');
+    function fail(){box.textContent=t('sys.flowFail');d.removeAttribute('data-drawn')}
+    function render(){
+      try{
+        window.mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'base',flowchart:{useMaxWidth:false,htmlLabels:false,curve:'basis'}});
+        window.mermaid.render('sysflowchart',pre.textContent).then(function(r){box.innerHTML=r.svg;box.classList.add('flowdone');pre.hidden=true}).catch(fail);
+      }catch(e){fail()}
+    }
+    if(window.mermaid)return render();
+    var s=document.createElement('script');s.src=MERMAID_URL;s.integrity=MERMAID_SRI;s.crossOrigin='anonymous';s.onload=render;s.onerror=fail;document.head.appendChild(s);
+  }
+  d.addEventListener('toggle',function(){if(d.open)draw()});
+  if(d.open)draw();
 }
 
 /* ================= FAQ ================= */
@@ -3047,6 +3133,8 @@ function router(keep){
   }else if(v==='school'){
     CUR_ID=isId(r.arg)?r.arg.toUpperCase():'';
     renderSchool(CUR_ID);
+  }else if(v==='system'){
+    ensureSystem(false);
   }else if(v==='compare'){
     CUR_IDS=String(r.q.ids||'').split(',').filter(Boolean).map(function(x){return x.toUpperCase()});
     renderCompare(CUR_IDS);
@@ -3097,7 +3185,7 @@ function renderLangSwitch(){
 /* at start only what the prerendered page does not already hold is built; a language change rebuilds everything */
 function renderAllText(force){
   applyStatic();applyRoutes();buildAgeOptions();renderExamples();renderGlossary();renderFooter();renderLangSwitch();
-  if(force||!$('sysfig').firstChild)renderSystem();
+  renderSystem(force);
   if(force||!$('faq').firstChild)renderFaq();
   if(force){SRC_STATIC=false;if($('sources-out').firstChild)renderSources()}
 }
