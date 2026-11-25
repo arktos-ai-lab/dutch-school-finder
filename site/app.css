@@ -593,4 +593,42 @@ table.cmp th a{overflow-wrap:anywhere}
 .rchip{display:inline-block;max-width:100%;padding:5px 9px 5px 12px;font:700 .85rem/1.25 var(--sans);color:var(--ink);background:var(--bg);border:2px solid var(--c-bo);border-left-width:10px;overflow-wrap:anywhere}
 .rstep{display:flex;align-items:center;gap:6px;max-width:100%;min-width:0}
 .rarr{font:800 1.1rem/1 var(--sans);color:var(--ink)}
+/* pick a box in the system diagram: its routes light up (progressive enhancement, app.js adds the controls) */
+:root{--k-standard:#050B1F;--k-right:#1B7F3B;--k-school_decides:#B34700;--k-conditional:#6A3DB3}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k-standard:#FFFFFF;--k-right:#5FD08A;--k-school_decides:#FFA45C;--k-conditional:#C4A9FF}}
+:root[data-theme="dark"]{--k-standard:#FFFFFF;--k-right:#5FD08A;--k-school_decides:#FFA45C;--k-conditional:#C4A9FF}
+.sysctl{margin:10px 0 0}
+.hlhint{margin:0 0 6px;font-size:.9rem;color:var(--ink2)}
+.hlrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.hlkeys{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.88rem}
+.hlkeys li{display:flex;align-items:center;gap:6px}
+.hlkeys i{display:inline-block;width:26px;height:0;border-top:4px solid var(--k-right)}
+.hlkeys .k-school_decides i{border-top:4px dotted var(--k-school_decides)}
+.hlkeys .k-conditional i{border-top:4px dashed var(--k-conditional)}
+.hlclear{height:36px;padding:0 14px}
+.hlstat{margin:6px 0 0;font-size:.9rem;min-height:1.3em}
+.sys-svg g[data-box]{cursor:pointer}
+.sys-svg g[data-box]:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
+.sys-svg g[data-box].sel .cell{stroke:var(--ink);stroke-width:3}
+.sys-svg.hl-on .ar,.sys-svg.hl-on .arh{opacity:.2}
+.sys-svg.hl-on .ar.hl{opacity:1;stroke-width:3.4}
+.sys-svg.hl-on .arh.hl{opacity:1}
+.sys-svg .ar.hl.k-standard{stroke:var(--k-standard)}
+.sys-svg .ar.hl.k-right{stroke:var(--k-right)}
+.sys-svg .ar.hl.k-school_decides{stroke:var(--k-school_decides)}
+.sys-svg .ar.hl.k-conditional{stroke:var(--k-conditional)}
+.moves.hl-on .mcard:not(.hl),#moves.hl-on .mcard:not(.hl){opacity:.45}
+.mcard.hl{border-width:2px;border-left-width:8px}
+.mcard.hl.k-right{border-color:var(--k-right)}
+.mcard.hl.k-school_decides{border-color:var(--k-school_decides);border-style:dotted}
+.mcard.hl.k-conditional{border-color:var(--k-conditional);border-style:dashed}
+.kbadge{margin:0 0 8px;font:800 .78rem/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.flowbox{margin:28px 0 0;background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--brand)}
+.flowbox>summary{cursor:pointer;padding:12px 14px;font:800 1.05rem var(--disp)}
+.flowbody{padding:0 14px 14px}
+#sysflowsvg{overflow-x:auto;background:#FFFFFF;border:1px solid var(--rule);padding:8px;margin:0 0 10px;min-height:0}
+#sysflowsvg:empty{display:none}
+#sysflowsvg svg{max-width:none}
+.mmd{margin:0;padding:10px;overflow:auto;max-height:340px;background:var(--soft);font:.78rem/1.4 ui-monospace,Consolas,monospace;white-space:pre}
+.opendata{margin-top:28px}
 .c-vbk{border-color:var(--c-vbk)}.c-vgt{border-color:var(--c-vgt)}.c-havo{border-color:var(--c-havo)}.c-vwo{border-color:var(--c-vwo)}.c-mbo{border-color:var(--c-mbo)}.c-hbo{border-color:var(--c-hbo)}.c-wo{border-color:var(--c-wo)}.c-ib{border-color:var(--c-ib)}
