@@ -96,7 +96,7 @@
     ],
     [
       "schooladvies",
-      "school advice, the level your child's school recommends"
+      "school advice, the level your child's primary school recommends. A secondary school may not place your child lower, and may place your child higher if it agrees"
     ],
     [
       "doorstroomtoets",
@@ -250,10 +250,16 @@
       "age": "11 to 12",
       "unit": "groep 8",
       "what": [
-        "In year group 8 the school gives a school advice (schooladvies) and your child takes an end-of-primary test. The advice can name one level or two, for example havo and vwo. You sign up at a secondary school with the final advice."
+        "In year group 8 the school gives a school advice (schooladvies) and your child takes an end-of-primary test. The advice can name one level or two, for example havo and vwo. You sign up at a secondary school with the final advice. The advice is the starting point, not the final word. A secondary school may not place your child lower, but may place your child higher if it agrees."
       ],
+      "checked": "2026-11-25",
+      "checkedFor": "Placement above or below the advice",
       "whatDated": "Dates for school year 2026-27. They are set again every year.",
       "afterSignup": "Test results go to primary schools by 15 March 2027. After the sign-up week, placements start from 1 April 2027, and the secondary school decides on admission by 12 May 2027. In some regions registration can open earlier, but only with a final advice.",
+      "note2": {
+        "title": "The advice is not the final word",
+        "text": "The school advice is the starting point. A secondary school may not place your child below it. It may place your child higher, but only if it agrees, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. A higher test result can also raise the advice. Moving up later is possible too. A vmbo-t (mavo) advice does not rule out vwo: a school may place your child higher, or your child can stack levels (vmbo-t diploma, havo 4, havo diploma, vwo 5). Even from vmbo, each step up has an official route, up to a PhD. People have done it. See the whole system page for the routes."
+      },
       "note": {
         "title": "Act on time",
         "text": "Open days are usually in the winter, often January and February, and dates differ per school, so make a short list in the autumn. Cities such as Amsterdam, Utrecht and The Hague use central procedures with a lottery, so check your region's guide early and ask your child's school."
@@ -262,6 +268,7 @@
       "todo": [
         "Visit open days and make a short list of schools that offer the advised level.",
         "Ask how your region organises sign-up, and sign up within the sign-up week.",
+        "If you hope for a higher level than the advice, ask the school early whether it places children above the advice, and what it looks at.",
         "A secondary school may refuse a child only on limited grounds, such as having no places left. It may not use extra tests or IQ scores to refuse a child. Bilingual (tto) and top-sport schools may test for their specific skills."
       ]
     },
@@ -413,7 +420,7 @@
       {
         "lab": "By 24 Mar 2027",
         "t": "Final school advice",
-        "d": "The school sets the final advice. Secondary schools admit on this final advice."
+        "d": "The school sets the final advice. Secondary schools admit on this advice and may not place your child lower. A higher placement is possible only if the school agrees, so ask."
       },
       {
         "lab": "25 to 31 Mar 2027",
@@ -1358,6 +1365,8 @@
     "wanneer": "Rijksoverheid: when may my child start primary school",
     "blijven": "Rijksoverheid: who decides whether my child repeats a year",
     "tijdlijn": "Rijksoverheid: timeline of the school advice 2027",
+    "ocw_brief_overgang_2016": "Ministry of Education: letter to schools on the move from primary to secondary school, 15 February 2016",
+    "inspectie_feiten_fabels_2024": "Inspectie van het Onderwijs: facts and myths on the move from primary to secondary school (updated October 2024)",
     "advies": "Rijksoverheid: admission to secondary school based on the final school advice",
     "voraad": "VO-raad: dates 2026-27 around the test and sign-up",
     "inschr": "Rijksoverheid: registering at a secondary school",
@@ -1452,13 +1461,24 @@
       "hbo": "hbo",
       "wo": "wo"
     },
+    "adviceNote": {
+      "title": "The advice is not the final word",
+      "text": "The school advice is the starting point. A secondary school may not place your child below it. It may place your child higher, but only if it agrees, so ask and explain why. Some schools start with a mixed first year, such as havo and vwo, which keeps options open. A higher test result can also raise the advice. Moving up later is possible too: see Other ways through below.",
+      "text2": "A vmbo-t (mavo) advice does not rule out vwo. Either a school places your child higher, if it agrees. Or your child stacks the levels: vmbo-t diploma with one extra general subject, havo 4, havo diploma, then vwo 5. Even from vmbo, each step up has an official route: mbo level 4, hbo bachelor, a pre-master, a wo master, then a PhD. People have done it."
+    },
+    "realRoutes": {
+      "title": "Real routes: reader experiences",
+      "one": "A reader went from vmbo to a PhD.",
+      "two": "Another went from a mavo advice to vwo.",
+      "note": "These are experiences readers shared. They are not rules or sourced facts, and every child's route depends on the child and the school."
+    },
     "arrowNote": "An arrow means a child can move that way. A solid arrow means the diploma normally gives the right to move. A dashed arrow means conditions, selection or a school decision apply. All arrows point down, from earlier to later. Bachelor to master and master to PhD can involve selection.",
     "title": "The Dutch school system, top to bottom",
-    "desc": "Primary school of eight year groups leads, after school advice, to practical education, vmbo, havo or vwo. After those come mbo, hbo and wo. Arrows show the usual routes, always from earlier to later. Other ways through are listed under the diagram.",
+    "desc": "Primary school of eight year groups leads, after school advice and sign-up at about age 12, to practical education, vmbo, havo or vwo. The advice is a starting point: a secondary school may not place a child lower, and may place a child higher if it agrees. After those come mbo, hbo and wo. Arrows show the usual routes, always from earlier to later. Other ways through are listed under the diagram.",
     "primary": "PRIMARY SCHOOL",
     "yearGroup": "Year group {n}",
     "age": "age {n}",
-    "adviceLabel": "School advice and sign-up, about age 12",
+    "adviceLabel": "School advice (a starting point) and sign-up",
     "ageAxis": "age",
     "lane": {
       "pro": "praktijk",
@@ -1974,7 +1994,7 @@
             "q": "Can I choose any secondary school? Is there a catchment area?",
             "blocks": [
               {
-                "p": "You can register at any secondary school that offers the advised level. You may register at more than one, because a school can be full. A school may refuse a child only on limited grounds, such as having no places left."
+                "p": "You can register at any secondary school that offers the advised level. You may register at more than one, because a school can be full. A school may refuse a child only on limited grounds, such as having no places left. A school may also place your child above the advice if it agrees, but it does not have to."
               },
               {
                 "p": "It may not use extra tests or IQ scores. A bilingual (tto) or top-sport school may test only for its special skills. Some regions have agreements between schools on how pupils are spread, and places can be given by lottery."
@@ -2030,11 +2050,16 @@
               },
               {
                 "p": "The school gives the final advice by 24 March 2027. A secondary school must place your child at least at the advised level, and may not require a one-level advice."
+              },
+              {
+                "p": "The advice is the starting point, not the final word. A secondary school may not place your child below it. It may place your child above it, but that is not a right. The school decides, so talk to the school and explain why you think your child can do it. Some schools have a mixed first year, such as havo and vwo, which keeps more options open. A child with a double advice can always be registered for the higher of the two levels, but the school chooses the first-year class. A child can also still move up later. See Other ways through on the whole system page."
               }
             ],
             "src": [
               "advies",
-              "tijdlijn"
+              "tijdlijn",
+              "ocw_brief_overgang_2016",
+              "inspectie_feiten_fabels_2024"
             ]
           },
           {
@@ -2052,7 +2077,7 @@
                   "Ask for the final advice and the reasons in writing.",
                   "Ask whether the learning-support coordinator can join the meeting.",
                   "Independent assessments exist, for example from a child psychologist or an assessment bureau. Costs and insurance cover vary a lot, so ask before you book.",
-                  "The advice is only advice for the child's next school. Ask the secondary schools you like what they need to admit your child."
+                  "The advice is a starting point. Secondary schools may not place your child lower. Ask the schools you like whether they ever place children above the advice, and what they look at."
                 ]
               }
             ],
@@ -2074,7 +2099,7 @@
                   "Ask which pathway the advice means: basis, kader or gl/tl.",
                   "Consider a school with several levels under one roof. A VO-raad factsheet argues that a broad first year keeps more options open. The school list shows this.",
                   "After vmbo gl/tl, a diploma with one extra general subject gives the right to join havo. Without it, the havo school decides.",
-                  "The advice is the school's judgement. The end-of-primary test can raise it, and the school must explain if it keeps a lower one."
+                  "The advice is the school's judgement. The end-of-primary test can raise it, and the school must explain if it keeps a lower one. A secondary school may place your child higher if it agrees, so ask. Moving up later is also possible."
                 ]
               }
             ],
@@ -2469,7 +2494,7 @@
       {
         "id": "school-advice-how-it-works",
         "title": "How the Dutch school advice works, and can you change it?",
-        "desc": "The school gives a school advice at the end of group 8. The end-of-primary test can raise it but not lower it. Read who decides, the dates and what you can ask.",
+        "desc": "The school gives a school advice in group 8. The test can raise it, not lower it. A school may not place lower, but may place higher. Dates and what to ask.",
         "related": [
           "ask-about-the-advice",
           "vmbo-advice",

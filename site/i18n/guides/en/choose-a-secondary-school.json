@@ -3,20 +3,20 @@
   "group": "choose",
   "order": 3,
   "title": "How to choose a secondary school (middelbare school)",
-  "desc": "The school advice sets the level. Then you compare schools, visit open days and sign up in late March. See the 2027 dates, lotteries, bilingual (tto) and more.",
+  "desc": "The school advice is the starting point. Then you compare schools, visit open days and sign up in late March. See the 2027 dates, lotteries, bilingual (tto) and more.",
   "h1": "How do I choose a secondary school (middelbare school) in the Netherlands?",
-  "lede": "The school advice at the end of group 8 sets the level. Within that level you choose the school: visit open days, then sign up in the central week of 25 to 31 March 2027. Some cities place children by lottery.",
+  "lede": "The school advice at the end of group 8 is the starting point for the level. Within that level you choose the school: visit open days, then sign up in the central week of 25 to 31 March 2027. Some cities place children by lottery.",
   "checked": "2026-11-22",
   "sections": [
     {
       "id": "advice",
-      "h": "Step 1: the advice sets the level",
+      "h": "Step 1: the advice is the starting point",
       "blocks": [
         {
-          "p": "In group 8 (about age 12) the primary school gives a school advice (schooladvies). It can name one level or two, such as havo and vwo. The levels are practical education, vmbo, havo and vwo. The secondary school must place your child at least at the advised level. See [How does the school advice work?](/questions/school-advice-how-it-works/) and [the whole system on one page](/system/)."
+          "p": "In group 8 (about age 12) the primary school gives a school advice (schooladvies). It can name one level or two, such as havo and vwo. The levels are practical education, vmbo, havo and vwo. The secondary school must place your child at least at the advised level. It may place your child higher if it agrees, but it does not have to. See [How does the school advice work?](/questions/school-advice-how-it-works/) and [the whole system on one page](/system/)."
         },
         {
-          "p": "So you do not choose the level yourself. You choose which school offers it. Look for a school that has the advised level. Some schools offer several levels under one roof (scholengemeenschap). Ask how moving between levels works there. The school decides."
+          "p": "So the advice is the lowest level a school may give your child, not a ceiling. You choose which school offers that level. If you hope for a higher one, ask the school before you sign up. Some schools offer several levels under one roof (scholengemeenschap) or start with a mixed class. Ask how placing and moving between levels works there. The school decides."
         }
       ]
     },

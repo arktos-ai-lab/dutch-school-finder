@@ -3,10 +3,10 @@
   "group": "during",
   "order": 2,
   "title": "School advice and the Cito test: doorstroomtoets 2026-27",
-  "desc": "The school advice in group 8 sets your child's secondary level. The Cito end test is now the doorstroomtoets. Dates for 2026-27 and what you can do next.",
+  "desc": "The school advice in group 8 is the starting point for your child's secondary level. The Cito end test is now the doorstroomtoets. Dates for 2026-27 and next steps.",
   "h1": "School advice and the doorstroomtoets (the old Cito test)",
-  "lede": "In group 8 the primary school gives a school advice (schooladvies) that sets the level of secondary school. The doorstroomtoets, which parents still call the Cito test, can raise the advice but does not decide it.",
-  "checked": "2026-11-22",
+  "lede": "In group 8 the primary school gives a school advice (schooladvies) that is the starting point for the level of secondary school. A secondary school may not place your child lower, and may place your child higher if it agrees. The doorstroomtoets, which parents still call the Cito test, can raise the advice but does not decide it.",
+  "checked": "2026-11-25",
   "sections": [
     {"id": "what-it-is", "h": "What the advice and the test are", "blocks": [
       {"p": "In the last year of primary school (group 8, age 11 to 12) the school gives a <b>school advice</b> (schooladvies). It says which level of secondary school fits your child, for example vmbo, havo or vwo. The school builds it on your child's whole record: observations in class, work attitude, progress over the years, test results and talks with your child and with you."},
@@ -28,14 +28,21 @@
       {"p": "Yes. If the test advice is higher than the provisional advice, the primary school should raise the advice to the test level. It may keep the lower advice only if it judges the change is not in your child's interest, and then it must explain why. If the gap is more than half a level, the school may also pick a level in between and explain that choice."},
       {"p": "The rules describe the test as a reason to raise the advice. They do not say it lowers it."}
     ]},
-    {"id": "advice-decides", "h": "How the advice decides the level", "blocks": [
+    {"id": "advice-decides", "h": "How the advice sets the level", "blocks": [
       {"p": "A secondary school must place your child at least at the level of the final advice. If it has several suitable classes, it chooses which one. A primary school may give an advice for one school type or for two, such as havo and vwo. Secondary schools may not ask the primary school for an advice for one type only."},
       {"p": "Lotteries and sign-up rules differ per city. See [how the secondary lottery works](/questions/secondary-lottery-cities/) and [how the advice works](/questions/school-advice-how-it-works/)."}
+    ]},
+    {"id": "not-final-word", "h": "The advice is not the final word", "blocks": [
+      {"p": "The advice is the starting point. A secondary school may not place your child below it. It may place your child above it, but that is not a right. The school decides, so you have to ask and explain why."},
+      {"p": "Schools differ. Some have a combined first year, such as havo and vwo or vmbo-t and havo. That keeps more options open, because the school looks again later. A child with a double advice can always be registered for the higher of the two levels. The school still chooses the class."},
+      {"p": "The advice can also go up after a higher doorstroomtoets result, as described above. And a child can still move up later. See Other ways through on [the whole system on one page](/system/)."},
+      {"say": "Our child has a havo advice. Would you consider a place in a havo/vwo class? What would you want to see?"}
     ]},
     {"id": "your-role", "h": "What you can do", "blocks": [
       {"say": "Which results and observations is the advice based on, and what would change it?"},
       {"steps": [
         "Go to the advice talk in January with questions ready, and ask for the reasons in writing.",
+        "If you hope for a higher level than the advice, ask the secondary schools you like whether they place children above the advice, and what they look at.",
         "If your child is new to Dutch, say so. Ask how the school weighs language when it reads the test.",
         "If you disagree, first talk to the teacher or the school leader.",
         "If that does not help, file a complaint with the school's complaints committee. The school guide (schoolgids) describes how."
@@ -50,6 +57,8 @@
     {"label": "Rijksoverheid: compulsory doorstroomtoets", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/verplichte-doorstroomtoets-basisonderwijs"},
     {"label": "Rijksoverheid: approved doorstroomtoetsen", "url": "https://www.rijksoverheid.nl/onderwerpen/schooladvies-en-doorstroomtoets-basisschool/toegestane-doorstroomtoetsen-basisschool"},
     {"label": "Rijksoverheid: admission to secondary school based on the final advice", "url": "https://www.rijksoverheid.nl/themas/onderwijs/schooladvies-en-doorstroomtoets-basisschool/toelating-voortgezet-onderwijs-gebaseerd-op-definitief-schooladvies"},
+    {"label": "Ministry of Education: letter to schools on the move from primary to secondary school, 15 February 2016 (higher placement allowed, lower not)", "url": "https://eerstekamer.nl/9370000/1/j4nvgs5kjg27kof_j9vvkfvj6b325az/vk4xq8094uyn"},
+    {"label": "Inspectie van het Onderwijs: facts and myths on the move from primary to secondary school (updated October 2024)", "url": "https://www.onderwijsinspectie.nl/binaries/onderwijsinspectie/documenten/rapporten/2022/04/19/feiten-en-fabels-in-de-overgang-van-po-naar-vo/FEITEN_EN_FABELS_IN_DE_OVERGANG_VAN_PO_NAAR_VO.pdf"},
     {"label": "Rijksoverheid news, 2 July 2026: plan for one doorstroomtoets", "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/07/02/staatssecretaris-wil-van-zes-naar-een-doorstroomtoets"}
   ],
   "related_guides": ["choose-a-secondary-school", "repeating-a-year", "extra-support-passend-onderwijs"],
